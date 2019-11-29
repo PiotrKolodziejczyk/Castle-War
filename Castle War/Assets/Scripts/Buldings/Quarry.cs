@@ -17,6 +17,7 @@ namespace Assets.Scripts.Buldings
         int woodToUpgradeLvl = 2;
         int stoneToUpgradeLvl = 2;
         int clayToUpgradeLvl = 2;
+        public GameObject quarryButton;
         private void Start()
         {
             StartCoroutine(CollectStoneCourotine(timeToCollectStone));
@@ -40,19 +41,19 @@ namespace Assets.Scripts.Buldings
             GetStone();
            StartCoroutine(CollectStoneCourotine(timeToCollectStone));
         }
-        private void Build()
+        public void Build()
         {
-
+            quarryButton.SetActive(false);
+            isQuarryBuilding = true;
             Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.Quarry,quarryLevel);
 
         }
         private void OnMouseDown()
         {
-            
+            if (!isQuarryBuilding)
+                quarryButton.SetActive(true);
             buildPanelManager.titleText.text = "Quarry";
-            buildPanelManager.button.onClick.RemoveAllListeners();
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";
-            buildPanelManager.button.onClick.AddListener(Build);
             buildPanelManager.levelText.text = "Level " + quarryLevel;
             buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
             buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;

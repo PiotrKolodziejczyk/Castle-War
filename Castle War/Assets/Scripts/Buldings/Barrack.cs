@@ -15,20 +15,20 @@ namespace Assets.Scripts.Buldings
         int woodToUpgradeLvl = 2;
         int stoneToUpgradeLvl = 2;
         int clayToUpgradeLvl = 2;
-
-        private void Build()
+        public GameObject barrackButton;
+        public void Build()
         {
-
+            barrackButton.SetActive(false);
+            isBarrackBuilding = true;
             Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.Barrack,barrackLevel);
 
         }
         private void OnMouseDown()
         {
-            ResetPanel();
+            if (!isBarrackBuilding)
+                barrackButton.SetActive(true);
             buildPanelManager.titleText.text = "Barrack";
-            buildPanelManager.button.onClick.RemoveAllListeners();
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";
-            buildPanelManager.button.onClick.AddListener(Build);
             buildPanelManager.levelText.text = "Level " + barrackLevel;
             buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
             buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;

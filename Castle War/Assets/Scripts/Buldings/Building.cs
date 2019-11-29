@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Building : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class Building : MonoBehaviour
     protected Stone stoneSingleton;
     protected Clay claySingleton;
     protected Wood woodSingleton;
-    
     protected TextMeshProUGUI clayText;
     protected TextMeshProUGUI stoneText;
     protected TextMeshProUGUI woodText;
@@ -28,14 +28,21 @@ public class Building : MonoBehaviour
     protected short smithyLevel = 1;
     protected short barrackLevel = 1;
     protected short towerWorkshopLevel = 1;
-
+    
     protected TextMeshProUGUI textLvl;
     [SerializeField]
     protected GameObject panel;
     [SerializeField]
     protected BuildPanelManager buildPanelManager;
 
-
+    protected bool isWallBuilding = false;
+    protected bool isClayMineBuilding = false;
+    protected bool isBarrackBuilding = false;
+    protected bool isSmithyBuilding = false;
+    protected bool isSawmillBuilding = false;
+    protected bool isTowerWorkshopBuilding = false;
+    protected bool isTownHallBuilding = false;
+    protected bool isQuarryBuilding = false;
     private void Awake()
     {
         woodSingleton = Wood.GetWood;
@@ -45,11 +52,15 @@ public class Building : MonoBehaviour
         woodText = textMeshProUGUIList.Where(x => x.name == "WoodText").First();
         stoneText = textMeshProUGUIList.Where(x => x.name == "StoneText").First();
         clayText = textMeshProUGUIList.Where(x => x.name == "ClayText").First();
+        
     }
 
     protected void Build(int wood,int stone,int clay,float buildCourotine, Material material,int buildingLvl)
     {
-        StartCoroutine(BuildTimerCourotine(buildCourotine,material,buildingLvl));
+            
+            StartCoroutine(BuildTimerCourotine(buildCourotine, material, buildingLvl));
+            panel.SetActive(false);
+         
     }
     
     public IEnumerator BuildTimerCourotine(float buildCourotine,Material material,int buldingLvl)
@@ -67,6 +78,7 @@ public class Building : MonoBehaviour
         UpgradeLevel(material);
         
         
+        
 
     }
     public void UpgradeLevel(Material material)
@@ -78,6 +90,7 @@ public class Building : MonoBehaviour
                     clayMineLevel++;
                     textMeshProUGUIList.Where(x => x.name == "ClayMineText").First().text = "Clay Mine " + clayMineLevel + " Level\n";
                     buildPanelManager.levelText.text = "Level " + clayMineLevel;
+                    isClayMineBuilding = false;
                     return;
                 }
             case Material.Sawmill:
@@ -85,6 +98,7 @@ public class Building : MonoBehaviour
                     sawmillLevel++;
                     textMeshProUGUIList.Where(x => x.name == "SawmillText").First().text = "Sawmill " + sawmillLevel + " Level\n";
                     buildPanelManager.levelText.text = "Level " + sawmillLevel;
+                    isSawmillBuilding = false;
                     return;
                 }
             case Material.Quarry:
@@ -92,6 +106,7 @@ public class Building : MonoBehaviour
                     quarryLevel++;
                     textMeshProUGUIList.Where(x => x.name == "QuarryText").First().text = "Quarry " + quarryLevel + " Level\n";
                     buildPanelManager.levelText.text = "Level " + quarryLevel;
+                    isQuarryBuilding = false;
                     return;
                 }
             case Material.Barrack:
@@ -99,6 +114,7 @@ public class Building : MonoBehaviour
                     barrackLevel++;
                     textMeshProUGUIList.Where(x => x.name == "BarrackText").First().text = "Barrack " + barrackLevel + " Level\n";
                     buildPanelManager.levelText.text = "Level " + barrackLevel;
+                    isBarrackBuilding = false;
                     return;
                 }
             case Material.Smithy:
@@ -106,6 +122,7 @@ public class Building : MonoBehaviour
                     smithyLevel++;
                     textMeshProUGUIList.Where(x => x.name == "SmithyText").First().text = "Smithy " + smithyLevel + " Level\n";
                     buildPanelManager.levelText.text = "Level " + smithyLevel;
+                    isSmithyBuilding = false;
                     return;
                 }
             case Material.Wall:
@@ -113,6 +130,7 @@ public class Building : MonoBehaviour
                     wallLevel++;
                     textMeshProUGUIList.Where(x => x.name == "WallText").First().text = "Wall " + wallLevel + " Level\n";
                     buildPanelManager.levelText.text = "Level " + wallLevel;
+                    isWallBuilding = false;
                     return;
                 }
             case Material.TowerWorkshop:
@@ -120,6 +138,7 @@ public class Building : MonoBehaviour
                     towerWorkshopLevel++;
                     textMeshProUGUIList.Where(x => x.name == "TowerWorkshopText").First().text = "Tower Workshop " + towerWorkshopLevel + " Level\n";
                     buildPanelManager.levelText.text = "Level " + towerWorkshopLevel;
+                    isTowerWorkshopBuilding = false;
                     return;
                 }
             case Material.TownHall:
@@ -127,6 +146,8 @@ public class Building : MonoBehaviour
                     townHallLevel++;
                     textMeshProUGUIList.Where(x => x.name == "TownHallText").First().text = "TownHall " + townHallLevel + " Level\n";
                     buildPanelManager.levelText.text = "Level " + townHallLevel;
+                    isTownHallBuilding = false;
+                    
                     return;
                 }
         }

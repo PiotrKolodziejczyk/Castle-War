@@ -19,7 +19,7 @@ namespace Assets.Scripts.Buldings
         int woodToUpgradeLvl = 2;
         int stoneToUpgradeLvl = 2;
         int clayToUpgradeLvl = 2;
-
+        public GameObject clayMineButton;
         private void Start()
         {
            
@@ -46,19 +46,19 @@ namespace Assets.Scripts.Buldings
             StartCoroutine(CollectClayCourotine(timeToCollectClay));
 
         }
-        private void Build()
+        public void Build()
         {
-
+            clayMineButton.SetActive(false);
+            isClayMineBuilding = true;
             Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.ClayMine,clayMineLevel);
 
         }
         private void OnMouseDown()
         {
-            
+            if (!isClayMineBuilding)
+                clayMineButton.SetActive(true);
             buildPanelManager.titleText.text = "Clay Mine";
-            buildPanelManager.button.onClick.RemoveAllListeners();
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";
-            buildPanelManager.button.onClick.AddListener(Build);
             buildPanelManager.levelText.text = "Level " + clayMineLevel;
             buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
             buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;

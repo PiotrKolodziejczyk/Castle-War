@@ -14,20 +14,20 @@ namespace Assets.Scripts.Buldings
         int woodToUpgradeLvl = 2;
         int stoneToUpgradeLvl = 2;
         int clayToUpgradeLvl = 2;
-
-        private void Build()
+        public GameObject townHallButton;
+        public void Build()
         {
-
+            townHallButton.SetActive(false);
+            isTownHallBuilding = true;
             Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.TownHall,townHallLevel);
 
         }
         private void OnMouseDown()
         {
-            
+            if (!isTownHallBuilding)
+                townHallButton.SetActive(true);
             buildPanelManager.titleText.text = "TownHall";
-            buildPanelManager.button.onClick.RemoveAllListeners();
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";
-            buildPanelManager.button.onClick.AddListener(Build);
             buildPanelManager.levelText.text = "Level " + townHallLevel;
             buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
             buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;

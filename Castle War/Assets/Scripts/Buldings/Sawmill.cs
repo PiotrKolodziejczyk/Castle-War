@@ -11,16 +11,18 @@ public class Sawmill : Building
     int woodToUpgradeLvl = 2;
     int stoneToUpgradeLvl = 2;
     int clayToUpgradeLvl = 2;
-
-
+    bool isBuild = false;
+    public GameObject sawmillButton;
     private void Start()
     {
+       
         StartCoroutine(CollectWoodCourotine(timeToCollectWood));
     }
 
-    private void Build()
+    public void Build()
     {
-        
+        sawmillButton.SetActive(false);
+        isSawmillBuilding = true;
         Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl,buildCourotine, Material.Sawmill,sawmillLevel);
         
     }
@@ -44,11 +46,11 @@ public class Sawmill : Building
     }
     private void OnMouseDown()
     {
+        if (!isSawmillBuilding)
+            sawmillButton.SetActive(true);
         
         buildPanelManager.titleText.text = "Sawmill";
         buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";
-        buildPanelManager.button.onClick.RemoveAllListeners();
-        buildPanelManager.button.onClick.AddListener(Build);
         buildPanelManager.levelText.text = "Level " + sawmillLevel;
         buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
         buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;

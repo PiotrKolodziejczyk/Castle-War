@@ -14,20 +14,21 @@ namespace Assets.Scripts.Buldings
         int woodToUpgradeLvl = 2;
         int stoneToUpgradeLvl = 2;
         int clayToUpgradeLvl = 2;
-
-        private void Build()
+        bool isBuild = false;
+        public GameObject smithyButton;
+        public void Build()
         {
-
+            smithyButton.SetActive(false);
+            isSmithyBuilding = true;
             Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.Smithy,smithyLevel);
 
         }
         private void OnMouseDown()
         {
-            
+            if (!isSmithyBuilding)
+                smithyButton.SetActive(true);
             buildPanelManager.titleText.text = "Smithy";
-            buildPanelManager.button.onClick.RemoveAllListeners();
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";
-            buildPanelManager.button.onClick.AddListener(Build);
             buildPanelManager.levelText.text = "Level " + smithyLevel;
             buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
             buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;

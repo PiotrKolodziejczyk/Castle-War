@@ -83,6 +83,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\MedievalTownExteriors\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -98,31 +99,31 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Piotr/Desktop/Castle-War-master/Castle-War-master/Castle War/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>A:/Castle-War/Castle-War/Castle War/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Piotr/Desktop/Castle-War-master/Castle-War-master/Castle War/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>A:/Castle-War/Castle-War/Castle War/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Piotr/Desktop/Castle-War-master/Castle-War-master/Castle War/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>A:/Castle-War/Castle-War/Castle War/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Piotr/Desktop/Castle-War-master/Castle-War-master/Castle War/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>A:/Castle-War/Castle-War/Castle War/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Piotr/Desktop/Castle-War-master/Castle-War-master/Castle War/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>A:/Castle-War/Castle-War/Castle War/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Piotr/Desktop/Castle-War-master/Castle-War-master/Castle War/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>A:/Castle-War/Castle-War/Castle War/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Piotr/Desktop/Castle-War-master/Castle-War-master/Castle War/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>A:/Castle-War/Castle-War/Castle War/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Piotr/Desktop/Castle-War-master/Castle-War-master/Castle War/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>A:/Castle-War/Castle-War/Castle War/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Piotr/Desktop/Castle-War-master/Castle-War-master/Castle War/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>A:/Castle-War/Castle-War/Castle War/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>A:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
