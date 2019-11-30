@@ -19,12 +19,15 @@ namespace Assets.Scripts.Buldings
         {
             townHallButton.SetActive(false);
             isTownHallBuilding = true;
-            Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.TownHall,townHallLevel);
+            Build(buildCourotine, Material.TownHall,townHallLevel);
+            woodSingleton.Quantity -= woodToUpgradeLvl;
+            claySingleton.Quantity -= clayToUpgradeLvl;
+            stoneSingleton.Quantity -= stoneToUpgradeLvl;
 
         }
         private void OnMouseDown()
         {
-            if (!isTownHallBuilding)
+            if (!isTownHallBuilding && woodSingleton.Quantity >= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
                 townHallButton.SetActive(true);
             buildPanelManager.titleText.text = "TownHall";
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";

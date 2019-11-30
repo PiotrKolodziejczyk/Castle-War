@@ -20,12 +20,15 @@ namespace Assets.Scripts.Buldings
         {
             wallButton.SetActive(false);
             isWallBuilding = true;
-            Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.Wall,wallLevel);
+            Build(buildCourotine, Material.Wall,wallLevel);
+            woodSingleton.Quantity -= woodToUpgradeLvl;
+            claySingleton.Quantity -= clayToUpgradeLvl;
+            stoneSingleton.Quantity -= stoneToUpgradeLvl;
         }
         
         private void OnMouseDown()
         {
-            if (!isWallBuilding)
+            if (!isWallBuilding && woodSingleton.Quantity >= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
                 wallButton.SetActive(true);
             buildPanelManager.titleText.text = "Wall";
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";

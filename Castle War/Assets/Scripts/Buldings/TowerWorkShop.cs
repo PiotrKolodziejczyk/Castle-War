@@ -13,12 +13,14 @@ public class TowerWorkShop : Building
     {
         towerWorkshopButton.SetActive(false);
         isTowerWorkshopBuilding = true;
-        Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.TowerWorkshop,towerWorkshopLevel);
-
+        Build(buildCourotine, Material.TowerWorkshop,towerWorkshopLevel);
+        woodSingleton.Quantity -= woodToUpgradeLvl;
+        claySingleton.Quantity -= clayToUpgradeLvl;
+        stoneSingleton.Quantity -= stoneToUpgradeLvl;
     }
     private void OnMouseDown()
     {
-        if (!isTowerWorkshopBuilding)
+        if (!isTowerWorkshopBuilding && woodSingleton.Quantity >= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
             towerWorkshopButton.SetActive(true);
         buildPanelManager.titleText.text = "Tower Workshop";
         buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";

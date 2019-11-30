@@ -55,12 +55,10 @@ public class Building : MonoBehaviour
         
     }
 
-    protected void Build(int wood,int stone,int clay,float buildCourotine, Material material,int buildingLvl)
+    protected void Build(float buildCourotine, Material material,int buildingLvl)
     {
-            
-            StartCoroutine(BuildTimerCourotine(buildCourotine, material, buildingLvl));
-            panel.SetActive(false);
-         
+        StartCoroutine(BuildTimerCourotine(buildCourotine, material, buildingLvl));
+        panel.SetActive(false);
     }
     
     public IEnumerator BuildTimerCourotine(float buildCourotine,Material material,int buldingLvl)
@@ -70,7 +68,7 @@ public class Building : MonoBehaviour
         while (buildCourotine > 0)
         {
 
-            textMeshProUGUIList.Where(x => x.name == material.ToString()+"Text").First().text = material.ToString() +" "+ buldingLvl  + " Level\n" + buildCourotine +" seconds";
+            textMeshProUGUIList.Where(x => x.name == material.ToString()+"Text").First().text = material.ToString() +" "+ buldingLvl  + " Level\n     " + buildCourotine +" seconds";
             yield return new WaitForSeconds(1.0f);
             buildCourotine--;
 
@@ -156,16 +154,7 @@ public class Building : MonoBehaviour
     {
         panel.SetActive(false);
     }
-    public void ResetPanel()
-    {
-        buildPanelManager.titleText.text = "";
-        buildPanelManager.button.onClick.RemoveAllListeners();
-        buildPanelManager.timeText.text = $"00:00:00";
-        buildPanelManager.levelText.text = "Level ";
-        buildPanelManager.woodText.text = "Wood : ";
-        buildPanelManager.stoneText.text = "Stone : ";
-        buildPanelManager.clayText.text = "Clay : ";
-    }
+  
 }
 public enum Material
 {

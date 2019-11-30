@@ -50,12 +50,14 @@ namespace Assets.Scripts.Buldings
         {
             clayMineButton.SetActive(false);
             isClayMineBuilding = true;
-            Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.ClayMine,clayMineLevel);
-
+            Build(buildCourotine, Material.ClayMine,clayMineLevel);
+            woodSingleton.Quantity -= woodToUpgradeLvl;
+            claySingleton.Quantity -= clayToUpgradeLvl;
+            stoneSingleton.Quantity -= stoneToUpgradeLvl;
         }
         private void OnMouseDown()
         {
-            if (!isClayMineBuilding)
+            if (!isClayMineBuilding && woodSingleton.Quantity >= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
                 clayMineButton.SetActive(true);
             buildPanelManager.titleText.text = "Clay Mine";
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";

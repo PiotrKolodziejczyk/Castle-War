@@ -20,12 +20,14 @@ namespace Assets.Scripts.Buldings
         {
             smithyButton.SetActive(false);
             isSmithyBuilding = true;
-            Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.Smithy,smithyLevel);
-
+            Build(buildCourotine, Material.Smithy,smithyLevel);
+            woodSingleton.Quantity -= woodToUpgradeLvl;
+            claySingleton.Quantity -= clayToUpgradeLvl;
+            stoneSingleton.Quantity -= stoneToUpgradeLvl;
         }
         private void OnMouseDown()
         {
-            if (!isSmithyBuilding)
+            if (!isSmithyBuilding && woodSingleton.Quantity >= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
                 smithyButton.SetActive(true);
             buildPanelManager.titleText.text = "Smithy";
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";

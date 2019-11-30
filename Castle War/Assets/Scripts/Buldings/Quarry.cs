@@ -45,12 +45,14 @@ namespace Assets.Scripts.Buldings
         {
             quarryButton.SetActive(false);
             isQuarryBuilding = true;
-            Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.Quarry,quarryLevel);
-
+            Build(buildCourotine, Material.Quarry,quarryLevel);
+            woodSingleton.Quantity -= woodToUpgradeLvl;
+            claySingleton.Quantity -= clayToUpgradeLvl;
+            stoneSingleton.Quantity -= stoneToUpgradeLvl;
         }
         private void OnMouseDown()
         {
-            if (!isQuarryBuilding)
+            if (!isQuarryBuilding && woodSingleton.Quantity >= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
                 quarryButton.SetActive(true);
             buildPanelManager.titleText.text = "Quarry";
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";

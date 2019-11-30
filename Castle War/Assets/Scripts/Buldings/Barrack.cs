@@ -12,20 +12,23 @@ namespace Assets.Scripts.Buldings
     {
 
         float buildCourotine = 3;
-        int woodToUpgradeLvl = 2;
-        int stoneToUpgradeLvl = 2;
-        int clayToUpgradeLvl = 2;
+        int woodToUpgradeLvl = 10;
+        int stoneToUpgradeLvl = 10;
+        int clayToUpgradeLvl = 10;
         public GameObject barrackButton;
         public void Build()
         {
             barrackButton.SetActive(false);
             isBarrackBuilding = true;
-            Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl, buildCourotine, Material.Barrack,barrackLevel);
+            Build(buildCourotine, Material.Barrack,barrackLevel);
+            woodSingleton.Quantity -= woodToUpgradeLvl;
+            claySingleton.Quantity -= clayToUpgradeLvl;
+            stoneSingleton.Quantity -= stoneToUpgradeLvl;
 
         }
         private void OnMouseDown()
         {
-            if (!isBarrackBuilding)
+            if (!isBarrackBuilding && woodSingleton.Quantity>= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
                 barrackButton.SetActive(true);
             buildPanelManager.titleText.text = "Barrack";
             buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";

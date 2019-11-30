@@ -23,8 +23,10 @@ public class Sawmill : Building
     {
         sawmillButton.SetActive(false);
         isSawmillBuilding = true;
-        Build(woodToUpgradeLvl, stoneToUpgradeLvl, clayToUpgradeLvl,buildCourotine, Material.Sawmill,sawmillLevel);
-        
+        Build(buildCourotine, Material.Sawmill,sawmillLevel);
+        woodSingleton.Quantity -= woodToUpgradeLvl;
+        claySingleton.Quantity -= clayToUpgradeLvl;
+        stoneSingleton.Quantity -= stoneToUpgradeLvl;
     }
 
     void GetWood()
@@ -46,7 +48,7 @@ public class Sawmill : Building
     }
     private void OnMouseDown()
     {
-        if (!isSawmillBuilding)
+        if (!isSawmillBuilding && woodSingleton.Quantity >= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
             sawmillButton.SetActive(true);
         
         buildPanelManager.titleText.text = "Sawmill";
