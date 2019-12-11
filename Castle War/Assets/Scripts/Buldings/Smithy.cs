@@ -35,7 +35,7 @@ namespace Assets.Scripts.Buldings
             buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
             buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;
             buildPanelManager.clayText.text = "Clay : " + clayToUpgradeLvl;
-            panel.SetActive(true);
+            StartPanel();
         }
 
     }

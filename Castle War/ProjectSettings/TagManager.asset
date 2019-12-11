@@ -8,6 +8,8 @@ TagManager:
   - Knight
   - Axeman
   - Pikeman
+  - BuldingText
+  - Building
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using Assets.Scripts.Buldings;
 
 public class Building : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class Building : MonoBehaviour
     protected short smithyLevel = 1;
     protected short barrackLevel = 1;
     protected short towerWorkshopLevel = 1;
-    
+    public BuildingColliderGetList buildingColliderGetList;
     protected TextMeshProUGUI textLvl;
     [SerializeField]
     protected GameObject panel;
@@ -53,12 +54,13 @@ public class Building : MonoBehaviour
         stoneText = textMeshProUGUIList.Where(x => x.name == "StoneText").First();
         clayText = textMeshProUGUIList.Where(x => x.name == "ClayText").First();
         
+        
     }
 
     protected void Build(float buildCourotine, Material material,int buildingLvl)
     {
         StartCoroutine(BuildTimerCourotine(buildCourotine, material, buildingLvl));
-        panel.SetActive(false);
+        ExitPanel();
     }
     
     public IEnumerator BuildTimerCourotine(float buildCourotine,Material material,int buldingLvl)
@@ -150,9 +152,31 @@ public class Building : MonoBehaviour
                 }
         }
     }
-    public void Exit()
+    public void ExitPanel()
     {
         panel.SetActive(false);
+        for (int i = 0; i < buildPanelManager.canTexts.Count; i++)
+        {
+            buildPanelManager.canTexts[i].enabled = true;
+        }
+        for (int i = 0; i < buildingColliderGetList.listBulding.Count; i++)
+        {
+            buildingColliderGetList.listBulding[i].enabled = true;
+        }
+    }
+    public void StartPanel()
+    {
+        
+        panel.SetActive(true);
+        for(int i = 0; i < buildPanelManager.canTexts.Count; i++)
+        {
+            buildPanelManager.canTexts[i].enabled = false;
+            
+        }
+        for (int i = 0; i < buildingColliderGetList.listBulding.Count; i++)
+        {
+            buildingColliderGetList.listBulding[i].enabled = false;
+        }
     }
   
 }

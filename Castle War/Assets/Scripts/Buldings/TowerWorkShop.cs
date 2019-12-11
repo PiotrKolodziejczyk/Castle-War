@@ -28,6 +28,6 @@ public class TowerWorkShop : Building
         buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
         buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;
         buildPanelManager.clayText.text = "Clay : " + clayToUpgradeLvl;
-        panel.SetActive(true);
+        StartPanel();
     }
 }
