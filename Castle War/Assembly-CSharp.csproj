@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\BuildingColliderGetList.cs" />
     <Compile Include="Assets\Scripts\BackToMap.cs" />
+    <Compile Include="Assets\Scripts\BattleSceneScripts\BuildingPlaceScript.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\EnemyRun.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\HowMuchSoldierIncomeCount.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\TowerManager.cs" />

@@ -1,64 +1,59 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    Vector3 offset;
-    float mZCoord;
-    Vector3 pos;
-    public GameObject tower;
-    
-    bool isTowerMove = true;
-    private void Awake()
+    public GameObject towerPrefab;
+    GameObject tower;
+    bool isDraggingTower = false;
+    public bool building;
+   
+    void Update()
     {
-        //pos = GetMouseWorldPos() + offset;
-
+        if (isDraggingTower)
+        {
+            MoveTowerToMouse();
+            if (Input.GetMouseButtonDown(0)&&tower.GetComponent<TowerManager>().building)
+            {
+                StopDragging();
+              
+            }
+        }
     }
-    private void Update()
+    void StopDragging()
     {
-        //Debug.Log(Input.mousePosition);
-        //if (Input.GetMouseButtonUp(1))
-        // {
-        //     isTowerMove = false;
-        // }
-        //if (isTowerMove)
-        //{
-        //    pos = GetMouseWorldPos() + offset;
-        //    tower.transform.position = new Vector3(pos.x, 0, pos.z);
-
-        //}
-
-        MovwTowerToMouse();
-
+        isDraggingTower = false;
+        Cursor.visible = true;
     }
-    private void OnMouseDrag()
+    void MoveTowerToMouse()
     {
-        //MovwTowerToMouse();
-    }
-
-    private void MovwTowerToMouse()
-    {
-        pos = GetMouseWorldPos() + offset;
-        tower.transform.position = new Vector3(pos.x, 0, pos.z);
+        var mousePos = GetMouseWorldPos();
+        tower.transform.position = new Vector3(mousePos.x, 0, mousePos.z);
     }
 
     public void InstantiateTower()
     {
-        Instantiate(tower,new Vector3(0,0,0), new Quaternion(0, 0, 0, 0));
-        mZCoord = Camera.main.WorldToScreenPoint(tower.transform.position).z;
-        offset = tower.transform.position - GetMouseWorldPos();
+        tower = Instantiate(towerPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        isDraggingTower = true;
+        Cursor.visible = false;
     }
-    private void OnMouseDown()
+    Vector3 GetMouseWorldPos()
     {
-        mZCoord = Camera.main.WorldToScreenPoint(tower.transform.position).z;
-        offset = tower.transform.position - GetMouseWorldPos();
-    }
-    private Vector3 GetMouseWorldPos()
-    {
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = mZCoord;
+        var mousePoint = Input.mousePosition;
+        mousePoint.z = 30;
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
+    private void OnTriggerStay(Collider other)
+    {
+       
+        
+    }
 }
+        
+
+   
+
+            
+               
+            
+       
+

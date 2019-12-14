@@ -104,8 +104,9 @@ GameObject:
   - component: {fileID: 9007137286177957227}
   - component: {fileID: 9007137286177957236}
   - component: {fileID: 131699084404649724}
+  - component: {fileID: 4171309360775695243}
   m_Layer: 10
-  m_Name: Tower
+  m_Name: TowerB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +169,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06636e070426e9e418736014a2161fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 9007137286177957224}
+  towerPrefab: {fileID: 9007137286177957224}
+  tower: {fileID: 0}
+  canBuilding: 0
+  building: 0
+--- !u!65 &4171309360775695243
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9007137286177957224}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9007137286521523589
 GameObject:
   m_ObjectHideFlags: 0
