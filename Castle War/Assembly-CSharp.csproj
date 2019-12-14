@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\BackToMap.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\EnemyRun.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\HowMuchSoldierIncomeCount.cs" />
+    <Compile Include="Assets\Scripts\BattleSceneScripts\TowerManager.cs" />
     <Compile Include="Assets\Scripts\Buldings\Barrack.cs" />
     <Compile Include="Assets\Scripts\Buldings\Building.cs" />
     <Compile Include="Assets\Scripts\Buldings\BuildPanelManager.cs" />

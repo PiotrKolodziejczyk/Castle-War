@@ -20,13 +20,13 @@ public class BuildPanelManager : MonoBehaviour
     public TextMeshProUGUI stoneText;
 
     public TextMeshProUGUI clayText;
-    public List<BoxCollider> listBulding;
+    
     public TextMeshProUGUI timeText;
     public List<TextMeshProUGUI> canTexts;
     private void Awake()
     {
         canTexts = canvas.GetComponentsInChildren<TextMeshProUGUI>().Where(x => x.gameObject.tag == "BuldingText").ToList();
-        listBulding = GetComponentsInChildren<BoxCollider>().Where(x => x.gameObject.tag == "Building").ToList();
+        
     }
 
 }
