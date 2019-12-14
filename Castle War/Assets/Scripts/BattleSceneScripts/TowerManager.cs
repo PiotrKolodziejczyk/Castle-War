@@ -6,21 +6,22 @@ public class TowerManager : MonoBehaviour
     GameObject tower;
     bool isDraggingTower = false;
     public bool building;
-   
+
     void Update()
     {
         if (isDraggingTower)
         {
             MoveTowerToMouse();
-            if (Input.GetMouseButtonDown(0)&&tower.GetComponent<TowerManager>().building)
+            if (Input.GetMouseButtonDown(0) && tower.GetComponent<TowerManager>().building)
             {
                 StopDragging();
-              
+
             }
         }
     }
     void StopDragging()
     {
+
         isDraggingTower = false;
         Cursor.visible = true;
     }
@@ -39,21 +40,17 @@ public class TowerManager : MonoBehaviour
     Vector3 GetMouseWorldPos()
     {
         var mousePoint = Input.mousePosition;
-        mousePoint.z = 30;
+        mousePoint.z = 95;
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
-    private void OnTriggerStay(Collider other)
-    {
-       
-        
-    }
+
 }
-        
 
-   
 
-            
-               
-            
-       
+
+
+
+
+
+
 
