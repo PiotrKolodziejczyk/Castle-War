@@ -9,7 +9,7 @@ public class TowerManager : MonoBehaviour
     public MeshRenderer[] meshes;
     internal bool mightBuilding = true;
     public Collider[] hitColliders;
-    
+
     private void Awake()
     {
         if (transform.name == "TowerManagerGameObject")
@@ -24,20 +24,37 @@ public class TowerManager : MonoBehaviour
         if (transform.name == "TowerB(Clone)")
         {
             hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, Quaternion.identity);
-            Debug.Log(hitColliders.Length);
+           
         }
 
         if (isDraggingTower)
         {
             MoveTowerToMouse();
-            if (Input.GetMouseButtonDown(0) && tower.GetComponent<TowerManager>().building)// && tower.GetComponent<TowerManager>().mightBuilding//)
+            if (Input.GetMouseButtonDown(0) && tower.GetComponent<TowerManager>().building&& tower.GetComponent<TowerManager>().mightBuilding)
             {
                 StopDragging();
 
             }
         }
+        if (GetComponent<TowerManager>().building && GetComponent<TowerManager>().mightBuilding&&GetComponent<TowerManager>().name=="TowerB(Clone)")
+        {
+            var meshList = GetComponentsInChildren<MeshRenderer>();
+            for (int i = 0; i < meshList.Length; i++)
+            {
+                meshList[i].material.color = Color.white;
+            }
+        }
+        else if(GetComponent<TowerManager>().name == "TowerB(Clone)")
+        {
+            var meshList = GetComponentsInChildren<MeshRenderer>();
+            for (int i = 0; i < meshList.Length; i++)
+            {
+                meshList[i].material.color = Color.red;
+            }
+        }
+
     }
-  
+
     private void StopDragging()
     {
         for (int i = 0; i < meshes.Length; i++)
@@ -50,7 +67,7 @@ public class TowerManager : MonoBehaviour
 
         tower.GetComponent<BoxCollider>().size = new Vector3(4, 2, 4);
         tower.gameObject.name = "Tower";
-        
+
     }
 
     private void MoveTowerToMouse()
@@ -76,31 +93,35 @@ public class TowerManager : MonoBehaviour
         mousePoint.z = 250;
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (hitColliders.Length>=3)
-    //    {
-    //        var meshList = GetComponentsInChildren<MeshRenderer>();
-    //        for (int i = 0; i < meshList.Length; i++)
-    //        {
-    //            meshList[i].material.color = Color.red;
-    //        }
-    //        mightBuilding = false;
-    //    }
-    //}
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (hitColliders.Length<=3)
-    //    {
-            
-    //        var meshList = GetComponentsInChildren<MeshRenderer>();
-    //        for (int i = 0; i < meshList.Length; i++)
-    //        {
-    //            meshList[i].material.color = Color.white;
-    //        }
-    //        mightBuilding = true;
-    //    }
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == "Tower" &&gameObject.name == "TowerB(Clone)")
+        {
+            //var meshList = GetComponentsInChildren<MeshRenderer>();
+            //for (int i = 0; i < meshList.Length; i++)
+            //{
+            //    meshList[i].material.color = Color.red;
+            //}
+            GetComponent<TowerManager>().mightBuilding = false;
+        }
+
+
+
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "Tower" )
+        {
+
+            //var meshList = GetComponentsInChildren<MeshRenderer>();
+            //for (int i = 0; i < meshList.Length; i++)
+            //{
+            //    meshList[i].material.color = Color.white;
+            //}
+            GetComponent<TowerManager>().mightBuilding = true;
+        }
+    }
 }
 
 

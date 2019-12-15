@@ -72,17 +72,17 @@ public class EnemyRun : MonoBehaviour
     }
     public void InstantiateKnight()
     {
-        Instantiate(Knight, new Vector3(-4.59f, 0.1402141f, -44.38f), new Quaternion(0, 0, 0, 0));
+        Instantiate(Knight, new Vector3(-30.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
 
     }
     public void InstantiatePikeman()
     {
-        Instantiate(Pikeman, new Vector3(-4.59f, 0.1402141f, -44.38f), new Quaternion(0, 0, 0, 0));
+        Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
 
     }
     public void InstantiateAxeman()
     {
-        Instantiate(Axeman, new Vector3(-4.59f, 0.1402141f, -44.38f), new Quaternion(0, 0, 0, 0));
+        Instantiate(Axeman, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
 
     }
 
