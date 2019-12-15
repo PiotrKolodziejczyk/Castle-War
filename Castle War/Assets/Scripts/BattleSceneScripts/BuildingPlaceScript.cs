@@ -8,7 +8,7 @@ public class BuildingPlaceScript : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         
-        if (other.gameObject.name == "TowerB(Clone)")
+        if (other.gameObject.name == "TowerB(Clone)" && other.GetComponent<TowerManager>().hitColliders.Length<=3)
         {
            var meshList= other.GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
@@ -18,11 +18,12 @@ public class BuildingPlaceScript : MonoBehaviour
             
             other.GetComponent<TowerManager>().building = true;
         }
+       
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "TowerB(Clone)")
+        if (other.gameObject.name == "TowerB(Clone)"&& other.GetComponent<TowerManager>().hitColliders.Length >= 3)
         {
             var meshList = other.GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
