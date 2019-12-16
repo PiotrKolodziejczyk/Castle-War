@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\BattleSceneScripts\EnemyRun.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\HowMuchSoldierIncomeCount.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\TowerManager.cs" />
+    <Compile Include="Assets\Scripts\BattleSceneScripts\TriggersScript.cs" />
     <Compile Include="Assets\Scripts\CastleScene\BuildingColliderGetList.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Barrack.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Building.cs" />

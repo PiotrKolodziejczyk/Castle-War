@@ -16,17 +16,17 @@ public class EnemyRun : MonoBehaviour
         {
             case "Knight":
                 {
-                    forward = 0.05f;
+                    forward = 0.3f;
                     return;
                 }
             case "Pikeman":
                 {
-                    forward = 0.15f;
+                    forward = 0.5f;
                     return;
                 }
             case "Axeman":
                 {
-                    forward = 0.1f;
+                    forward = 0.7f;
                     return;
                 }
         }
@@ -58,7 +58,7 @@ public class EnemyRun : MonoBehaviour
             forward = 0;
             forwardMinus = 0;
             cur = 0;
-            curMinus = -3f;
+            curMinus = -6f;
         }
         if (other.name == "ChangeForMinus")
         {
