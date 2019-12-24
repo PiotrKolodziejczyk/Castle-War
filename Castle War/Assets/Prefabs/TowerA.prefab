@@ -65,5 +65,27 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9098819777932608603, guid: 50d7a290120846f43b52df9e868e7890,
+        type: 3}
+      propertyPath: y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098819777932608603, guid: 50d7a290120846f43b52df9e868e7890,
+        type: 3}
+      propertyPath: towerPrefab
+      value: 
+      objectReference: {fileID: 8307977998573254285}
+    - target: {fileID: 9098819777932608603, guid: 50d7a290120846f43b52df9e868e7890,
+        type: 3}
+      propertyPath: towerPrefab1
+      value: 
+      objectReference: {fileID: 4948124129139318124, guid: 5cfe4d0e13088d8439c2edd95370bd3e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d7a290120846f43b52df9e868e7890, type: 3}
+--- !u!1 &8307977998573254285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1101689550, guid: 50d7a290120846f43b52df9e868e7890,
+    type: 3}
+  m_PrefabInstance: {fileID: 8307977997505414211}
+  m_PrefabAsset: {fileID: 0}
