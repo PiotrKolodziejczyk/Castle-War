@@ -1,31 +1,42 @@
-﻿using UnityEngine;
+﻿using System.Text.RegularExpressions;
+using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
     public GameObject towerPrefab;
+    public GameObject towerPrefab1;
+    public GameObject towerPrefab2;
     private GameObject tower;
     private bool isDraggingTower = false;
     internal bool building;
     public MeshRenderer[] meshes;
     internal bool mightBuilding = true;
     public Collider[] hitColliders;
+    Regex regex;
 
+    float y;
     private void Awake()
     {
+        regex = new Regex(@"Tower[ABC]\(Clone\)");
         if (transform.name == "TowerManagerGameObject")
         {
             meshes = GetComponentsInChildren<MeshRenderer>();
         }
+        if (transform.tag != "Zero")
+        {
+            y = 0;
+        }
+        else
+        {
+            y = 16;
+        }
+        Debug.Log(transform.name + y);
     }
 
     private void Update()
     {
 
-        if (transform.name == "TowerB(Clone)")
-        {
-            hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, Quaternion.identity);
-           
-        }
+        
 
         if (isDraggingTower)
         {
@@ -36,7 +47,7 @@ public class TowerManager : MonoBehaviour
 
             }
         }
-        if (GetComponent<TowerManager>().building && GetComponent<TowerManager>().mightBuilding&&GetComponent<TowerManager>().name=="TowerB(Clone)")
+        if (GetComponent<TowerManager>().building && GetComponent<TowerManager>().mightBuilding&&regex.IsMatch(GetComponent<TowerManager>().name))
         {
             var meshList = GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
@@ -44,7 +55,7 @@ public class TowerManager : MonoBehaviour
                 meshList[i].material.color = Color.white;
             }
         }
-        else if(GetComponent<TowerManager>().name == "TowerB(Clone)")
+        else if(regex.IsMatch(GetComponent<TowerManager>().name))
         {
             var meshList = GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
@@ -73,12 +84,32 @@ public class TowerManager : MonoBehaviour
     private void MoveTowerToMouse()
     {
         Vector3 mousePos = GetMouseWorldPos();
-        tower.transform.position = new Vector3(mousePos.x, 0, mousePos.z);
+        tower.transform.position = new Vector3(mousePos.x, y, mousePos.z);
     }
 
-    public void InstantiateTower()
+    public void InstantiateTowerB()
     {
         tower = Instantiate(towerPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        isDraggingTower = true;
+        Cursor.visible = false;
+        for (int i = 0; i < meshes.Length; i++)
+        {
+            meshes[i].enabled = true;
+        }
+    }
+    public void InstantiateTowerA()
+    {
+        tower = Instantiate(towerPrefab1, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        isDraggingTower = true;
+        Cursor.visible = false;
+        for (int i = 0; i < meshes.Length; i++)
+        {
+            meshes[i].enabled = true;
+        }
+    }
+    public void InstantiateTowerC()
+    {
+        tower = Instantiate(towerPrefab2, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         isDraggingTower = true;
         Cursor.visible = false;
         for (int i = 0; i < meshes.Length; i++)
@@ -95,7 +126,7 @@ public class TowerManager : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.name == "Tower" &&gameObject.name == "TowerB(Clone)")
+        if (other.gameObject.name == "Tower" && regex.IsMatch(GetComponent<TowerManager>().name))
         {
             //var meshList = GetComponentsInChildren<MeshRenderer>();
             //for (int i = 0; i < meshList.Length; i++)

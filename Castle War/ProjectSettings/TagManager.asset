@@ -11,6 +11,8 @@ TagManager:
   - BuldingText
   - Building
   - BuldingPlace
+  - TowerB
+  - Zero
   layers:
   - Default
   - TransparentFX

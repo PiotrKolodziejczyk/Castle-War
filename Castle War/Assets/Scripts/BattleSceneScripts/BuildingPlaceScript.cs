@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class BuildingPlaceScript : MonoBehaviour
 {
-
+    Regex regex;
+    private void Start()
+    {
+        regex = new Regex(@"Tower[ABC]\(Clone\)");
+    }
     private void OnTriggerStay(Collider other)
     {
 
-        if (other.gameObject.name == "TowerB(Clone)")
+        if (regex.IsMatch(other.gameObject.name))
         {
             //var meshList = other.GetComponentsInChildren<MeshRenderer>();
             //for (int i = 0; i < meshList.Length; i++)
@@ -23,7 +28,7 @@ public class BuildingPlaceScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "TowerB(Clone)")
+        if (regex.IsMatch(other.gameObject.name))
         {
         //    var meshList = other.GetComponentsInChildren<MeshRenderer>();
         //    for (int i = 0; i < meshList.Length; i++)
