@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class BuildingPlaceScript : MonoBehaviour
@@ -30,11 +28,11 @@ public class BuildingPlaceScript : MonoBehaviour
     {
         if (regex.IsMatch(other.gameObject.name))
         {
-        //    var meshList = other.GetComponentsInChildren<MeshRenderer>();
-        //    for (int i = 0; i < meshList.Length; i++)
-        //    {
-        //        meshList[i].material.color = Color.red;
-        //    }
+            //    var meshList = other.GetComponentsInChildren<MeshRenderer>();
+            //    for (int i = 0; i < meshList.Length; i++)
+            //    {
+            //        meshList[i].material.color = Color.red;
+            //    }
             other.GetComponent<TowerManager>().building = false;
 
         }

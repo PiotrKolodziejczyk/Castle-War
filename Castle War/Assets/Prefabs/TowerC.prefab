@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3961521416407565521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705958242568105704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ff35b3f7a2766408236285339780b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6706938452281811384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13,19 +25,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010732113744, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_TagString
-      value: Zero
+      value: TowerB
+      objectReference: {fileID: 0}
+    - target: {fileID: -3153717692756402526, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: towerPrefab1
+      value: 
+      objectReference: {fileID: 4948124129139318124, guid: 5cfe4d0e13088d8439c2edd95370bd3e,
+        type: 3}
+    - target: {fileID: -3153717692756402526, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: towerPrefab
+      value: 
+      objectReference: {fileID: 8307977998573254285, guid: 53b2aef6b446ab944b57f328e5e623f7,
+        type: 3}
+    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000011389478184, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011389478184, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011389478184, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -177.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011389478184, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_LocalRotation.x
@@ -59,16 +93,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: -6699202127024825094, guid: 94cd86138d9233a4f8d62276eb74c283,
         type: 3}
       propertyPath: m_Size.y
@@ -79,18 +103,12 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 1.68
       objectReference: {fileID: 0}
-    - target: {fileID: -3153717692756402526, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: towerPrefab1
-      value: 
-      objectReference: {fileID: 4948124129139318124, guid: 5cfe4d0e13088d8439c2edd95370bd3e,
-        type: 3}
-    - target: {fileID: -3153717692756402526, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: towerPrefab
-      value: 
-      objectReference: {fileID: 8307977998573254285, guid: 53b2aef6b446ab944b57f328e5e623f7,
-        type: 3}
     m_RemovedComponents:
     - {fileID: 95000012566726364, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
+--- !u!1 &6705958242568105704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000010732113744, guid: 94cd86138d9233a4f8d62276eb74c283,
+    type: 3}
+  m_PrefabInstance: {fileID: 6706938452281811384}
+  m_PrefabAsset: {fileID: 0}

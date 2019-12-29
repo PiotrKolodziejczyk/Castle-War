@@ -61,7 +61,11 @@ public class TowerManager : MonoBehaviour
         }
         isDraggingTower = false;
         Cursor.visible = true;
-        tower.GetComponent<BoxCollider>().size = new Vector3(4, 2, 4);
+        if (tower.gameObject.tag == "Zero")
+            tower.GetComponent<BoxCollider>().size = new Vector3(15, 2, 15);
+        else
+            tower.GetComponent<BoxCollider>().size = new Vector3(7, 2, 7);
+
         tower.gameObject.name = "Tower";
     }
 
@@ -73,7 +77,7 @@ public class TowerManager : MonoBehaviour
 
     public void InstantiateTowerB()
     {
-        y = 16;
+        y = 12;
         tower = Instantiate(towerPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         isDraggingTower = true;
         Cursor.visible = false;

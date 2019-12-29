@@ -35,37 +35,44 @@ public class EnemyRun : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x + (cur + curMinus * Time.deltaTime), 0, transform.position.z + (forward + forwardMinus * Time.deltaTime));
 
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "ChangeFor")
         {
-            forward = 0.1f;
+            forward = 0.5f;
             forwardMinus = 0;
             cur = 0;
             curMinus = 0;
+            transform.rotation = new Quaternion(0, 0, 0, 0);
         }
         if (other.name == "ChangeCur")
         {
             forward = 0;
             forwardMinus = 0;
-            cur = 0.1f;
+            cur = 0.5f;
             curMinus = 0;
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+
         }
         if (other.name == "ChangeCurMinus")
         {
             forward = 0;
             forwardMinus = 0;
             cur = 0;
-            curMinus = -6f;
+            curMinus = -15f;
+            transform.rotation = Quaternion.Euler(0, -90, 0);
+
         }
         if (other.name == "ChangeForMinus")
         {
             forward = 0;
-            forwardMinus = -3f;
+            forwardMinus = -6f;
             cur = 0;
             curMinus = 0;
+            transform.rotation = new Quaternion(0, 0, 0, 0);
 
 
         }

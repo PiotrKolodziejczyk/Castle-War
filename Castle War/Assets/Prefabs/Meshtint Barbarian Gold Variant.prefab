@@ -60,6 +60,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Axeman
       objectReference: {fileID: 0}
+    - target: {fileID: 95785311282749608, guid: a4ad2e271986468428a4ce6a219fba12,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8aba7a975cc08dd4fb1345966135537b, type: 2}
     - target: {fileID: 4749245984341470, guid: a4ad2e271986468428a4ce6a219fba12, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.59
