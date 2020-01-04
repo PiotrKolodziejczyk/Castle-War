@@ -25,10 +25,10 @@ TagManager:
   - Enemy
   - I
   - Soldiers
-  - 
-  - 
-  - 
-  - 
+  - Tower
+  - BuiltTower
+  - Range
+  - Bullet
   - 
   - 
   - 

@@ -14,6 +14,8 @@ public class TowerManager : MonoBehaviour
     public Collider[] hitColliders;
     Regex regex;
     float y;
+    SphereCollider sphere;
+    BoxCollider box;
 
     private void Awake()
     {
@@ -35,7 +37,7 @@ public class TowerManager : MonoBehaviour
 
             }
         }
-        if (GetComponent<TowerManager>().building && GetComponent<TowerManager>().mightBuilding && regex.IsMatch(GetComponent<TowerManager>().name))
+        if (GetComponent<TowerManager>().building && GetComponent<TowerManager>().mightBuilding && regex.IsMatch(GetComponent<TowerManager>().name) && gameObject.layer == 11)
         {
             var meshList = GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
@@ -43,7 +45,7 @@ public class TowerManager : MonoBehaviour
                 meshList[i].material.color = Color.white;
             }
         }
-        else if (regex.IsMatch(GetComponent<TowerManager>().name))
+        else if (regex.IsMatch(GetComponent<TowerManager>().name)&&gameObject.layer == 11)
         {
             var meshList = GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
@@ -67,6 +69,8 @@ public class TowerManager : MonoBehaviour
             tower.GetComponent<BoxCollider>().size = new Vector3(7, 2, 7);
 
         tower.gameObject.name = "Tower";
+        tower.gameObject.layer = 12;
+        tower.GetComponentInChildren<SphereCollider>().enabled = true;
     }
 
     private void MoveTowerToMouse()
@@ -118,17 +122,19 @@ public class TowerManager : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.name == "Tower" && regex.IsMatch(GetComponent<TowerManager>().name))
+        if (other.gameObject.name == "Tower" && regex.IsMatch(GetComponent<TowerManager>().name) && other.gameObject.layer == 12)
         {
             GetComponent<TowerManager>().mightBuilding = false;
+           
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Tower")
+        if (other.gameObject.name == "Tower" && other.gameObject.layer == 12)
         {
             GetComponent<TowerManager>().mightBuilding = true;
+            
         }
     }
 }

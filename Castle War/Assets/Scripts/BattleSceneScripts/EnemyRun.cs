@@ -76,6 +76,11 @@ public class EnemyRun : MonoBehaviour
 
 
         }
+
+        if (other.gameObject.layer == 14)
+        {
+            Destroy(gameObject);
+        }
     }
     public void InstantiateKnight()
     {
