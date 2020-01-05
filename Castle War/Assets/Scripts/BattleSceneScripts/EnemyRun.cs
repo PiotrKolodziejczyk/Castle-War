@@ -9,7 +9,7 @@ public class EnemyRun : MonoBehaviour
     public GameObject Knight;
     public GameObject Pikeman;
     public GameObject Axeman;
-
+    public TowerShooting towerShooting;
     private void Start()
     {
         switch (transform.tag)
@@ -80,6 +80,8 @@ public class EnemyRun : MonoBehaviour
         if (other.gameObject.layer == 14)
         {
             Destroy(gameObject);
+            other.gameObject.layer = 0;
+            
         }
     }
     public void InstantiateKnight()
