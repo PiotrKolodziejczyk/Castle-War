@@ -59,6 +59,7 @@ MonoBehaviour:
   Knight: {fileID: 189927999645413158}
   Pikeman: {fileID: 4707857149593935494, guid: 9bcd48383ee334249a87b7e670a2a221, type: 3}
   Axeman: {fileID: 2702233317404763939, guid: 30f75ef6f2541374c9b06ad8413cda7a, type: 3}
+  shooting: {fileID: 21483118606823547, guid: 53b2aef6b446ab944b57f328e5e623f7, type: 3}
 --- !u!1001 &189519537854672166
 PrefabInstance:
   m_ObjectHideFlags: 0
