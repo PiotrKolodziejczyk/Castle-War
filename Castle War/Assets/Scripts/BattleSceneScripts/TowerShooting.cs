@@ -38,7 +38,7 @@ public class TowerShooting : MonoBehaviour
         
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
 
         if (other.transform.gameObject.layer == 10 && time <= 0)
@@ -49,7 +49,7 @@ public class TowerShooting : MonoBehaviour
             }
             else
                 bulletList.Add(Shoot.gameObject);
-            time = 1;
+            time = 3;
             isShooting = true;
             transform.LookAt(other.transform);
             Shoot = Instantiate(bullet, transform.position, transform.rotation);

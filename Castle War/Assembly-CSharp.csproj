@@ -92,6 +92,7 @@
     <None Include="Assets\External Resources\Meshtint Free Barbarian\www.meshtint.com.txt" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\External Resources\Hex\Prefabs\horse\ReadMe.txt" />
     <None Include="Assets\External Resources\MedievalTownExteriors\Readme.txt" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\External Resources\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
