@@ -4,7 +4,9 @@ public class MapGenerator : MonoBehaviour
 {
     public GameObject prefab;
     public GameObject prefabSea;
+    public GameObject prefabSand;
     public GameObject prefabMountain;
+    public GameObject prefabCastle;
     public float positionX = 0;
     public float positionZ = 0;
     public float changeMove;
@@ -29,21 +31,34 @@ public class MapGenerator : MonoBehaviour
             {
                 if (j < 6 && j !=1)
                 {
-                    Instantiate(prefabSea, new Vector3(positionX, 0, positionZ), transform.rotation, transform);
+                    //Instantiate(prefabSea, new Vector3(positionX, 0, positionZ), transform.rotation, transform);
+                }
+                else if (j >= 6 && j < 8)
+                {
+                    //Instantiate(prefabSand, new Vector3(positionX, 0, positionZ), transform.rotation, transform);
                 }
                 else if (j > Y - 4)
                 {
-                    Instantiate(prefabMountain, new Vector3(positionX, 0, positionZ), transform.rotation, transform);
+                    //Instantiate(prefabMountain, new Vector3(positionX, 0, positionZ), transform.rotation, transform);
                 }
                 else if ( i > X - 7 || i < 7)
                 {
-                    prefab.GetComponent<SphereCollider>().enabled = false;
-                    Instantiate(prefab, new Vector3(positionX, 0, positionZ), transform.rotation, transform);
+                    //prefab.transform.gameObject.layer = 4;
+                    //prefab.GetComponentsInChildren<Transform>()[0].gameObject.layer = 4;
+                    //prefab.GetComponentsInChildren<Transform>()[1].gameObject.layer = 4;
+                    //Instantiate(prefab, new Vector3(positionX, 0, positionZ), transform.rotation, transform);
                 }
                 else
                 {
-                    prefab.GetComponent<SphereCollider>().enabled = true;
-                    Instantiate(prefab, new Vector3(positionX, 0, positionZ), transform.rotation, transform);
+                    //prefab.gameObject.layer = 15;
+                    //prefab.GetComponentsInChildren<Transform>()[0].gameObject.layer = 15;
+                    //prefab.GetComponentsInChildren<Transform>()[1].gameObject.layer = 15;
+                    //Instantiate(prefab, new Vector3(positionX, 0, positionZ), transform.rotation, transform);
+                    if(i>10&& j>10 && Random.Range(0, 50) == Random.Range(0, 50))
+                    {
+                        Instantiate(prefabCastle, new Vector3(positionX, 0.1f, positionZ), transform.rotation, transform);
+                    }
+
                 }
 
                 positionX += changeMove;

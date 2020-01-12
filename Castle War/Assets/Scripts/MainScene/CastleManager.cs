@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CastleManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject player;
+    
     bool isPlayerHere;
     
     private void OnMouseDown()
