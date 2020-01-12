@@ -4,33 +4,43 @@ public class UnitManager : MonoBehaviour
 {
 
     RaycastHit hit = new RaycastHit();
+    RaycastHit hit1 = new RaycastHit();
+
     float distance;
     bool isMove = false;
     float startTime;
     float fractionOfJourney;
     float distCovered;
     bool isHit = false;
-    Vector3 target;
+    public Camera cam;
+    public float x;
+    public float y;
+    public float z;
+    Ray ray;
     private void Start()
     {
         
     }
     private void Update()
     {
-        
-        if (Input.GetMouseButtonDown(0))
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Physics.Raycast(ray, out hit1);
+        cam.transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z + z);
+        if (Input.GetMouseButtonDown(0)&&hit1.transform.gameObject.layer==15)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out hit);
             isHit = true;
-            
+            var tmpPosition = new Vector3(hit.transform.position.x, 0.334f, hit.transform.position.z);
+            if (hit.transform.position != transform.position)
+                transform.LookAt(tmpPosition);
             distance = Vector3.Distance(transform.position, hit.transform.position);
             distCovered = Time.deltaTime;
             isMove = true;
             
 
         }
-        if (isHit &&isMove&& hit.transform.gameObject.layer == 15)
+        if (isHit &&isMove&&hit.transform.gameObject.layer==15)
         {
             Move();
         }
