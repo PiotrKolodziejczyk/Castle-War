@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1793505038001098041, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.02
-      objectReference: {fileID: 0}
     - target: {fileID: 1000010732113744, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_Name
       value: TowerC
@@ -23,28 +18,6 @@ PrefabInstance:
     - target: {fileID: 1000010732113744, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_Layer
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: -3153717692756402526, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: towerPrefab1
-      value: 
-      objectReference: {fileID: 4948124129139318124, guid: 5cfe4d0e13088d8439c2edd95370bd3e,
-        type: 3}
-    - target: {fileID: -3153717692756402526, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: towerPrefab
-      value: 
-      objectReference: {fileID: 21483118606823547, guid: 53b2aef6b446ab944b57f328e5e623f7,
-        type: 3}
-    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000011389478184, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_LocalPosition.x
@@ -90,6 +63,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1793505038001098041, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012615257816, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012456333538, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011371630728, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094277401534487996, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: -8820112522143258240, guid: 802986766a97b4a108b97eb5fdf6e02f,
+        type: 3}
+    - target: {fileID: -3153717692756402526, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: towerPrefab1
+      value: 
+      objectReference: {fileID: 4948124129139318124, guid: 5cfe4d0e13088d8439c2edd95370bd3e,
+        type: 3}
+    - target: {fileID: -3153717692756402526, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: towerPrefab
+      value: 
+      objectReference: {fileID: 21483118606823547, guid: 53b2aef6b446ab944b57f328e5e623f7,
+        type: 3}
+    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -6699202127024825094, guid: 94cd86138d9233a4f8d62276eb74c283,
         type: 3}
       propertyPath: m_Size.y
@@ -99,18 +117,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 1.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012456333538, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012615257816, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011371630728, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95000012566726364, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}

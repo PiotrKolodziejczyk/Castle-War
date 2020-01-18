@@ -145,6 +145,7 @@ MonoBehaviour:
   towerPrefab2: {fileID: 6705958242568105704, guid: 43fd6a89e2b85d245a5b1f78b48990d2,
     type: 3}
   hitColliders: []
+  texture1: {fileID: 0}
 --- !u!1 &8673517096114602638
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,5 +203,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ff35b3f7a2766408236285339780b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1839963357344056178, guid: f3729265360c1794ba5cae3276351026, type: 3}
+  bullet: {fileID: -8820112522143258240, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
   bulletList: []

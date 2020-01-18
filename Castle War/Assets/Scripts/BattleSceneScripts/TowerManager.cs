@@ -16,9 +16,10 @@ public class TowerManager : MonoBehaviour
     float y;
     SphereCollider sphere;
     BoxCollider box;
-
+    public Texture2D texture1;
     private void Awake()
     {
+        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
         regex = new Regex(@"Tower[ABC]\(Clone\)");
         if (transform.name == "TowerManagerGameObject")
         {
@@ -62,6 +63,7 @@ public class TowerManager : MonoBehaviour
         }
         isDraggingTower = false;
         Cursor.visible = true;
+        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
         if (tower.gameObject.tag == "Zero")
             tower.GetComponent<BoxCollider>().size = new Vector3(15, 2, 15);
         else
