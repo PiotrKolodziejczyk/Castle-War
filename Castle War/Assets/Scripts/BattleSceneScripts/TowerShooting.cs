@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class TowerShooting : MonoBehaviour
@@ -11,12 +10,12 @@ public class TowerShooting : MonoBehaviour
     public List<GameObject> bulletList = new List<GameObject>();
     float cleaner = 10;
     Rigidbody Shoot = null;
-    
+
     private void Update()
     {
         if (isShooting)
-        {         
-            time -= Time.deltaTime;      
+        {
+            time -= Time.deltaTime;
         }
         cleaner -= Time.deltaTime;
         if (cleaner <= 0)
@@ -35,7 +34,7 @@ public class TowerShooting : MonoBehaviour
 
             bulletList.Clear();
         }
-        
+
 
     }
     private void OnTriggerStay(Collider other)
@@ -54,10 +53,10 @@ public class TowerShooting : MonoBehaviour
             transform.LookAt(other.transform);
             Shoot = Instantiate(bullet, transform.position, transform.rotation);
             Shoot.AddRelativeForce(Vector3.forward * 350, ForceMode.Impulse);
-            
+
         }
 
     }
-  
+
 }
 
