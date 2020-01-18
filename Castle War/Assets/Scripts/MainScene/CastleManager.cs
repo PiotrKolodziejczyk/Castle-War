@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class CastleManager : MonoBehaviour
 {
-    
-    bool isPlayerHere;
     public Texture2D texture;
     public Texture2D texture1;
+    bool isPlayerHere;
 
     private void Awake()
     {
         Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
     }
+
     private void OnMouseDown()
     {
         
@@ -26,6 +26,7 @@ public class CastleManager : MonoBehaviour
             SceneManager.LoadScene("BattleScene");
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
@@ -33,6 +34,7 @@ public class CastleManager : MonoBehaviour
             isPlayerHere = true;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Player")
@@ -40,10 +42,12 @@ public class CastleManager : MonoBehaviour
             isPlayerHere = false;
         }
     }
+
     private void OnMouseEnter()
     {
         Cursor.SetCursor(texture, Vector2.zero, CursorMode.ForceSoftware);
     }
+
     private void OnMouseExit()
     {
         Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);

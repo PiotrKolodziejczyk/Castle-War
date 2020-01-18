@@ -6,17 +6,18 @@ public class TowerManager : MonoBehaviour
     public GameObject towerPrefab;
     public GameObject towerPrefab1;
     public GameObject towerPrefab2;
-    GameObject tower;
-    bool isDraggingTower = false;
-    internal bool building;
-    MeshRenderer[] meshes;
-    internal bool mightBuilding = true;
+    public Texture2D texture1;
     public Collider[] hitColliders;
-    Regex regex;
-    float y;
+    GameObject tower;
+    MeshRenderer[] meshes;
     SphereCollider sphere;
     BoxCollider box;
-    public Texture2D texture1;
+    Regex regex;
+    internal bool building;
+    internal bool mightBuilding = true;
+    bool isDraggingTower = false;
+    float y;
+
     private void Awake()
     {
         Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
@@ -45,7 +46,7 @@ public class TowerManager : MonoBehaviour
                 meshList[i].material.color = Color.white;
             }
         }
-        else if (regex.IsMatch(GetComponent<TowerManager>().name)&&gameObject.layer == 11)
+        else if (regex.IsMatch(GetComponent<TowerManager>().name) && gameObject.layer == 11)
         {
             var meshList = GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
@@ -83,7 +84,7 @@ public class TowerManager : MonoBehaviour
     public void InstantiateTowerB()
     {
         y = 12;
-        tower = Instantiate(towerPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        tower = Instantiate(towerPrefab, Vector3.zero, new Quaternion(0, 0, 0, 0));
         isDraggingTower = true;
         Cursor.visible = false;
         for (int i = 0; i < meshes.Length; i++)
@@ -94,7 +95,7 @@ public class TowerManager : MonoBehaviour
     public void InstantiateTowerA()
     {
         y = 16;
-        tower = Instantiate(towerPrefab1, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        tower = Instantiate(towerPrefab1, Vector3.zero, new Quaternion(0, 0, 0, 0));
         isDraggingTower = true;
         Cursor.visible = false;
         for (int i = 0; i < meshes.Length; i++)
@@ -105,7 +106,7 @@ public class TowerManager : MonoBehaviour
     public void InstantiateTowerC()
     {
         y = 0;
-        tower = Instantiate(towerPrefab2, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        tower = Instantiate(towerPrefab2, Vector3.zero, new Quaternion(0, 0, 0, 0));
         isDraggingTower = true;
         Cursor.visible = false;
         for (int i = 0; i < meshes.Length; i++)
