@@ -16,7 +16,6 @@ public class MapGenerator : MonoBehaviour
     int X = 50;
     int Y = 50;
     
-
     private void Update()
     {
         if (genX)
@@ -58,11 +57,8 @@ public class MapGenerator : MonoBehaviour
                     {
                         Instantiate(prefabCastle, new Vector3(positionX, 0.1f, positionZ), transform.rotation, transform);
                     }
-
                 }
-
                 positionX += changeMove;
-
             }
             if (j % 2 != 0)
             {
@@ -76,13 +72,11 @@ public class MapGenerator : MonoBehaviour
                     positionZ = changePositionZ * j;
                     positionX = changePositionX;
                 }
-
             }
             else
             {
                 positionX = 0;
                 positionZ = changePositionZ * j;
-
             }
         }
         genX = false;

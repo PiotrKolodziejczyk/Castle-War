@@ -4,12 +4,12 @@ using UnityEngine;
 public class TowerShooting : MonoBehaviour
 {
     public Rigidbody bullet;
-    private float time = 0;
-    private bool isShooting = false;
-    private readonly float timetest = 0;
-    public List<GameObject> bulletList = new List<GameObject>();
-    float cleaner = 10;
     Rigidbody Shoot = null;
+    public List<GameObject> bulletList = new List<GameObject>();
+    float time = 0;
+    bool isShooting = false;
+    float timetest = 0;
+    float cleaner = 10;
 
     private void Update()
     {
@@ -17,6 +17,11 @@ public class TowerShooting : MonoBehaviour
         {
             time -= Time.deltaTime;
         }
+        BulletCleaner();
+    }
+
+    private void BulletCleaner()
+    {
         cleaner -= Time.deltaTime;
         if (cleaner <= 0)
         {
@@ -28,24 +33,16 @@ public class TowerShooting : MonoBehaviour
                 }
                 else
                     Destroy(item);
-
-
             }
-
             bulletList.Clear();
         }
-
-
     }
+
     private void OnTriggerStay(Collider other)
     {
-
         if (other.transform.gameObject.layer == 10 && time <= 0)
         {
-            if (Shoot is null)
-            {
-
-            }
+            if (Shoot is null) { }
             else
                 bulletList.Add(Shoot.gameObject);
             time = 3;
@@ -53,10 +50,7 @@ public class TowerShooting : MonoBehaviour
             transform.LookAt(other.transform);
             Shoot = Instantiate(bullet, transform.position, transform.rotation);
             Shoot.AddRelativeForce(Vector3.forward * 350, ForceMode.Impulse);
-
         }
-
     }
-
 }
 

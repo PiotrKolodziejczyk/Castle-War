@@ -12,6 +12,11 @@ public class EnemyRun : MonoBehaviour
     public TowerShooting towerShooting;
     private void Start()
     {
+        ChooseUnit();
+    }
+
+    private void ChooseUnit()
+    {
         switch (transform.tag)
         {
             case "Knight":
@@ -31,14 +36,25 @@ public class EnemyRun : MonoBehaviour
                 }
         }
     }
+
     private void Update()
     {
-        transform.position = new Vector3(transform.position.x + (cur + curMinus * Time.deltaTime), 0, transform.position.z + (forward + forwardMinus * Time.deltaTime));
-
-
+        transform.position = new Vector3(transform.position.x + (cur + curMinus * Time.deltaTime), 0,
+                                         transform.position.z + (forward + forwardMinus * Time.deltaTime));
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        ChangeRunDirection(other);
+
+        if (other.gameObject.layer == 14)
+        {
+            Destroy(gameObject);
+            other.gameObject.layer = 0;
+        }
+    }
+
+    private void ChangeRunDirection(Collider other)
     {
         if (other.name == "ChangeFor")
         {
@@ -55,7 +71,6 @@ public class EnemyRun : MonoBehaviour
             cur = 0.5f;
             curMinus = 0;
             transform.rotation = Quaternion.Euler(0, 90, 0);
-
         }
         if (other.name == "ChangeCurMinus")
         {
@@ -64,7 +79,6 @@ public class EnemyRun : MonoBehaviour
             cur = 0;
             curMinus = -15f;
             transform.rotation = Quaternion.Euler(0, -90, 0);
-
         }
         if (other.name == "ChangeForMinus")
         {
@@ -73,31 +87,20 @@ public class EnemyRun : MonoBehaviour
             cur = 0;
             curMinus = 0;
             transform.rotation = new Quaternion(0, 0, 0, 0);
-
-
-        }
-
-        if (other.gameObject.layer == 14)
-        {
-            Destroy(gameObject);
-            other.gameObject.layer = 0;
-            
         }
     }
+
     public void InstantiateKnight()
     {
         Instantiate(Knight, new Vector3(-30.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
-
     }
     public void InstantiatePikeman()
     {
         Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
-
     }
     public void InstantiateAxeman()
     {
         Instantiate(Axeman, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
-
     }
 
 

@@ -34,7 +34,6 @@ public class TowerManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && tower.GetComponent<TowerManager>().building && tower.GetComponent<TowerManager>().mightBuilding)
             {
                 StopDragging();
-
             }
         }
         if (GetComponent<TowerManager>().building && GetComponent<TowerManager>().mightBuilding && regex.IsMatch(GetComponent<TowerManager>().name) && gameObject.layer == 11)
@@ -125,7 +124,6 @@ public class TowerManager : MonoBehaviour
         if (other.gameObject.name == "Tower" && regex.IsMatch(GetComponent<TowerManager>().name) && other.gameObject.layer == 12)
         {
             GetComponent<TowerManager>().mightBuilding = false;
-           
         }
     }
 
@@ -134,7 +132,6 @@ public class TowerManager : MonoBehaviour
         if (other.gameObject.name == "Tower" && other.gameObject.layer == 12)
         {
             GetComponent<TowerManager>().mightBuilding = true;
-            
         }
     }
 }
