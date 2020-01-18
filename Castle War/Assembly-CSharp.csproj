@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\MainScene\CastleManager.cs" />
     <Compile Include="Assets\Scripts\MainScene\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\MainScene\UnitManager.cs" />
+    <Compile Include="Assets\Scripts\MenuScene\LoadScene.cs" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\External Resources\Meshtint Free Barbarian\www.meshtint.com.txt" />
