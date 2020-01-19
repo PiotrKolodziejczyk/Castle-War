@@ -15,7 +15,8 @@ public class UnitManager : MonoBehaviour
     public float y;
     public float z;
     public bool isMove = false;
-  
+    
+
     private void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -50,7 +51,7 @@ public class UnitManager : MonoBehaviour
 
     private void Move()
     {
-        if (Vector3.Distance(hit.transform.position, transform.position) > 0.335 && !map.isEnabled)
+        if (Vector3.Distance(hit.transform.position,transform.position) > 0.335 && !map.isEnabled)
         {
             distCovered += Time.deltaTime * 0.03f;
             fractionOfJourney = distCovered / distance;
@@ -59,7 +60,7 @@ public class UnitManager : MonoBehaviour
                                    fractionOfJourney);
         }
 
-        if(Vector3.Distance(hit.transform.position, transform.position) < 0.335)
+        if(Vector3.Distance(hit.transform.position,transform.position) < 0.335)
         {
             map.isMove = false;
             isMove = false;
