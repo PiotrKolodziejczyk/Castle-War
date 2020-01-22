@@ -15,7 +15,9 @@ public class UnitManager : MonoBehaviour
     public float y;
     public float z;
     public bool isMove = false;
-    
+    public Animator animator;
+    public AudioSource audioSource;
+
 
     private void Update()
     {
@@ -23,22 +25,30 @@ public class UnitManager : MonoBehaviour
         Physics.Raycast(ray, out hit1);
         cam.transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z + z);
 
-        if (Input.GetMouseButtonDown(0)&&hit1.transform.gameObject.layer==15 && !map.isEnabled)
+
+        if (Input.GetMouseButtonDown(0) && hit1.transform.gameObject.layer == 15 && !map.isEnabled)
         {
+            animator.SetBool("isRun", true);
+            audioSource.Play();
             ShotRayAndAcceptMove();
         }
 
-        if (isMove&&hit.transform.gameObject.layer==15)
+        if (isMove && hit.transform.gameObject.layer == 15)
         {
-            Move();     
+            Move();
+     
+
         }
+        
     }
 
     private void ShotRayAndAcceptMove()
     {
+
+        
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hit);
-        var tmpPosition = new Vector3(hit.transform.position.x, 0.334f, hit.transform.position.z);
+        var tmpPosition = new Vector3(hit.transform.position.x, 0, hit.transform.position.z);
 
         if (hit.transform.position != transform.position)
             transform.LookAt(tmpPosition);
@@ -51,19 +61,21 @@ public class UnitManager : MonoBehaviour
 
     private void Move()
     {
-        if (Vector3.Distance(hit.transform.position,transform.position) > 0.335 && !map.isEnabled)
+        if (Vector3.Distance(hit.transform.position, transform.position) > 0.1f && !map.isEnabled)
         {
             distCovered += Time.deltaTime * 0.03f;
             fractionOfJourney = distCovered / distance;
             transform.position = Vector3.Lerp(transform.position,
-                               new Vector3(hit.transform.position.x, 0.334f, hit.transform.position.z),
+                               new Vector3(hit.transform.position.x, 0.1f, hit.transform.position.z),
                                    fractionOfJourney);
         }
 
-        if(Vector3.Distance(hit.transform.position,transform.position) < 0.335)
+        if (Vector3.Distance(hit.transform.position, transform.position) < 0.2f)
         {
             map.isMove = false;
             isMove = false;
+            animator.SetBool("isRun", false);
+            audioSource.Stop();
         }
     }
 }
