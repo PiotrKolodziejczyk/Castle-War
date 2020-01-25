@@ -85,10 +85,15 @@
     <Compile Include="Assets\Scripts\CastleScene\RawMaterials\Stone.cs" />
     <Compile Include="Assets\Scripts\CastleScene\RawMaterials\Wood.cs" />
     <Compile Include="Assets\Scripts\MainScene\Castle.cs" />
+    <Compile Include="Assets\Scripts\MainScene\CastleData.cs" />
     <Compile Include="Assets\Scripts\MainScene\CastleManager.cs" />
     <Compile Include="Assets\Scripts\MainScene\DisableMove.cs" />
+    <Compile Include="Assets\Scripts\MainScene\EnemyCastle.cs" />
+    <Compile Include="Assets\Scripts\MainScene\Global.cs" />
     <Compile Include="Assets\Scripts\MainScene\Map.cs" />
     <Compile Include="Assets\Scripts\MainScene\MapGenerator.cs" />
+    <Compile Include="Assets\Scripts\MainScene\PlayerCastle.cs" />
+    <Compile Include="Assets\Scripts\MainScene\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\MainScene\UnitManager.cs" />
     <Compile Include="Assets\Scripts\MenuScene\LoadScene.cs" />
     <Compile Include="Assets\SeaSounds.cs" />

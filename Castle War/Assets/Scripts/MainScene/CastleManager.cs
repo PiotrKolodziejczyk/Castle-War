@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CastleManager : MonoBehaviour
 {
+    public int id;
     public Texture2D texture;
     public Texture2D texture1;
     bool isPlayerHere;
@@ -16,12 +15,14 @@ public class CastleManager : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
+
         if (isPlayerHere && gameObject.layer == 9)
         {
+            Global.currentCastle = id;
             SceneManager.LoadScene("CastleScene");
+            
         }
-        else if(isPlayerHere && gameObject.layer == 8)
+        else if (isPlayerHere && gameObject.layer == 8)
         {
             SceneManager.LoadScene("BattleScene");
         }

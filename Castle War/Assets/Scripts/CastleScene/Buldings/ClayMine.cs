@@ -11,61 +11,61 @@ using UnityEngine;
 
 namespace Assets.Scripts.Buldings
 {
-    class ClayMine : Building
+    public class ClayMine : Building
     {
         
-        float currCountdownValue;
-        float buildCourotine = 3;
-        int woodToUpgradeLvl = 2;
-        int stoneToUpgradeLvl = 2;
-        int clayToUpgradeLvl = 2;
-        public GameObject clayMineButton;
-        private void Start()
-        {
+    //    float currCountdownValue;
+    //    float buildCourotine = 3;
+    //    int woodToUpgradeLvl = 2;
+    //    int stoneToUpgradeLvl = 2;
+    //    int clayToUpgradeLvl = 2;
+    //    public GameObject clayMineButton;
+    //    private void Start()
+    //    {
            
-            StartCoroutine(CollectClayCourotine(timeToCollectClay));
+    //        StartCoroutine(CollectClayCourotine(timeToCollectClay));
             
-        }
+    //    }
        
-        void GetClay()
-        {
-            clayText.text = "Clay : " + claySingleton.Quantity++;
-        }
-        public IEnumerator CollectClayCourotine(float timeToUpgradeLevel)
-        {
+    //    void GetClay()
+    //    {
+    //        clayText.text = "Clay : " + claySingleton.Quantity++;
+    //    }
+    //    public IEnumerator CollectClayCourotine(float timeToUpgradeLevel)
+    //    {
             
-            currCountdownValue = timeToUpgradeLevel;
-            while (currCountdownValue > 0)
-            {
+    //        currCountdownValue = timeToUpgradeLevel;
+    //        while (currCountdownValue > 0)
+    //        {
 
-                yield return new WaitForSeconds(1.0f);
-                currCountdownValue--;
+    //            yield return new WaitForSeconds(1.0f);
+    //            currCountdownValue--;
 
-            }
-            GetClay();
-            StartCoroutine(CollectClayCourotine(timeToCollectClay));
+    //        }
+    //        GetClay();
+    //        StartCoroutine(CollectClayCourotine(timeToCollectClay));
 
-        }
-        public void Build()
-        {
-            clayMineButton.SetActive(false);
-            isClayMineBuilding = true;
-            Build(buildCourotine, Material.ClayMine,clayMineLevel);
-            woodSingleton.Quantity -= woodToUpgradeLvl;
-            claySingleton.Quantity -= clayToUpgradeLvl;
-            stoneSingleton.Quantity -= stoneToUpgradeLvl;
-        }
-        private void OnMouseDown()
-        {
-            if (!isClayMineBuilding && woodSingleton.Quantity >= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
-                clayMineButton.SetActive(true);
-            buildPanelManager.titleText.text = "Clay Mine";
-            buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";
-            buildPanelManager.levelText.text = "Level " + clayMineLevel;
-            buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
-            buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;
-            buildPanelManager.clayText.text = "Clay : " + clayToUpgradeLvl;
-            StartPanel();
-        }
+    //    }
+    //    public void Build()
+    //    {
+    //        clayMineButton.SetActive(false);
+    //        isClayMineBuilding = true;
+    //        Build(buildCourotine, Material.ClayMine,clayMineLevel);
+    //        woodSingleton.Quantity -= woodToUpgradeLvl;
+    //        claySingleton.Quantity -= clayToUpgradeLvl;
+    //        stoneSingleton.Quantity -= stoneToUpgradeLvl;
+    //    }
+    //    private void OnMouseDown()
+    //    {
+    //        if (!isClayMineBuilding && woodSingleton.Quantity >= woodToUpgradeLvl && claySingleton.Quantity >= clayToUpgradeLvl && stoneSingleton.Quantity >= stoneToUpgradeLvl)
+    //            clayMineButton.SetActive(true);
+    //        buildPanelManager.titleText.text = "Clay Mine";
+    //        buildPanelManager.timeText.text = $"00:00:0{buildCourotine}";
+    //        buildPanelManager.levelText.text = "Level " + clayMineLevel;
+    //        buildPanelManager.woodText.text = "Wood : " + woodToUpgradeLvl;
+    //        buildPanelManager.stoneText.text = "Stone : " + stoneToUpgradeLvl;
+    //        buildPanelManager.clayText.text = "Clay : " + clayToUpgradeLvl;
+    //        StartPanel();
+    //    }
     }
 }

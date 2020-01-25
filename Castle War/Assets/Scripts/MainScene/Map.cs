@@ -23,7 +23,6 @@ public class Map : MonoBehaviour
                 cam.enabled = false;
                 isEnabled = false;
             }
-                
         }
     }
 }

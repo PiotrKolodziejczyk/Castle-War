@@ -1,10 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 
-public abstract class RawMaterial
+public abstract class RawMaterial : MonoBehaviour
 {
-    
+    public int quantity;
 
-    public abstract int Quantity { get; set; }
+    public TextMeshProUGUI text;
+
+    public static string SeText(string name, int quantity)
+    {
+        return $"{name} : {quantity}";
+    }
 }

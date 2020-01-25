@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Audio;
+﻿using UnityEngine;
 
 public class SeaSounds : MonoBehaviour
 {
@@ -9,8 +6,8 @@ public class SeaSounds : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="Player")
-        audio.Play();
+        if (other.tag == "Player")
+            audio.Play();
     }
     private void OnTriggerExit(Collider other)
     {
