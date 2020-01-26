@@ -59,6 +59,22 @@ MonoBehaviour:
   Knight: {fileID: 189927999645413158, guid: 6c394599273c94742b1b39b1d517e954, type: 3}
   Pikeman: {fileID: 4707857149593935494, guid: 9bcd48383ee334249a87b7e670a2a221, type: 3}
   Axeman: {fileID: 2702233317404763939}
+  towerShooting: {fileID: 0}
+--- !u!114 &-3882635169125909443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2702233317404763939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bcd7d4be1598e48861c32839dfea97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helath: 150
+  armor: 50
+  speed: 1.5
 --- !u!1001 &2703985971013534789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,7 +84,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1757056487138150, guid: a4ad2e271986468428a4ce6a219fba12, type: 3}
       propertyPath: m_Name
-      value: Meshtint Barbarian Gold Variant
+      value: BattleSceneWarrior
       objectReference: {fileID: 0}
     - target: {fileID: 1757056487138150, guid: a4ad2e271986468428a4ce6a219fba12, type: 3}
       propertyPath: m_Layer

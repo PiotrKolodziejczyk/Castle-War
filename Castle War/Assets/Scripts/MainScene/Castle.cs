@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Castle : MonoBehaviour
 {
     float time = 20;
+    [SerializeField]
     internal int id;
     internal Barrack barrack;
     internal ClayMine clayMine;
