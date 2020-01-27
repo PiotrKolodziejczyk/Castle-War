@@ -1,19 +1,68 @@
-﻿using Assets.Scripts;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using System.Linq;
 using UnityEngine.UI;
-using Assets.Scripts.Buldings;
 
 public abstract class Building : MonoBehaviour
 {
     public short level;
     public TextMeshProUGUI text;
-    public static string SetText(string name,int lvl)
+    protected GameObject panel;
+    BuildingType type;
+
+    private void Awake()
+    {
+        type = SetBuildingType(name);
+        panel = RunAppropriatePanel(type);
+    }
+    private void Start()
+    {
+        panel.SetActive(false);
+    }
+    public static string SetText(string name, int lvl)
     {
         return $"{name} {lvl} Level";
+    }
+    public GameObject RunAppropriatePanel(BuildingType building)
+    {
+        switch (building)
+        {
+            case BuildingType.Barrack:
+            case BuildingType.Smithy:
+            case BuildingType.TowerWorkshop:
+                return GameObject.FindGameObjectWithTag(building + "Panel");
+            default:
+                return GameObject.FindGameObjectWithTag("Panel");
+        }
+    }
+    public BuildingType SetBuildingType(string name)
+    {
+        switch (name)
+        {
+            case "Barrack":
+                return BuildingType.Barrack;
+            case "TowerWorkshop":
+                return BuildingType.TowerWorkshop;
+            case "Smithy":
+                return BuildingType.Smithy;
+            default:
+                return BuildingType.None;
+        }
+    }
+    private void OnMouseDown()
+    {
+        
+        foreach (Text text in panel.GetComponentsInChildren<Text>())
+        {
+            if (text.name == "Title")
+            {
+                text.text = name;
+            }
+        }
+        panel.SetActive(true);
+    }
+    public void BuildPanelExit()
+    {
+        panel.SetActive(false);
     }
     //[SerializeField]
     //private Canvas canvas;
@@ -179,15 +228,16 @@ public abstract class Building : MonoBehaviour
     //    }
 
     //}
-    //public enum Material
-    //{
-    //    Sawmill,
-    //    Quarry,
-    //    ClayMine,
-    //    Smithy,
-    //    TownHall,
-    //    Wall,
-    //    Barrack,
-    //    TowerWorkshop
-
+    public enum BuildingType
+    {
+        None,
+        Sawmill,
+        Quarry,
+        ClayMine,
+        Smithy,
+        TownHall,
+        Wall,
+        Barrack,
+        TowerWorkshop
+    }
 }

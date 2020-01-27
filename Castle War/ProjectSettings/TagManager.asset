@@ -13,6 +13,11 @@ TagManager:
   - BuldingPlace
   - TowerB
   - Zero
+  - BuildPanel
+  - Panel
+  - TowerWorkshopPanel
+  - BarrackPanel
+  - SmithyPanel
   layers:
   - Default
   - TransparentFX

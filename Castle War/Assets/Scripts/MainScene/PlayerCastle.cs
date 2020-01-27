@@ -27,17 +27,17 @@ public class PlayerCastle : Castle
 
     private void InitializeBuildingsAndRawMaterials(CastleData castle)
     {
-        sawmill = GetComponent<Sawmill>();
-        clayMine = GetComponent<ClayMine>();
-        quarry = GetComponent<Quarry>();
-        townHall = GetComponent<TownHall>();
-        barrack = GetComponent<Barrack>();
-        towerWorkShop = GetComponent<TowerWorkShop>();
-        smithy = GetComponent<Smithy>();
-        wall = GetComponent<Wall>();
-        clay = GetComponent<Clay>();
-        stone = GetComponent<Stone>();
-        wood = GetComponent<Wood>();
+        sawmill = GetComponentInChildren<Sawmill>();
+        clayMine = GetComponentInChildren<ClayMine>();
+        quarry = GetComponentInChildren<Quarry>();
+        townHall = GetComponentInChildren<TownHall>();
+        barrack = GetComponentInChildren<Barrack>();
+        towerWorkShop = GetComponentInChildren<TowerWorkShop>();
+        smithy = GetComponentInChildren<Smithy>();
+        wall = GetComponentInChildren<Wall>();
+        clay = GetComponentInChildren<Clay>();
+        stone = GetComponentInChildren<Stone>();
+        wood = GetComponentInChildren<Wood>();
         id = castle.id;
         sawmill.level = castle.sawmillLevel;
         clayMine.level = castle.clayMineLevel;
