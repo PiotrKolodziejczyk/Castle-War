@@ -64,18 +64,7 @@ public abstract class Building : MonoBehaviour
     {
         panel.SetActive(false);
     }
-    //[SerializeField]
-    //private Canvas canvas;
-    //public TextMeshProUGUI[] textMeshProUGUIList;
-    //protected Stone stoneSingleton;
-    //protected Clay claySingleton;
-    //protected Wood woodSingleton;
-    //protected TextMeshProUGUI clayText;
-    //protected TextMeshProUGUI stoneText;
-    //protected TextMeshProUGUI woodText;
-    //protected int timeToCollectStone = 2;
-    //protected int timeToCollectClay = 2;
-    //protected int timeToCollectWood = 2;
+
     //protected short sawmillLevel = 1;
     //protected short quarryLevel = 1;
     //protected short clayMineLevel = 1;
@@ -84,12 +73,7 @@ public abstract class Building : MonoBehaviour
     //protected short smithyLevel = 1;
     //protected short barrackLevel = 1;
     //protected short towerWorkshopLevel = 1;
-    //public BuildingColliderGetList buildingColliderGetList;
     //protected TextMeshProUGUI textLvl;
-    //[SerializeField]
-    //protected GameObject panel;
-    //[SerializeField]
-    //protected BuildPanelManager buildPanelManager;
     //protected bool isWallBuilding = false;
     //protected bool isClayMineBuilding = false;
     //protected bool isBarrackBuilding = false;
@@ -98,16 +82,7 @@ public abstract class Building : MonoBehaviour
     //protected bool isTowerWorkshopBuilding = false;
     //protected bool isTownHallBuilding = false;
     //protected bool isQuarryBuilding = false;
-    //    private void Awake()
-    //    {
-    //        //woodSingleton = Wood.GetWood;
-    //        //claySingleton = Clay.GetClay;
-    //        //stoneSingleton = Stone.GetStone;
-    //        textMeshProUGUIList = canvas.GetComponentsInChildren<TextMeshProUGUI>();
-    //        woodText = textMeshProUGUIList.Where(x => x.name == "WoodText").First();
-    //        stoneText = textMeshProUGUIList.Where(x => x.name == "StoneText").First();
-    //        clayText = textMeshProUGUIList.Where(x => x.name == "ClayText").First();
-    //    }
+  
 
     //    protected void Build(float buildCourotine, Material material, int buildingLvl)
     //    {
@@ -200,32 +175,8 @@ public abstract class Building : MonoBehaviour
     //                }
     //        }
     //    }
-    //    public void ExitPanel()
-    //    {
-    //        panel.SetActive(false);
-    //        for (int i = 0; i < buildPanelManager.canTexts.Count; i++)
-    //        {
-    //            buildPanelManager.canTexts[i].enabled = true;
-    //        }
-    //        for (int i = 0; i < buildingColliderGetList.listBulding.Count; i++)
-    //        {
-    //            buildingColliderGetList.listBulding[i].enabled = true;
-    //        }
-    //    }
-    //    public void StartPanel()
-    //    {
+  
 
-    //        panel.SetActive(true);
-    //        for (int i = 0; i < buildPanelManager.canTexts.Count; i++)
-    //        {
-    //            buildPanelManager.canTexts[i].enabled = false;
-
-    //        }
-    //        for (int i = 0; i < buildingColliderGetList.listBulding.Count; i++)
-    //        {
-    //            buildingColliderGetList.listBulding[i].enabled = false;
-    //        }
-    //    }
 
     //}
     public enum BuildingType

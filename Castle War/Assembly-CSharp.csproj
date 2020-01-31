@@ -77,10 +77,8 @@
     <Compile Include="Assets\Scripts\BattleSceneScripts\TriggersScript.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Warrior.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\WoodTower.cs" />
-    <Compile Include="Assets\Scripts\CastleScene\BuildingColliderGetList.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Barrack.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Building.cs" />
-    <Compile Include="Assets\Scripts\CastleScene\Buldings\BuildPanelManager.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\ClayMine.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Quarry.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Sawmill.cs" />
