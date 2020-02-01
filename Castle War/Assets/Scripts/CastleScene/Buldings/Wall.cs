@@ -1,10 +1,8 @@
-﻿using TMPro;
-using UnityEngine;
-
-namespace Assets.Scripts.Buldings
+﻿public class Wall : Building
 {
-    public class Wall : Building
+    private void Update()
     {
-     
+        Timer(wall);
     }
 }
+

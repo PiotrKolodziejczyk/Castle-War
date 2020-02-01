@@ -1,82 +1,128 @@
-﻿using Assets.Scripts.Buldings;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Building : MonoBehaviour
 {
+    #region Fields
     [SerializeField]
-    protected int level;
+    internal short level;
     [SerializeField]
     Button exitButton;
     [SerializeField]
     GameObject panel;
     [SerializeField]
+    Text title;
+    [SerializeField]
+    Text levelInPanel;
+    [SerializeField]
     Button buildButton;
     [SerializeField]
-    protected bool isBuild;
+    bool isBuild;
     [SerializeField]
-    protected float timeToUpgrade;
+    float timeToUpgrade;
     [SerializeField]
-    protected float startTimeToUpgrade;
-  
-    public void ExitPanel()
+    float startTimeToUpgrade;
+    [SerializeField]
+    Text time;
+    [SerializeField]
+    protected Barrack barrack;
+    [SerializeField]
+    protected ClayMine clayMine;
+    [SerializeField]
+    protected Quarry quarry;
+    [SerializeField]
+    protected Sawmill sawmill;
+    [SerializeField]
+    protected Smithy smithy;
+    [SerializeField]
+    protected TownHall townHall;
+    [SerializeField]
+    protected Wall wall;
+    [SerializeField]
+    protected TowerWorkShop towerWorkShop;
+    [SerializeField]
+    internal TextMeshProUGUI buildingText;
+    #endregion
+
+    #region Main Method
+    public void Build(Transform transform)
     {
-        panel.SetActive(false);
-        buildButton.onClick.RemoveAllListeners();
+        title.text = transform.name;
+        GetBuildingType(transform).isBuild = true;
     }
 
-    public void Build(Transform transform)
+    public void Timer(Building building)
+    {
+        if (building.isBuild)
+        {
+            building.timeToUpgrade -= Time.deltaTime;
+            time.text = building.timeToUpgrade.ToString();
+            if (building.timeToUpgrade < 0)
+            {
+                building.level++;
+                building.timeToUpgrade = building.startTimeToUpgrade;
+                time.text = building.timeToUpgrade.ToString();
+                building.isBuild = false;
+                levelInPanel.text = SetLevelText(building.level);
+                building.buildingText.text = SetText(building.name, building.level);
+            }
+        }
+    }
+
+    public Building GetBuildingType(Transform transform)
     {
         switch (transform.name)
         {
             case "Barrack":
-                Barrack component = transform.GetComponent<Barrack>();
-                component.isBuild = true;
-                break;
+                return barrack;
             case "ClayMine":
-                ClayMine claymine = transform.GetComponent<ClayMine>();
-                claymine.isBuild = true;
-                break;
+                return clayMine;
             case "Quarry":
-                transform.GetComponent<Quarry>().level++;
-                break;
+                return quarry;
             case "Sawmill":
-                transform.GetComponent<Sawmill>().level++;
-                break;
+                return sawmill;
             case "Smithy":
-                transform.GetComponent<Smithy>().level++;
-                break;
+                return smithy;
             case "TowerWorkshop":
-                transform.GetComponent<TowerWorkShop>().level++;
-                break;
+                return towerWorkShop;
             case "Wall":
-                transform.GetComponent<Wall>().level++;
-                break;
+                return wall;
             case "TownHall":
-                transform.GetComponent<TownHall>().level++;
-                break;
-        }
-    }
-   public void Timer(Building barrack)
-    {
-        if (barrack.isBuild)
-        {
-            barrack.timeToUpgrade -= Time.deltaTime;
-            if (barrack.timeToUpgrade < 0)
-            {
-                barrack.level++;
-                barrack.timeToUpgrade = barrack.startTimeToUpgrade;
-                barrack.isBuild = false;
-            }
+                return townHall;
+            default:
+                return null;
         }
     }
 
     private void OnMouseDown()
     {
+        Building building = GetBuildingType(transform);
         buildButton.onClick.AddListener(() => Build(transform));
+        title.text = transform.name;
+        levelInPanel.text = SetLevelText(building.level);
+        time.text = building.timeToUpgrade.ToString();
+        building.buildingText.text = SetText(building.name, building.level);
         panel.SetActive(true);
     }
+    #endregion
 
+    #region Additional Methods
+    public static string SetText(string name, short level)
+    {
+        return $"{name} {level} Level";
+    }
+
+    public string SetLevelText(short level)
+    {
+        return $"{level} Level";
+    }
+    public void ExitPanel()
+    {
+        panel.SetActive(false);
+        buildButton.onClick.RemoveAllListeners();
+    }
+    #endregion
 }
 
 

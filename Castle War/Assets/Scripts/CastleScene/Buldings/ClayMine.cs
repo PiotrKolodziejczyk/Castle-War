@@ -1,17 +1,7 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts.Buldings
+﻿public class ClayMine : Building
 {
-    public class ClayMine : Building
+    private void Update()
     {
-        ClayMine clayMine;
-        public void Start()
-        {
-            clayMine = GetComponent<ClayMine>();
-        }
-        private void Update()
-        {
-            Timer(clayMine);
-        }
+        Timer(clayMine);
     }
 }

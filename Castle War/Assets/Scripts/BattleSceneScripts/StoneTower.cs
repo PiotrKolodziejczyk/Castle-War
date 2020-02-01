@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class StoneTower : Tower
+﻿public class StoneTower : Tower
 {
     
 }

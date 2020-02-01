@@ -1,17 +1,8 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts.Buldings
+﻿public class Barrack : Building
 {
-    public class Barrack : Building
+    private void Update()
     {
-        Barrack barrack;
-        public void Start()
-        {
-            barrack = GetComponent<Barrack>();
-        }
-        private void Update()
-        {
-            Timer(barrack);
-        }
+        Timer(barrack);
     }
 }
+

@@ -1,10 +1,9 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public abstract class RawMaterial : MonoBehaviour
 {
-    public string name;
+    public string materialName;
     public int quantity;
     public int increaseQuantity;
     public TextMeshProUGUI text;

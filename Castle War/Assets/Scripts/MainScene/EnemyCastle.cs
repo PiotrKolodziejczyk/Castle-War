@@ -1,4 +1,2 @@
-﻿using UnityEngine;
-
-public class EnemyCastle : Castle { }
+﻿public class EnemyCastle : Castle { }
 

@@ -227,6 +227,8 @@ RectTransform:
   - {fileID: 1010203337}
   - {fileID: 1704684998}
   - {fileID: 1231304526}
+  - {fileID: 1349461937}
+  - {fileID: 622837304}
   m_Father: {fileID: 1649092087}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -686,7 +688,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -141, y: -109}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 108.4, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51721260
 MonoBehaviour:
@@ -1250,13 +1252,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7aba698deab6db469924b90ced33b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  exitButton: {fileID: 0}
-  panel: {fileID: 0}
-  buildButton: {fileID: 0}
+  level: 1
+  exitButton: {fileID: 1704684999}
+  panel: {fileID: 1649092086}
+  title: {fileID: 1231304527}
+  levelInPanel: {fileID: 1349461938}
+  buildButton: {fileID: 1010203338}
   isBuild: 0
-  timeToUpgrade: 0
-  startTimeToUpgrade: 0
+  timeToUpgrade: 5
+  startTimeToUpgrade: 5
+  time: {fileID: 622837305}
+  barrack: {fileID: 686979441}
+  clayMine: {fileID: 1462347465}
+  quarry: {fileID: 726066000}
+  sawmill: {fileID: 103880826}
+  smithy: {fileID: 2058039046}
+  townHall: {fileID: 720799651}
+  wall: {fileID: 1047183672}
+  towerWorkShop: {fileID: 162486062}
+  buildingText: {fileID: 803779387}
 --- !u!1 &126052078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,13 +1419,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dadb7a24025179488f1665a509c35b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  exitButton: {fileID: 0}
-  panel: {fileID: 0}
-  buildButton: {fileID: 0}
+  level: 1
+  exitButton: {fileID: 1704684999}
+  panel: {fileID: 1649092086}
+  title: {fileID: 1231304527}
+  levelInPanel: {fileID: 1349461938}
+  buildButton: {fileID: 1010203338}
   isBuild: 0
-  timeToUpgrade: 0
-  startTimeToUpgrade: 0
+  timeToUpgrade: 5
+  startTimeToUpgrade: 5
+  time: {fileID: 622837305}
+  barrack: {fileID: 686979441}
+  clayMine: {fileID: 1462347465}
+  quarry: {fileID: 726066000}
+  sawmill: {fileID: 103880826}
+  smithy: {fileID: 2058039046}
+  townHall: {fileID: 720799651}
+  wall: {fileID: 1047183672}
+  towerWorkShop: {fileID: 162486062}
+  buildingText: {fileID: 569959393}
 --- !u!1001 &175282786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2006,12 +2032,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  exitButton: {fileID: 0}
-  panel: {fileID: 0}
-  buildButton: {fileID: 0}
+  exitButton: {fileID: 1704684999}
+  panel: {fileID: 1649092086}
+  title: {fileID: 1231304527}
+  levelInPanel: {fileID: 1349461938}
+  buildButton: {fileID: 1010203338}
   isBuild: 0
   timeToUpgrade: 0
   startTimeToUpgrade: 0
+  time: {fileID: 622837305}
+  barrack: {fileID: 686979441}
+  clayMine: {fileID: 1462347465}
+  quarry: {fileID: 726066000}
+  sawmill: {fileID: 103880826}
+  smithy: {fileID: 2058039046}
+  townHall: {fileID: 720799651}
+  wall: {fileID: 1047183672}
+  towerWorkShop: {fileID: 162486062}
+  buildingText: {fileID: 0}
 --- !u!4 &306703702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4818860893693940, guid: 96301016d813eb140a67772e2229e3d1,
@@ -2748,7 +2786,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 58.84961, y: 32}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0.22, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &468095142
 MonoBehaviour:
@@ -3481,7 +3519,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 213.84961, y: -35.824783}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 44.7, y: 134.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &569959393
 MonoBehaviour:
@@ -3988,6 +4026,83 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 613628565}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &622837303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 622837304}
+  - component: {fileID: 622837306}
+  - component: {fileID: 622837305}
+  m_Layer: 5
+  m_Name: Time
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &622837304
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622837303}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.9999864}
+  m_Children: []
+  m_Father: {fileID: 31833466}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -69.29995, y: 49.68}
+  m_SizeDelta: {x: 21.2, y: 51.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &622837305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622837303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 75
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &622837306
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622837303}
+  m_CullTransparentMesh: 0
 --- !u!1001 &655317807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4070,7 +4185,7 @@ GameObject:
   - component: {fileID: 670881349}
   - component: {fileID: 670881348}
   m_Layer: 5
-  m_Name: Text
+  m_Name: exitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4327,13 +4442,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa57b2a6f6de8345b3d1e2b5c9000df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: 1
   exitButton: {fileID: 1704684999}
   panel: {fileID: 1649092086}
+  title: {fileID: 1231304527}
+  levelInPanel: {fileID: 1349461938}
   buildButton: {fileID: 1010203338}
   isBuild: 0
   timeToUpgrade: 5
   startTimeToUpgrade: 5
+  time: {fileID: 622837305}
+  barrack: {fileID: 686979441}
+  clayMine: {fileID: 1462347465}
+  quarry: {fileID: 726066000}
+  sawmill: {fileID: 103880826}
+  smithy: {fileID: 2058039046}
+  townHall: {fileID: 720799651}
+  wall: {fileID: 1047183672}
+  towerWorkShop: {fileID: 162486062}
+  buildingText: {fileID: 468095142}
 --- !u!65 &686979442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4466,13 +4593,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dd6e086b657b0459cfac458d0537fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  exitButton: {fileID: 0}
-  panel: {fileID: 0}
-  buildButton: {fileID: 0}
+  level: 1
+  exitButton: {fileID: 1704684999}
+  panel: {fileID: 1649092086}
+  title: {fileID: 1231304527}
+  levelInPanel: {fileID: 1349461938}
+  buildButton: {fileID: 1010203338}
   isBuild: 0
-  timeToUpgrade: 0
-  startTimeToUpgrade: 0
+  timeToUpgrade: 5
+  startTimeToUpgrade: 5
+  time: {fileID: 622837305}
+  barrack: {fileID: 686979441}
+  clayMine: {fileID: 1462347465}
+  quarry: {fileID: 726066000}
+  sawmill: {fileID: 103880826}
+  smithy: {fileID: 2058039046}
+  townHall: {fileID: 720799651}
+  wall: {fileID: 1047183672}
+  towerWorkShop: {fileID: 162486062}
+  buildingText: {fileID: 1555545675}
 --- !u!65 &720799652
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4517,13 +4656,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b486989da4cb64789b08e370adacb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  exitButton: {fileID: 0}
-  panel: {fileID: 0}
-  buildButton: {fileID: 0}
+  level: 1
+  exitButton: {fileID: 1704684999}
+  panel: {fileID: 1649092086}
+  title: {fileID: 1231304527}
+  levelInPanel: {fileID: 1349461938}
+  buildButton: {fileID: 1010203338}
   isBuild: 0
-  timeToUpgrade: 0
-  startTimeToUpgrade: 0
+  timeToUpgrade: 5
+  startTimeToUpgrade: 5
+  time: {fileID: 622837305}
+  barrack: {fileID: 686979441}
+  clayMine: {fileID: 1462347465}
+  quarry: {fileID: 726066000}
+  sawmill: {fileID: 103880826}
+  smithy: {fileID: 2058039046}
+  townHall: {fileID: 720799651}
+  wall: {fileID: 1047183672}
+  towerWorkShop: {fileID: 162486062}
+  buildingText: {fileID: 102431759}
 --- !u!4 &734640519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4851832337430732, guid: c7d3716c24a97cc4383ebc8401e7eadf,
@@ -4875,7 +5026,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: -119.84958, y: 30}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 202.9, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803779387
 MonoBehaviour:
@@ -6332,13 +6483,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51c4fc3244499f4fba1d43c231d2447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  exitButton: {fileID: 0}
-  panel: {fileID: 0}
-  buildButton: {fileID: 0}
+  level: 1
+  exitButton: {fileID: 1704684999}
+  panel: {fileID: 1649092086}
+  title: {fileID: 1231304527}
+  levelInPanel: {fileID: 1349461938}
+  buildButton: {fileID: 1010203338}
   isBuild: 0
-  timeToUpgrade: 0
-  startTimeToUpgrade: 0
+  timeToUpgrade: 5
+  startTimeToUpgrade: 5
+  time: {fileID: 622837305}
+  barrack: {fileID: 686979441}
+  clayMine: {fileID: 1462347465}
+  quarry: {fileID: 726066000}
+  sawmill: {fileID: 103880826}
+  smithy: {fileID: 2058039046}
+  townHall: {fileID: 720799651}
+  wall: {fileID: 1047183672}
+  towerWorkShop: {fileID: 162486062}
+  buildingText: {fileID: 1151395584}
 --- !u!1 &1093099292
 GameObject:
   m_ObjectHideFlags: 0
@@ -8261,6 +8424,83 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1923958703}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1349461936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1349461937}
+  - component: {fileID: 1349461939}
+  - component: {fileID: 1349461938}
+  m_Layer: 5
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1349461937
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349461936}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.9999864}
+  m_Children: []
+  m_Father: {fileID: 31833466}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -69.29995, y: 166.2}
+  m_SizeDelta: {x: 21.2, y: 51.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1349461938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349461936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 75
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Level
+--- !u!222 &1349461939
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349461936}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1354751086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8521,7 +8761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c841b74a1396045830e4b53c81f51a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  materialName: 
   quantity: 0
   increaseQuantity: 10
   text: {fileID: 1971429585}
@@ -8539,7 +8779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276cdd62f5537264c9d951dadc7473b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  materialName: 
   quantity: 0
   increaseQuantity: 2
   text: {fileID: 1619819575}
@@ -8557,7 +8797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f10b64b28c93943ad58a2213d158ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  materialName: 
   quantity: 0
   increaseQuantity: 5
   text: {fileID: 48299272}
@@ -8753,13 +8993,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d07ce4de8a480e4da30d8e5f2837c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: 1
   exitButton: {fileID: 1704684999}
   panel: {fileID: 1649092086}
+  title: {fileID: 1231304527}
+  levelInPanel: {fileID: 1349461938}
   buildButton: {fileID: 1010203338}
   isBuild: 0
   timeToUpgrade: 5
   startTimeToUpgrade: 5
+  time: {fileID: 622837305}
+  barrack: {fileID: 686979441}
+  clayMine: {fileID: 1462347465}
+  quarry: {fileID: 726066000}
+  sawmill: {fileID: 103880826}
+  smithy: {fileID: 2058039046}
+  townHall: {fileID: 720799651}
+  wall: {fileID: 1047183672}
+  towerWorkShop: {fileID: 162486062}
+  buildingText: {fileID: 1619819575}
 --- !u!1001 &1487484639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10153,7 +10405,7 @@ GameObject:
   - component: {fileID: 1687584907}
   - component: {fileID: 1687584906}
   m_Layer: 5
-  m_Name: Text
+  m_Name: buildText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11927,13 +12179,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0559691d1e5d28448809c7d3d76bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  exitButton: {fileID: 0}
-  panel: {fileID: 0}
-  buildButton: {fileID: 0}
+  level: 1
+  exitButton: {fileID: 1704684999}
+  panel: {fileID: 1649092086}
+  title: {fileID: 1231304527}
+  levelInPanel: {fileID: 1349461938}
+  buildButton: {fileID: 1010203338}
   isBuild: 0
-  timeToUpgrade: 0
-  startTimeToUpgrade: 0
+  timeToUpgrade: 5
+  startTimeToUpgrade: 5
+  time: {fileID: 622837305}
+  barrack: {fileID: 686979441}
+  clayMine: {fileID: 1462347465}
+  quarry: {fileID: 726066000}
+  sawmill: {fileID: 103880826}
+  smithy: {fileID: 2058039046}
+  townHall: {fileID: 720799651}
+  wall: {fileID: 1047183672}
+  towerWorkShop: {fileID: 162486062}
+  buildingText: {fileID: 1893037305}
 --- !u!65 &2058039047
 BoxCollider:
   m_ObjectHideFlags: 0

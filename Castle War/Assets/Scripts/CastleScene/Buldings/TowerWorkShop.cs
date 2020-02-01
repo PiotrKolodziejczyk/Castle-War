@@ -1,8 +1,8 @@
-﻿using TMPro;
-using UnityEngine;
-
-public class TowerWorkShop : Building
+﻿public class TowerWorkShop : Building
 {
-  
+    private void Update()
+    {
+        Timer(towerWorkShop);
+    }
 }
 

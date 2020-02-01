@@ -1,6 +1,4 @@
-﻿using Assets.Scripts;
-using Assets.Scripts.Buldings;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class Castle : MonoBehaviour
 {

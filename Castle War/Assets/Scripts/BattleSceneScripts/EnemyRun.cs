@@ -102,11 +102,5 @@ public class EnemyRun : MonoBehaviour
     {
         Instantiate(Axeman, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
     }
-
-
-
-
-
-
 }
 

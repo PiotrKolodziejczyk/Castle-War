@@ -1,11 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using TMPro;
-using UnityEngine;
-
-public class Sawmill : Building
+﻿public class Sawmill : Building
 {
-   
-
+    private void Update()
+    {
+        Timer(sawmill);
+    }
 }

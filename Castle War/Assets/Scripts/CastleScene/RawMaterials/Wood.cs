@@ -1,16 +1,13 @@
-﻿namespace Assets.Scripts
+﻿public class Wood : RawMaterial
 {
-    public class Wood : RawMaterial
+    private void Start()
     {
-        private void Start()
-        {
-            name = "Wood";
-        }
+        materialName = "Wood";
+    }
 
-        private void Update()
-        {
-            GetMaterial(name);
-        }
-
+    private void Update()
+    {
+        GetMaterial(materialName);
     }
 }
+

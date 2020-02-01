@@ -1,17 +1,12 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts
+﻿public class Clay : RawMaterial
 {
-    public class Clay : RawMaterial
+    private void Start()
     {
-        private void Start()
-        {
-            name = "Clay";
-        }
-
-        private void Update()
-        {
-            GetMaterial(name);           
-        }
+        materialName = "Clay";
+    }
+    private void Update()
+    {
+        GetMaterial(materialName);
     }
 }
+

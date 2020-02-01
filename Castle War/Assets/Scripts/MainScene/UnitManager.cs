@@ -42,13 +42,10 @@ public class UnitManager : MonoBehaviour
         {
             Move();
         }
-        
     }
 
     private void ShotRayAndAcceptMove()
     {
-
-        
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hit);
         var tmpPosition = new Vector3(hit.transform.position.x, 0, hit.transform.position.z);

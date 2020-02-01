@@ -1,13 +1,8 @@
-﻿using System.Linq;
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
-
-namespace Assets.Scripts.Buldings
+﻿public class TownHall : Building
 {
-    public class TownHall : Building
+    private void Update()
     {
-        
-      
+        Timer(townHall);
     }
 }
+
