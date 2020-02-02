@@ -13,8 +13,11 @@ public abstract class Castle : MonoBehaviour
     internal TowerWorkShop towerWorkShop;
     internal TownHall townHall;
     internal Wall wall;
+    [SerializeField]
     internal Clay clay;
+    [SerializeField]
     internal Wood wood;
+    [SerializeField]
     internal Stone stone;
 
     protected void Saving(PlayerCastle castle)

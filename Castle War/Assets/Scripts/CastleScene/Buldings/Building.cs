@@ -12,6 +12,8 @@ public class Building : MonoBehaviour
     [SerializeField]
     GameObject panel;
     [SerializeField]
+    bool unlockPanel = false;
+    [SerializeField]
     Text title;
     [SerializeField]
     Text levelInPanel;
@@ -43,13 +45,35 @@ public class Building : MonoBehaviour
     protected TowerWorkShop towerWorkShop;
     [SerializeField]
     internal TextMeshProUGUI buildingText;
+    [SerializeField]
+    Building actualBuilding;
+    [SerializeField]
+    int clayToUpgradeLvl;
+    [SerializeField]
+    int stoneToUpgradeLvl;
+    [SerializeField]
+    int woodToUpgradeLvl;
+    [SerializeField]
+    PlayerCastle castle;
     #endregion
 
     #region Main Method
     public void Build(Transform transform)
     {
         title.text = transform.name;
-        GetBuildingType(transform).isBuild = true;
+        if (RemoveMaterialIfisTrue())
+            GetBuildingType(transform).isBuild = true;
+    }
+    public bool RemoveMaterialIfisTrue()
+    {
+        if (castle.clay.quantity >= clayToUpgradeLvl && castle.stone.quantity >= stoneToUpgradeLvl && castle.wood.quantity >= woodToUpgradeLvl)
+        {
+            castle.clay.quantity -= clayToUpgradeLvl;
+            castle.stone.quantity -= stoneToUpgradeLvl;
+            castle.wood.quantity -= woodToUpgradeLvl;
+            return true;
+        }
+        return false;
     }
 
     public void Timer(Building building)
@@ -57,15 +81,19 @@ public class Building : MonoBehaviour
         if (building.isBuild)
         {
             building.timeToUpgrade -= Time.deltaTime;
-            time.text = building.timeToUpgrade.ToString();
+            if (building.unlockPanel)
+                time.text = building.timeToUpgrade.ToString();
             if (building.timeToUpgrade < 0)
             {
                 building.level++;
                 building.timeToUpgrade = building.startTimeToUpgrade;
-                time.text = building.timeToUpgrade.ToString();
+                if (building.unlockPanel)
+                {
+                    time.text = building.timeToUpgrade.ToString();
+                    levelInPanel.text = SetLevelText(building.level);
+                    building.buildingText.text = SetText(building.name, building.level);
+                }
                 building.isBuild = false;
-                levelInPanel.text = SetLevelText(building.level);
-                building.buildingText.text = SetText(building.name, building.level);
             }
         }
     }
@@ -97,12 +125,14 @@ public class Building : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Building building = GetBuildingType(transform);
+        actualBuilding = GetBuildingType(transform);
+        actualBuilding.unlockPanel = true;
         buildButton.onClick.AddListener(() => Build(transform));
+        exitButton.onClick.AddListener(() => ExitPanel());
         title.text = transform.name;
-        levelInPanel.text = SetLevelText(building.level);
-        time.text = building.timeToUpgrade.ToString();
-        building.buildingText.text = SetText(building.name, building.level);
+        levelInPanel.text = SetLevelText(actualBuilding.level);
+        time.text = actualBuilding.timeToUpgrade.ToString();
+        actualBuilding.buildingText.text = SetText(actualBuilding.name, actualBuilding.level);
         panel.SetActive(true);
     }
     #endregion
@@ -119,8 +149,11 @@ public class Building : MonoBehaviour
     }
     public void ExitPanel()
     {
-        panel.SetActive(false);
         buildButton.onClick.RemoveAllListeners();
+        actualBuilding.unlockPanel = false;
+        actualBuilding = null;
+        exitButton.onClick.RemoveAllListeners();
+        panel.SetActive(false);
     }
     #endregion
 }
