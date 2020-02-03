@@ -1,27 +1,45 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class SmallMenu : MonoBehaviour
 {
     bool isOn;
-
-    public GameObject panel;
+    [SerializeField]
+    Animator anim;
 
     private void Start()
     {
         isOn = false;
     }
 
-    public void EnablePanel()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)&&!isOn)
+        {
+            anim.SetBool("isOn", false);
+            isOn = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && isOn)
+        { 
+            anim.SetBool("isOn", true);
+            isOn = false;
+        }
+    }
+    public void EnableMenu()
     {
         if (!isOn)
         {
-            panel.SetActive(true);
+            anim.SetBool("isOn", false);
             isOn = true;
         }
         else
         {
-            panel.SetActive(false);
+            anim.SetBool("isOn", true);
             isOn = false;
         }
+    }
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

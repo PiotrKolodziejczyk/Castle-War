@@ -22,13 +22,13 @@ public abstract class Castle : MonoBehaviour
 
     protected void Saving(PlayerCastle castle)
     {
-        time -= Time.deltaTime;
-        if (time < 0)
-        {
-            SaveSystem.SaveCastle(castle);
-            time = 20;
-            Debug.Log("Save!");
-        }
+        //time -= Time.deltaTime;
+        //if (time < 0)
+        //{
+        //    SaveSystem.SaveCastle(castle);
+        //    time = 20;
+        //    Debug.Log("Save!");
+        //}
     }
 }
 
