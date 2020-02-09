@@ -220,3 +220,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: -8820112522143258240, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
   bulletList: []
+  shootSound: {fileID: 4612833706094432141, guid: bc62de9079508074e81940a860acf907,
+    type: 3}

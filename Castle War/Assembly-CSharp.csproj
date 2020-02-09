@@ -77,7 +77,6 @@
     <Compile Include="Assets\Scripts\BattleSceneScripts\TriggersScript.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Warrior.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\WoodTower.cs" />
-    <Compile Include="Assets\Scripts\ButtonSmallMenu.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Barrack.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Building.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\ClayMine.cs" />
@@ -103,10 +102,11 @@
     <Compile Include="Assets\Scripts\MainScene\PlayerCastle.cs" />
     <Compile Include="Assets\Scripts\MainScene\PlayerData.cs" />
     <Compile Include="Assets\Scripts\MainScene\SaveSystem.cs" />
-    <Compile Include="Assets\Scripts\MainScene\SeaSounds.cs" />
+    <Compile Include="Assets\Scripts\MainScene\SoundController.cs" />
     <Compile Include="Assets\Scripts\MainScene\UnitManager.cs" />
+    <Compile Include="Assets\Scripts\MenuScene\ButtonSmallMenu.cs" />
     <Compile Include="Assets\Scripts\MenuScene\LoadScene.cs" />
-    <Compile Include="Assets\Scripts\SmallMenu.cs" />
+    <Compile Include="Assets\Scripts\MenuScene\SmallMenu.cs" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\External Resources\Meshtint Free Barbarian\www.meshtint.com.txt" />

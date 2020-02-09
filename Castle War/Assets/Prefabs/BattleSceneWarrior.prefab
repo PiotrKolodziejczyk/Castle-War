@@ -60,6 +60,8 @@ MonoBehaviour:
   Pikeman: {fileID: 4707857149593935494, guid: 9bcd48383ee334249a87b7e670a2a221, type: 3}
   Axeman: {fileID: 2702233317404763939}
   towerShooting: {fileID: 0}
+  deadSounds: {fileID: 5454274275655614529, guid: a06efed725d67454391ea76a68c82c61,
+    type: 3}
 --- !u!114 &-3882635169125909443
 MonoBehaviour:
   m_ObjectHideFlags: 0

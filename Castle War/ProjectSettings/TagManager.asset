@@ -18,6 +18,8 @@ TagManager:
   - TowerWorkshopPanel
   - BarrackPanel
   - SmithyPanel
+  - ShootSound
+  - DeadSound
   layers:
   - Default
   - TransparentFX

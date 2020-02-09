@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Threading;
+using UnityEngine;
 
 public class EnemyRun : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class EnemyRun : MonoBehaviour
     public GameObject Pikeman;
     public GameObject Axeman;
     public TowerShooting towerShooting;
+    public AudioSource deadSounds;
+
+    private void Awake()
+    {
+        deadSounds = GameObject.FindGameObjectWithTag("DeadSound").GetComponent<AudioSource>();
+    }
     private void Start()
     {
         ChooseUnit();
@@ -49,6 +56,7 @@ public class EnemyRun : MonoBehaviour
 
         if (other.gameObject.layer == 14)
         {
+            deadSounds.Play();
             Destroy(gameObject);
             other.gameObject.layer = 0;
         }
