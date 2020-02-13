@@ -1,193 +1,161 @@
-﻿using Assets.Scripts;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using System.Linq;
 using UnityEngine.UI;
-using Assets.Scripts.Buldings;
 
-public abstract class Building : MonoBehaviour
+public class Building : MonoBehaviour
 {
-    public short level;
-    public TextMeshProUGUI text;
-    public static string SetText(string name,int lvl)
+    #region Fields
+    [SerializeField]
+    internal short level;
+    [SerializeField]
+    Button exitButton;
+    [SerializeField]
+    GameObject panel;
+    [SerializeField]
+    bool unlockPanel = false;
+    [SerializeField]
+    Text title;
+    [SerializeField]
+    Text levelInPanel;
+    [SerializeField]
+    Button buildButton;
+    [SerializeField]
+    bool isBuild;
+    [SerializeField]
+    float timeToUpgrade;
+    [SerializeField]
+    float startTimeToUpgrade;
+    [SerializeField]
+    Text time;
+    [SerializeField]
+    protected Barrack barrack;
+    [SerializeField]
+    protected ClayMine clayMine;
+    [SerializeField]
+    protected Quarry quarry;
+    [SerializeField]
+    protected Sawmill sawmill;
+    [SerializeField]
+    protected Smithy smithy;
+    [SerializeField]
+    protected TownHall townHall;
+    [SerializeField]
+    protected Wall wall;
+    [SerializeField]
+    protected TowerWorkShop towerWorkShop;
+    [SerializeField]
+    internal TextMeshProUGUI buildingText;
+    [SerializeField]
+    Building actualBuilding;
+    [SerializeField]
+    int clayToUpgradeLvl;
+    [SerializeField]
+    int stoneToUpgradeLvl;
+    [SerializeField]
+    int woodToUpgradeLvl;
+    [SerializeField]
+    PlayerCastle castle;
+    #endregion
+
+    #region Main Method
+    public void Build(Transform transform)
     {
-        return $"{name} {lvl} Level";
+        title.text = transform.name;
+        if (RemoveMaterialIfisTrue())
+            GetBuildingType(transform).isBuild = true;
     }
-    //[SerializeField]
-    //private Canvas canvas;
-    //public TextMeshProUGUI[] textMeshProUGUIList;
-    //protected Stone stoneSingleton;
-    //protected Clay claySingleton;
-    //protected Wood woodSingleton;
-    //protected TextMeshProUGUI clayText;
-    //protected TextMeshProUGUI stoneText;
-    //protected TextMeshProUGUI woodText;
-    //protected int timeToCollectStone = 2;
-    //protected int timeToCollectClay = 2;
-    //protected int timeToCollectWood = 2;
-    //protected short sawmillLevel = 1;
-    //protected short quarryLevel = 1;
-    //protected short clayMineLevel = 1;
-    //protected short townHallLevel = 1;
-    //protected short wallLevel = 1;
-    //protected short smithyLevel = 1;
-    //protected short barrackLevel = 1;
-    //protected short towerWorkshopLevel = 1;
-    //public BuildingColliderGetList buildingColliderGetList;
-    //protected TextMeshProUGUI textLvl;
-    //[SerializeField]
-    //protected GameObject panel;
-    //[SerializeField]
-    //protected BuildPanelManager buildPanelManager;
-    //protected bool isWallBuilding = false;
-    //protected bool isClayMineBuilding = false;
-    //protected bool isBarrackBuilding = false;
-    //protected bool isSmithyBuilding = false;
-    //protected bool isSawmillBuilding = false;
-    //protected bool isTowerWorkshopBuilding = false;
-    //protected bool isTownHallBuilding = false;
-    //protected bool isQuarryBuilding = false;
-    //    private void Awake()
-    //    {
-    //        //woodSingleton = Wood.GetWood;
-    //        //claySingleton = Clay.GetClay;
-    //        //stoneSingleton = Stone.GetStone;
-    //        textMeshProUGUIList = canvas.GetComponentsInChildren<TextMeshProUGUI>();
-    //        woodText = textMeshProUGUIList.Where(x => x.name == "WoodText").First();
-    //        stoneText = textMeshProUGUIList.Where(x => x.name == "StoneText").First();
-    //        clayText = textMeshProUGUIList.Where(x => x.name == "ClayText").First();
-    //    }
+    public bool RemoveMaterialIfisTrue()
+    {
+        if (castle.clay.quantity >= clayToUpgradeLvl && castle.stone.quantity >= stoneToUpgradeLvl && castle.wood.quantity >= woodToUpgradeLvl)
+        {
+            castle.clay.quantity -= clayToUpgradeLvl;
+            castle.stone.quantity -= stoneToUpgradeLvl;
+            castle.wood.quantity -= woodToUpgradeLvl;
+            return true;
+        }
+        return false;
+    }
 
-    //    protected void Build(float buildCourotine, Material material, int buildingLvl)
-    //    {
-    //        StartCoroutine(BuildTimerCourotine(buildCourotine, material, buildingLvl));
-    //        ExitPanel();
-    //    }
+    public void Timer(Building building)
+    {
+        if (building.isBuild)
+        {
+            building.timeToUpgrade -= Time.deltaTime;
+            if (building.unlockPanel)
+                time.text = building.timeToUpgrade.ToString();
+            if (building.timeToUpgrade < 0)
+            {
+                building.level++;
+                building.timeToUpgrade = building.startTimeToUpgrade;
+                if (building.unlockPanel)
+                {
+                    time.text = building.timeToUpgrade.ToString();
+                    levelInPanel.text = SetLevelText(building.level);
+                    building.buildingText.text = SetText(building.name, building.level);
+                }
+                building.isBuild = false;
+            }
+        }
+    }
 
-    //    public IEnumerator BuildTimerCourotine(float buildCourotine, Material material, int buldingLvl)
-    //    {
+    public Building GetBuildingType(Transform transform)
+    {
+        switch (transform.name)
+        {
+            case "Barrack":
+                return barrack;
+            case "ClayMine":
+                return clayMine;
+            case "Quarry":
+                return quarry;
+            case "Sawmill":
+                return sawmill;
+            case "Smithy":
+                return smithy;
+            case "TowerWorkshop":
+                return towerWorkShop;
+            case "Wall":
+                return wall;
+            case "TownHall":
+                return townHall;
+            default:
+                return null;
+        }
+    }
 
-    //        float tmp = buildCourotine;
-    //        while (buildCourotine > 0)
-    //        {
+    private void OnMouseDown()
+    {
+        actualBuilding = GetBuildingType(transform);
+        actualBuilding.unlockPanel = true;
+        buildButton.onClick.AddListener(() => Build(transform));
+        exitButton.onClick.AddListener(() => ExitPanel());
+        title.text = transform.name;
+        levelInPanel.text = SetLevelText(actualBuilding.level);
+        time.text = actualBuilding.timeToUpgrade.ToString();
+        actualBuilding.buildingText.text = SetText(actualBuilding.name, actualBuilding.level);
+        panel.SetActive(true);
+    }
+    #endregion
 
-    //            textMeshProUGUIList.Where(x => x.name == material.ToString() + "Text").First().text = material.ToString() + " " + buldingLvl + " Level\n     " + buildCourotine + " seconds";
-    //            yield return new WaitForSeconds(1.0f);
-    //            buildCourotine--;
+    #region Additional Methods
+    public static string SetText(string name, short level)
+    {
+        return $"{name} {level} Level";
+    }
 
-    //        }
-    //        UpgradeLevel(material);
-    //    }
-    //    public void UpgradeLevel(Material material)
-    //    {
-    //        switch (material)
-    //        {
-    //            case Material.ClayMine:
-    //                {
-    //                    clayMineLevel++;
-    //                    textMeshProUGUIList.Where(x => x.name == "ClayMineText").First().text = "Clay Mine " + clayMineLevel + " Level\n";
-    //                    buildPanelManager.levelText.text = "Level " + clayMineLevel;
-    //                    isClayMineBuilding = false;
-    //                    return;
-    //                }
-    //            case Material.Sawmill:
-    //                {
-    //                    sawmillLevel++;
-    //                    textMeshProUGUIList.Where(x => x.name == "SawmillText").First().text = "Sawmill " + sawmillLevel + " Level\n";
-    //                    buildPanelManager.levelText.text = "Level " + sawmillLevel;
-    //                    isSawmillBuilding = false;
-    //                    return;
-    //                }
-    //            case Material.Quarry:
-    //                {
-    //                    quarryLevel++;
-    //                    textMeshProUGUIList.Where(x => x.name == "QuarryText").First().text = "Quarry " + quarryLevel + " Level\n";
-    //                    buildPanelManager.levelText.text = "Level " + quarryLevel;
-    //                    isQuarryBuilding = false;
-    //                    return;
-    //                }
-    //            case Material.Barrack:
-    //                {
-    //                    barrackLevel++;
-    //                    textMeshProUGUIList.Where(x => x.name == "BarrackText").First().text = "Barrack " + barrackLevel + " Level\n";
-    //                    buildPanelManager.levelText.text = "Level " + barrackLevel;
-    //                    isBarrackBuilding = false;
-    //                    return;
-    //                }
-    //            case Material.Smithy:
-    //                {
-    //                    smithyLevel++;
-    //                    textMeshProUGUIList.Where(x => x.name == "SmithyText").First().text = "Smithy " + smithyLevel + " Level\n";
-    //                    buildPanelManager.levelText.text = "Level " + smithyLevel;
-    //                    isSmithyBuilding = false;
-    //                    return;
-    //                }
-    //            case Material.Wall:
-    //                {
-    //                    wallLevel++;
-    //                    textMeshProUGUIList.Where(x => x.name == "WallText").First().text = "Wall " + wallLevel + " Level\n";
-    //                    buildPanelManager.levelText.text = "Level " + wallLevel;
-    //                    isWallBuilding = false;
-    //                    return;
-    //                }
-    //            case Material.TowerWorkshop:
-    //                {
-    //                    towerWorkshopLevel++;
-    //                    textMeshProUGUIList.Where(x => x.name == "TowerWorkshopText").First().text = "Tower Workshop " + towerWorkshopLevel + " Level\n";
-    //                    buildPanelManager.levelText.text = "Level " + towerWorkshopLevel;
-    //                    isTowerWorkshopBuilding = false;
-    //                    return;
-    //                }
-    //            case Material.TownHall:
-    //                {
-    //                    townHallLevel++;
-    //                    textMeshProUGUIList.Where(x => x.name == "TownHallText").First().text = "TownHall " + townHallLevel + " Level\n";
-    //                    buildPanelManager.levelText.text = "Level " + townHallLevel;
-    //                    isTownHallBuilding = false;
-
-    //                    return;
-    //                }
-    //        }
-    //    }
-    //    public void ExitPanel()
-    //    {
-    //        panel.SetActive(false);
-    //        for (int i = 0; i < buildPanelManager.canTexts.Count; i++)
-    //        {
-    //            buildPanelManager.canTexts[i].enabled = true;
-    //        }
-    //        for (int i = 0; i < buildingColliderGetList.listBulding.Count; i++)
-    //        {
-    //            buildingColliderGetList.listBulding[i].enabled = true;
-    //        }
-    //    }
-    //    public void StartPanel()
-    //    {
-
-    //        panel.SetActive(true);
-    //        for (int i = 0; i < buildPanelManager.canTexts.Count; i++)
-    //        {
-    //            buildPanelManager.canTexts[i].enabled = false;
-
-    //        }
-    //        for (int i = 0; i < buildingColliderGetList.listBulding.Count; i++)
-    //        {
-    //            buildingColliderGetList.listBulding[i].enabled = false;
-    //        }
-    //    }
-
-    //}
-    //public enum Material
-    //{
-    //    Sawmill,
-    //    Quarry,
-    //    ClayMine,
-    //    Smithy,
-    //    TownHall,
-    //    Wall,
-    //    Barrack,
-    //    TowerWorkshop
-
+    public string SetLevelText(short level)
+    {
+        return $"{level} Level";
+    }
+    public void ExitPanel()
+    {
+        buildButton.onClick.RemoveAllListeners();
+        actualBuilding.unlockPanel = false;
+        actualBuilding = null;
+        exitButton.onClick.RemoveAllListeners();
+        panel.SetActive(false);
+    }
+    #endregion
 }
+
+

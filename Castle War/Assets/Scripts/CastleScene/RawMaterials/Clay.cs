@@ -1,4 +1,12 @@
-﻿namespace Assets.Scripts
+﻿public class Clay : RawMaterial
 {
-    public class Clay : RawMaterial { }
+    private void Start()
+    {
+        materialName = "Clay";
+    }
+    private void Update()
+    {
+        GetMaterial(materialName);
+    }
 }
+

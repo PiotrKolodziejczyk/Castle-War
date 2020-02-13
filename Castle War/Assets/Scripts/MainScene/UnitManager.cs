@@ -18,13 +18,18 @@ public class UnitManager : MonoBehaviour
     public Animator animator;
     public AudioSource audioSource;
 
+    private void Awake()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        Vector3 position = new Vector3(data.x, data.y, data.z);
+        transform.position = position;
+    }
 
     private void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hit1);
         cam.transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z + z);
-
 
         if (Input.GetMouseButtonDown(0) && hit1.transform.gameObject.layer == 15 && !map.isEnabled)
         {
@@ -36,16 +41,11 @@ public class UnitManager : MonoBehaviour
         if (isMove && hit.transform.gameObject.layer == 15)
         {
             Move();
-     
-
         }
-        
     }
 
     private void ShotRayAndAcceptMove()
     {
-
-        
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hit);
         var tmpPosition = new Vector3(hit.transform.position.x, 0, hit.transform.position.z);
@@ -76,6 +76,7 @@ public class UnitManager : MonoBehaviour
             isMove = false;
             animator.SetBool("isRun", false);
             audioSource.Stop();
+            SaveSystem.SavePlayer(this);
         }
     }
 }

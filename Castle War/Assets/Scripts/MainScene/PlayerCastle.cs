@@ -1,6 +1,4 @@
-﻿using Assets.Scripts;
-using Assets.Scripts.Buldings;
-using System.IO;
+﻿using System.IO;
 using UnityEngine;
 
 public class PlayerCastle : Castle
@@ -27,17 +25,17 @@ public class PlayerCastle : Castle
 
     private void InitializeBuildingsAndRawMaterials(CastleData castle)
     {
-        sawmill = GetComponent<Sawmill>();
-        clayMine = GetComponent<ClayMine>();
-        quarry = GetComponent<Quarry>();
-        townHall = GetComponent<TownHall>();
-        barrack = GetComponent<Barrack>();
-        towerWorkShop = GetComponent<TowerWorkShop>();
-        smithy = GetComponent<Smithy>();
-        wall = GetComponent<Wall>();
-        clay = GetComponent<Clay>();
-        stone = GetComponent<Stone>();
-        wood = GetComponent<Wood>();
+        sawmill = GetComponentInChildren<Sawmill>();
+        clayMine = GetComponentInChildren<ClayMine>();
+        quarry = GetComponentInChildren<Quarry>();
+        townHall = GetComponentInChildren<TownHall>();
+        barrack = GetComponentInChildren<Barrack>();
+        towerWorkShop = GetComponentInChildren<TowerWorkShop>();
+        smithy = GetComponentInChildren<Smithy>();
+        wall = GetComponentInChildren<Wall>();
+        clay = GetComponentInChildren<Clay>();
+        stone = GetComponentInChildren<Stone>();
+        wood = GetComponentInChildren<Wood>();
         id = castle.id;
         sawmill.level = castle.sawmillLevel;
         clayMine.level = castle.clayMineLevel;
@@ -54,14 +52,14 @@ public class PlayerCastle : Castle
 
     private void InitializeBuildingTexts()
     {
-        quarry.text.text = Building.SetText("Quarry", quarry.level);
-        sawmill.text.text = Building.SetText("Sawmill", sawmill.level);
-        clayMine.text.text = Building.SetText("Clay Mine", clayMine.level);
-        barrack.text.text = Building.SetText("Barrack", barrack.level);
-        townHall.text.text = Building.SetText("Town Hall", townHall.level);
-        smithy.text.text = Building.SetText("Smithy", smithy.level);
-        towerWorkShop.text.text = Building.SetText("Tower Workshop", towerWorkShop.level);
-        wall.text.text = Building.SetText("Wall", towerWorkShop.level);
+        quarry.buildingText.text = Building.SetText("Quarry", quarry.level);
+        sawmill.buildingText.text = Building.SetText("Sawmill", sawmill.level);
+        clayMine.buildingText.text = Building.SetText("Clay Mine", clayMine.level);
+        barrack.buildingText.text = Building.SetText("Barrack", barrack.level);
+        townHall.buildingText.text = Building.SetText("Town Hall", townHall.level);
+        smithy.buildingText.text = Building.SetText("Smithy", smithy.level);
+        towerWorkShop.buildingText.text = Building.SetText("Tower Workshop", towerWorkShop.level);
+        wall.buildingText.text = Building.SetText("Wall", towerWorkShop.level);
         wood.text.text = RawMaterial.SeText("Wood", wood.quantity);
         stone.text.text = RawMaterial.SeText("Stone", stone.quantity);
         clay.text.text = RawMaterial.SeText("Clay", clay.quantity);

@@ -13,6 +13,13 @@ TagManager:
   - BuldingPlace
   - TowerB
   - Zero
+  - BuildPanel
+  - Panel
+  - TowerWorkshopPanel
+  - BarrackPanel
+  - SmithyPanel
+  - ShootSound
+  - DeadSound
   layers:
   - Default
   - TransparentFX

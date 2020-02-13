@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class HowMuchSoldierIncomeCount : MonoBehaviour
@@ -16,7 +14,5 @@ public class HowMuchSoldierIncomeCount : MonoBehaviour
             count++;
             countText.text = "SOLDIER INCOME : "+ count;
         }
-        
     }
-
 }

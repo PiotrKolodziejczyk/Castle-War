@@ -44,6 +44,21 @@ CapsuleCollider:
   m_Height: 1.66
   m_Direction: 1
   m_Center: {x: 0, y: 0.52, z: 0}
+--- !u!114 &-8579214131078390836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189927999645413158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8357a216cf06b9640ae67f9b1c600ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helath: 200
+  armor: 200
+  speed: 1
 --- !u!114 &6479412404153613484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +74,9 @@ MonoBehaviour:
   Knight: {fileID: 189927999645413158}
   Pikeman: {fileID: 4707857149593935494, guid: 9bcd48383ee334249a87b7e670a2a221, type: 3}
   Axeman: {fileID: 2702233317404763939, guid: 30f75ef6f2541374c9b06ad8413cda7a, type: 3}
-  shooting: {fileID: 21483118606823547, guid: 53b2aef6b446ab944b57f328e5e623f7, type: 3}
+  towerShooting: {fileID: 0}
+  deadSounds: {fileID: 5454274275655614529, guid: a06efed725d67454391ea76a68c82c61,
+    type: 3}
 --- !u!1001 &189519537854672166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,7 +86,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012738789888, guid: 9dbd4ebf8cd638846be77516fbdfe22a, type: 3}
       propertyPath: m_Name
-      value: Footman_prefab Variant
+      value: BattleSceneKnigt
       objectReference: {fileID: 0}
     - target: {fileID: 1000012738789888, guid: 9dbd4ebf8cd638846be77516fbdfe22a, type: 3}
       propertyPath: m_Layer

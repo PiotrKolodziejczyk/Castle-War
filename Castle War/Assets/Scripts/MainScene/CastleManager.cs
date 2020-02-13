@@ -19,12 +19,14 @@ public class CastleManager : MonoBehaviour
         if (isPlayerHere && gameObject.layer == 9)
         {
             Global.currentCastle = id;
-            SceneManager.LoadScene("CastleScene");
-            
+            Global.whichScene = "CastleScene";
+            SceneManager.LoadScene("LoadingScene");
+
         }
         else if (isPlayerHere && gameObject.layer == 8)
         {
-            SceneManager.LoadScene("BattleScene");
+            Global.whichScene = "BattleScene";
+            SceneManager.LoadScene("LoadingScene");
         }
     }
 

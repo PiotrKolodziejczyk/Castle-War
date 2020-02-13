@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4374591345002065247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705958242568105704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071fd70a090c8e24b8b08bf7897595af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 20
+  damage: 25
 --- !u!1001 &6706938452281811384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,6 +100,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -8820112522143258240, guid: 802986766a97b4a108b97eb5fdf6e02f,
         type: 3}
+    - target: {fileID: 4094277401534487996, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 4612833706094432141, guid: bc62de9079508074e81940a860acf907,
+        type: 3}
     - target: {fileID: -3153717692756402526, guid: 94cd86138d9233a4f8d62276eb74c283,
         type: 3}
       propertyPath: towerPrefab1
@@ -121,3 +141,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 95000012566726364, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
+--- !u!1 &6705958242568105704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000010732113744, guid: 94cd86138d9233a4f8d62276eb74c283,
+    type: 3}
+  m_PrefabInstance: {fileID: 6706938452281811384}
+  m_PrefabAsset: {fileID: 0}

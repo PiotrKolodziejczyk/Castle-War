@@ -1,10 +1,9 @@
-﻿using Assets.Scripts;
-using Assets.Scripts.Buldings;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class Castle : MonoBehaviour
 {
     float time = 20;
+    [SerializeField]
     internal int id;
     internal Barrack barrack;
     internal ClayMine clayMine;
@@ -14,19 +13,22 @@ public abstract class Castle : MonoBehaviour
     internal TowerWorkShop towerWorkShop;
     internal TownHall townHall;
     internal Wall wall;
+    [SerializeField]
     internal Clay clay;
+    [SerializeField]
     internal Wood wood;
+    [SerializeField]
     internal Stone stone;
 
     protected void Saving(PlayerCastle castle)
     {
-        time -= Time.deltaTime;
-        if (time < 0)
-        {
-            SaveSystem.SaveCastle(castle);
-            time = 20;
-            Debug.Log("Save!");
-        }
+        //time -= Time.deltaTime;
+        //if (time < 0)
+        //{
+        //    SaveSystem.SaveCastle(castle);
+        //    time = 20;
+        //    Debug.Log("Save!");
+        //}
     }
 }
 

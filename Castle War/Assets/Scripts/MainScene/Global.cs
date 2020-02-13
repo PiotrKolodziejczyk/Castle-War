@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public static class Global
+﻿public static class Global
 {
     public static int currentCastle = 1;
+    public static string whichScene = "SampleScene";
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4604325985650655533}
   - component: {fileID: 8745430304996529764}
   - component: {fileID: 6946053865066210744}
+  - component: {fileID: -7239052862333255515}
   m_Layer: 11
   m_Name: TowerA
   m_TagString: Zero
@@ -144,8 +145,22 @@ MonoBehaviour:
     type: 3}
   towerPrefab2: {fileID: 6705958242568105704, guid: 43fd6a89e2b85d245a5b1f78b48990d2,
     type: 3}
-  hitColliders: []
   texture1: {fileID: 0}
+  hitColliders: []
+--- !u!114 &-7239052862333255515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21483118606823547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4a22587fdc63346af95cfe6f92ca0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 20
+  damage: 50
 --- !u!1 &8673517096114602638
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,3 +220,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: -8820112522143258240, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
   bulletList: []
+  shootSound: {fileID: 4612833706094432141, guid: bc62de9079508074e81940a860acf907,
+    type: 3}

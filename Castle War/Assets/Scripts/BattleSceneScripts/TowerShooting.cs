@@ -10,7 +10,12 @@ public class TowerShooting : MonoBehaviour
     bool isShooting = false;
     float timetest = 0;
     float cleaner = 10;
-
+    [SerializeField]
+    AudioSource shootSound;
+    private void Awake()
+    {
+        shootSound = GameObject.FindGameObjectWithTag("ShootSound").GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (isShooting)
@@ -48,8 +53,10 @@ public class TowerShooting : MonoBehaviour
             time = 3;
             isShooting = true;
             transform.LookAt(other.transform);
+            shootSound.Play();
             Shoot = Instantiate(bullet, transform.position, transform.rotation);
             Shoot.AddRelativeForce(Vector3.forward * 350, ForceMode.Impulse);
+            
         }
     }
 }

@@ -1,12 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
- public void LoadNewGame()
+    float timer = 5;
+    public void LoadNewGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("LoadingScene");
+    }
+    private void Update()
+    {
+        if (transform.name == "Loading")
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                switch (Global.whichScene)
+                {
+                    case "CastleScene":
+                        SceneManager.LoadScene("CastleScene");
+                        break;
+                    case "SampleScene":
+                        SceneManager.LoadScene("SampleScene");
+                        break;
+                    case "BattleScene":
+                        SceneManager.LoadScene("BattleScene");
+                        break;
+                    case "Menu":
+                        SceneManager.LoadScene("Menu");
+                        break;
+                }
+            }
+
+        }
     }
 }
