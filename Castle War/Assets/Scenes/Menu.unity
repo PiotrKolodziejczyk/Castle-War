@@ -1298,10 +1298,7 @@ GameObject:
   - component: {fileID: 628578923}
   - component: {fileID: 628578922}
   - component: {fileID: 628578926}
-<<<<<<< HEAD
-=======
   - component: {fileID: 628578927}
->>>>>>> NewBranch2
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1326,11 +1323,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -204.6}
-<<<<<<< HEAD
-  m_SizeDelta: {x: 800, y: 100}
-=======
   m_SizeDelta: {x: 400, y: 60}
->>>>>>> NewBranch2
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &628578922
 MonoBehaviour:
@@ -1418,8 +1411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 1042492226}
   clip: {fileID: 8300000, guid: 65ff7233a95943f4db167737cf643ecd, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!114 &628578927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,7 +1465,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> NewBranch2
 --- !u!1 &633427555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,11 +1786,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 107.8}
-<<<<<<< HEAD
-  m_SizeDelta: {x: 800, y: 100}
-=======
   m_SizeDelta: {x: 400, y: 60}
->>>>>>> NewBranch2
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &787683693
 MonoBehaviour:
@@ -1956,10 +1942,7 @@ GameObject:
   - component: {fileID: 804467979}
   - component: {fileID: 804467978}
   - component: {fileID: 804467982}
-<<<<<<< HEAD
-=======
   - component: {fileID: 804467983}
->>>>>>> NewBranch2
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -1984,11 +1967,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -48.45}
-<<<<<<< HEAD
-  m_SizeDelta: {x: 800, y: 100}
-=======
   m_SizeDelta: {x: 400, y: 60}
->>>>>>> NewBranch2
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &804467978
 MonoBehaviour:
@@ -2074,8 +2053,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 1042492226}
   clip: {fileID: 8300000, guid: 65ff7233a95943f4db167737cf643ecd, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!114 &804467983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,7 +2107,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> NewBranch2
 --- !u!1 &812645352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,12 +2562,8 @@ AudioSource:
   m_GameObject: {fileID: 1042492221}
   m_Enabled: 1
   serializedVersion: 4
-<<<<<<< HEAD
-  OutputAudioMixerGroup: {fileID: 0}
-=======
   OutputAudioMixerGroup: {fileID: 6284115956655063559, guid: 2090bc677bda9c044afd9eb5f119b542,
     type: 2}
->>>>>>> NewBranch2
   m_audioClip: {fileID: 8300000, guid: e1afab29b410328488228d3e8bafc467, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4738,10 +4710,7 @@ GameObject:
   - component: {fileID: 1825148909}
   - component: {fileID: 1825148908}
   - component: {fileID: 1825148912}
-<<<<<<< HEAD
-=======
   - component: {fileID: 1825148913}
->>>>>>> NewBranch2
   m_Layer: 5
   m_Name: Achivments
   m_TagString: Untagged
@@ -4766,11 +4735,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 27.1}
-<<<<<<< HEAD
-  m_SizeDelta: {x: 800, y: 100}
-=======
   m_SizeDelta: {x: 400, y: 60}
->>>>>>> NewBranch2
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1825148908
 MonoBehaviour:
@@ -4858,8 +4823,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 1042492226}
   clip: {fileID: 8300000, guid: 65ff7233a95943f4db167737cf643ecd, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!114 &1825148913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4914,7 +4877,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> NewBranch2
 --- !u!1 &1840772665
 GameObject:
   m_ObjectHideFlags: 0
@@ -4929,10 +4891,7 @@ GameObject:
   - component: {fileID: 1840772668}
   - component: {fileID: 1840772667}
   - component: {fileID: 1840772671}
-<<<<<<< HEAD
-=======
   - component: {fileID: 1840772672}
->>>>>>> NewBranch2
   m_Layer: 5
   m_Name: Load
   m_TagString: Untagged
@@ -4957,11 +4916,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -131.2}
-<<<<<<< HEAD
-  m_SizeDelta: {x: 800, y: 100}
-=======
   m_SizeDelta: {x: 400, y: 60}
->>>>>>> NewBranch2
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1840772667
 MonoBehaviour:
@@ -5047,8 +5002,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 1042492226}
   clip: {fileID: 8300000, guid: 65ff7233a95943f4db167737cf643ecd, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!114 &1840772672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5103,7 +5056,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> NewBranch2
 --- !u!1 &1921780088
 GameObject:
   m_ObjectHideFlags: 0
