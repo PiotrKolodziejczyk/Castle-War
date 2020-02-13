@@ -40,6 +40,7 @@ public class SmallMenu : MonoBehaviour
     }
     public void ToMainMenu()
     {
-        SceneManager.LoadScene("Menu");
+        Global.whichScene = "Menu";
+        SceneManager.LoadScene("LoadingScene");
     }
 }

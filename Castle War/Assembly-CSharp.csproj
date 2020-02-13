@@ -114,7 +114,7 @@
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\External Resources\Hex\Prefabs\horse\ReadMe.txt" />
     <None Include="Assets\External Resources\MedievalTownExteriors\Readme.txt" />
-    <None Include="Assets\@PaulosCreations\RoyalUI\readme.txt" />
+    <None Include="Assets\External Resources\@PaulosCreations\RoyalUI\readme.txt" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\External Resources\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -125,6 +125,7 @@
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\Fantasy Chess RPG Character - Arthur\readme.txt" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
