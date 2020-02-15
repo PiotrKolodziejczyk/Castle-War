@@ -6,3 +6,4 @@ Castle[[:space:]]War/Assets/Prefabs/THRONE_OBJ.obj filter=lfs diff=lfs merge=lfs
 Castle[[:space:]]War/Assets/Prefabs/THRONE_OBJ.obj.meta filter=lfs diff=lfs merge=lfs -text
 Castle[[:space:]]War/Library/metadata/fc/fc2f24b0e12cd214d8ec6a4b70114a08 filter=lfs diff=lfs merge=lfs -text
 Castle[[:space:]]War/Library/metadata/fc/fc2f24b0e12cd214d8ec6a4b70114a08.info filter=lfs diff=lfs merge=lfs -text
+*.asset filter=lfs diff=lfs merge=lfs -text
