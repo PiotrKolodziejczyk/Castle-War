@@ -46,7 +46,7 @@ public class Building : MonoBehaviour
     [SerializeField]
     internal TextMeshProUGUI buildingText;
     [SerializeField]
-    Building actualBuilding;
+    internal Building actualBuilding;
     [SerializeField]
     int clayToUpgradeLvl;
     [SerializeField]
@@ -54,23 +54,24 @@ public class Building : MonoBehaviour
     [SerializeField]
     int woodToUpgradeLvl;
     [SerializeField]
-    PlayerCastle castle;
+    internal PlayerCastle castle;
+    public bool isPanelOn = false;
     #endregion
 
     #region Main Method
     public void Build(Transform transform)
     {
         title.text = transform.name;
-        if (RemoveMaterialIfisTrue())
+        if (RemoveMaterialIfisTrue(clayToUpgradeLvl,stoneToUpgradeLvl,woodToUpgradeLvl))
             GetBuildingType(transform).isBuild = true;
     }
-    public bool RemoveMaterialIfisTrue()
+    public bool RemoveMaterialIfisTrue(int clayToUpgrade,int stoneToUpgrade,int woodToUpgrade)
     {
-        if (castle.clay.quantity >= clayToUpgradeLvl && castle.stone.quantity >= stoneToUpgradeLvl && castle.wood.quantity >= woodToUpgradeLvl)
+        if (castle.clay.quantity >= clayToUpgrade && castle.stone.quantity >= stoneToUpgrade && castle.wood.quantity >= woodToUpgrade)
         {
-            castle.clay.quantity -= clayToUpgradeLvl;
-            castle.stone.quantity -= stoneToUpgradeLvl;
-            castle.wood.quantity -= woodToUpgradeLvl;
+            castle.clay.quantity -= clayToUpgrade;
+            castle.stone.quantity -= stoneToUpgrade;
+            castle.wood.quantity -= woodToUpgrade;
             return true;
         }
         return false;
@@ -125,6 +126,28 @@ public class Building : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (Global.isPanelOnInCastleScene==false)
+        {
+            OnEnablePanel();
+        }
+    }
+    #endregion
+
+    #region Additional Methods
+
+
+    public static string SetText(string name, short level)
+    {
+        return $"{name} {level} Level";
+    }
+
+    public string SetLevelText(short level)
+    {
+        return $"{level} Level";
+    }
+    public void OnEnablePanel()
+    {
+        Global.isPanelOnInCastleScene = true;
         actualBuilding = GetBuildingType(transform);
         actualBuilding.unlockPanel = true;
         buildButton.onClick.AddListener(() => Build(transform));
@@ -135,26 +158,16 @@ public class Building : MonoBehaviour
         actualBuilding.buildingText.text = SetText(actualBuilding.name, actualBuilding.level);
         panel.SetActive(true);
     }
-    #endregion
-
-    #region Additional Methods
-    public static string SetText(string name, short level)
-    {
-        return $"{name} {level} Level";
-    }
-
-    public string SetLevelText(short level)
-    {
-        return $"{level} Level";
-    }
     public void ExitPanel()
     {
         buildButton.onClick.RemoveAllListeners();
         actualBuilding.unlockPanel = false;
         actualBuilding = null;
         exitButton.onClick.RemoveAllListeners();
+        Global.isPanelOnInCastleScene = false;
         panel.SetActive(false);
     }
+
     #endregion
 }
 
