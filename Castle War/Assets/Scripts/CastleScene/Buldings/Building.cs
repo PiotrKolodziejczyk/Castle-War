@@ -55,17 +55,17 @@ public class Building : MonoBehaviour
     int woodToUpgradeLvl;
     [SerializeField]
     internal PlayerCastle castle;
-    public bool isPanelOn = false;
+
     #endregion
 
     #region Main Method
     public void Build(Transform transform)
     {
         title.text = transform.name;
-        if (RemoveMaterialIfisTrue(clayToUpgradeLvl,stoneToUpgradeLvl,woodToUpgradeLvl))
+        if (RemoveMaterialIfisTrue(clayToUpgradeLvl, stoneToUpgradeLvl, woodToUpgradeLvl))
             GetBuildingType(transform).isBuild = true;
     }
-    public bool RemoveMaterialIfisTrue(int clayToUpgrade,int stoneToUpgrade,int woodToUpgrade)
+    public bool RemoveMaterialIfisTrue(int clayToUpgrade, int stoneToUpgrade, int woodToUpgrade)
     {
         if (castle.clay.quantity >= clayToUpgrade && castle.stone.quantity >= stoneToUpgrade && castle.wood.quantity >= woodToUpgrade)
         {
@@ -98,6 +98,29 @@ public class Building : MonoBehaviour
             }
         }
     }
+    public void BuildSoldierOrTower(TextMeshProUGUI text, ref float timeToCollect, float firstTimeToCollect, Text timeText, int castleWhatBuild, string name, ref int staging, Text stagingText, ref bool isBuild)
+    {
+        timeToCollect -= Time.deltaTime;
+        timeText.text = timeToCollect.ToString();
+        if (timeToCollect < 0)
+        {
+            castleWhatBuild += 1;
+            text.text = RawMaterial.SeText(name, castleWhatBuild);
+            timeToCollect = firstTimeToCollect;
+            --staging;
+            timeText.text = timeToCollect.ToString();
+            stagingText.text = staging.ToString();
+            if (staging <= 0)
+                isBuild = false;
+        }
+    }
+    public void DoWhenHaveMaterials(ref int staging, InputField label, Text stagingText, ref bool isBuild)
+    {
+        staging += int.Parse(label.text);
+        stagingText.text = staging.ToString();
+        isBuild = true; ;
+        label.text = "1";
+    }
 
     public Building GetBuildingType(Transform transform)
     {
@@ -126,7 +149,7 @@ public class Building : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Global.isPanelOnInCastleScene==false)
+        if (Global.isSoldierPanelOnInCastleScene == false && Global.isTowerPanelOnInCastleScene == false)
         {
             OnEnablePanel();
         }
@@ -147,8 +170,11 @@ public class Building : MonoBehaviour
     }
     public void OnEnablePanel()
     {
-        Global.isPanelOnInCastleScene = true;
         actualBuilding = GetBuildingType(transform);
+        if (actualBuilding == barrack)
+            Global.isSoldierPanelOnInCastleScene = true;
+        if (actualBuilding == towerWorkShop)
+            Global.isTowerPanelOnInCastleScene = true;
         actualBuilding.unlockPanel = true;
         buildButton.onClick.AddListener(() => Build(transform));
         exitButton.onClick.AddListener(() => ExitPanel());
@@ -164,7 +190,8 @@ public class Building : MonoBehaviour
         actualBuilding.unlockPanel = false;
         actualBuilding = null;
         exitButton.onClick.RemoveAllListeners();
-        Global.isPanelOnInCastleScene = false;
+        Global.isSoldierPanelOnInCastleScene = false;
+        Global.isTowerPanelOnInCastleScene = false;
         panel.SetActive(false);
     }
 

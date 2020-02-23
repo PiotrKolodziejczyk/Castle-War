@@ -25,6 +25,12 @@ public abstract class Castle : MonoBehaviour
     internal int warrior;
     [SerializeField]
     internal int knight;
+    [SerializeField]
+    internal int woodTower;
+    [SerializeField]
+    internal int stoneTower;
+    [SerializeField]
+    internal int greatTower;
     protected void Saving(PlayerCastle castle)
     {
         //time -= Time.deltaTime;
