@@ -32,7 +32,16 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + $"/player.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
-        PlayerData data = new PlayerData(player);
+        PlayerData data = new PlayerData(player,null);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+    public static void SavePlayer(TakeScript take)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + $"/player.fun";
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+        PlayerData data = new PlayerData(null,take);
         formatter.Serialize(stream, data);
         stream.Close();
     }

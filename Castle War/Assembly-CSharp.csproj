@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\CastleScene\RawMaterials\RawMaterial.cs" />
     <Compile Include="Assets\Scripts\CastleScene\RawMaterials\Stone.cs" />
     <Compile Include="Assets\Scripts\CastleScene\RawMaterials\Wood.cs" />
+    <Compile Include="Assets\Scripts\CastleScene\TakeScript.cs" />
     <Compile Include="Assets\Scripts\MainScene\Castle.cs" />
     <Compile Include="Assets\Scripts\MainScene\CastleData.cs" />
     <Compile Include="Assets\Scripts\MainScene\CastleManager.cs" />

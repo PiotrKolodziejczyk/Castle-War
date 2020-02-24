@@ -17,12 +17,24 @@ public class UnitManager : MonoBehaviour
     public bool isMove = false;
     public Animator animator;
     public AudioSource audioSource;
+    internal int pikinierQuantity;
+    internal int warriorQuantity;
+    internal int knightQuantity;
+    internal int woodTowerQuantity;
+    internal int stoneTowerQuantity;
+    internal int greatTowerQuantity;
 
     private void Awake()
     {
         PlayerData data = SaveSystem.LoadPlayer();
         Vector3 position = new Vector3(data.x, data.y, data.z);
         transform.position = position;
+        pikinierQuantity = data.pikinierQuantity;
+        warriorQuantity = data.warriorQuantity;
+        knightQuantity = data.knightQuantity;
+        woodTowerQuantity = data.woodTowerQuantity;
+        stoneTowerQuantity = data.stoneTowerQuantity;
+        greatTowerQuantity = data.greatTowerQuantity;
     }
 
     private void Update()
