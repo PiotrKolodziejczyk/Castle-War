@@ -8,6 +8,11 @@ public class LoadScene : MonoBehaviour
     {
         SceneManager.LoadScene("LoadingScene");
     }
+    public void LoadSampleScene()
+    {
+        Global.whichScene = "SampleScene";
+        LoadNewGame();
+    }
     private void Update()
     {
         if (transform.name == "Loading")

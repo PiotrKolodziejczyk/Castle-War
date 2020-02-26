@@ -55,7 +55,8 @@ public class Building : MonoBehaviour
     int woodToUpgradeLvl;
     [SerializeField]
     internal PlayerCastle castle;
-
+    [SerializeField]
+    internal TakeScript take;
     #endregion
 
     #region Main Method
@@ -98,14 +99,15 @@ public class Building : MonoBehaviour
             }
         }
     }
-    public void BuildSoldierOrTower(TextMeshProUGUI text, ref float timeToCollect, float firstTimeToCollect, Text timeText, int castleWhatBuild, string name, ref int staging, Text stagingText, ref bool isBuild)
+    public void BuildSoldierOrTower(TextMeshProUGUI text,Text textInTake, ref float timeToCollect, float firstTimeToCollect, Text timeText,ref int castleWhatBuild, string name, ref int staging, Text stagingText, ref bool isBuild)
     {
         timeToCollect -= Time.deltaTime;
         timeText.text = timeToCollect.ToString();
         if (timeToCollect < 0)
         {
             castleWhatBuild += 1;
-            text.text = RawMaterial.SeText(name, castleWhatBuild);
+            textInTake.text = castleWhatBuild.ToString();
+            text.text = castleWhatBuild.ToString();
             timeToCollect = firstTimeToCollect;
             --staging;
             timeText.text = timeToCollect.ToString();

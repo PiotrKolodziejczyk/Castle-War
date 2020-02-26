@@ -73,25 +73,27 @@ public class Barrack : Building
         knightLabel.text = "1";
         buildPikeman.onClick.AddListener(() =>
         {
-            if (RemoveMaterialIfisTrue(pikemanClayToUpgrade* int.Parse(pikemanLabel.text), pikemanStoneToUpgrade* int.Parse(pikemanLabel.text), pikemanWoodToUpgrade * int.Parse(pikemanLabel.text)))
+            if (RemoveMaterialIfisTrue(pikemanClayToUpgrade * int.Parse(pikemanLabel.text), pikemanStoneToUpgrade * int.Parse(pikemanLabel.text), pikemanWoodToUpgrade * int.Parse(pikemanLabel.text)))
             {
-                DoWhenHaveMaterials(ref pikemanStaging, pikemanLabel, pikemanStagingText,ref isBuildPikeman);
+                DoWhenHaveMaterials(ref pikemanStaging, pikemanLabel, pikemanStagingText, ref isBuildPikeman);
             }
         });
-        buildWarrior.onClick.AddListener(() => {
+        buildWarrior.onClick.AddListener(() =>
+        {
             if (RemoveMaterialIfisTrue(warriorClayToUpgrade * int.Parse(warriorLabel.text), warriorStoneToUpgrade * int.Parse(warriorLabel.text), warriorWoodToUpgrade * int.Parse(warriorLabel.text)))
             {
-                DoWhenHaveMaterials(ref warriorStaging, warriorLabel, warriorStagingText,ref isBuildWarrior);
+                DoWhenHaveMaterials(ref warriorStaging, warriorLabel, warriorStagingText, ref isBuildWarrior);
             }
         });
-        buildKnight.onClick.AddListener(() => {
+        buildKnight.onClick.AddListener(() =>
+        {
             if (RemoveMaterialIfisTrue(knightClayToUpgrade * int.Parse(knightLabel.text), knightStoneToUpgrade * int.Parse(knightLabel.text), knightWoodToUpgrade * int.Parse(knightLabel.text)))
             {
-                DoWhenHaveMaterials(ref knightStaging, knightLabel, knightStagingText,ref isBuildKnight);
+                DoWhenHaveMaterials(ref knightStaging, knightLabel, knightStagingText, ref isBuildKnight);
             }
         });
     }
-   
+
     private void Update()
     {
         Timer(barrack);
@@ -103,18 +105,17 @@ public class Barrack : Building
         }
         if (actualBuilding == barrack && buildSoldierButton.IsInteractable() == false)
         {
-            Debug.Log("Wchodzi00");
             buildSoldierButton.interactable = true;
             buildButtonText.enabled = true;
             buildTowersButton.SetActive(false);
             buildSoldierButton.onClick.AddListener(() => EnableSoldierPanel());
         }
         if (isBuildPikeman)
-            BuildSoldierOrTower(pikemanText,ref timeToCollectPikeman, firstTimeToCollectPikeman, timeTextPikeman, castle.pikeman, "Pikeman",ref pikemanStaging, pikemanStagingText,ref isBuildPikeman);
+            BuildSoldierOrTower(pikemanText, take.pikiniersInCastle, ref timeToCollectPikeman, firstTimeToCollectPikeman, timeTextPikeman, ref castle.pikeman, "Pikeman", ref pikemanStaging, pikemanStagingText, ref isBuildPikeman);
         if (isBuildWarrior)
-            BuildSoldierOrTower(warriorText, ref timeToCollectWarrior, firstTimeToCollectWarrior, timeTextWarrior, castle.warrior, "Warrior", ref warriorStaging, warriorStagingText, ref isBuildWarrior);
+            BuildSoldierOrTower(warriorText, take.warriorsInCastle, ref timeToCollectWarrior, firstTimeToCollectWarrior, timeTextWarrior, ref castle.warrior, "Warrior", ref warriorStaging, warriorStagingText, ref isBuildWarrior);
         if (isBuildKnight)
-            BuildSoldierOrTower(knightText, ref timeToCollectKnight, firstTimeToCollectKnight, timeTextKnight, castle.knight, "Knight", ref knightStaging, knightStagingText, ref isBuildKnight);
+            BuildSoldierOrTower(knightText, take.knightsInCastle, ref timeToCollectKnight, firstTimeToCollectKnight, timeTextKnight, ref castle.knight, "Knight", ref knightStaging, knightStagingText, ref isBuildKnight);
 
     }
     public void EnableSoldierPanel()
@@ -131,5 +132,5 @@ public class Barrack : Building
         exitSoldierBuildButton.onClick.RemoveAllListeners();
         SoldierPanel.SetActive(false);
     }
-    
+
 }

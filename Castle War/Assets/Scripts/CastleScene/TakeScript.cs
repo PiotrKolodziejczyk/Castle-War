@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.MainScene;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,17 +13,17 @@ public class TakeScript : MonoBehaviour
     [SerializeField]
     Castle castle;
     [SerializeField]
-    Text pikiniersInCastle;
+    internal Text pikiniersInCastle;
     [SerializeField]
-    Text warriorsInCastle;
+    internal Text warriorsInCastle;
     [SerializeField]
-    Text knightsInCastle;
+    internal Text knightsInCastle;
     [SerializeField]
-    Text woodTowersInCastle;
+    internal Text woodTowersInCastle;
     [SerializeField]
-    Text stoneTowersInCastle;
+    internal Text stoneTowersInCastle;
     [SerializeField]
-    Text greatTowersInCastle;
+    internal Text greatTowersInCastle;
     [SerializeField]
     Text pikiniersInPlayer;
     [SerializeField]
@@ -35,6 +36,7 @@ public class TakeScript : MonoBehaviour
     Text stoneTowersInPlayer;
     [SerializeField]
     Text greatTowersInPlayer;
+    [SerializeField]
     internal int pikinierQuantity;
     internal int warriorQuantity;
     internal int knightQuantity;
@@ -65,12 +67,14 @@ public class TakeScript : MonoBehaviour
     InputField playerStoneTowerInput;
     [SerializeField]
     InputField playerGreatTowerInput;
-    void Start()
+    private void Awake()
     {
-        
+        pikiniersInCastle.text = castle.pikeman.ToString();
+        PlayerArmyData data = SaveSystem.LoadPlayerArmy();
+        pikinierQuantity = data.pikinierQuantity;
+        pikiniersInPlayer.text = pikinierQuantity.ToString();
     }
-
-    void Update()
+    private void Update()
     {
         
     }
@@ -84,7 +88,9 @@ public class TakeScript : MonoBehaviour
     }
     public void SwitchToPlayer()
     {
-
-        SaveSystem.SavePlayer(this);
+        pikiniersInCastle.text = (int.Parse(pikiniersInCastle.text) - int.Parse(castlePikemanInput.text)).ToString();
+        pikiniersInPlayer.text= (int.Parse(pikiniersInPlayer.text) + int.Parse(castlePikemanInput.text)).ToString();
+        pikinierQuantity += int.Parse(pikiniersInPlayer.text);
+        SaveSystem.SavePlayerArmyData(this);
     }
 }

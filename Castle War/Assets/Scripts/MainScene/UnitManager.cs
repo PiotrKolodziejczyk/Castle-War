@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.MainScene;
+using UnityEngine;
 
 public class UnitManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class UnitManager : MonoBehaviour
     public bool isMove = false;
     public Animator animator;
     public AudioSource audioSource;
+    [SerializeField]
     internal int pikinierQuantity;
     internal int warriorQuantity;
     internal int knightQuantity;
@@ -24,17 +26,18 @@ public class UnitManager : MonoBehaviour
     internal int stoneTowerQuantity;
     internal int greatTowerQuantity;
 
-    private void Awake()
+    private void Start()
     {
-        PlayerData data = SaveSystem.LoadPlayer();
+        PlayerPositionData data = SaveSystem.LoadPlayerPosition();
+        PlayerArmyData armyData = SaveSystem.LoadPlayerArmy();
         Vector3 position = new Vector3(data.x, data.y, data.z);
         transform.position = position;
-        pikinierQuantity = data.pikinierQuantity;
-        warriorQuantity = data.warriorQuantity;
-        knightQuantity = data.knightQuantity;
-        woodTowerQuantity = data.woodTowerQuantity;
-        stoneTowerQuantity = data.stoneTowerQuantity;
-        greatTowerQuantity = data.greatTowerQuantity;
+        pikinierQuantity = armyData.pikinierQuantity;
+        //warriorQuantity = armyData.warriorQuantity;
+        //knightQuantity = armyData.knightQuantity;
+        //woodTowerQuantity = armyData.woodTowerQuantity;
+        //stoneTowerQuantity = armyData.stoneTowerQuantity;
+        //greatTowerQuantity = armyData.greatTowerQuantity;
     }
 
     private void Update()
@@ -88,7 +91,7 @@ public class UnitManager : MonoBehaviour
             isMove = false;
             animator.SetBool("isRun", false);
             audioSource.Stop();
-            SaveSystem.SavePlayer(this);
+            SaveSystem.SavePlayerPosition(this);
         }
     }
 }

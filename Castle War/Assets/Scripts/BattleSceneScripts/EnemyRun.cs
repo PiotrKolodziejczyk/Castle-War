@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyRun : MonoBehaviour
 {
@@ -12,7 +11,8 @@ public class EnemyRun : MonoBehaviour
     public GameObject Axeman;
     public TowerShooting towerShooting;
     public AudioSource deadSounds;
-
+    [SerializeField]
+    PlayerArmy army;
     private void Awake()
     {
         deadSounds = GameObject.FindGameObjectWithTag("DeadSound").GetComponent<AudioSource>();
@@ -104,7 +104,11 @@ public class EnemyRun : MonoBehaviour
     }
     public void InstantiatePikeman()
     {
-        Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+        if (army.pikinierQuantity > 0)
+        {
+            Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+            army.MinusPikeman();
+        }
     }
     public void InstantiateAxeman()
     {

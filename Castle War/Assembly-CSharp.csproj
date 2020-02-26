@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\BattleSceneScripts\HowMuchSoldierIncomeCount.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Knight.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Pikeman.cs" />
+    <Compile Include="Assets\Scripts\BattleSceneScripts\PlayerArmy.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Soldier.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\StoneTower.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Tower.cs" />
@@ -100,8 +101,9 @@
     <Compile Include="Assets\Scripts\MainScene\Map.cs" />
     <Compile Include="Assets\Scripts\MainScene\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\MainScene\Player.cs" />
+    <Compile Include="Assets\Scripts\MainScene\PlayerArmyData.cs" />
     <Compile Include="Assets\Scripts\MainScene\PlayerCastle.cs" />
-    <Compile Include="Assets\Scripts\MainScene\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\MainScene\PlayerPositionData.cs" />
     <Compile Include="Assets\Scripts\MainScene\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\MainScene\SoundController.cs" />
     <Compile Include="Assets\Scripts\MainScene\UnitManager.cs" />

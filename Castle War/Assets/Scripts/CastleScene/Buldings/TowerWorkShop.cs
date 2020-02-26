@@ -77,13 +77,15 @@ public class TowerWorkShop : Building
                 DoWhenHaveMaterials(ref woodTowerStaging, woodTowerLabel, woodTowerStagingText, ref isBuildWoodTower);
             }
         });
-        buildStoneTower.onClick.AddListener(() => {
+        buildStoneTower.onClick.AddListener(() =>
+        {
             if (RemoveMaterialIfisTrue(stoneTowerClayToUpgrade * int.Parse(stoneTowerLabel.text), stoneTowerStoneToUpgrade * int.Parse(stoneTowerLabel.text), stoneTowerWoodToUpgrade * int.Parse(stoneTowerLabel.text)))
             {
                 DoWhenHaveMaterials(ref stoneTowerStaging, stoneTowerLabel, stoneTowerStagingText, ref isBuildStoneTower);
             }
         });
-        buildGreatTower.onClick.AddListener(() => {
+        buildGreatTower.onClick.AddListener(() =>
+        {
             if (RemoveMaterialIfisTrue(greatTowerClayToUpgrade * int.Parse(greatTowerLabel.text), greatTowerStoneToUpgrade * int.Parse(greatTowerLabel.text), greatTowerWoodToUpgrade * int.Parse(greatTowerLabel.text)))
             {
                 DoWhenHaveMaterials(ref greatTowerStaging, greatTowerLabel, greatTowerStagingText, ref isBuildGreatTower);
@@ -105,11 +107,11 @@ public class TowerWorkShop : Building
             buildTowerButton.onClick.AddListener(() => EnableTowerPanel());
         }
         if (isBuildWoodTower)
-            BuildSoldierOrTower(woodTowerText, ref timeToCollectWoodTower, firstTimeToCollectWoodTower, timeTextWoodTower, castle.woodTower, "Wood Tower", ref woodTowerStaging, woodTowerStagingText, ref isBuildWoodTower);
+            BuildSoldierOrTower(woodTowerText, take.woodTowersInCastle, ref timeToCollectWoodTower, firstTimeToCollectWoodTower, timeTextWoodTower, ref castle.woodTower, "Wood Tower", ref woodTowerStaging, woodTowerStagingText, ref isBuildWoodTower);
         if (isBuildStoneTower)
-            BuildSoldierOrTower(stoneTowerText, ref timeToCollectStoneTower, firstTimeToCollectStoneTower, timeTextStoneTower, castle.stoneTower, "Stone Tower", ref stoneTowerStaging, stoneTowerStagingText, ref isBuildStoneTower);
+            BuildSoldierOrTower(stoneTowerText, take.stoneTowersInCastle, ref timeToCollectStoneTower, firstTimeToCollectStoneTower, timeTextStoneTower, ref castle.stoneTower, "Stone Tower", ref stoneTowerStaging, stoneTowerStagingText, ref isBuildStoneTower);
         if (isBuildGreatTower)
-            BuildSoldierOrTower(greatTowerText, ref timeToCollectGreatTower, firstTimeToCollectGreatTower, timeTextGreatTower, castle.greatTower, "Great Tower", ref greatTowerStaging, greatTowerStagingText, ref isBuildGreatTower);
+            BuildSoldierOrTower(greatTowerText, take.greatTowersInCastle, ref timeToCollectGreatTower, firstTimeToCollectGreatTower, timeTextGreatTower, ref castle.greatTower, "Great Tower", ref greatTowerStaging, greatTowerStagingText, ref isBuildGreatTower);
 
     }
     public void EnableTowerPanel()
