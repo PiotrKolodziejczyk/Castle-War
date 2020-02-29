@@ -99,7 +99,7 @@ public class Building : MonoBehaviour
             }
         }
     }
-    public void BuildSoldierOrTower(TextMeshProUGUI text,Text textInTake, ref float timeToCollect, float firstTimeToCollect, Text timeText,ref int castleWhatBuild, string name, ref int staging, Text stagingText, ref bool isBuild)
+    public void BuildSoldierOrTower(Text textInTake, ref float timeToCollect, float firstTimeToCollect, Text timeText,ref int castleWhatBuild, string name, ref int staging, Text stagingText, ref bool isBuild)
     {
         timeToCollect -= Time.deltaTime;
         timeText.text = timeToCollect.ToString();
@@ -107,7 +107,6 @@ public class Building : MonoBehaviour
         {
             castleWhatBuild += 1;
             textInTake.text = castleWhatBuild.ToString();
-            text.text = castleWhatBuild.ToString();
             timeToCollect = firstTimeToCollect;
             --staging;
             timeText.text = timeToCollect.ToString();

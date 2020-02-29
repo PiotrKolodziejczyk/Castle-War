@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\BattleSceneScripts\TriggersScript.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Warrior.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\WoodTower.cs" />
+    <Compile Include="Assets\Scripts\CastleScene\Army.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Barrack.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\Building.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Buldings\ClayMine.cs" />
@@ -93,7 +94,6 @@
     <Compile Include="Assets\Scripts\CastleScene\RawMaterials\Wood.cs" />
     <Compile Include="Assets\Scripts\CastleScene\TakeScript.cs" />
     <Compile Include="Assets\Scripts\MainScene\Castle.cs" />
-    <Compile Include="Assets\Scripts\MainScene\CastleData.cs" />
     <Compile Include="Assets\Scripts\MainScene\CastleManager.cs" />
     <Compile Include="Assets\Scripts\MainScene\DisableMove.cs" />
     <Compile Include="Assets\Scripts\MainScene\EnemyCastle.cs" />
@@ -101,15 +101,16 @@
     <Compile Include="Assets\Scripts\MainScene\Map.cs" />
     <Compile Include="Assets\Scripts\MainScene\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\MainScene\Player.cs" />
-    <Compile Include="Assets\Scripts\MainScene\PlayerArmyData.cs" />
     <Compile Include="Assets\Scripts\MainScene\PlayerCastle.cs" />
-    <Compile Include="Assets\Scripts\MainScene\PlayerPositionData.cs" />
     <Compile Include="Assets\Scripts\MainScene\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\MainScene\SoundController.cs" />
     <Compile Include="Assets\Scripts\MainScene\UnitManager.cs" />
     <Compile Include="Assets\Scripts\MenuScene\ButtonSmallMenu.cs" />
     <Compile Include="Assets\Scripts\MenuScene\LoadScene.cs" />
     <Compile Include="Assets\Scripts\MenuScene\SmallMenu.cs" />
+    <Compile Include="Assets\Scripts\SavingData\CastleData.cs" />
+    <Compile Include="Assets\Scripts\SavingData\PlayerArmyData.cs" />
+    <Compile Include="Assets\Scripts\SavingData\PlayerPositionData.cs" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\External Resources\Meshtint Free Barbarian\www.meshtint.com.txt" />

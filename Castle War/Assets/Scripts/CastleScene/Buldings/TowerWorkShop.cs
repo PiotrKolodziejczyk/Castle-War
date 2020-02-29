@@ -12,9 +12,9 @@ public class TowerWorkShop : Building
     UnityEngine.UI.Button buildTowerButton;
     [SerializeField]
     Text buildTowerButtonText;
-    public TextMeshProUGUI woodTowerText;
-    public TextMeshProUGUI stoneTowerText;
-    public TextMeshProUGUI greatTowerText;
+    public Text woodTowerText;
+    public Text stoneTowerText;
+    public Text greatTowerText;
     public float timeToCollectWoodTower;
     public float timeToCollectStoneTower;
     public float timeToCollectGreatTower;
@@ -107,12 +107,14 @@ public class TowerWorkShop : Building
             buildTowerButton.onClick.AddListener(() => EnableTowerPanel());
         }
         if (isBuildWoodTower)
-            BuildSoldierOrTower(woodTowerText, take.woodTowersInCastle, ref timeToCollectWoodTower, firstTimeToCollectWoodTower, timeTextWoodTower, ref castle.woodTower, "Wood Tower", ref woodTowerStaging, woodTowerStagingText, ref isBuildWoodTower);
+            BuildSoldierOrTower(take.army.woodTowerInCastle.text, ref timeToCollectWoodTower, firstTimeToCollectWoodTower, timeTextWoodTower, ref castle.woodTower, "Wood Tower", ref woodTowerStaging, woodTowerStagingText, ref isBuildWoodTower);
         if (isBuildStoneTower)
-            BuildSoldierOrTower(stoneTowerText, take.stoneTowersInCastle, ref timeToCollectStoneTower, firstTimeToCollectStoneTower, timeTextStoneTower, ref castle.stoneTower, "Stone Tower", ref stoneTowerStaging, stoneTowerStagingText, ref isBuildStoneTower);
+            BuildSoldierOrTower(take.army.stoneTowerInCastle.text, ref timeToCollectStoneTower, firstTimeToCollectStoneTower, timeTextStoneTower, ref castle.stoneTower, "Stone Tower", ref stoneTowerStaging, stoneTowerStagingText, ref isBuildStoneTower);
         if (isBuildGreatTower)
-            BuildSoldierOrTower(greatTowerText, take.greatTowersInCastle, ref timeToCollectGreatTower, firstTimeToCollectGreatTower, timeTextGreatTower, ref castle.greatTower, "Great Tower", ref greatTowerStaging, greatTowerStagingText, ref isBuildGreatTower);
-
+            BuildSoldierOrTower(take.army.greatTowerInCastle.text, ref timeToCollectGreatTower, firstTimeToCollectGreatTower, timeTextGreatTower, ref castle.greatTower, "Great Tower", ref greatTowerStaging, greatTowerStagingText, ref isBuildGreatTower);
+        woodTowerText.text = castle.woodTower.ToString();
+        stoneTowerText.text = castle.stoneTower.ToString();
+        greatTowerText.text = castle.greatTower.ToString();
     }
     public void EnableTowerPanel()
     {

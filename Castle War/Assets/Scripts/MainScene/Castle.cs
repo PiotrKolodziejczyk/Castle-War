@@ -2,16 +2,24 @@
 
 public abstract class Castle : MonoBehaviour
 {
-    float time = 20;
+    float time = 10;
     [SerializeField]
     internal int id;
+    [SerializeField]
     internal Barrack barrack;
+    [SerializeField]
     internal ClayMine clayMine;
+    [SerializeField]
     internal Quarry quarry;
+    [SerializeField]
     internal Sawmill sawmill;
+    [SerializeField]
     internal Smithy smithy;
+    [SerializeField]
     internal TowerWorkShop towerWorkShop;
+    [SerializeField]
     internal TownHall townHall;
+    [SerializeField]
     internal Wall wall;
     [SerializeField]
     internal Clay clay;
@@ -33,13 +41,13 @@ public abstract class Castle : MonoBehaviour
     internal int greatTower;
     protected void Saving(PlayerCastle castle)
     {
-        //time -= Time.deltaTime;
-        //if (time < 0)
-        //{
-        //    SaveSystem.SaveCastle(castle);
-        //    time = 20;
-        //    Debug.Log("Save!");
-        //}
+        time -= Time.deltaTime;
+        if (time < 0)
+        {
+            SaveSystem.SaveCastle(castle);
+            time = 10;
+            Debug.Log("Save!");
+        }
     }
 }
 

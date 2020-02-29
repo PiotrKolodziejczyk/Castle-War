@@ -8,7 +8,7 @@ public static class SaveSystem
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + $"/playerCastle{Global.currentCastle}.fun";
-        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         CastleData data = new CastleData(castle);
         formatter.Serialize(stream, data);
         stream.Close();
@@ -20,7 +20,7 @@ public static class SaveSystem
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(path, FileMode.Open,FileAccess.ReadWrite);
             CastleData data = formatter.Deserialize(stream) as CastleData;
             stream.Close();
             return data;
@@ -32,7 +32,7 @@ public static class SaveSystem
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + $"/playerPosition.fun";
-        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         PlayerPositionData data = new PlayerPositionData(player);
         formatter.Serialize(stream, data);
         stream.Close();
@@ -40,8 +40,8 @@ public static class SaveSystem
     public static void SavePlayerArmyData(TakeScript take)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/playerArmy.fun";
-        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+        string path = Application.persistentDataPath + $"/playerArmy1.fun";
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         PlayerArmyData data = new PlayerArmyData(take);
         formatter.Serialize(stream, data);
         stream.Close();
@@ -50,7 +50,7 @@ public static class SaveSystem
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + $"/playerArmy.fun";
-        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         PlayerArmyData data = new PlayerArmyData(army);
         formatter.Serialize(stream, data);
         stream.Close();
@@ -62,7 +62,7 @@ public static class SaveSystem
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             PlayerPositionData data = formatter.Deserialize(stream) as PlayerPositionData;
             stream.Close();
             return data;
@@ -72,11 +72,11 @@ public static class SaveSystem
     }
     public static PlayerArmyData LoadPlayerArmy()
     {
-        string path = Application.persistentDataPath + $"/playerArmy.fun";
+        string path = Application.persistentDataPath + $"/playerArmy1.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             PlayerArmyData data = formatter.Deserialize(stream) as PlayerArmyData;
             stream.Close();
             return data;

@@ -12,9 +12,9 @@ public class Barrack : Building
     UnityEngine.UI.Button buildSoldierButton;
     [SerializeField]
     Text buildButtonText;
-    public TextMeshProUGUI pikemanText;
-    public TextMeshProUGUI warriorText;
-    public TextMeshProUGUI knightText;
+    public Text pikemanText;
+    public Text warriorText;
+    public Text knightText;
     public float timeToCollectPikeman;
     public float timeToCollectWarrior;
     public float timeToCollectKnight;
@@ -111,12 +111,14 @@ public class Barrack : Building
             buildSoldierButton.onClick.AddListener(() => EnableSoldierPanel());
         }
         if (isBuildPikeman)
-            BuildSoldierOrTower(pikemanText, take.pikiniersInCastle, ref timeToCollectPikeman, firstTimeToCollectPikeman, timeTextPikeman, ref castle.pikeman, "Pikeman", ref pikemanStaging, pikemanStagingText, ref isBuildPikeman);
+            BuildSoldierOrTower(take.army.pikemanInCastle.text, ref timeToCollectPikeman, firstTimeToCollectPikeman, timeTextPikeman, ref castle.pikeman, "Pikeman", ref pikemanStaging, pikemanStagingText, ref isBuildPikeman);
         if (isBuildWarrior)
-            BuildSoldierOrTower(warriorText, take.warriorsInCastle, ref timeToCollectWarrior, firstTimeToCollectWarrior, timeTextWarrior, ref castle.warrior, "Warrior", ref warriorStaging, warriorStagingText, ref isBuildWarrior);
+            BuildSoldierOrTower(take.army.warriorInCastle.text, ref timeToCollectWarrior, firstTimeToCollectWarrior, timeTextWarrior, ref castle.warrior, "Warrior", ref warriorStaging, warriorStagingText, ref isBuildWarrior);
         if (isBuildKnight)
-            BuildSoldierOrTower(knightText, take.knightsInCastle, ref timeToCollectKnight, firstTimeToCollectKnight, timeTextKnight, ref castle.knight, "Knight", ref knightStaging, knightStagingText, ref isBuildKnight);
-
+            BuildSoldierOrTower(take.army.knightInCastle.text, ref timeToCollectKnight, firstTimeToCollectKnight, timeTextKnight, ref castle.knight, "Knight", ref knightStaging, knightStagingText, ref isBuildKnight);
+        pikemanText.text = castle.pikeman.ToString();
+        warriorText.text = castle.warrior.ToString();
+        knightText.text = castle.knight.ToString();
     }
     public void EnableSoldierPanel()
     {

@@ -104,7 +104,7 @@ public class EnemyRun : MonoBehaviour
     }
     public void InstantiatePikeman()
     {
-        if (army.pikinierQuantity > 0)
+        if (army.army.pikemanInPlayer.quantity > 0)
         {
             Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
             army.MinusPikeman();

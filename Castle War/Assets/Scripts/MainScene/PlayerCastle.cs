@@ -20,22 +20,12 @@ public class PlayerCastle : Castle
     {
         CastleData castle = SaveSystem.LoadCastle();
         InitializeBuildingsAndRawMaterials(castle);
+        InitializeArmy(castle);
         InitializeBuildingTexts();
     }
 
     private void InitializeBuildingsAndRawMaterials(CastleData castle)
     {
-        sawmill = GetComponentInChildren<Sawmill>();
-        clayMine = GetComponentInChildren<ClayMine>();
-        quarry = GetComponentInChildren<Quarry>();
-        townHall = GetComponentInChildren<TownHall>();
-        barrack = GetComponentInChildren<Barrack>();
-        towerWorkShop = GetComponentInChildren<TowerWorkShop>();
-        smithy = GetComponentInChildren<Smithy>();
-        wall = GetComponentInChildren<Wall>();
-        clay = GetComponentInChildren<Clay>();
-        stone = GetComponentInChildren<Stone>();
-        wood = GetComponentInChildren<Wood>();
         id = castle.id;
         sawmill.level = castle.sawmillLevel;
         clayMine.level = castle.clayMineLevel;
@@ -48,6 +38,16 @@ public class PlayerCastle : Castle
         clay.quantity = castle.clay;
         stone.quantity = castle.stone;
         wood.quantity = castle.wood;
+    }
+
+    private void InitializeArmy(CastleData castle)
+    {
+        pikeman = castle.pikeman;
+        warrior = castle.warrior;
+        knight = castle.knight;
+        woodTower = castle.woodTower;
+        stoneTower = castle.stoneTower;
+        greatTower = castle.greatTower;
     }
 
     private void InitializeBuildingTexts()

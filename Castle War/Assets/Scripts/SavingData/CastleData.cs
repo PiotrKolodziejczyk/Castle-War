@@ -13,6 +13,12 @@ public class CastleData
     public int clay;
     public int stone;
     public int wood;
+    internal int pikeman;
+    internal int warrior;
+    internal int knight;
+    internal int woodTower;
+    internal int stoneTower;
+    internal int greatTower;
     public CastleData(PlayerCastle castle)
     {
         id = castle.id;
@@ -27,5 +33,11 @@ public class CastleData
         clay = castle.clay.quantity;
         stone = castle.stone.quantity;
         wood = castle.wood.quantity;
+        pikeman = castle.pikeman;
+        warrior = castle.warrior;
+        knight = castle.knight;
+        woodTower = castle.woodTower;
+        stoneTower = castle.stoneTower;
+        greatTower = castle.greatTower;
     }
 }

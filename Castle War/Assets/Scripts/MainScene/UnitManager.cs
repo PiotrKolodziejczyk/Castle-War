@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.MainScene;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UnitManager : MonoBehaviour
 {
@@ -18,26 +17,12 @@ public class UnitManager : MonoBehaviour
     public bool isMove = false;
     public Animator animator;
     public AudioSource audioSource;
-    [SerializeField]
-    internal int pikinierQuantity;
-    internal int warriorQuantity;
-    internal int knightQuantity;
-    internal int woodTowerQuantity;
-    internal int stoneTowerQuantity;
-    internal int greatTowerQuantity;
 
     private void Start()
     {
         PlayerPositionData data = SaveSystem.LoadPlayerPosition();
-        PlayerArmyData armyData = SaveSystem.LoadPlayerArmy();
         Vector3 position = new Vector3(data.x, data.y, data.z);
         transform.position = position;
-        pikinierQuantity = armyData.pikinierQuantity;
-        //warriorQuantity = armyData.warriorQuantity;
-        //knightQuantity = armyData.knightQuantity;
-        //woodTowerQuantity = armyData.woodTowerQuantity;
-        //stoneTowerQuantity = armyData.stoneTowerQuantity;
-        //greatTowerQuantity = armyData.greatTowerQuantity;
     }
 
     private void Update()
