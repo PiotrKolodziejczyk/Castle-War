@@ -33,11 +33,11 @@ public class CastleData
         clay = castle.clay.quantity;
         stone = castle.stone.quantity;
         wood = castle.wood.quantity;
-        pikeman = castle.pikeman;
-        warrior = castle.warrior;
-        knight = castle.knight;
-        woodTower = castle.woodTower;
-        stoneTower = castle.stoneTower;
-        greatTower = castle.greatTower;
+        pikeman = castle.Army.pikeman.textInputQuantity.quantity;
+        warrior = castle.Army.warrior.textInputQuantity.quantity;
+        knight = castle.Army.knight.textInputQuantity.quantity;
+        woodTower = castle.Army.woodTower.textInputQuantity.quantity;
+        stoneTower = castle.Army.stoneTower.textInputQuantity.quantity;
+        greatTower = castle.Army.greatTower.textInputQuantity.quantity;
     }
 }

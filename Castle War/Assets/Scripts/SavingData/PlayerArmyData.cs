@@ -13,21 +13,21 @@ namespace Assets.Scripts.MainScene
         public PlayerArmyData(TakeScript takeScript)
         {
             
-            pikemanQuantity = takeScript.army.pikemanInPlayer.quantity;
-            warriorQuantity = takeScript.army.warriorInPlayer.quantity;
-            knightQuantity = takeScript.army.knightInPlayer.quantity;
-            woodTowerQuantity = takeScript.army.woodTowerInPlayer.quantity;
-            stoneTowerQuantity = takeScript.army.stoneTowerInPlayer.quantity;
-            greatTowerQuantity = takeScript.army.greatTowerInPlayer.quantity;
+            pikemanQuantity = takeScript.player.Army.pikeman.textInputQuantity.quantity;
+            warriorQuantity = takeScript.player.Army.warrior.textInputQuantity.quantity;
+            knightQuantity = takeScript.player.Army.knight.textInputQuantity.quantity;
+            woodTowerQuantity = takeScript.player.Army.woodTower.textInputQuantity.quantity;
+            stoneTowerQuantity = takeScript.player.Army.stoneTower.textInputQuantity.quantity;
+            greatTowerQuantity = takeScript.player.Army.greatTower.textInputQuantity.quantity;
         }
-        public PlayerArmyData(PlayerArmy armyScript)
+        public PlayerArmyData(PlayerArmyInBattle armyScript)
         {
-            pikemanQuantity = armyScript.army.pikemanInPlayer.quantity;
-            warriorQuantity = armyScript.army.warriorInPlayer.quantity;
-            knightQuantity = armyScript.army.knightInPlayer.quantity;
-            woodTowerQuantity = armyScript.army.woodTowerInPlayer.quantity;
-            stoneTowerQuantity = armyScript.army.stoneTowerInPlayer.quantity;
-            greatTowerQuantity = armyScript.army.greatTowerInPlayer.quantity;
+            pikemanQuantity = armyScript.player.pikeman.textInputQuantity.quantity;
+            warriorQuantity = armyScript.player.warrior.textInputQuantity.quantity;
+            knightQuantity = armyScript.player.knight.textInputQuantity.quantity;
+            woodTowerQuantity = armyScript.player.woodTower.textInputQuantity.quantity;
+            stoneTowerQuantity = armyScript.player.stoneTower.textInputQuantity.quantity;
+            greatTowerQuantity = armyScript.player.greatTower.textInputQuantity.quantity;
         }
     }
 }

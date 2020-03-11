@@ -2,6 +2,7 @@
 {
     private void Update()
     {
-        Timer(sawmill);
+        ElapsedTimeAndBuild(this);
+       
     }
 }

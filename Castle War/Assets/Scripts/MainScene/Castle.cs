@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.CastleScene;
+using UnityEngine;
 
-public abstract class Castle : MonoBehaviour
+public abstract class Castle : MonoBehaviour, IArmy
 {
     float time = 10;
     [SerializeField]
@@ -27,18 +28,10 @@ public abstract class Castle : MonoBehaviour
     internal Wood wood;
     [SerializeField]
     internal Stone stone;
-    [SerializeField]
-    internal int pikeman;
-    [SerializeField]
-    internal int warrior;
-    [SerializeField]
-    internal int knight;
-    [SerializeField]
-    internal int woodTower;
-    [SerializeField]
-    internal int stoneTower;
-    [SerializeField]
-    internal int greatTower;
+    [SerializeField] Army army;
+
+    public Army Army { get => army; set => army = value; }
+
     protected void Saving(PlayerCastle castle)
     {
         time -= Time.deltaTime;

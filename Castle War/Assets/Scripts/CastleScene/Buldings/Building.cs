@@ -1,69 +1,36 @@
-﻿using TMPro;
+﻿using Assets.Scripts.CastleScene.Buldings;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class Building : MonoBehaviour
 {
     #region Fields
-    [SerializeField]
-    internal short level;
-    [SerializeField]
-    Button exitButton;
-    [SerializeField]
-    GameObject panel;
-    [SerializeField]
-    bool unlockPanel = false;
-    [SerializeField]
-    Text title;
-    [SerializeField]
-    Text levelInPanel;
-    [SerializeField]
-    Button buildButton;
-    [SerializeField]
-    bool isBuild;
-    [SerializeField]
-    float timeToUpgrade;
-    [SerializeField]
-    float startTimeToUpgrade;
-    [SerializeField]
-    Text time;
-    [SerializeField]
-    protected Barrack barrack;
-    [SerializeField]
-    protected ClayMine clayMine;
-    [SerializeField]
-    protected Quarry quarry;
-    [SerializeField]
-    protected Sawmill sawmill;
-    [SerializeField]
-    protected Smithy smithy;
-    [SerializeField]
-    protected TownHall townHall;
-    [SerializeField]
-    protected Wall wall;
-    [SerializeField]
-    protected TowerWorkShop towerWorkShop;
-    [SerializeField]
-    internal TextMeshProUGUI buildingText;
-    [SerializeField]
+    [SerializeField] internal short level;
+    [SerializeField] public bool isBuild;
+    [SerializeField] internal TextMeshProUGUI buildingText;
+    [SerializeField] internal PlayerCastle castle;
+    [SerializeField] internal TakeScript take;
+    [SerializeField] internal TimeProperties timePropertiesBuilding;
+    ResourcesToUpgradeLvl resourcesToUpgradeBuildingLvl;
     internal Building actualBuilding;
-    [SerializeField]
-    int clayToUpgradeLvl;
-    [SerializeField]
-    int stoneToUpgradeLvl;
-    [SerializeField]
-    int woodToUpgradeLvl;
-    [SerializeField]
-    internal PlayerCastle castle;
-    [SerializeField]
-    internal TakeScript take;
+    internal MainPanel mainPanel;
+    internal bool isMainPanelOn = true;
+    internal bool isSoldierPanelOn = false;
+    internal bool isTowerPanelOn = false;
     #endregion
-
     #region Main Method
-    public void Build(Transform transform)
+    private void Awake()
     {
-        title.text = transform.name;
-        if (RemoveMaterialIfisTrue(clayToUpgradeLvl, stoneToUpgradeLvl, woodToUpgradeLvl))
+        resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
+        timePropertiesBuilding = GetComponent<TimeProperties>();
+        mainPanel = GetComponent<MainPanel>();
+    }
+
+    public void BuildBuilding(Transform transform)
+    {
+        if (RemoveMaterialIfisTrue(resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
+                                   resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
+                                   resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
             GetBuildingType(transform).isBuild = true;
     }
     public bool RemoveMaterialIfisTrue(int clayToUpgrade, int stoneToUpgrade, int woodToUpgrade)
@@ -78,39 +45,44 @@ public class Building : MonoBehaviour
         return false;
     }
 
-    public void Timer(Building building)
+    public void ElapsedTimeAndBuild(Building building)
     {
+        building.buildingText.text = SetText(building.transform.name, building.level);
         if (building.isBuild)
         {
-            building.timeToUpgrade -= Time.deltaTime;
-            if (building.unlockPanel)
-                time.text = building.timeToUpgrade.ToString();
-            if (building.timeToUpgrade < 0)
+            building.timePropertiesBuilding.timeToUpgrade -= Time.deltaTime;
+            if (mainPanel.panel != null)
+                building.mainPanel.timeText.text = building.timePropertiesBuilding.timeToUpgrade.ToString();
+            if (building.timePropertiesBuilding.timeToUpgrade < 0)
             {
-                building.level++;
-                building.timeToUpgrade = building.startTimeToUpgrade;
-                if (building.unlockPanel)
+                ++building.level;
+                building.timePropertiesBuilding.timeToUpgrade = building.timePropertiesBuilding.startTimeToUpgrade;
+                if (building.mainPanel.panel != null)
                 {
-                    time.text = building.timeToUpgrade.ToString();
-                    levelInPanel.text = SetLevelText(building.level);
-                    building.buildingText.text = SetText(building.name, building.level);
+                    building.mainPanel.levelInPanel.text = SetText(building.transform.name, building.level);
+                    building.mainPanel.timeText.text = building.timePropertiesBuilding.timeToUpgrade.ToString();
                 }
                 building.isBuild = false;
             }
         }
     }
-    public void BuildSoldierOrTower(Text textInTake, ref float timeToCollect, float firstTimeToCollect, Text timeText,ref int castleWhatBuild, string name, ref int staging, Text stagingText, ref bool isBuild)
+    public void BuildSoldierOrTower(Text textInTake, ref float timeToCollect, float firstTimeToCollect, Text timeText, ref int castleWhatBuild, string name, ref int staging, Text stagingText, ref bool isBuild)
     {
         timeToCollect -= Time.deltaTime;
-        timeText.text = timeToCollect.ToString();
+        if (isSoldierPanelOn||isTowerPanelOn)
+            timeText.text = timeToCollect.ToString();
         if (timeToCollect < 0)
         {
             castleWhatBuild += 1;
-            textInTake.text = castleWhatBuild.ToString();
             timeToCollect = firstTimeToCollect;
-            --staging;
-            timeText.text = timeToCollect.ToString();
-            stagingText.text = staging.ToString();
+            if (isSoldierPanelOn || isTowerPanelOn)
+            {
+                textInTake.text = castleWhatBuild.ToString();
+                timeText.text = timeToCollect.ToString();
+            }
+                --staging;
+            if(isSoldierPanelOn || isTowerPanelOn)
+                stagingText.text = staging.ToString();
             if (staging <= 0)
                 isBuild = false;
         }
@@ -122,27 +94,26 @@ public class Building : MonoBehaviour
         isBuild = true; ;
         label.text = "1";
     }
-
     public Building GetBuildingType(Transform transform)
     {
         switch (transform.name)
         {
             case "Barrack":
-                return barrack;
+                return FindObjectOfType<Barrack>();
             case "ClayMine":
-                return clayMine;
+                return FindObjectOfType<ClayMine>();
             case "Quarry":
-                return quarry;
+                return FindObjectOfType<Quarry>();
             case "Sawmill":
-                return sawmill;
+                return FindObjectOfType<Sawmill>();
             case "Smithy":
-                return smithy;
+                return FindObjectOfType<Smithy>();
             case "TowerWorkshop":
-                return towerWorkShop;
+                return FindObjectOfType<TowerWorkShop>();
             case "Wall":
-                return wall;
+                return FindObjectOfType<Wall>();
             case "TownHall":
-                return townHall;
+                return FindObjectOfType<TownHall>();
             default:
                 return null;
         }
@@ -151,15 +122,10 @@ public class Building : MonoBehaviour
     private void OnMouseDown()
     {
         if (Global.isSoldierPanelOnInCastleScene == false && Global.isTowerPanelOnInCastleScene == false)
-        {
             OnEnablePanel();
-        }
     }
     #endregion
-
     #region Additional Methods
-
-
     public static string SetText(string name, short level)
     {
         return $"{name} {level} Level";
@@ -172,31 +138,42 @@ public class Building : MonoBehaviour
     public void OnEnablePanel()
     {
         actualBuilding = GetBuildingType(transform);
-        if (actualBuilding == barrack)
+        actualBuilding.mainPanel.InstantiatePanel();
+
+        if (actualBuilding == FindObjectOfType<Barrack>())
             Global.isSoldierPanelOnInCastleScene = true;
-        if (actualBuilding == towerWorkShop)
+        else
+            mainPanel.buildSoldierButton.gameObject.SetActive(false);
+
+        if (actualBuilding == FindObjectOfType<TowerWorkShop>())
             Global.isTowerPanelOnInCastleScene = true;
-        actualBuilding.unlockPanel = true;
-        buildButton.onClick.AddListener(() => Build(transform));
-        exitButton.onClick.AddListener(() => ExitPanel());
-        title.text = transform.name;
-        levelInPanel.text = SetLevelText(actualBuilding.level);
-        time.text = actualBuilding.timeToUpgrade.ToString();
-        actualBuilding.buildingText.text = SetText(actualBuilding.name, actualBuilding.level);
-        panel.SetActive(true);
+        else
+            mainPanel.buildTowersButton.gameObject.SetActive(false);
+
+        InitializeMainBuildingPanel();
     }
+
+
     public void ExitPanel()
     {
-        buildButton.onClick.RemoveAllListeners();
-        actualBuilding.unlockPanel = false;
+        mainPanel.buildButton.onClick.RemoveAllListeners();
+        mainPanel.unlockPanel = false;
         actualBuilding = null;
-        exitButton.onClick.RemoveAllListeners();
+        mainPanel.exitButton.onClick.RemoveAllListeners();
         Global.isSoldierPanelOnInCastleScene = false;
         Global.isTowerPanelOnInCastleScene = false;
-        panel.SetActive(false);
+        Destroy(mainPanel.panel);
+    }
+    private void InitializeMainBuildingPanel()
+    {
+        mainPanel.unlockPanel = true;
+        mainPanel.levelInPanel.text = actualBuilding.buildingText.text;
+        mainPanel.timeText.text = actualBuilding.timePropertiesBuilding.timeToUpgrade.ToString();
+        mainPanel.buildButton.onClick.AddListener(() => BuildBuilding(transform));
+        mainPanel.exitButton.onClick.AddListener(() => ExitPanel());
+        isMainPanelOn = true;
     }
 
     #endregion
 }
-
 

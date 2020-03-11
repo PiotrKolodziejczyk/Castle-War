@@ -2,7 +2,7 @@
 {
     private void Update()
     {
-        Timer(wall);
+        ElapsedTimeAndBuild(this);
     }
 }
 

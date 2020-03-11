@@ -46,7 +46,7 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
-    public static void SavePlayerArmyData(PlayerArmy army)
+    public static void SavePlayerArmyData(PlayerArmyInBattle army)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + $"/playerArmy.fun";

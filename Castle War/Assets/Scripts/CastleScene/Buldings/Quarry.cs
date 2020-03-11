@@ -2,6 +2,6 @@
 {
     private void Update()
     {
-        Timer(quarry);
+        ElapsedTimeAndBuild(this);
     }
 }

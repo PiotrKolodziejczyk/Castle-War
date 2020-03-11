@@ -12,7 +12,7 @@ public class EnemyRun : MonoBehaviour
     public TowerShooting towerShooting;
     public AudioSource deadSounds;
     [SerializeField]
-    PlayerArmy army;
+    PlayerArmyInBattle army;
     private void Awake()
     {
         deadSounds = GameObject.FindGameObjectWithTag("DeadSound").GetComponent<AudioSource>();
@@ -104,11 +104,11 @@ public class EnemyRun : MonoBehaviour
     }
     public void InstantiatePikeman()
     {
-        if (army.army.pikemanInPlayer.quantity > 0)
-        {
-            Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
-            army.MinusPikeman();
-        }
+        //if (army.army.pikemanInPlayer.quantity > 0)
+        //{
+        //    Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+        //    army.MinusPikeman();
+        //}
     }
     public void InstantiateAxeman()
     {

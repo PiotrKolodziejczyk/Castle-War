@@ -1,37 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.CastleScene
 {
-    class Army : MonoBehaviour
+    public class Army : MonoBehaviour
     {
         [SerializeField]
-        internal WoodTower woodTowerInCastle;
+        internal WoodTower woodTower;
         [SerializeField]
-        internal WoodTower woodTowerInPlayer;
+        internal StoneTower stoneTower;
         [SerializeField]
-        internal StoneTower stoneTowerInCastle;
+        internal GreatTower greatTower;
         [SerializeField]
-        internal StoneTower stoneTowerInPlayer;
+        internal Pikeman pikeman;
         [SerializeField]
-        internal GreatTower greatTowerInCastle;
+        internal Warrior warrior;
         [SerializeField]
-        internal GreatTower greatTowerInPlayer;
-        [SerializeField]
-        internal Pikeman pikemanInCastle;
-        [SerializeField]
-        internal Pikeman pikemanInPlayer;
-        [SerializeField]
-        internal Warrior warriorInCastle;
-        [SerializeField]
-        internal Warrior warriorInPlayer;
-        [SerializeField]
-        internal Knight knightInCastle;
-        [SerializeField]
-        internal Knight knightInPlayer;
+        internal Knight knight;
+        private void Awake()
+        {
+            InitializeArmy();
+        }
+        public void InitializeArmy()
+        {
+            pikeman = GetComponentInChildren<Pikeman>();
+            warrior = GetComponentInChildren<Warrior>();
+            knight = GetComponentInChildren<Knight>();
+            woodTower = GetComponentInChildren<WoodTower>();
+            stoneTower = GetComponentInChildren<StoneTower>();
+            greatTower = GetComponentInChildren<GreatTower>();
+        }
     }
 }

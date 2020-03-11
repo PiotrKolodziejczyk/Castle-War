@@ -2,7 +2,7 @@
 {
     private void Update()
     {
-        Timer(smithy);
+        ElapsedTimeAndBuild(this);
     }
 }
 

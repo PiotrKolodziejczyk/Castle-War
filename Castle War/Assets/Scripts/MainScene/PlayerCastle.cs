@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Assets.Scripts.CastleScene;
+using System.IO;
 using UnityEngine;
 
 public class PlayerCastle : Castle
@@ -42,12 +43,12 @@ public class PlayerCastle : Castle
 
     private void InitializeArmy(CastleData castle)
     {
-        pikeman = castle.pikeman;
-        warrior = castle.warrior;
-        knight = castle.knight;
-        woodTower = castle.woodTower;
-        stoneTower = castle.stoneTower;
-        greatTower = castle.greatTower;
+        Army.pikeman.textInputQuantity.quantity = castle.pikeman;
+        Army.warrior.textInputQuantity.quantity = castle.warrior;
+        Army.knight.textInputQuantity.quantity = castle.knight;
+        Army.woodTower.textInputQuantity.quantity = castle.woodTower;
+        Army.stoneTower.textInputQuantity.quantity = castle.stoneTower;
+        Army.greatTower.textInputQuantity.quantity = castle.greatTower;
     }
 
     private void InitializeBuildingTexts()

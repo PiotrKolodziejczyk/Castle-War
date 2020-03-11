@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.BattleSceneScripts;
+using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class Soldier : MonoBehaviour
@@ -6,10 +7,10 @@ public abstract class Soldier : MonoBehaviour
     public int helath;
     public int armor;
     public float speed;
-    [SerializeField]
-    internal Text text;
-    [SerializeField]
-    internal InputField input;
-    [SerializeField]
-    internal int quantity;
+    internal TextInputQuantity textInputQuantity;
+
+    private void Awake()
+    {
+        textInputQuantity = GetComponent<TextInputQuantity>();
+    }
 }

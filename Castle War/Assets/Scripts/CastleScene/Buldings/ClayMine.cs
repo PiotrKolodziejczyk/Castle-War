@@ -2,6 +2,6 @@
 {
     private void Update()
     {
-        Timer(clayMine);
+        ElapsedTimeAndBuild(this);
     }
 }

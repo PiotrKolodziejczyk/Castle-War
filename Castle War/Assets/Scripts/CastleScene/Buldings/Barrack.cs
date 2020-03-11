@@ -1,138 +1,71 @@
-﻿using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using Assets.Scripts.CastleScene.Buldings;
+
 
 public class Barrack : Building
 {
-    [SerializeField]
-    UnityEngine.UI.Button exitSoldierBuildButton;
-    [SerializeField]
-    GameObject SoldierPanel;
-    [SerializeField]
-    UnityEngine.UI.Button buildSoldierButton;
-    [SerializeField]
-    Text buildButtonText;
-    public Text pikemanText;
-    public Text warriorText;
-    public Text knightText;
-    public float timeToCollectPikeman;
-    public float timeToCollectWarrior;
-    public float timeToCollectKnight;
-    public float firstTimeToCollectPikeman;
-    public float firstTimeToCollectWarrior;
-    public float firstTimeToCollectKnight;
-    public UnityEngine.UI.Button buildPikeman;
-    public UnityEngine.UI.Button buildWarrior;
-    public UnityEngine.UI.Button buildKnight;
-    public Text timeTextPikeman;
-    public Text timeTextWarrior;
-    public Text timeTextKnight;
-    bool isBuildPikeman;
-    bool isBuildWarrior;
-    bool isBuildKnight;
-    [SerializeField]
-    InputField pikemanLabel;
-    [SerializeField]
-    InputField warriorLabel;
-    [SerializeField]
-    InputField knightLabel;
-    [SerializeField]
-    Text pikemanStagingText;
-    [SerializeField]
-    Text warriorStagingText;
-    [SerializeField]
-    Text knightStagingText;
-    [SerializeField]
-    int pikemanStaging;
-    int warriorStaging;
-    int knightStaging;
-    [SerializeField]
-    int pikemanClayToUpgrade;
-    [SerializeField]
-    int warriorClayToUpgrade;
-    [SerializeField]
-    int warriorStoneToUpgrade;
-    [SerializeField]
-    int warriorWoodToUpgrade;
-    [SerializeField]
-    int knightClayToUpgrade;
-    [SerializeField]
-    int knightStoneToUpgrade;
-    [SerializeField]
-    int knightWoodToUpgrade;
-    [SerializeField]
-    int pikemanStoneToUpgrade;
-    [SerializeField]
-    int pikemanWoodToUpgrade;
-    [SerializeField]
-    GameObject buildTowersButton;
+    internal BuildSoldierPanel soldierPanel;
+    internal bool isBuildPikeman;
+    internal bool isBuildWarrior;
+    internal bool isBuildKnight;
     private void Start()
     {
-        pikemanLabel.text = "1";
-        warriorLabel.text = "1";
-        knightLabel.text = "1";
-        buildPikeman.onClick.AddListener(() =>
-        {
-            if (RemoveMaterialIfisTrue(pikemanClayToUpgrade * int.Parse(pikemanLabel.text), pikemanStoneToUpgrade * int.Parse(pikemanLabel.text), pikemanWoodToUpgrade * int.Parse(pikemanLabel.text)))
-            {
-                DoWhenHaveMaterials(ref pikemanStaging, pikemanLabel, pikemanStagingText, ref isBuildPikeman);
-            }
-        });
-        buildWarrior.onClick.AddListener(() =>
-        {
-            if (RemoveMaterialIfisTrue(warriorClayToUpgrade * int.Parse(warriorLabel.text), warriorStoneToUpgrade * int.Parse(warriorLabel.text), warriorWoodToUpgrade * int.Parse(warriorLabel.text)))
-            {
-                DoWhenHaveMaterials(ref warriorStaging, warriorLabel, warriorStagingText, ref isBuildWarrior);
-            }
-        });
-        buildKnight.onClick.AddListener(() =>
-        {
-            if (RemoveMaterialIfisTrue(knightClayToUpgrade * int.Parse(knightLabel.text), knightStoneToUpgrade * int.Parse(knightLabel.text), knightWoodToUpgrade * int.Parse(knightLabel.text)))
-            {
-                DoWhenHaveMaterials(ref knightStaging, knightLabel, knightStagingText, ref isBuildKnight);
-            }
-        });
+        soldierPanel = GetComponent<BuildSoldierPanel>();
     }
 
     private void Update()
     {
-        Timer(barrack);
-        if (actualBuilding != barrack && buildSoldierButton.IsInteractable() == true)
+        if (mainPanel.panel != null && isMainPanelOn)
         {
-            buildSoldierButton.interactable = false;
-            buildButtonText.enabled = false;
-            buildTowersButton.SetActive(true);
+            mainPanel.buildSoldierButton.onClick.AddListener(() => EnableSoldierPanel());
+            isMainPanelOn = false;
         }
-        if (actualBuilding == barrack && buildSoldierButton.IsInteractable() == false)
-        {
-            buildSoldierButton.interactable = true;
-            buildButtonText.enabled = true;
-            buildTowersButton.SetActive(false);
-            buildSoldierButton.onClick.AddListener(() => EnableSoldierPanel());
-        }
+        ElapsedTimeAndBuild(this);
         if (isBuildPikeman)
-            BuildSoldierOrTower(take.army.pikemanInCastle.text, ref timeToCollectPikeman, firstTimeToCollectPikeman, timeTextPikeman, ref castle.pikeman, "Pikeman", ref pikemanStaging, pikemanStagingText, ref isBuildPikeman);
+            BuildSoldierOrTower(take.castle.Army.pikeman.textInputQuantity.text, ref soldierPanel.pikemanTimeProperties.timeToUpgrade, soldierPanel.pikemanTimeProperties.startTimeToUpgrade, soldierPanel.pikemanTimeProperties.text, ref castle.Army.pikeman.textInputQuantity.quantity, "Pikeman", ref soldierPanel.pikemanStaging, soldierPanel.pikemanStagingText, ref isBuildPikeman);
         if (isBuildWarrior)
-            BuildSoldierOrTower(take.army.warriorInCastle.text, ref timeToCollectWarrior, firstTimeToCollectWarrior, timeTextWarrior, ref castle.warrior, "Warrior", ref warriorStaging, warriorStagingText, ref isBuildWarrior);
+            BuildSoldierOrTower(take.castle.Army.warrior.textInputQuantity.text, ref soldierPanel.warriorTimeProperties.timeToUpgrade, soldierPanel.warriorTimeProperties.startTimeToUpgrade, soldierPanel.warriorTimeProperties.text, ref castle.Army.warrior.textInputQuantity.quantity, "Warrior", ref soldierPanel.warriorStaging, soldierPanel.warriorStagingText, ref isBuildWarrior);
         if (isBuildKnight)
-            BuildSoldierOrTower(take.army.knightInCastle.text, ref timeToCollectKnight, firstTimeToCollectKnight, timeTextKnight, ref castle.knight, "Knight", ref knightStaging, knightStagingText, ref isBuildKnight);
-        pikemanText.text = castle.pikeman.ToString();
-        warriorText.text = castle.warrior.ToString();
-        knightText.text = castle.knight.ToString();
+            BuildSoldierOrTower(take.castle.Army.knight.textInputQuantity.text, ref soldierPanel.knightTimeProperties.timeToUpgrade, soldierPanel.knightTimeProperties.startTimeToUpgrade, soldierPanel.knightTimeProperties.text, ref castle.Army.knight.textInputQuantity.quantity, "Knight", ref soldierPanel.knightStaging, soldierPanel.knightStagingText, ref isBuildKnight);
     }
     public void EnableSoldierPanel()
     {
         ExitPanel();
+        isSoldierPanelOn = true;
         Global.isSoldierPanelOnInCastleScene = true;
-        exitSoldierBuildButton.onClick.AddListener(() => ExitSoldierPanel());
-        SoldierPanel.SetActive(true);
+        soldierPanel.Instantiate();
+        soldierPanel.buildPikeman.onClick.AddListener(() =>
+        {
+            if (RemoveMaterialIfisTrue(soldierPanel.pikemanResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text),
+                                       soldierPanel.pikemanResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text),
+                                       soldierPanel.pikemanResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text)))
+            {
+                DoWhenHaveMaterials(ref soldierPanel.pikemanStaging, soldierPanel.pikemanLabel, soldierPanel.pikemanStagingText, ref isBuildPikeman);
+            }
+        });
+        soldierPanel.buildWarrior.onClick.AddListener(() =>
+        {
+            if (RemoveMaterialIfisTrue(soldierPanel.warriorResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
+                                       soldierPanel.warriorResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
+                                       soldierPanel.warriorResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text)))
+            {
+                DoWhenHaveMaterials(ref soldierPanel.warriorStaging, soldierPanel.warriorLabel, soldierPanel.warriorStagingText, ref isBuildWarrior);
+            }
+        });
+        soldierPanel.buildKnight.onClick.AddListener(() =>
+        {
+            if (RemoveMaterialIfisTrue(soldierPanel.knightResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text),
+                                       soldierPanel.knightResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text),
+                                       soldierPanel.knightResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text)))
+            {
+                DoWhenHaveMaterials(ref soldierPanel.knightStaging, soldierPanel.knightLabel, soldierPanel.knightStagingText, ref isBuildKnight);
+            }
+        });
+        soldierPanel.exitSoldierBuildButton.onClick.AddListener(() => ExitSoldierPanel());
     }
     public void ExitSoldierPanel()
     {
         OnEnablePanel();
-        buildSoldierButton.onClick.RemoveAllListeners();
-        exitSoldierBuildButton.onClick.RemoveAllListeners();
-        SoldierPanel.SetActive(false);
+        isSoldierPanelOn = false;
+        Destroy(soldierPanel.soldierPanel);
     }
-
 }
