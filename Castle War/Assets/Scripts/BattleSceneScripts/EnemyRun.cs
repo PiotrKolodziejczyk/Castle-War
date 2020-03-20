@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.CastleScene;
+using UnityEngine;
 
 public class EnemyRun : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class EnemyRun : MonoBehaviour
     PlayerArmyInBattle army;
     private void Awake()
     {
+        army = GetComponent<PlayerArmyInBattle>();
         deadSounds = GameObject.FindGameObjectWithTag("DeadSound").GetComponent<AudioSource>();
     }
     private void Start()
@@ -98,21 +100,46 @@ public class EnemyRun : MonoBehaviour
         }
     }
 
-    public void InstantiateKnight()
-    {
-        Instantiate(Knight, new Vector3(-30.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
-    }
     public void InstantiatePikeman()
     {
-        //if (army.army.pikemanInPlayer.quantity > 0)
-        //{
-        //    Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
-        //    army.MinusPikeman();
-        //}
+        if (army.player.pikeman.textInputQuantity.quantity > 0)
+        {
+            Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+            MinusPikeman();
+        }
     }
     public void InstantiateAxeman()
     {
-        Instantiate(Axeman, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+        if (army.player.warrior.textInputQuantity.quantity > 0)
+        {
+            Instantiate(Axeman, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+            MinusWarrior();
+        }
+
     }
+    public void InstantiateKnight()
+    {
+        if (army.player.knight.textInputQuantity.quantity > 0)
+        {
+            Instantiate(Knight, new Vector3(-30.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+            MinusKnight();
+        }
+    }
+    public void MinusPikeman()
+    {
+        --army.player.pikeman.textInputQuantity.quantity;
+        SaveSystem.SavePlayerArmyData(army);
+    }
+    public void MinusWarrior()
+    {
+        --army.player.warrior.textInputQuantity.quantity;
+        SaveSystem.SavePlayerArmyData(army);
+    }
+    public void MinusKnight()
+    {
+        --army.player.knight.textInputQuantity.quantity;
+        SaveSystem.SavePlayerArmyData(army);
+    }
+
 }
 

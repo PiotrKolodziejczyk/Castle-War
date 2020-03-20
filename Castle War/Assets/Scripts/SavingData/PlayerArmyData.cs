@@ -12,7 +12,6 @@ namespace Assets.Scripts.MainScene
         public int greatTowerQuantity;
         public PlayerArmyData(TakeScript takeScript)
         {
-            
             pikemanQuantity = takeScript.player.Army.pikeman.textInputQuantity.quantity;
             warriorQuantity = takeScript.player.Army.warrior.textInputQuantity.quantity;
             knightQuantity = takeScript.player.Army.knight.textInputQuantity.quantity;
@@ -25,9 +24,9 @@ namespace Assets.Scripts.MainScene
             pikemanQuantity = armyScript.player.pikeman.textInputQuantity.quantity;
             warriorQuantity = armyScript.player.warrior.textInputQuantity.quantity;
             knightQuantity = armyScript.player.knight.textInputQuantity.quantity;
-            woodTowerQuantity = armyScript.player.woodTower.textInputQuantity.quantity;
-            stoneTowerQuantity = armyScript.player.stoneTower.textInputQuantity.quantity;
-            greatTowerQuantity = armyScript.player.greatTower.textInputQuantity.quantity;
+            //woodTowerQuantity = armyScript.player.woodTower.textInputQuantity.quantity;
+            //stoneTowerQuantity = armyScript.player.stoneTower.textInputQuantity.quantity;
+            //greatTowerQuantity = armyScript.player.greatTower.textInputQuantity.quantity;
         }
     }
 }

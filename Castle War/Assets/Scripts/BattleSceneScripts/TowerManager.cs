@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    public GameObject towerPrefab;
-    public GameObject towerPrefab1;
-    public GameObject towerPrefab2;
+    public GameObject stoneTower;
+    public GameObject woodTower;
+    public GameObject greatTower;
     public Texture2D texture1;
     public Collider[] hitColliders;
     GameObject tower;
@@ -81,10 +81,10 @@ public class TowerManager : MonoBehaviour
         tower.transform.position = new Vector3(mousePos.x, y, mousePos.z);
     }
 
-    public void InstantiateTowerB()
+    public void InstantiateStoneTower()
     {
         y = 12;
-        tower = Instantiate(towerPrefab, Vector3.zero, new Quaternion(0, 0, 0, 0));
+        tower = Instantiate(stoneTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
         isDraggingTower = true;
         Cursor.visible = false;
         for (int i = 0; i < meshes.Length; i++)
@@ -92,10 +92,10 @@ public class TowerManager : MonoBehaviour
             meshes[i].enabled = true;
         }
     }
-    public void InstantiateTowerA()
+    public void InstantiateWoodTower()
     {
         y = 16;
-        tower = Instantiate(towerPrefab1, Vector3.zero, new Quaternion(0, 0, 0, 0));
+        tower = Instantiate(woodTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
         isDraggingTower = true;
         Cursor.visible = false;
         for (int i = 0; i < meshes.Length; i++)
@@ -103,10 +103,10 @@ public class TowerManager : MonoBehaviour
             meshes[i].enabled = true;
         }
     }
-    public void InstantiateTowerC()
+    public void InstantiateGreatTower()
     {
         y = 0;
-        tower = Instantiate(towerPrefab2, Vector3.zero, new Quaternion(0, 0, 0, 0));
+        tower = Instantiate(greatTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
         isDraggingTower = true;
         Cursor.visible = false;
         for (int i = 0; i < meshes.Length; i++)

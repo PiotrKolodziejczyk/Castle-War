@@ -277,9 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clayToUpgradeLvl: 100
-  stoneToUpgradeLvl: 100
-  woodToUpgradeLvl: 100
+  clayToUpgradeLvl: 1
+  stoneToUpgradeLvl: 1
+  woodToUpgradeLvl: 1
   woodToUpgradeLvlText: {fileID: 0}
   stoneToUpgradeLvlText: {fileID: 0}
   clayToUpgradeLvlText: {fileID: 0}
@@ -295,8 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 5
-  startTimeToUpgrade: 5
+  timeToUpgrade: 0.02
+  startTimeToUpgrade: 0.01
 --- !u!1001 &41998027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -457,12 +457,12 @@ PrefabInstance:
     - target: {fileID: 6544983373153346416, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -440
       objectReference: {fileID: 0}
     - target: {fileID: 6544983373153346416, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 6544983373153346416, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
@@ -502,17 +502,17 @@ PrefabInstance:
     - target: {fileID: 6545109376252032024, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -321.5
+      value: -201.5
       objectReference: {fileID: 0}
     - target: {fileID: 6545109376252032024, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 545.5
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6545109376252032024, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 171.3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6470846010797389880, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
@@ -527,7 +527,7 @@ PrefabInstance:
     - target: {fileID: 6367635498818968794, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 50
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 6367635498818968794, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
@@ -1079,8 +1079,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 306.9, y: -40.800003}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 187.3, y: -56.9}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56348432
 MonoBehaviour:
@@ -1685,6 +1685,7 @@ MonoBehaviour:
   buildSoldierButtonText: {fileID: 0}
   buildTowersButton: {fileID: 0}
   buildTowersButtonText: {fileID: 0}
+  buildingResourcesToUpgrade: {fileID: 0}
 --- !u!1 &108493227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,8 +1722,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 357.5, y: -90.00003}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 210.5, y: -56.9}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &108493229
 MonoBehaviour:
@@ -2033,6 +2034,7 @@ MonoBehaviour:
   buildSoldierButtonText: {fileID: 0}
   buildTowersButton: {fileID: 0}
   buildTowersButtonText: {fileID: 0}
+  buildingResourcesToUpgrade: {fileID: 0}
 --- !u!114 &162486066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,7 +2271,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2859,8 +2861,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 314.6, y: -90}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 224.8, y: -56.9}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269611574
 MonoBehaviour:
@@ -2997,8 +2999,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 616.9, y: -113.6}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 500, y: -118.98}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &273086760
 MonoBehaviour:
@@ -3023,7 +3025,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -3051,6 +3053,7 @@ GameObject:
   - component: {fileID: 275095200}
   - component: {fileID: 275095202}
   - component: {fileID: 275095201}
+  - component: {fileID: 275095203}
   m_Layer: 5
   m_Name: LORD
   m_TagString: Untagged
@@ -3076,11 +3079,11 @@ RectTransform:
   - {fileID: 1394855314}
   - {fileID: 1912536093}
   m_Father: {fileID: 1482790658}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -806.06, y: -27.4}
+  m_AnchoredPosition: {x: -604.66, y: -2.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &275095201
@@ -3103,7 +3106,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 75
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
@@ -3123,6 +3126,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275095199}
   m_CullTransparentMesh: 0
+--- !u!114 &275095203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275095199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.9150943, g: 0.11654504, b: 0.11654504, a: 0.5}
+  m_EffectDistance: {x: -4.6, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &278200853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3508,6 +3526,7 @@ GameObject:
   - component: {fileID: 342362276}
   - component: {fileID: 342362278}
   - component: {fileID: 342362277}
+  - component: {fileID: 342362279}
   m_Layer: 5
   m_Name: CASTLE
   m_TagString: Untagged
@@ -3533,12 +3552,12 @@ RectTransform:
   - {fileID: 932571478}
   - {fileID: 1607473057}
   m_Father: {fileID: 1482790658}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -806.06, y: 438.96}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -626.6, y: 407.2}
+  m_SizeDelta: {x: 149.8, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342362277
 MonoBehaviour:
@@ -3580,6 +3599,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342362275}
   m_CullTransparentMesh: 0
+--- !u!114 &342362279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342362275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.9150943, g: 0.11654504, b: 0.11654504, a: 0.5}
+  m_EffectDistance: {x: -4.6, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &342879001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3617,7 +3651,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00012207031, y: -154.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342879003
 MonoBehaviour:
@@ -3642,7 +3676,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -3693,8 +3727,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5}
-  m_SizeDelta: {x: -20, y: -13}
+  m_AnchoredPosition: {x: 0, y: -95.5}
+  m_SizeDelta: {x: -20, y: 57.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350470962
 MonoBehaviour:
@@ -3727,7 +3761,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &350470963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4363,7 +4397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_AnchoredPosition: {x: 0, y: -95.5}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &426112525
@@ -4397,7 +4431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &426112526
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4442,8 +4476,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 263.4, y: -40.800003}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 156.4, y: -56.9}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &433305075
 MonoBehaviour:
@@ -5752,7 +5786,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5803,7 +5837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61, y: -55.800003}
+  m_AnchoredPosition: {x: 61, y: -46.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &557801353
@@ -5829,7 +5863,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -6508,8 +6542,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1234.6, y: -154.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 1000.6, y: -154.9}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607193642
 MonoBehaviour:
@@ -6534,7 +6568,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -6585,7 +6619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.99986, y: -56.09999}
+  m_AnchoredPosition: {x: 82.1, y: -47.85}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &610103824
@@ -7184,6 +7218,7 @@ MonoBehaviour:
   buildSoldierButtonText: {fileID: 0}
   buildTowersButton: {fileID: 0}
   buildTowersButtonText: {fileID: 0}
+  buildingResourcesToUpgrade: {fileID: 0}
 --- !u!114 &686979448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7628,6 +7663,7 @@ MonoBehaviour:
   buildSoldierButtonText: {fileID: 0}
   buildTowersButton: {fileID: 0}
   buildTowersButtonText: {fileID: 0}
+  buildingResourcesToUpgrade: {fileID: 0}
 --- !u!1 &726065998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 162000, guid: 60a80932f15a9b5428719cf63049a198,
@@ -7721,6 +7757,7 @@ MonoBehaviour:
   buildSoldierButtonText: {fileID: 0}
   buildTowersButton: {fileID: 0}
   buildTowersButtonText: {fileID: 0}
+  buildingResourcesToUpgrade: {fileID: 0}
 --- !u!1 &731782217
 GameObject:
   m_ObjectHideFlags: 0
@@ -7834,8 +7871,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00012207031, y: -113.6}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 6.3, y: -115.7}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732063673
 MonoBehaviour:
@@ -7860,7 +7897,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -8242,7 +8279,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00012207031, y: -303.2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 57.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &798249571
 MonoBehaviour:
@@ -8267,7 +8304,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -8698,7 +8735,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -9026,8 +9063,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 357.5, y: -90.00003}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 243.7, y: -56}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &927879644
 MonoBehaviour:
@@ -9164,8 +9201,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 564, y: -250.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 457.6, y: -275.1}
+  m_SizeDelta: {x: 160, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &932571479
 MonoBehaviour:
@@ -9190,7 +9227,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -9595,7 +9632,7 @@ PrefabInstance:
     - target: {fileID: 258683992489006723, guid: 1df8b890eb2d45745948cf3f1c667bd0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 258683992489006723, guid: 1df8b890eb2d45745948cf3f1c667bd0,
         type: 3}
@@ -9615,7 +9652,7 @@ PrefabInstance:
     - target: {fileID: 258683992489006723, guid: 1df8b890eb2d45745948cf3f1c667bd0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 413.5
+      value: 261.3
       objectReference: {fileID: 0}
     - target: {fileID: 258683992489006723, guid: 1df8b890eb2d45745948cf3f1c667bd0,
         type: 3}
@@ -9625,12 +9662,12 @@ PrefabInstance:
     - target: {fileID: 258683992489006723, guid: 1df8b890eb2d45745948cf3f1c667bd0,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 545.5
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 258683992489006723, guid: 1df8b890eb2d45745948cf3f1c667bd0,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 171.3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 258683992489006723, guid: 1df8b890eb2d45745948cf3f1c667bd0,
         type: 3}
@@ -9685,7 +9722,7 @@ PrefabInstance:
     - target: {fileID: 80364726989766209, guid: 1df8b890eb2d45745948cf3f1c667bd0,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 50
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 80364726989766209, guid: 1df8b890eb2d45745948cf3f1c667bd0,
         type: 3}
@@ -9799,7 +9836,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -9852,8 +9889,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 616.9, y: -154.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 481.6, y: -154.9}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995155814
 MonoBehaviour:
@@ -9878,7 +9915,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -9931,8 +9968,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 265.85992, y: -40.800003}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 142.9, y: -56.9}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1011395087
 MonoBehaviour:
@@ -10294,7 +10331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 84.3, y: -55.8}
+  m_AnchoredPosition: {x: 84.3, y: -47.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1023903079
@@ -10320,7 +10357,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -10757,6 +10794,7 @@ MonoBehaviour:
   buildSoldierButtonText: {fileID: 0}
   buildTowersButton: {fileID: 0}
   buildTowersButtonText: {fileID: 0}
+  buildingResourcesToUpgrade: {fileID: 0}
 --- !u!224 &1054245128 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5190031178253026056, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
@@ -10797,7 +10835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 131.4, y: -46}
+  m_AnchoredPosition: {x: 105.4, y: -47.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084508248
@@ -10823,7 +10861,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -11028,8 +11066,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 265.85992, y: -40.800003}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 176.5, y: -52.3}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101799283
 MonoBehaviour:
@@ -11823,7 +11861,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -12175,8 +12213,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 263.4, y: -40.800003}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 156.4, y: -56.5}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1228942768
 MonoBehaviour:
@@ -13242,7 +13280,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -13716,8 +13754,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 564, y: -303.2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 457.6, y: -303.2}
+  m_SizeDelta: {x: 160, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1394855315
 MonoBehaviour:
@@ -13742,7 +13780,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -13892,8 +13930,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialName: 
-  quantity: 1000
-  increaseQuantity: 10
+  quantity: 10000
+  increaseQuantity: 1000
   text: {fileID: 1971429585}
   timeToCollect: 3
   firstTimeToCollect: 3
@@ -13910,8 +13948,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialName: 
-  quantity: 100
-  increaseQuantity: 2
+  quantity: 100000
+  increaseQuantity: 1000
   text: {fileID: 1619819575}
   timeToCollect: 3
   firstTimeToCollect: 3
@@ -13928,8 +13966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialName: 
-  quantity: 1000
-  increaseQuantity: 5
+  quantity: 10000
+  increaseQuantity: 1000
   text: {fileID: 48299272}
   timeToCollect: 3
   firstTimeToCollect: 3
@@ -14291,6 +14329,7 @@ MonoBehaviour:
   buildSoldierButtonText: {fileID: 0}
   buildTowersButton: {fileID: 0}
   buildTowersButtonText: {fileID: 0}
+  buildingResourcesToUpgrade: {fileID: 0}
 --- !u!1 &1482790657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6470992520573760356, guid: 0e54eb048e444f94cb4371dc026549aa,
@@ -14976,8 +15015,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 257.2, y: -90}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 178, y: -59}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548255603
 MonoBehaviour:
@@ -15271,8 +15310,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00012207031, y: -250.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0.00012207031, y: -275}
+  m_SizeDelta: {x: 160, y: 57.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588121538
 MonoBehaviour:
@@ -15297,7 +15336,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -15429,8 +15468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 314.6, y: -90}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 224.8, y: -60.3}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606958909
 MonoBehaviour:
@@ -15567,8 +15606,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1185.77, y: -250.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 933.5, y: -257.2}
+  m_SizeDelta: {x: 160, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1607473058
 MonoBehaviour:
@@ -15593,7 +15632,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -15995,9 +16034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clayToUpgradeLvl: 852
-  stoneToUpgradeLvl: 100
-  woodToUpgradeLvl: 100
+  clayToUpgradeLvl: 1
+  stoneToUpgradeLvl: 1
+  woodToUpgradeLvl: 1
   woodToUpgradeLvlText: {fileID: 0}
   stoneToUpgradeLvlText: {fileID: 0}
   clayToUpgradeLvlText: {fileID: 0}
@@ -16013,8 +16052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 5
-  startTimeToUpgrade: 5
+  timeToUpgrade: 0.05
+  startTimeToUpgrade: 0.05
 --- !u!1 &1641995021
 GameObject:
   m_ObjectHideFlags: 0
@@ -16458,8 +16497,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 306.9, y: -40.800003}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 200, y: -56.2}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1688242021
 MonoBehaviour:
@@ -16755,8 +16794,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 257.2, y: -90}
-  m_SizeDelta: {x: 210.3, y: 89.1}
+  m_AnchoredPosition: {x: 142.9, y: -56.9}
+  m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1739211737
 MonoBehaviour:
@@ -17830,8 +17869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1234.6, y: -113.6}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 1000.6, y: -119.4}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871027384
 MonoBehaviour:
@@ -17856,7 +17895,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -18134,8 +18173,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1185.77, y: -303.2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 933.5, y: -303.2}
+  m_SizeDelta: {x: 160, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912536094
 MonoBehaviour:
@@ -18160,7 +18199,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -18757,9 +18796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clayToUpgradeLvl: 100
-  stoneToUpgradeLvl: 100
-  woodToUpgradeLvl: 100
+  clayToUpgradeLvl: 1
+  stoneToUpgradeLvl: 1
+  woodToUpgradeLvl: 1
   woodToUpgradeLvlText: {fileID: 0}
   stoneToUpgradeLvlText: {fileID: 0}
   clayToUpgradeLvlText: {fileID: 0}
@@ -18775,8 +18814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 5
-  startTimeToUpgrade: 5
+  timeToUpgrade: 0.01
+  startTimeToUpgrade: 0.01
 --- !u!1 &1989076550
 GameObject:
   m_ObjectHideFlags: 0
@@ -19029,8 +19068,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75.6, y: -46.8}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 75.6, y: -62.3}
+  m_SizeDelta: {x: 160, y: 57.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2017588769
 MonoBehaviour:
@@ -19055,7 +19094,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -19345,6 +19384,7 @@ MonoBehaviour:
   buildSoldierButtonText: {fileID: 0}
   buildTowersButton: {fileID: 0}
   buildTowersButtonText: {fileID: 0}
+  buildingResourcesToUpgrade: {fileID: 0}
 --- !u!1 &2058205514
 GameObject:
   m_ObjectHideFlags: 0
@@ -19673,7 +19713,7 @@ MonoBehaviour:
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 75
     m_Alignment: 0
     m_AlignByGeometry: 0

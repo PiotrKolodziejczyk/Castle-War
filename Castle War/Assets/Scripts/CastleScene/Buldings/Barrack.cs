@@ -21,11 +21,43 @@ public class Barrack : Building
         }
         ElapsedTimeAndBuild(this);
         if (isBuildPikeman)
-            BuildSoldierOrTower(take.castle.Army.pikeman.textInputQuantity.text, ref soldierPanel.pikemanTimeProperties.timeToUpgrade, soldierPanel.pikemanTimeProperties.startTimeToUpgrade, soldierPanel.pikemanTimeProperties.text, ref castle.Army.pikeman.textInputQuantity.quantity, "Pikeman", ref soldierPanel.pikemanStaging, soldierPanel.pikemanStagingText, ref isBuildPikeman);
+        {
+            BuildSoldierOrTower(take.castle.Army.pikeman.textInputQuantity.text,
+                                ref soldierPanel.pikemanTimeProperties.timeToUpgrade,
+                                soldierPanel.pikemanTimeProperties.startTimeToUpgrade,
+                                soldierPanel.pikemanTimeProperties.text,
+                                ref castle.Army.pikeman.textInputQuantity.quantity,
+                                "Pikeman",
+                                ref soldierPanel.pikemanStaging,
+                                soldierPanel.pikemanStagingText,
+                                ref isBuildPikeman);
+        }
+
         if (isBuildWarrior)
-            BuildSoldierOrTower(take.castle.Army.warrior.textInputQuantity.text, ref soldierPanel.warriorTimeProperties.timeToUpgrade, soldierPanel.warriorTimeProperties.startTimeToUpgrade, soldierPanel.warriorTimeProperties.text, ref castle.Army.warrior.textInputQuantity.quantity, "Warrior", ref soldierPanel.warriorStaging, soldierPanel.warriorStagingText, ref isBuildWarrior);
+        {
+            BuildSoldierOrTower(take.castle.Army.warrior.textInputQuantity.text,
+                                ref soldierPanel.warriorTimeProperties.timeToUpgrade,
+                                soldierPanel.warriorTimeProperties.startTimeToUpgrade,
+                                soldierPanel.warriorTimeProperties.text,
+                                ref castle.Army.warrior.textInputQuantity.quantity,
+                                "Warrior",
+                                ref soldierPanel.warriorStaging,
+                                soldierPanel.warriorStagingText,
+                                ref isBuildWarrior);
+        }
+
         if (isBuildKnight)
-            BuildSoldierOrTower(take.castle.Army.knight.textInputQuantity.text, ref soldierPanel.knightTimeProperties.timeToUpgrade, soldierPanel.knightTimeProperties.startTimeToUpgrade, soldierPanel.knightTimeProperties.text, ref castle.Army.knight.textInputQuantity.quantity, "Knight", ref soldierPanel.knightStaging, soldierPanel.knightStagingText, ref isBuildKnight);
+        {
+            BuildSoldierOrTower(take.castle.Army.knight.textInputQuantity.text,
+                                ref soldierPanel.knightTimeProperties.timeToUpgrade,
+                                soldierPanel.knightTimeProperties.startTimeToUpgrade,
+                                soldierPanel.knightTimeProperties.text,
+                                ref castle.Army.knight.textInputQuantity.quantity,
+                                "Knight",
+                                ref soldierPanel.knightStaging,
+                                soldierPanel.knightStagingText,
+                                ref isBuildKnight);
+        }
     }
     public void EnableSoldierPanel()
     {

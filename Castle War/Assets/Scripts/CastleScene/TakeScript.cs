@@ -27,7 +27,7 @@ public class TakeScript : MonoBehaviour
                                 ref to.Army.pikeman.textInputQuantity.quantity);
         SoldierOrTowerSwitching(ref from.Army.warrior.textInputQuantity.quantity,
                                     from.Army.warrior.textInputQuantity.input,
-                                ref to.Army.pikeman.textInputQuantity.quantity);
+                                ref to.Army.warrior.textInputQuantity.quantity);
         SoldierOrTowerSwitching(ref from.Army.knight.textInputQuantity.quantity,
                                     from.Army.knight.textInputQuantity.input,
                                 ref to.Army.knight.textInputQuantity.quantity);

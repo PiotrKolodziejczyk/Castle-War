@@ -15,14 +15,19 @@ namespace Assets.Scripts.BattleSceneScripts
         internal int quantity;
         private void Start()
         {
-            input.text = "0";
+            if (input != null)
+            {
+                input.text = "0";
+            }
         }
 
         private void Update()
         {
             text.text = quantity.ToString();
             if (transform.parent.name != "Player")
+            {
                 textInCanvas.text = text.text;
+            }
         }
     }
 }

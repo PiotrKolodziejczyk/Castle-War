@@ -24,6 +24,7 @@ public class Building : MonoBehaviour
         resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
         timePropertiesBuilding = GetComponent<TimeProperties>();
         mainPanel = GetComponent<MainPanel>();
+        
     }
 
     public void BuildBuilding(Transform transform)
@@ -139,7 +140,6 @@ public class Building : MonoBehaviour
     {
         actualBuilding = GetBuildingType(transform);
         actualBuilding.mainPanel.InstantiatePanel();
-
         if (actualBuilding == FindObjectOfType<Barrack>())
             Global.isSoldierPanelOnInCastleScene = true;
         else

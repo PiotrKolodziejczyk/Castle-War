@@ -11,7 +11,6 @@ public class LoadScene : MonoBehaviour
     public void LoadSampleScene()
     {
         Global.whichScene = "SampleScene";
-        LoadNewGame();
     }
     private void Update()
     {
