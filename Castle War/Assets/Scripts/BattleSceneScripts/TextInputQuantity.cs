@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text.RegularExpressions;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.BattleSceneScripts
@@ -23,10 +24,13 @@ namespace Assets.Scripts.BattleSceneScripts
 
         private void Update()
         {
-            text.text = quantity.ToString();
-            if (transform.parent.name != "Player")
+            if (!Regex.Match(transform.parent.name, @"CastleArmy").Success)
             {
-                textInCanvas.text = text.text;
+                text.text = quantity.ToString();
+                if (transform.parent.name != "Player")
+                {
+                    textInCanvas.text = text.text;
+                }
             }
         }
     }

@@ -7,9 +7,7 @@ public class Player : MonoBehaviour, IArmy
     [SerializeField] Army army;
     public Army Army { get => army; set => army = value; }
 
- 
-
-    private void Awake()
+    private void Start()
     {
         LoadAndInitializeDataFromFile();
     }

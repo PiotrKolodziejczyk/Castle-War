@@ -6,7 +6,7 @@ public class BuildingPlaceScript : MonoBehaviour
     Regex regex;
     private void Start()
     {
-        regex = new Regex(@"Tower[ABC]\(Clone\)");
+        regex = new Regex(@"(Wood|Stone|Great)Tower\(Clone\)");
     }
     private void OnTriggerStay(Collider other)
     {

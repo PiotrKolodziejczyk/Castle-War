@@ -11,7 +11,7 @@ public class Map : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (!isEnabled&&!isMove)
+            if (!isEnabled/*&&!isMove*/)
             {
                 cam.enabled = true;
                 isEnabled = true;

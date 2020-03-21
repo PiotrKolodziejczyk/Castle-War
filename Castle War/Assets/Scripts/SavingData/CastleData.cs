@@ -19,7 +19,7 @@ public class CastleData
     internal int woodTower;
     internal int stoneTower;
     internal int greatTower;
-    public CastleData(PlayerCastle castle)
+    public CastleData(Castle castle)
     {
         id = castle.id;
         sawmillLevel = castle.sawmill.level;

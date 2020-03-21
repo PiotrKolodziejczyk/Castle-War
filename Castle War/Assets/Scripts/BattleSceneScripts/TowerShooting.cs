@@ -14,7 +14,7 @@ public class TowerShooting : MonoBehaviour
     AudioSource shootSound;
     private void Awake()
     {
-        shootSound = GameObject.FindGameObjectWithTag("ShootSound").GetComponent<AudioSource>();
+        //shootSound = GameObject.FindGameObjectWithTag("ShootSound").GetComponent<AudioSource>();
     }
     private void Update()
     {

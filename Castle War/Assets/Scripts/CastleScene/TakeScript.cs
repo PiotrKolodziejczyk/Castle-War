@@ -8,8 +8,17 @@ public class TakeScript : MonoBehaviour
     [SerializeField] internal Player player;
     [SerializeField] internal Castle castle;
     [SerializeField] GameObject takePanel;
-    public void EnablePanel() => takePanel.SetActive(true);
-    public void ExitPanel() => takePanel.SetActive(false);
+    public void EnablePanel()
+    {
+        Global.isSoldierPanelOnInCastleScene = true;
+        takePanel.SetActive(true);
+    }
+    public void ExitPanel()
+    {
+        Global.isSoldierPanelOnInCastleScene = false;
+        takePanel.SetActive(false);
+    }
+
     public void SwitchToPlayer()
     {
         SwitchingAllArmy(castle, player);

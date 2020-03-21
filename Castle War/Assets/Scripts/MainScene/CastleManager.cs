@@ -3,28 +3,28 @@ using UnityEngine.SceneManagement;
 
 public class CastleManager : MonoBehaviour
 {
-    public int id;
+    Castle castle;
     public Texture2D texture;
     public Texture2D texture1;
     bool isPlayerHere;
 
     private void Awake()
     {
+        castle = GetComponent<Castle>();
         Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
     }
 
     private void OnMouseDown()
     {
-
-        if (isPlayerHere && gameObject.layer == 9)
+        if (isPlayerHere && castle.id < 100)
         {
-            Global.currentCastle = id;
+            Global.currentCastle = castle.id;
             Global.whichScene = "CastleScene";
             SceneManager.LoadScene("LoadingScene");
-
         }
-        else if (isPlayerHere && gameObject.layer == 8)
+        else if (isPlayerHere && castle.id > 100)
         {
+            Global.currentCastle = castle.id;
             Global.whichScene = "BattleScene";
             SceneManager.LoadScene("LoadingScene");
         }

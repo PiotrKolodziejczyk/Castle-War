@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ public class Building : MonoBehaviour
     [SerializeField] internal short level;
     [SerializeField] public bool isBuild;
     [SerializeField] internal TextMeshProUGUI buildingText;
-    [SerializeField] internal PlayerCastle castle;
+    [SerializeField] internal Castle castle;
     [SerializeField] internal TakeScript take;
     [SerializeField] internal TimeProperties timePropertiesBuilding;
     ResourcesToUpgradeLvl resourcesToUpgradeBuildingLvl;
@@ -21,10 +22,12 @@ public class Building : MonoBehaviour
     #region Main Method
     private void Awake()
     {
-        resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
-        timePropertiesBuilding = GetComponent<TimeProperties>();
-        mainPanel = GetComponent<MainPanel>();
-        
+        if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
+        {
+            resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
+            timePropertiesBuilding = GetComponent<TimeProperties>();
+            mainPanel = GetComponent<MainPanel>();
+        }
     }
 
     public void BuildBuilding(Transform transform)
@@ -48,29 +51,32 @@ public class Building : MonoBehaviour
 
     public void ElapsedTimeAndBuild(Building building)
     {
-        building.buildingText.text = SetText(building.transform.name, building.level);
-        if (building.isBuild)
+        if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
         {
-            building.timePropertiesBuilding.timeToUpgrade -= Time.deltaTime;
-            if (mainPanel.panel != null)
-                building.mainPanel.timeText.text = building.timePropertiesBuilding.timeToUpgrade.ToString();
-            if (building.timePropertiesBuilding.timeToUpgrade < 0)
+            building.buildingText.text = SetText(building.transform.name, building.level);
+            if (building.isBuild)
             {
-                ++building.level;
-                building.timePropertiesBuilding.timeToUpgrade = building.timePropertiesBuilding.startTimeToUpgrade;
-                if (building.mainPanel.panel != null)
-                {
-                    building.mainPanel.levelInPanel.text = SetText(building.transform.name, building.level);
+                building.timePropertiesBuilding.timeToUpgrade -= Time.deltaTime;
+                if (mainPanel.panel != null)
                     building.mainPanel.timeText.text = building.timePropertiesBuilding.timeToUpgrade.ToString();
+                if (building.timePropertiesBuilding.timeToUpgrade < 0)
+                {
+                    ++building.level;
+                    building.timePropertiesBuilding.timeToUpgrade = building.timePropertiesBuilding.startTimeToUpgrade;
+                    if (building.mainPanel.panel != null)
+                    {
+                        building.mainPanel.levelInPanel.text = SetText(building.transform.name, building.level);
+                        building.mainPanel.timeText.text = building.timePropertiesBuilding.timeToUpgrade.ToString();
+                    }
+                    building.isBuild = false;
                 }
-                building.isBuild = false;
             }
         }
     }
     public void BuildSoldierOrTower(Text textInTake, ref float timeToCollect, float firstTimeToCollect, Text timeText, ref int castleWhatBuild, string name, ref int staging, Text stagingText, ref bool isBuild)
     {
         timeToCollect -= Time.deltaTime;
-        if (isSoldierPanelOn||isTowerPanelOn)
+        if (isSoldierPanelOn || isTowerPanelOn)
             timeText.text = timeToCollect.ToString();
         if (timeToCollect < 0)
         {
@@ -81,8 +87,8 @@ public class Building : MonoBehaviour
                 textInTake.text = castleWhatBuild.ToString();
                 timeText.text = timeToCollect.ToString();
             }
-                --staging;
-            if(isSoldierPanelOn || isTowerPanelOn)
+            --staging;
+            if (isSoldierPanelOn || isTowerPanelOn)
                 stagingText.text = staging.ToString();
             if (staging <= 0)
                 isBuild = false;

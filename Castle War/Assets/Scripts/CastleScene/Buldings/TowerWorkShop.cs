@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
-using UnityEngine;
-using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class TowerWorkShop : Building
 {
@@ -15,18 +14,21 @@ public class TowerWorkShop : Building
 
     private void Update()
     {
-        if (mainPanel.panel != null && isMainPanelOn)
+        if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
         {
-            mainPanel.buildTowersButton.onClick.AddListener(() => EnableTowerPanel());
-            isMainPanelOn = false;
+            if (mainPanel.panel != null && isMainPanelOn)
+            {
+                mainPanel.buildTowersButton.onClick.AddListener(() => EnableTowerPanel());
+                isMainPanelOn = false;
+            }
+            ElapsedTimeAndBuild(this);
+            if (isBuildWoodTower)
+                BuildSoldierOrTower(take.castle.Army.woodTower.textInputQuantity.text, ref towersPanel.woodTowerTimeProperties.timeToUpgrade, towersPanel.woodTowerTimeProperties.startTimeToUpgrade, towersPanel.woodTowerTimeProperties.text, ref castle.Army.woodTower.textInputQuantity.quantity, "WoodTower", ref towersPanel.woodTowerStaging, towersPanel.woodTowerStagingText, ref isBuildWoodTower);
+            if (isBuildStoneTower)
+                BuildSoldierOrTower(take.castle.Army.stoneTower.textInputQuantity.text, ref towersPanel.stoneTowerTimeProperties.timeToUpgrade, towersPanel.stoneTowerTimeProperties.startTimeToUpgrade, towersPanel.stoneTowerTimeProperties.text, ref castle.Army.stoneTower.textInputQuantity.quantity, "StoneTower", ref towersPanel.stoneTowerStaging, towersPanel.stoneTowerStagingText, ref isBuildStoneTower);
+            if (isBuildGreatTower)
+                BuildSoldierOrTower(take.castle.Army.greatTower.textInputQuantity.text, ref towersPanel.greatTowerTimeProperties.timeToUpgrade, towersPanel.greatTowerTimeProperties.startTimeToUpgrade, towersPanel.greatTowerTimeProperties.text, ref castle.Army.greatTower.textInputQuantity.quantity, "GreatTower", ref towersPanel.greatTowerStaging, towersPanel.greatTowerStagingText, ref isBuildGreatTower);
         }
-        ElapsedTimeAndBuild(this);
-        if (isBuildWoodTower)
-            BuildSoldierOrTower(take.castle.Army.woodTower.textInputQuantity.text, ref towersPanel.woodTowerTimeProperties.timeToUpgrade, towersPanel.woodTowerTimeProperties.startTimeToUpgrade, towersPanel.woodTowerTimeProperties.text, ref castle.Army.woodTower.textInputQuantity.quantity, "WoodTower", ref towersPanel.woodTowerStaging, towersPanel.woodTowerStagingText, ref isBuildWoodTower);
-        if (isBuildStoneTower)
-            BuildSoldierOrTower(take.castle.Army.stoneTower.textInputQuantity.text, ref towersPanel.stoneTowerTimeProperties.timeToUpgrade, towersPanel.stoneTowerTimeProperties.startTimeToUpgrade, towersPanel.stoneTowerTimeProperties.text, ref castle.Army.stoneTower.textInputQuantity.quantity, "StoneTower", ref towersPanel.stoneTowerStaging, towersPanel.stoneTowerStagingText, ref isBuildStoneTower);
-        if (isBuildGreatTower)
-            BuildSoldierOrTower(take.castle.Army.greatTower.textInputQuantity.text, ref towersPanel.greatTowerTimeProperties.timeToUpgrade, towersPanel.greatTowerTimeProperties.startTimeToUpgrade, towersPanel.greatTowerTimeProperties.text, ref castle.Army.greatTower.textInputQuantity.quantity, "GreatTower", ref towersPanel.greatTowerStaging, towersPanel.greatTowerStagingText, ref isBuildGreatTower);
     }
     public void EnableTowerPanel()
     {

@@ -13,9 +13,10 @@ public class TowerManager : MonoBehaviour
     SphereCollider sphere;
     BoxCollider box;
     Regex regex;
-    internal bool building;
-    internal bool mightBuilding = true;
+    [SerializeField] internal bool building;
+    [SerializeField]internal bool mightBuilding = true;
     bool isDraggingTower = false;
+    [SerializeField] Castle castle;
     float y;
 
     private void Awake()
@@ -81,37 +82,49 @@ public class TowerManager : MonoBehaviour
         tower.transform.position = new Vector3(mousePos.x, y, mousePos.z);
     }
 
-    public void InstantiateStoneTower()
-    {
-        y = 12;
-        tower = Instantiate(stoneTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
-        isDraggingTower = true;
-        Cursor.visible = false;
-        for (int i = 0; i < meshes.Length; i++)
-        {
-            meshes[i].enabled = true;
-        }
-    }
     public void InstantiateWoodTower()
     {
-        y = 16;
-        tower = Instantiate(woodTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
-        isDraggingTower = true;
-        Cursor.visible = false;
-        for (int i = 0; i < meshes.Length; i++)
+        if (castle.Army.woodTower.textInputQuantity.quantity > 0)
         {
-            meshes[i].enabled = true;
+            castle.Army.woodTower.textInputQuantity.quantity--;
+            y = 16;
+            tower = Instantiate(woodTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
+            isDraggingTower = true;
+            Cursor.visible = false;
+            for (int i = 0; i < meshes.Length; i++)
+            {
+                meshes[i].enabled = true;
+            }
+        }
+    }
+    public void InstantiateStoneTower()
+    {
+        if (castle.Army.stoneTower.textInputQuantity.quantity > 0)
+        {
+            castle.Army.stoneTower.textInputQuantity.quantity--;
+            y = 12;
+            tower = Instantiate(stoneTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
+            isDraggingTower = true;
+            Cursor.visible = false;
+            for (int i = 0; i < meshes.Length; i++)
+            {
+                meshes[i].enabled = true;
+            }
         }
     }
     public void InstantiateGreatTower()
     {
-        y = 0;
-        tower = Instantiate(greatTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
-        isDraggingTower = true;
-        Cursor.visible = false;
-        for (int i = 0; i < meshes.Length; i++)
+        if (castle.Army.greatTower.textInputQuantity.quantity > 0)
         {
-            meshes[i].enabled = true;
+            castle.Army.greatTower.textInputQuantity.quantity--;
+            y = 0;
+            tower = Instantiate(greatTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
+            isDraggingTower = true;
+            Cursor.visible = false;
+            for (int i = 0; i < meshes.Length; i++)
+            {
+                meshes[i].enabled = true;
+            }
         }
     }
 

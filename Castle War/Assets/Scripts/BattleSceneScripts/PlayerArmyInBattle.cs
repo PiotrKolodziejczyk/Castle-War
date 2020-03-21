@@ -16,9 +16,9 @@ public class PlayerArmyInBattle : MonoBehaviour
         player.pikeman.textInputQuantity.quantity = armyData.pikemanQuantity;
         player.warrior.textInputQuantity.quantity = armyData.warriorQuantity;
         player.knight.textInputQuantity.quantity = armyData.knightQuantity;
-        //player.woodTower.textInputQuantity.quantity = armyData.woodTowerQuantity;
-        //player.stoneTower.textInputQuantity.quantity = armyData.stoneTowerQuantity;
-        //player.greatTower.textInputQuantity.quantity = armyData.greatTowerQuantity;
+        player.woodTower.textInputQuantity.quantity = armyData.woodTowerQuantity;
+        player.stoneTower.textInputQuantity.quantity = armyData.stoneTowerQuantity;
+        player.greatTower.textInputQuantity.quantity = armyData.greatTowerQuantity;
     }
    
 }

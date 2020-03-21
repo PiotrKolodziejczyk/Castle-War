@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Text.RegularExpressions;
+using TMPro;
 using UnityEngine;
 
 public abstract class RawMaterial : MonoBehaviour
@@ -21,9 +22,10 @@ public abstract class RawMaterial : MonoBehaviour
         if (timeToCollect < 0)
         {
             this.quantity += this.increaseQuantity;
-            text.text = SeText(name, this.quantity);
+            if (!Regex.Match(transform.name, @"Castle\(Clone\)(\s*\(\d+\))?").Success)
+                text.text = SeText(name, this.quantity);
             timeToCollect = firstTimeToCollect;
         }
     }
-    
+
 }
