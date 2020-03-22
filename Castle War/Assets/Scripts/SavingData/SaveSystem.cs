@@ -55,6 +55,15 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
+    public static void SaveEnemyArmyData(AIEngine ai)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + $"/enemyArmy.fun";
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        EnemyArmyData data = new EnemyArmyData(ai);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
 
     public static PlayerPositionData LoadPlayerPosition()
     {
@@ -78,6 +87,20 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             PlayerArmyData data = formatter.Deserialize(stream) as PlayerArmyData;
+            stream.Close();
+            return data;
+        }
+        else
+            return null;
+    }
+    public static EnemyArmyData LoadEnemyArmy()
+    {
+        string path = Application.persistentDataPath + $"/enemyArmy.fun";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            EnemyArmyData data = formatter.Deserialize(stream) as EnemyArmyData;
             stream.Close();
             return data;
         }

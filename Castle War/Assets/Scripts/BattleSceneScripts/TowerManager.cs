@@ -87,7 +87,7 @@ public class TowerManager : MonoBehaviour
         if (castle.Army.woodTower.textInputQuantity.quantity > 0)
         {
             castle.Army.woodTower.textInputQuantity.quantity--;
-            y = 16;
+            y = 22;
             tower = Instantiate(woodTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
             isDraggingTower = true;
             Cursor.visible = false;
@@ -102,7 +102,7 @@ public class TowerManager : MonoBehaviour
         if (castle.Army.stoneTower.textInputQuantity.quantity > 0)
         {
             castle.Army.stoneTower.textInputQuantity.quantity--;
-            y = 12;
+            y = 22;
             tower = Instantiate(stoneTower, Vector3.zero, new Quaternion(0, 0, 0, 0));
             isDraggingTower = true;
             Cursor.visible = false;

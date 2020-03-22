@@ -12,13 +12,20 @@ public class PlayerArmyInBattle : MonoBehaviour
     private void Start()
     {
         player = GetComponent<Army>();
-        PlayerArmyData armyData = SaveSystem.LoadPlayerArmy();
-        player.pikeman.textInputQuantity.quantity = armyData.pikemanQuantity;
-        player.warrior.textInputQuantity.quantity = armyData.warriorQuantity;
-        player.knight.textInputQuantity.quantity = armyData.knightQuantity;
-        player.woodTower.textInputQuantity.quantity = armyData.woodTowerQuantity;
-        player.stoneTower.textInputQuantity.quantity = armyData.stoneTowerQuantity;
-        player.greatTower.textInputQuantity.quantity = armyData.greatTowerQuantity;
+        if (Global.currentCastle < 100)
+        {
+            EnemyArmyData armyData = SaveSystem.LoadEnemyArmy();
+            player.pikeman.textInputQuantity.quantity = armyData.pikemanQuantity;
+            player.warrior.textInputQuantity.quantity = armyData.warriorQuantity;
+            player.knight.textInputQuantity.quantity = armyData.knightQuantity;
+        }
+        else
+        {
+            PlayerArmyData armyData = SaveSystem.LoadPlayerArmy();
+            player.pikeman.textInputQuantity.quantity = armyData.pikemanQuantity;
+            player.warrior.textInputQuantity.quantity = armyData.warriorQuantity;
+            player.knight.textInputQuantity.quantity = armyData.knightQuantity;
+        }
     }
    
 }

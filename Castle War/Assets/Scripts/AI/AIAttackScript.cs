@@ -7,11 +7,10 @@ public class AIAttackScript : MonoBehaviour
 {
     public int CastleIdAttack;
 
-   
     public void SimulateAttack()
     {
         Global.currentCastle = CastleIdAttack;
-        Global.whichScene = "CastleScene";
+        Global.whichScene = "BattleScene";
         SceneManager.LoadScene("LoadingScene");
     }
 }

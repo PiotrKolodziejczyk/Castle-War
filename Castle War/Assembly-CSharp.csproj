@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AI\AIAttackScript.cs" />
+    <Compile Include="Assets\Scripts\AI\AIEngine.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\AttackOrDefense.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\BackToMap.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\BuildingPlaceScript.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Assets\Scripts\OptimalizeScript.cs" />
     <Compile Include="Assets\Scripts\ResourcesToUpgradeLvl.cs" />
     <Compile Include="Assets\Scripts\SavingData\CastleData.cs" />
+    <Compile Include="Assets\Scripts\SavingData\EnemyArmyData.cs" />
     <Compile Include="Assets\Scripts\SavingData\PlayerArmyData.cs" />
     <Compile Include="Assets\Scripts\SavingData\PlayerPositionData.cs" />
     <Compile Include="Assets\Scripts\SavingData\SaveSystem.cs" />

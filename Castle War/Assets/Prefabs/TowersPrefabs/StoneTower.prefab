@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6946053865066210744}
   - component: {fileID: -7239052862333255515}
   m_Layer: 11
-  m_Name: TowerA
+  m_Name: StoneTower
   m_TagString: Zero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 21483118606823547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8456557, y: 1.8456557, z: 1.8456557}
   m_Children:
   - {fileID: 7676554415535634334}
   m_Father: {fileID: 0}
@@ -140,13 +140,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06636e070426e9e418736014a2161fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 21483118606823547}
-  towerPrefab1: {fileID: 4948124129139318124, guid: 5cfe4d0e13088d8439c2edd95370bd3e,
-    type: 3}
-  towerPrefab2: {fileID: 6705958242568105704, guid: 43fd6a89e2b85d245a5b1f78b48990d2,
-    type: 3}
+  stoneTower: {fileID: 0}
+  woodTower: {fileID: 0}
+  greatTower: {fileID: 0}
   texture1: {fileID: 0}
   hitColliders: []
+  building: 0
+  mightBuilding: 1
+  castle: {fileID: 0}
 --- !u!114 &-7239052862333255515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 20
   damage: 50
+  textInputQuantity: {fileID: 0}
 --- !u!1 &8673517096114602638
 GameObject:
   m_ObjectHideFlags: 0

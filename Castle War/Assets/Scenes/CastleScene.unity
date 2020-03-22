@@ -2700,6 +2700,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_Text
+      value: X
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 138
+      objectReference: {fileID: 0}
     - target: {fileID: 5370597556021369632, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2729,21 +2744,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_Text
-      value: X
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 44
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 138
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1a6a0dda92a2b544ae1bdaea483bcc6, type: 3}
@@ -14080,7 +14080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca72ab044c20664683e75ea602b29e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  id: 0
   barrack: {fileID: 686979441}
   clayMine: {fileID: 1462347465}
   quarry: {fileID: 726066000}
@@ -17910,6 +17910,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_Text
+      value: To Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5370597556021369632, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -17933,22 +17943,12 @@ PrefabInstance:
     - target: {fileID: 5370597556021369632, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadNewGame
+      value: LoadSampleScene
       objectReference: {fileID: 0}
     - target: {fileID: 5370597556021369632, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_Text
-      value: To Map
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1a6a0dda92a2b544ae1bdaea483bcc6, type: 3}
@@ -20191,6 +20191,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_Text
+      value: Take
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5370597556021369632, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -20220,16 +20230,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_Text
-      value: Take
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1a6a0dda92a2b544ae1bdaea483bcc6, type: 3}
@@ -20360,6 +20360,28 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.2000002
       objectReference: {fileID: 0}
+    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Menu
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189010490946513474, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.099998474
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189010490946513474, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -29.400002
+      objectReference: {fileID: 0}
     - target: {fileID: 5370597556021369632, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -20389,28 +20411,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Menu
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 5369773217556357360, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5189010490946513474, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.099998474
-      objectReference: {fileID: 0}
-    - target: {fileID: 5189010490946513474, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -29.400002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1a6a0dda92a2b544ae1bdaea483bcc6, type: 3}
