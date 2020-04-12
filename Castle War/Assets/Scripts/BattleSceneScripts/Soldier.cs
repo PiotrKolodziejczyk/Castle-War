@@ -7,10 +7,10 @@ public abstract class Soldier : MonoBehaviour
     public int helath;
     public int armor;
     public float speed;
-    internal TextInputQuantity textInputQuantity;
+    public TextInputQuantity textInputQuantity;
 
     private void Awake()
     {
-        textInputQuantity = GetComponent<TextInputQuantity>();
+        //textInputQuantity = GetComponent<TextInputQuantity>();
     }
 }

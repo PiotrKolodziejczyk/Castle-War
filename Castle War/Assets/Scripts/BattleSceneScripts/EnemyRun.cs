@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.CastleScene;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyRun : MonoBehaviour
 {
@@ -7,13 +6,17 @@ public class EnemyRun : MonoBehaviour
     private float forwardMinus;
     private float cur;
     private float curMinus;
-    public GameObject Knight;
-    public GameObject Pikeman;
-    public GameObject Axeman;
+    public GameObject knightPrefab;
+    public GameObject pikemanPrefab;
+    public GameObject warriorPrefab;
+    public Pikeman pikeman;
+    public Warrior warrior;
+    public Knight knight;
     public TowerShooting towerShooting;
     public AudioSource deadSounds;
     [SerializeField]
     PlayerArmyInBattle army;
+    Soldier soldier;
     private void Awake()
     {
         army = GetComponent<PlayerArmyInBattle>();
@@ -30,17 +33,23 @@ public class EnemyRun : MonoBehaviour
         {
             case "Knight":
                 {
-                    forward = 0.3f;
+                    knight = GetComponent<Knight>();
+                    soldier = knight;
+                    forward = knight.speed;
                     return;
                 }
             case "Pikeman":
                 {
-                    forward = 0.5f;
+                    pikeman = GetComponent<Pikeman>();
+                    soldier = pikeman;
+                    forward = pikeman.speed;
                     return;
                 }
             case "Axeman":
                 {
-                    forward = 0.7f;
+                    warrior = GetComponent<Warrior>();
+                    soldier = warrior;
+                    forward = warrior.speed;
                     return;
                 }
         }
@@ -54,7 +63,7 @@ public class EnemyRun : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ChangeRunDirection(other);
+        ChangeRunDirection(other, soldier);
 
         if (other.gameObject.layer == 14)
         {
@@ -64,11 +73,11 @@ public class EnemyRun : MonoBehaviour
         }
     }
 
-    private void ChangeRunDirection(Collider other)
+    private void ChangeRunDirection(Collider other, Soldier cursoldier)
     {
         if (other.name == "ChangeFor")
         {
-            forward = 0.5f;
+            forward = 0.5f * cursoldier.speed;
             forwardMinus = 0;
             cur = 0;
             curMinus = 0;
@@ -78,7 +87,7 @@ public class EnemyRun : MonoBehaviour
         {
             forward = 0;
             forwardMinus = 0;
-            cur = 0.5f;
+            cur = 0.5f * cursoldier.speed;
             curMinus = 0;
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
@@ -87,13 +96,13 @@ public class EnemyRun : MonoBehaviour
             forward = 0;
             forwardMinus = 0;
             cur = 0;
-            curMinus = -15f;
+            curMinus = -15f * cursoldier.speed;
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
         if (other.name == "ChangeForMinus")
         {
             forward = 0;
-            forwardMinus = -6f;
+            forwardMinus = -6f * cursoldier.speed;
             cur = 0;
             curMinus = 0;
             transform.rotation = new Quaternion(0, 0, 0, 0);
@@ -104,7 +113,7 @@ public class EnemyRun : MonoBehaviour
     {
         if (army.player.pikeman.textInputQuantity.quantity > 0)
         {
-            Instantiate(Pikeman, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+            Instantiate(pikemanPrefab, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
             MinusPikeman();
         }
     }
@@ -112,7 +121,7 @@ public class EnemyRun : MonoBehaviour
     {
         if (army.player.warrior.textInputQuantity.quantity > 0)
         {
-            Instantiate(Axeman, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+            Instantiate(warriorPrefab, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
             MinusWarrior();
         }
 
@@ -121,7 +130,7 @@ public class EnemyRun : MonoBehaviour
     {
         if (army.player.knight.textInputQuantity.quantity > 0)
         {
-            Instantiate(Knight, new Vector3(-30.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+            Instantiate(knightPrefab, new Vector3(-30.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
             MinusKnight();
         }
     }

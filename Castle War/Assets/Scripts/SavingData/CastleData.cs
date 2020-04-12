@@ -19,6 +19,9 @@ public class CastleData
     internal int woodTower;
     internal int stoneTower;
     internal int greatTower;
+    internal bool isPlayer;
+    internal string tag;
+    internal int layer;
     public CastleData(Castle castle)
     {
         id = castle.id;
@@ -39,5 +42,8 @@ public class CastleData
         woodTower = castle.Army.woodTower.textInputQuantity.quantity;
         stoneTower = castle.Army.stoneTower.textInputQuantity.quantity;
         greatTower = castle.Army.greatTower.textInputQuantity.quantity;
+        isPlayer = castle.isPlayer;
+        tag = castle.transform.tag;
+        layer = castle.transform.gameObject.layer;
     }
 }

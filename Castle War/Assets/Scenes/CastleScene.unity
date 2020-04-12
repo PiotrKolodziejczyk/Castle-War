@@ -249,6 +249,7 @@ MonoBehaviour:
   helath: 0
   armor: 0
   speed: 0
+  textInputQuantity: {fileID: 19683698}
 --- !u!114 &19683698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2504,6 +2505,7 @@ MonoBehaviour:
   helath: 0
   armor: 0
   speed: 0
+  textInputQuantity: {fileID: 217464595}
 --- !u!1 &218151522
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,7 +4289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0
   damage: 0
-  textInputQuantity: {fileID: 0}
+  textInputQuantity: {fileID: 402649846}
 --- !u!1001 &408935549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4645,7 +4647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0
   damage: 0
-  textInputQuantity: {fileID: 0}
+  textInputQuantity: {fileID: 451642615}
 --- !u!1001 &465764475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5082,7 +5084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0
   damage: 0
-  textInputQuantity: {fileID: 0}
+  textInputQuantity: {fileID: 490961978}
 --- !u!114 &490961978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5264,7 +5266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0
   damage: 0
-  textInputQuantity: {fileID: 0}
+  textInputQuantity: {fileID: 495693758}
 --- !u!114 &495693758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12883,7 +12885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0
   damage: 0
-  textInputQuantity: {fileID: 0}
+  textInputQuantity: {fileID: 1262506926}
 --- !u!1 &1263435523
 GameObject:
   m_ObjectHideFlags: 0
@@ -14080,6 +14082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca72ab044c20664683e75ea602b29e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   id: 0
   barrack: {fileID: 686979441}
   clayMine: {fileID: 1462347465}
@@ -14093,6 +14096,9 @@ MonoBehaviour:
   wood: {fileID: 1411268303}
   stone: {fileID: 1411268305}
   army: {fileID: 0}
+  texture: {fileID: 0}
+  texture1: {fileID: 0}
+  texture2: {fileID: 0}
 --- !u!114 &1411268301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15041,7 +15047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0
   damage: 0
-  textInputQuantity: {fileID: 0}
+  textInputQuantity: {fileID: 1533609815}
 --- !u!114 &1533609815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16200,6 +16206,7 @@ MonoBehaviour:
   helath: 0
   armor: 0
   speed: 0
+  textInputQuantity: {fileID: 1641825544}
 --- !u!114 &1641825544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17406,6 +17413,7 @@ MonoBehaviour:
   helath: 0
   armor: 0
   speed: 0
+  textInputQuantity: {fileID: 1766538388}
 --- !u!1001 &1812850430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18174,6 +18182,7 @@ MonoBehaviour:
   helath: 0
   armor: 0
   speed: 0
+  textInputQuantity: {fileID: 1890992044}
 --- !u!1 &1893037303
 GameObject:
   m_ObjectHideFlags: 0
@@ -18962,6 +18971,7 @@ MonoBehaviour:
   helath: 0
   armor: 0
   speed: 0
+  textInputQuantity: {fileID: 1975334980}
 --- !u!114 &1975334980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20372,16 +20382,6 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 40
       objectReference: {fileID: 0}
-    - target: {fileID: 5189010490946513474, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.099998474
-      objectReference: {fileID: 0}
-    - target: {fileID: 5189010490946513474, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -29.400002
-      objectReference: {fileID: 0}
     - target: {fileID: 5370597556021369632, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -20411,6 +20411,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189010490946513474, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.099998474
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189010490946513474, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -29.400002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1a6a0dda92a2b544ae1bdaea483bcc6, type: 3}

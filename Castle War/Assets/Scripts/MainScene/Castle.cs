@@ -1,11 +1,13 @@
 ﻿using Assets.Scripts.CastleScene;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
 using UnityEngine;
 
 public class Castle : MonoBehaviour, IArmy
 {
     float time = 10;
+    [SerializeField]
     internal bool isPlayer;
     [SerializeField]
     internal int id;
@@ -32,6 +34,10 @@ public class Castle : MonoBehaviour, IArmy
     [SerializeField]
     internal Stone stone;
     [SerializeField] Army army;
+    public Texture2D texture;
+    public Texture2D texture1;
+    public Texture2D texture2;
+    OptimalizeScript optimalize;
 
     public Army Army { get => army; set => army = value; }
 
@@ -45,24 +51,26 @@ public class Castle : MonoBehaviour, IArmy
             Debug.Log("Save!");
         }
     }
-
     private void Awake()
     {
-        if (id == 0)
-            id = Global.currentCastle;
-        if (id < 100)
-            isPlayer = true;
-        else
-            isPlayer = false;
         army = GetComponent<Army>();
     }
-
-    private void Start()
+    private void OnEnable()
     {
+        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
+        if (id == 0)
+            id = Global.currentCastle;
         if (File.Exists(Application.persistentDataPath + $"/playerCastle{id}.fun"))
             LoadPlayerCastle();
         else
             Debug.LogError("No Loaded Levels");
+        if (isPlayer)
+        {
+            var layers = GetComponentsInChildren<Transform>();
+            foreach (var item in layers)
+                item.gameObject.layer = LayerMask.NameToLayer("I");
+            Destroy(GetComponent<OptimalizeScript>());
+        }
     }
 
     private void Update()
@@ -93,6 +101,9 @@ public class Castle : MonoBehaviour, IArmy
         clay.quantity = castle.clay;
         stone.quantity = castle.stone;
         wood.quantity = castle.wood;
+        isPlayer = castle.isPlayer;
+        transform.tag = castle.tag;
+        transform.gameObject.layer = castle.layer;
     }
 
     private void InitializeArmy(CastleData castle)
@@ -118,5 +129,18 @@ public class Castle : MonoBehaviour, IArmy
         wood.text.text = RawMaterial.SeText("Wood", wood.quantity);
         stone.text.text = RawMaterial.SeText("Stone", stone.quantity);
         clay.text.text = RawMaterial.SeText("Clay", clay.quantity);
+    }
+    private void OnMouseEnter()
+    {
+        if (isPlayer)
+            Cursor.SetCursor(texture, Vector2.zero, CursorMode.ForceSoftware);
+        else
+            Cursor.SetCursor(texture2, Vector2.zero, CursorMode.ForceSoftware);
+
+    }
+
+    private void OnMouseExit()
+    {
+        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
     }
 }

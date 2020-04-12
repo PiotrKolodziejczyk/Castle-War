@@ -14,13 +14,13 @@ public class OptimalizeScript : MonoBehaviour
     List<GameObject> playerCastles;
     void Awake()
     {
+    }
+    private void Start()
+    {
         player = FindObjectsOfType<Transform>().Where(x => x.tag == "Player").First();
         coliders = GetComponentsInChildren<SphereCollider>().ToList();
         meshes = GetComponentsInChildren<MeshRenderer>().ToList();
         playerCastles = FindObjectsOfType<GameObject>().Where(x => x.tag == "PlayerCastle").ToList();
-    }
-    private void Start()
-    {
         foreach (var castle in playerCastles)
             foreach (var item in meshes)
             {
