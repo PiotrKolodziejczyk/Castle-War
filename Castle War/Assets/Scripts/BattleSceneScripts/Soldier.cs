@@ -11,6 +11,6 @@ public abstract class Soldier : MonoBehaviour
 
     private void Awake()
     {
-        //textInputQuantity = GetComponent<TextInputQuantity>();
+        textInputQuantity = GetComponent<TextInputQuantity>();
     }
 }

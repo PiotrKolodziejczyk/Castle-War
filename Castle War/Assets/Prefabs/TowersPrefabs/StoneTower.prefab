@@ -145,6 +145,7 @@ MonoBehaviour:
   greatTower: {fileID: 0}
   texture1: {fileID: 0}
   hitColliders: []
+  tower: {fileID: 0}
   building: 0
   mightBuilding: 1
   castle: {fileID: 0}

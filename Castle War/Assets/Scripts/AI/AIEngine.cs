@@ -15,6 +15,7 @@ public class AIEngine : MonoBehaviour
     TextInputQuantity pikemanTextInputQuantity;
     TextInputQuantity warriorTextInputQuantity;
     TextInputQuantity knightTextInputQuantity;
+    Castle castle;
     private void Awake()
     {
         army = new Army();
@@ -33,6 +34,7 @@ public class AIEngine : MonoBehaviour
         army.pikeman.textInputQuantity.quantity = 30;
         army.warrior.textInputQuantity.quantity = 30;
         army.knight.textInputQuantity.quantity = 30;
+        castle = GetComponentInParent<Castle>();
         //EnemyArmyData data = SaveSystem.LoadEnemyArmy();
         //army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
         //army.warrior.textInputQuantity.quantity = data.warriorQuantity;
@@ -41,7 +43,7 @@ public class AIEngine : MonoBehaviour
 
     void Update()
     {
-        if (Global.currentCastle < 100)
+        if (castle.isPlayer)
         {
             time -= Time.deltaTime;
             if (time < 0)

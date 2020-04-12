@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.CastleScene;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Threading;
 using UnityEngine;
 
 public class Castle : MonoBehaviour, IArmy
@@ -54,22 +53,26 @@ public class Castle : MonoBehaviour, IArmy
     private void Awake()
     {
         army = GetComponent<Army>();
-    }
-    private void OnEnable()
-    {
-        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
         if (id == 0)
             id = Global.currentCastle;
         if (File.Exists(Application.persistentDataPath + $"/playerCastle{id}.fun"))
             LoadPlayerCastle();
         else
             Debug.LogError("No Loaded Levels");
-        if (isPlayer)
+    }
+    private void OnEnable()
+    {
+        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
+        if (transform.parent.name == "Castles" && isPlayer)
         {
             var layers = GetComponentsInChildren<Transform>();
             foreach (var item in layers)
                 item.gameObject.layer = LayerMask.NameToLayer("I");
-            Destroy(GetComponent<OptimalizeScript>());
+            GetComponent<OptimalizeScript>().enabled = false;
+        }
+        if(transform.parent.name=="Castles" && !isPlayer)
+        {
+            GetComponent<OptimalizeScript>().enabled = true;
         }
     }
 
@@ -132,7 +135,7 @@ public class Castle : MonoBehaviour, IArmy
     }
     private void OnMouseEnter()
     {
-        if (isPlayer)
+        if (transform.parent.name == "Castles" && isPlayer)
             Cursor.SetCursor(texture, Vector2.zero, CursorMode.ForceSoftware);
         else
             Cursor.SetCursor(texture2, Vector2.zero, CursorMode.ForceSoftware);
@@ -141,6 +144,7 @@ public class Castle : MonoBehaviour, IArmy
 
     private void OnMouseExit()
     {
-        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
+        if (transform.parent.name == "Castles")
+            Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
     }
 }

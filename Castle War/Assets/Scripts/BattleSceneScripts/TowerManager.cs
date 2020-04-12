@@ -8,7 +8,7 @@ public class TowerManager : MonoBehaviour
     public GameObject greatTower;
     public Texture2D texture1;
     public Collider[] hitColliders;
-    GameObject tower;
+    public GameObject tower;
     MeshRenderer[] meshes;
     SphereCollider sphere;
     BoxCollider box;

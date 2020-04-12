@@ -15,15 +15,24 @@ public class HowMuchSoldierIncomeCount : MonoBehaviour
     }
     private void Update()
     {
-        if(count == 10)
+        if (!castle.isPlayer && count == 10)
         {
             castle.isPlayer = true;
             castle.tag = "PlayerCastle";
             castle.gameObject.layer = LayerMask.NameToLayer("I");
-            
             SaveSystem.SaveCastle(castle);
             Global.currentCastle = castle.id;
             Global.whichScene = "CastleScene";
+            SceneManager.LoadScene("LoadingScene");
+        }
+        else if (castle.isPlayer && count == 10)
+        {
+            castle.isPlayer = false;
+            castle.tag = "Untagged";
+            castle.gameObject.layer = LayerMask.NameToLayer("Enemy");
+            SaveSystem.SaveCastle(castle);
+            Global.currentCastle = castle.id;
+            Global.whichScene = "SampleScene";
             SceneManager.LoadScene("LoadingScene");
         }
     }
@@ -32,7 +41,7 @@ public class HowMuchSoldierIncomeCount : MonoBehaviour
         if (other.gameObject.layer == 10)
         {
             count++;
-            countText.text = "SOLDIER INCOME : "+ count;
+            countText.text = "SOLDIER INCOME : " + count;
         }
     }
 }
