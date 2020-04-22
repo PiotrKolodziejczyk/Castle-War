@@ -35,10 +35,10 @@ public class AIEngine : MonoBehaviour
         army.warrior.textInputQuantity.quantity = 30;
         army.knight.textInputQuantity.quantity = 30;
         castle = GetComponentInParent<Castle>();
-        //EnemyArmyData data = SaveSystem.LoadEnemyArmy();
-        //army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
-        //army.warrior.textInputQuantity.quantity = data.warriorQuantity;
-        //army.knight.textInputQuantity.quantity = data.knightQuantity;
+        AiArmyData data = SaveSystem.LoadEnemyArmy();
+        army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
+        army.warrior.textInputQuantity.quantity = data.warriorQuantity;
+        army.knight.textInputQuantity.quantity = data.knightQuantity;
     }
 
     void Update()

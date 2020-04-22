@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.MainScene;
+using Assets.Scripts.SavingData;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -37,6 +38,15 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
+    public static void SaveAIPosition(AIController ai)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + $"/aiPosition.fun";
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        AiPositionData data = new AiPositionData(ai);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
     public static void SavePlayerArmyData(TakeScript take)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -60,7 +70,7 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + $"/enemyArmy.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-        EnemyArmyData data = new EnemyArmyData(ai);
+        AiArmyData data = new AiArmyData(ai);
         formatter.Serialize(stream, data);
         stream.Close();
     }
@@ -73,6 +83,20 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             PlayerPositionData data = formatter.Deserialize(stream) as PlayerPositionData;
+            stream.Close();
+            return data;
+        }
+        else
+            return null;
+    }
+    public static AiPositionData LoadAiPosition()
+    {
+        string path = Application.persistentDataPath + $"/aiPosition.fun";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            AiPositionData data = formatter.Deserialize(stream) as AiPositionData;
             stream.Close();
             return data;
         }
@@ -93,14 +117,14 @@ public static class SaveSystem
         else
             return null;
     }
-    public static EnemyArmyData LoadEnemyArmy()
+    public static AiArmyData LoadEnemyArmy()
     {
         string path = Application.persistentDataPath + $"/enemyArmy.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            EnemyArmyData data = formatter.Deserialize(stream) as EnemyArmyData;
+            AiArmyData data = formatter.Deserialize(stream) as AiArmyData;
             stream.Close();
             return data;
         }

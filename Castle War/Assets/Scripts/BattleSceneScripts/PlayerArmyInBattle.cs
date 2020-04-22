@@ -14,7 +14,7 @@ public class PlayerArmyInBattle : MonoBehaviour
         player = GetComponent<Army>();
         if (Global.currentCastle < 100)
         {
-            EnemyArmyData armyData = SaveSystem.LoadEnemyArmy();
+            AiArmyData armyData = SaveSystem.LoadEnemyArmy();
             player.pikeman.textInputQuantity.quantity = armyData.pikemanQuantity;
             player.warrior.textInputQuantity.quantity = armyData.warriorQuantity;
             player.knight.textInputQuantity.quantity = armyData.knightQuantity;
