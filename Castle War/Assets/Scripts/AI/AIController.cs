@@ -17,8 +17,10 @@ public class AIController : MonoBehaviour
     public bool isMove = false;
     float time = 30;
     int whichCaslte = 0;
+    List<Transform> items;
     private void Awake()
     {
+        items = transform.GetComponentsInChildren<Transform>().ToList();
         AiPositionData data = SaveSystem.LoadAiPosition();
         Vector3 position = new Vector3(data.x, data.y, data.z);
         transform.position = position;
@@ -74,5 +76,21 @@ public class AIController : MonoBehaviour
         distance = Vector3.Distance(transform.position, aiCastles[castle].transform.position);
         distCovered = Time.deltaTime;
         isMove = true;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Grass"))
+        {
+            foreach (var item in items)
+                item.gameObject.layer = LayerMask.NameToLayer("VisibleAI");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Grass"))
+        {
+            foreach (var item in items)
+                item.gameObject.layer = LayerMask.NameToLayer("AI");
+        }
     }
 }

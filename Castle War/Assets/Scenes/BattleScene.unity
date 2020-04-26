@@ -4454,6 +4454,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374778792}
   m_Mesh: {fileID: 4300002, guid: 8246cfaf56c33ee4186e0794b84de428, type: 3}
+--- !u!1 &376149328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 376149329}
+  - component: {fileID: 376149330}
+  m_Layer: 0
+  m_Name: SawmillTimeProperties
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &376149329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376149328}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1409183127}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &376149330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376149328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 3
+  startTimeToUpgrade: 3
 --- !u!1001 &377024902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19734,7 +19779,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 376149329}
   m_Father: {fileID: 1666863773}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19807,9 +19853,9 @@ MonoBehaviour:
   level: 0
   isBuild: 0
   buildingText: {fileID: 0}
-  castle: {fileID: 0}
+  castle: {fileID: 1666863772}
   take: {fileID: 0}
-  timePropertiesBuilding: {fileID: 0}
+  timePropertiesBuilding: {fileID: 376149330}
 --- !u!114 &1409183132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24388,7 +24434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  id: 0
+  id: 20
   barrack: {fileID: 1409183134}
   clayMine: {fileID: 1409183133}
   quarry: {fileID: 1409183132}

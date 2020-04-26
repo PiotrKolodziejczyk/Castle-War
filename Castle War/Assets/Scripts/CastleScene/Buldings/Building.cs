@@ -12,7 +12,7 @@ public class Building : MonoBehaviour
     [SerializeField] internal Castle castle;
     [SerializeField] internal TakeScript take;
     [SerializeField] internal TimeProperties timePropertiesBuilding;
-    ResourcesToUpgradeLvl resourcesToUpgradeBuildingLvl;
+    internal ResourcesToUpgradeLvl resourcesToUpgradeBuildingLvl;
     internal Building actualBuilding;
     internal MainPanel mainPanel;
     internal bool isMainPanelOn = true;
@@ -24,10 +24,10 @@ public class Building : MonoBehaviour
     {
         if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
         {
-            resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
             timePropertiesBuilding = GetComponent<TimeProperties>();
             mainPanel = GetComponent<MainPanel>();
         }
+        resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
     }
 
     public void BuildBuilding(Transform transform)
@@ -52,24 +52,25 @@ public class Building : MonoBehaviour
     public void ElapsedTimeAndBuild(Building building)
     {
         if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
-        {
             building.buildingText.text = SetText(building.transform.name, building.level);
-            if (building.isBuild)
-            {
-                building.timePropertiesBuilding.timeToUpgrade -= Time.deltaTime;
+        if (building.isBuild)
+        {
+            building.timePropertiesBuilding.timeToUpgrade -= Time.deltaTime;
+            if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
                 if (mainPanel.panel != null)
                     building.mainPanel.timeText.text = building.timePropertiesBuilding.timeToUpgrade.ToString();
-                if (building.timePropertiesBuilding.timeToUpgrade < 0)
-                {
-                    ++building.level;
-                    building.timePropertiesBuilding.timeToUpgrade = building.timePropertiesBuilding.startTimeToUpgrade;
+            if (building.timePropertiesBuilding.timeToUpgrade < 0)
+            {
+                ++building.level;
+                building.timePropertiesBuilding.timeToUpgrade = building.timePropertiesBuilding.startTimeToUpgrade;
+
+                if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
                     if (building.mainPanel.panel != null)
                     {
                         building.mainPanel.levelInPanel.text = SetText(building.transform.name, building.level);
                         building.mainPanel.timeText.text = building.timePropertiesBuilding.timeToUpgrade.ToString();
                     }
-                    building.isBuild = false;
-                }
+                building.isBuild = false;
             }
         }
     }

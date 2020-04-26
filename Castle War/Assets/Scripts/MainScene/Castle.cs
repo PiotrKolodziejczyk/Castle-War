@@ -94,6 +94,7 @@ public class Castle : MonoBehaviour, IArmy
     {
         id = castle.id;
         sawmill.level = castle.sawmillLevel;
+        sawmill.timePropertiesBuilding.timeToUpgrade = castle.sawmillBuildingTime;
         clayMine.level = castle.clayMineLevel;
         quarry.level = castle.quarryLevel;
         townHall.level = castle.townHallLevel;

@@ -67,9 +67,13 @@ public class EnemyRun : MonoBehaviour
 
         if (other.gameObject.layer == 14)
         {
-            deadSounds.Play();
-            Destroy(gameObject);
-            other.gameObject.layer = 0;
+            soldier.helath -= 50;
+            if (soldier.helath <= 0)
+            {
+                deadSounds.Play();
+                Destroy(gameObject);
+            }
+                other.gameObject.layer = 0;
         }
     }
 
