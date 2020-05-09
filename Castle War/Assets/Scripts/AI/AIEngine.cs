@@ -11,6 +11,7 @@ public class AIEngine : MonoBehaviour
     [SerializeField] GameObject warriorPrefab;
     [SerializeField] GameObject knightPrefab;
     Castle castle;
+
     private void Start()
     {
         castle = GetComponentInParent<Castle>();
@@ -32,8 +33,7 @@ public class AIEngine : MonoBehaviour
     {
         if (castle.isPlayer)
         {
-            time -= Time.deltaTime;
-            if (time < 0)
+            if (Global.Timer(ref time))
             {
                 InstantiatePikeman();
                 //InstantiateAxeman();

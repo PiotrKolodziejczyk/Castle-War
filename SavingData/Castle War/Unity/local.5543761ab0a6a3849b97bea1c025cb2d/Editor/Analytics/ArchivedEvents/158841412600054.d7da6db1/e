@@ -1,5 +1,0 @@
-(s)|{"appid":"local.5543761ab0a6a3849b97bea1c025cb2d","userid":"627b2c5c57928044695e5f2e65d2658b","sessionid":8682352199912841200,"platform":"WindowsEditor","platformid":7,"sdk_ver":"u2019.2.5f1","session_count":2787,"debug_device":true,"localprojectid":"5543761ab0a6a3849b97bea1c025cb2d","deviceid":"abc07d5a0e93da5d0a7b97d8aa87cb0db8b4440d"}
-(g)|2
-{"type":"analytics.appRunning.v1","msg":{"duration":4,"local_time_offset":-3600000,"ts":1588414126280,"t_since_start":8361601}}
-{"type":"analytics.appRunning.v1","msg":{"duration":151,"local_time_offset":-3600000,"ts":1588414273669,"t_since_start":155750268}}
-(1){"type":"analytics.appPause.v1","msg":{"ts":1588414381565,"t_since_start":263646218}}

@@ -11,7 +11,7 @@ public class BuildingPlaceScript : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if (regex.IsMatch(other.gameObject.name)&&other.gameObject.layer == 11)
+        if (regex.IsMatch(other.gameObject.name)&&other.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
             //var meshList = other.GetComponentsInChildren<MeshRenderer>();
             //for (int i = 0; i < meshList.Length; i++)
@@ -26,7 +26,7 @@ public class BuildingPlaceScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (regex.IsMatch(other.gameObject.name) && other.gameObject.layer == 11)
+        if (regex.IsMatch(other.gameObject.name) && other.gameObject.layer == LayerMask.NameToLayer("Tower"))
         {
             //    var meshList = other.GetComponentsInChildren<MeshRenderer>();
             //    for (int i = 0; i < meshList.Length; i++)

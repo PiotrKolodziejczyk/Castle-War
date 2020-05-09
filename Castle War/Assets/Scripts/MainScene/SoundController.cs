@@ -3,8 +3,7 @@ using UnityEngine.Audio;
 
 public class SoundController : MonoBehaviour
 {
-    [SerializeField]
-    AudioMixer mixer;
+    [SerializeField] AudioMixer mixer;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,7 +19,6 @@ public class SoundController : MonoBehaviour
                 case "MountainCollider":
                     mixer.FindSnapshot("Mountain").TransitionTo(0);
                     break;
-
             }
     }
     private void OnTriggerExit(Collider other)

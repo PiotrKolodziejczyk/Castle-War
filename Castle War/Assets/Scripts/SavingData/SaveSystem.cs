@@ -14,7 +14,6 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
-
     public static CastleData LoadCastle(int id)
     {
         string path = Application.persistentDataPath + $"/playerCastle{id}.fun";

@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CastleManager : MonoBehaviour
 {
-    Castle castle;
-    bool isPlayerHere;
+    private Castle castle;
+    private bool isPlayerHere;
 
     private void Awake()
     {
@@ -14,32 +13,21 @@ public class CastleManager : MonoBehaviour
     private void OnMouseDown()
     {
         if (isPlayerHere && castle.isPlayer)
-        {
-            Global.currentCastle = castle.id;
-            Global.whichScene = "CastleScene";
-            SceneManager.LoadScene("LoadingScene");
-        }
+            Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.CastleScene, castle.id);
         else if (isPlayerHere && !castle.isPlayer)
-        {
-            Global.currentCastle = castle.id;
-            Global.whichScene = "BattleScene";
-            SceneManager.LoadScene("LoadingScene");
-        }
+            Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.BattleScene, castle.id);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
-        {
             isPlayerHere = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Player")
-        {
             isPlayerHere = false;
-        }
     }
+
 }

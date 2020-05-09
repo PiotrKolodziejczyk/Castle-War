@@ -1,0 +1,3 @@
+(s)|{"appid":"local.5543761ab0a6a3849b97bea1c025cb2d","userid":"50b4e90ec83478f4e970998f0aa1b7d5","sessionid":4996195228328008009,"platform":"WindowsEditor","platformid":7,"sdk_ver":"u2019.2.5f1","session_count":305,"debug_device":true,"localprojectid":"5543761ab0a6a3849b97bea1c025cb2d","deviceid":"bf0cc2fe52ec988c776ff0d3dc89598a8cc020bd"}
+(g)|2
+(1){"type":"analytics.appStop.v1","msg":{"ts":1589036665753,"t_since_start":760364098}}

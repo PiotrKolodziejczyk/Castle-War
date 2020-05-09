@@ -5,45 +5,31 @@ using UnityEngine;
 
 public class Castle : MonoBehaviour, IArmy
 {
-    float time = 10;
-    [SerializeField]
-    internal bool isPlayer;
-    [SerializeField]
-    internal int id;
-    [SerializeField]
-    internal Barrack barrack;
-    [SerializeField]
-    internal ClayMine clayMine;
-    [SerializeField]
-    internal Quarry quarry;
-    [SerializeField]
-    internal Sawmill sawmill;
-    [SerializeField]
-    internal Smithy smithy;
-    [SerializeField]
-    internal TowerWorkShop towerWorkShop;
-    [SerializeField]
-    internal TownHall townHall;
-    [SerializeField]
-    internal Wall wall;
-    [SerializeField]
-    internal Clay clay;
-    [SerializeField]
-    internal Wood wood;
-    [SerializeField]
-    internal Stone stone;
-    [SerializeField] Army army;
-    public Texture2D texture;
-    public Texture2D texture1;
-    public Texture2D texture2;
-    OptimalizeScript optimalize;
+    [SerializeField] private float time = 10;
+    [SerializeField] internal bool isPlayer;
+    [SerializeField] internal int id;
+    [SerializeField] internal Barrack barrack;
+    [SerializeField] internal ClayMine clayMine;
+    [SerializeField] internal Quarry quarry;
+    [SerializeField] internal Sawmill sawmill;
+    [SerializeField] internal Smithy smithy;
+    [SerializeField] internal TowerWorkShop towerWorkShop;
+    [SerializeField] internal TownHall townHall;
+    [SerializeField] internal Wall wall;
+    [SerializeField] internal Clay clay;
+    [SerializeField] internal Wood wood;
+    [SerializeField] internal Stone stone;
+    [SerializeField] private Army army;
+    [SerializeField] private readonly Texture2D texture;
+    [SerializeField] private readonly Texture2D texture1;
+    [SerializeField] private readonly Texture2D texture2;
+    private readonly OptimalizeScript optimalize;
 
     public Army Army { get => army; set => army = value; }
 
     protected void Saving(Castle castle)
     {
-        time -= Time.deltaTime;
-        if (time < 0)
+        if (Global.Timer(ref time))
         {
             SaveSystem.SaveCastle(castle);
             time = 10;
@@ -62,18 +48,16 @@ public class Castle : MonoBehaviour, IArmy
     }
     private void OnEnable()
     {
-        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
+        Global.SetAppropriateCursor(texture1);
         if (transform.parent.name == "Castles" && isPlayer)
         {
-            var layers = GetComponentsInChildren<Transform>();
-            foreach (var item in layers)
+            Transform[] layers = GetComponentsInChildren<Transform>();
+            foreach (Transform item in layers)
                 item.gameObject.layer = LayerMask.NameToLayer("I");
             GetComponent<OptimalizeScript>().enabled = false;
         }
-        if(transform.parent.name=="Castles" && !isPlayer)
-        {
+        if (transform.parent.name == "Castles" && !isPlayer)
             GetComponent<OptimalizeScript>().enabled = true;
-        }
     }
 
     private void Update()
@@ -137,15 +121,16 @@ public class Castle : MonoBehaviour, IArmy
     private void OnMouseEnter()
     {
         if (transform.parent.name == "Castles" && isPlayer)
-            Cursor.SetCursor(texture, Vector2.zero, CursorMode.ForceSoftware);
+            Global.SetAppropriateCursor(texture);
         else
-            Cursor.SetCursor(texture2, Vector2.zero, CursorMode.ForceSoftware);
-
+            Global.SetAppropriateCursor(texture2);
     }
 
     private void OnMouseExit()
     {
         if (transform.parent.name == "Castles")
-            Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
+            Global.SetAppropriateCursor(texture1);
     }
+
+
 }

@@ -27,8 +27,7 @@ public class AiBuildingTowers : MonoBehaviour
     {
         if (!castle.isPlayer)
         {
-            timer -= Time.deltaTime;
-            if (timer < 0)
+            if (Global.Timer(ref timer))
             {
                 BuildStoneTower();
                 timer = 4;

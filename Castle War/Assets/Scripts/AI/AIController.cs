@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.SavingData;
+﻿using Assets.Scripts.HelpingClass;
+using Assets.Scripts.SavingData;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -10,17 +11,13 @@ public class AIController : MonoBehaviour
     public AudioSource audioSource;
     public List<Transform> aiCastles;
     public List<Transform> playerCastles;
-    float distance;
-    float startTime;
-    float fractionOfJourney;
-    float distCovered;
-    public bool isMove = false;
-    float time = 30;
-    int whichCaslte = 0;
-    List<Transform> items;
-    bool isAttack;
-    float timeToAttack = 60;
-    int castleToAttackIndex = -1;
+    private float time = 30;
+    private int whichCaslte = 0;
+    private List<Transform> items;
+    private bool isAttack;
+    private float timeToAttack = 5;
+    private int castleToAttackIndex = -1;
+    [SerializeField] private Moving moving;
     private void Awake()
     {
         isAttack = false;
@@ -31,28 +28,29 @@ public class AIController : MonoBehaviour
     }
     private void Start()
     {
+        moving = new Moving();
         aiCastles = FindObjectsOfType<Transform>().Where(x => x.gameObject.layer == LayerMask.NameToLayer("Enemy") && Regex.Match(x.name, @"Castle\(Clone\)\s*\(\d+\)").Success).ToList();
         playerCastles = FindObjectsOfType<Transform>().Where(x => x.gameObject.layer == LayerMask.NameToLayer("I") && Regex.Match(x.name, @"Castle\(Clone\)\s*\(\d+\)").Success).ToList();
         AcceptMove(whichCaslte, false);
     }
-    void Update()
+
+    private void Update()
     {
         if (!isAttack)
         {
-            time -= Time.deltaTime;
-            timeToAttack -= Time.deltaTime;
+            if (Global.Timer(ref timeToAttack))
+                isAttack = true;
+            if (Global.Timer(ref time))
+            {
+                whichCaslte = Random.Range(0, aiCastles.Count);
+                AcceptMove(whichCaslte, false);
+                time = 100;
+            }
         }
-        if (timeToAttack < 0)
-            isAttack = true;
-        if (time < 0 && !isAttack)
-        {
-            whichCaslte = Random.Range(0, aiCastles.Count);
-            AcceptMove(whichCaslte, false);
-            time = 30;
-        }
+
         if (isAttack)
         {
-            var playerCastleDistance = Vector3.Distance(aiCastles[whichCaslte].position, playerCastles[0].position);
+            float playerCastleDistance = Vector3.Distance(aiCastles[whichCaslte].position, playerCastles[0].position);
             castleToAttackIndex = 0;
             for (int i = 1; i < playerCastles.Count; i++)
             {
@@ -65,9 +63,9 @@ public class AIController : MonoBehaviour
         }
         if (isAttack && castleToAttackIndex != -1)
             AcceptMove(castleToAttackIndex, true);
-        if (isMove && castleToAttackIndex != -1)
+        if (moving.isMove && castleToAttackIndex != -1)
             AIMove(castleToAttackIndex, true);
-        else if (isMove && castleToAttackIndex == -1)
+        else if (moving.isMove && castleToAttackIndex == -1)
             AIMove(whichCaslte, false);
     }
     public void AIMove(int castle, bool attack)
@@ -76,73 +74,25 @@ public class AIController : MonoBehaviour
         audioSource.Play();
         if (!attack)
         {
-            if (Vector3.Distance(aiCastles[castle].transform.position, transform.position) > 0.1f)
-            {
-                distCovered += Time.deltaTime * 0.03f;
-                fractionOfJourney = distCovered / distance;
-                transform.position = Vector3.Lerp(transform.position,
-                                   new Vector3(aiCastles[castle].transform.position.x, 0.1f, aiCastles[castle].transform.position.z),
-                                       fractionOfJourney);
-            }
-
-            if (Vector3.Distance(aiCastles[castle].transform.position, transform.position) < 0.2f)
-            {
-                isMove = false;
-                animator.SetBool("isRun", false);
-                audioSource.Stop();
-                SaveSystem.SaveAIPosition(this);
-            }
+            moving.StartMoving(aiCastles[castle].transform.position, transform);
+            moving.StopMoving(aiCastles[castle].transform.position, transform.position, animator, audioSource);
+            SaveSystem.SaveAIPosition(this);
         }
         else
         {
-            if (Vector3.Distance(playerCastles[castle].transform.position, transform.position) > 0.1f)
-            {
-                distCovered += Time.deltaTime * 0.03f;
-                fractionOfJourney = distCovered / distance;
-                transform.position = Vector3.Lerp(transform.position,
-                                   new Vector3(playerCastles[castle].transform.position.x, 0.1f, playerCastles[castle].transform.position.z),
-                                       fractionOfJourney);
-            }
-
-            if (Vector3.Distance(playerCastles[castle].transform.position, transform.position) < 0.2f)
-            {
-                isMove = false;
-                animator.SetBool("isRun", false);
-                audioSource.Stop();
-                SaveSystem.SaveAIPosition(this);
-                if (castleToAttackIndex != -1)
-                {
-                    castleToAttackIndex = -1;
-                    AIAttackScript.SimulateAttack(playerCastles[castle].GetComponent<Castle>().id);
-                }
-
-            }
+            moving.StartMoving(playerCastles[castle].transform.position, transform);
+            moving.StopMoving(playerCastles[castle].transform.position, transform.position, animator, audioSource);
+            SaveSystem.SaveAIPosition(this);
         }
     }
 
     private void AcceptMove(int castle, bool attack)
     {
         if (!attack)
-        {
-            var tmpPosition = new Vector3(aiCastles[castle].transform.position.x, 0, aiCastles[castle].transform.position.z);
-
-            if (aiCastles[castle].transform.position != transform.position)
-                transform.LookAt(tmpPosition);
-
-            distance = Vector3.Distance(transform.position, aiCastles[castle].transform.position);
-            distCovered = Time.deltaTime;
-            isMove = true;
-        }
+            moving.AcceptMove(aiCastles[castle].transform.position, transform);
         else
         {
-            var tmpPosition = new Vector3(playerCastles[castle].transform.position.x, 0, playerCastles[castle].transform.position.z);
-
-            if (playerCastles[castle].transform.position != transform.position)
-                transform.LookAt(tmpPosition);
-
-            distance = Vector3.Distance(transform.position, playerCastles[castle].transform.position);
-            distCovered = Time.deltaTime;
-            isMove = true;
+            moving.AcceptMove(playerCastles[castle].transform.position, transform);
             isAttack = false;
             timeToAttack = 120;
         }
@@ -151,12 +101,13 @@ public class AIController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Grass"))
         {
-            foreach (var item in items)
+            foreach (Transform item in items)
                 item.gameObject.layer = LayerMask.NameToLayer("VisibleAI");
         }
         if (other.gameObject.layer == LayerMask.NameToLayer("I") && castleToAttackIndex != -1)
         {
-
+            castleToAttackIndex = -1;
+            AIAttackScript.SimulateAttack(other.gameObject.GetComponent<Castle>().id);
         }
 
     }
@@ -164,7 +115,7 @@ public class AIController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Grass"))
         {
-            foreach (var item in items)
+            foreach (Transform item in items)
                 item.gameObject.layer = LayerMask.NameToLayer("AI");
         }
     }

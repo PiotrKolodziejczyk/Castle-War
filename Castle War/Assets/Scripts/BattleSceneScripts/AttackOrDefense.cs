@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackOrDefense : MonoBehaviour
 {
-    [SerializeField]Castle castle;
+    [SerializeField] Castle castle;
     [SerializeField] GameObject pikeman;
     [SerializeField] GameObject warrior;
     [SerializeField] GameObject knight;
@@ -25,11 +25,5 @@ public class AttackOrDefense : MonoBehaviour
             warrior.SetActive(false);
             knight.SetActive(false);
         }
-
-    }
-
-    void Update()
-    {
-        
     }
 }

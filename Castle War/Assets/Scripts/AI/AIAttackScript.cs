@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AIAttackScript : MonoBehaviour
@@ -9,8 +7,6 @@ public class AIAttackScript : MonoBehaviour
 
     public static void SimulateAttack(int castle)
     {
-        Global.currentCastle = castle;
-        Global.whichScene = "BattleScene";
-        SceneManager.LoadScene("LoadingScene");
+        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.BattleScene, castle);
     }
 }

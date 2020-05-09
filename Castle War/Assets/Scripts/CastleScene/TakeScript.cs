@@ -22,12 +22,10 @@ public class TakeScript : MonoBehaviour
     public void SwitchToPlayer()
     {
         SwitchingAllArmy(castle, player);
-        SaveSystem.SavePlayerArmyData(this);
     }
     public void SwitchToCastle()
     {
         SwitchingAllArmy(player, castle);
-        SaveSystem.SavePlayerArmyData(this);
     }
     public void SwitchingAllArmy(IArmy from, IArmy to)
     {
@@ -49,6 +47,7 @@ public class TakeScript : MonoBehaviour
         SoldierOrTowerSwitching(ref from.Army.greatTower.textInputQuantity.quantity,
                                 from.Army.greatTower.textInputQuantity.input,
                                 ref to.Army.greatTower.textInputQuantity.quantity);
+        SaveSystem.SavePlayerArmyData(this);
     }
     private void SoldierOrTowerSwitching(ref int from, InputField fromInput, ref int to)
     {

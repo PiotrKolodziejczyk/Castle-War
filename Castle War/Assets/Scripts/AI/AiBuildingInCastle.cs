@@ -10,8 +10,7 @@ public class AiBuildingInCastle : MonoBehaviour
     {
         if (!castle.isPlayer)
         {
-            time -= Time.deltaTime;
-            if (time < 0)
+            if (Global.Timer(ref time))
             {
                 if (sawmill.RemoveMaterialIfisTrue(sawmill.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
                                    sawmill.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
