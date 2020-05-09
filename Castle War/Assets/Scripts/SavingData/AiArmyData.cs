@@ -15,9 +15,9 @@ public class AiArmyData
         pikemanQuantity = aiEngine.army.pikeman.textInputQuantity.quantity;
         warriorQuantity = aiEngine.army.warrior.textInputQuantity.quantity;
         knightQuantity = aiEngine.army.knight.textInputQuantity.quantity;
-        woodTowerQuantity = aiEngine.army.woodTower.textInputQuantity.quantity;
-        stoneTowerQuantity = aiEngine.army.stoneTower.textInputQuantity.quantity;
-        greatTowerQuantity = aiEngine.army.greatTower.textInputQuantity.quantity;
+        //woodTowerQuantity = aiEngine.army.woodTower.textInputQuantity.quantity;
+        //stoneTowerQuantity = aiEngine.army.stoneTower.textInputQuantity.quantity;
+        //greatTowerQuantity = aiEngine.army.greatTower.textInputQuantity.quantity;
     }
     
 }

@@ -5,40 +5,27 @@ using UnityEngine;
 public class AIEngine : MonoBehaviour
 {
     float time = 5;
-    internal Army army;
+    public Army army;
+    public Army armyInAttack;
     [SerializeField] GameObject pikemanPrefab;
     [SerializeField] GameObject warriorPrefab;
     [SerializeField] GameObject knightPrefab;
-    Pikeman pikeman;
-    Warrior warrior;
-    Knight knight;
-    TextInputQuantity pikemanTextInputQuantity;
-    TextInputQuantity warriorTextInputQuantity;
-    TextInputQuantity knightTextInputQuantity;
     Castle castle;
-    private void Awake()
+    private void Start()
     {
-        army = new Army();
-        pikemanTextInputQuantity = new TextInputQuantity();
-        pikeman = new Pikeman();
-        pikeman.textInputQuantity = pikemanTextInputQuantity;
-        army.pikeman = pikeman;
-        warriorTextInputQuantity = new TextInputQuantity();
-        warrior = new Warrior();
-        warrior.textInputQuantity = warriorTextInputQuantity;
-        army.warrior = warrior;
-        knightTextInputQuantity = new TextInputQuantity();
-        knight = new Knight();
-        knight.textInputQuantity = knightTextInputQuantity;
-        army.knight = knight;
-        army.pikeman.textInputQuantity.quantity = 30;
-        army.warrior.textInputQuantity.quantity = 30;
-        army.knight.textInputQuantity.quantity = 30;
         castle = GetComponentInParent<Castle>();
-        AiArmyData data = SaveSystem.LoadEnemyArmy();
-        army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
-        army.warrior.textInputQuantity.quantity = data.warriorQuantity;
-        army.knight.textInputQuantity.quantity = data.knightQuantity;
+        if (castle.isPlayer)
+        {
+            army = armyInAttack;
+            AiArmyData data = SaveSystem.LoadEnemyArmy();
+            army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
+            army.warrior.textInputQuantity.quantity = data.warriorQuantity;
+            army.knight.textInputQuantity.quantity = data.knightQuantity;
+        }
+        else
+        {
+            army =  GetComponentInParent<Army>();
+        }
     }
 
     void Update()
@@ -49,9 +36,8 @@ public class AIEngine : MonoBehaviour
             if (time < 0)
             {
                 InstantiatePikeman();
-                InstantiateAxeman();
-                InstantiateKnight();
-                time = 3;
+                //InstantiateAxeman();
+                //InstantiateKnight();
             }
         }
     }
@@ -83,16 +69,19 @@ public class AIEngine : MonoBehaviour
     public void MinusPikeman()
     {
         --army.pikeman.textInputQuantity.quantity;
+        time = 5;
         SaveSystem.SaveEnemyArmyData(this);
     }
     public void MinusWarrior()
     {
         --army.warrior.textInputQuantity.quantity;
+        time = 5;
         SaveSystem.SaveEnemyArmyData(this);
     }
     public void MinusKnight()
     {
         --army.knight.textInputQuantity.quantity;
+        time = 5;
         SaveSystem.SaveEnemyArmyData(this);
     }
 }

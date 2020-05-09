@@ -3,7 +3,7 @@ public class CastleData
 {
     public int id;
     public short sawmillLevel;
-    public float sawmillBuildingTime;
+    //public float sawmillBuildingTime;
     public short clayMineLevel;
     public short quarryLevel;
     public short barrackLevel;
@@ -26,7 +26,7 @@ public class CastleData
     public CastleData(Castle castle)
     {
         id = castle.id;
-        sawmillBuildingTime = castle.sawmill.timePropertiesBuilding.timeToUpgrade;
+        //sawmillBuildingTime = castle.sawmill.timePropertiesBuilding.timeToUpgrade;
         sawmillLevel = castle.sawmill.level;
         clayMineLevel = castle.clayMine.level;
         quarryLevel = castle.quarry.level;

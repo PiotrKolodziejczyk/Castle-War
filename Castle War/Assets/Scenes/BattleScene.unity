@@ -9151,6 +9151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb46182fd0f6224c9cfda8ab63c517b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  army: {fileID: 0}
+  armyInAttack: {fileID: 778604592}
   pikemanPrefab: {fileID: 4707857149593935494, guid: 9bcd48383ee334249a87b7e670a2a221,
     type: 3}
   warriorPrefab: {fileID: 2702233317404763939, guid: 30f75ef6f2541374c9b06ad8413cda7a,
@@ -10955,7 +10957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7643ea9acae454e885d205f5cdd696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  army: {fileID: 0}
 --- !u!114 &778604592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24434,7 +24436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  id: 20
+  id: 0
   barrack: {fileID: 1409183134}
   clayMine: {fileID: 1409183133}
   quarry: {fileID: 1409183132}

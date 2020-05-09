@@ -7,9 +7,9 @@ public class AIAttackScript : MonoBehaviour
 {
     public int CastleIdAttack;
 
-    public void SimulateAttack()
+    public static void SimulateAttack(int castle)
     {
-        Global.currentCastle = CastleIdAttack;
+        Global.currentCastle = castle;
         Global.whichScene = "BattleScene";
         SceneManager.LoadScene("LoadingScene");
     }

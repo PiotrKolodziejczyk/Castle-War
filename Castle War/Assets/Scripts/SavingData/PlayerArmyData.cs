@@ -21,9 +21,9 @@ namespace Assets.Scripts.MainScene
         }
         public PlayerArmyData(PlayerArmyInBattle armyScript)
         {
-            pikemanQuantity = armyScript.player.pikeman.textInputQuantity.quantity;
-            warriorQuantity = armyScript.player.warrior.textInputQuantity.quantity;
-            knightQuantity = armyScript.player.knight.textInputQuantity.quantity;
+            pikemanQuantity = armyScript.army.pikeman.textInputQuantity.quantity;
+            warriorQuantity = armyScript.army.warrior.textInputQuantity.quantity;
+            knightQuantity = armyScript.army.knight.textInputQuantity.quantity;
         }
     }
 }

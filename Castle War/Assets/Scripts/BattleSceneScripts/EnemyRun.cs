@@ -115,7 +115,7 @@ public class EnemyRun : MonoBehaviour
 
     public void InstantiatePikeman()
     {
-        if (army.player.pikeman.textInputQuantity.quantity > 0)
+        if (army.army.pikeman.textInputQuantity.quantity > 0)
         {
             Instantiate(pikemanPrefab, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
             MinusPikeman();
@@ -123,7 +123,7 @@ public class EnemyRun : MonoBehaviour
     }
     public void InstantiateAxeman()
     {
-        if (army.player.warrior.textInputQuantity.quantity > 0)
+        if (army.army.warrior.textInputQuantity.quantity > 0)
         {
             Instantiate(warriorPrefab, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
             MinusWarrior();
@@ -132,7 +132,7 @@ public class EnemyRun : MonoBehaviour
     }
     public void InstantiateKnight()
     {
-        if (army.player.knight.textInputQuantity.quantity > 0)
+        if (army.army.knight.textInputQuantity.quantity > 0)
         {
             Instantiate(knightPrefab, new Vector3(-30.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
             MinusKnight();
@@ -140,17 +140,17 @@ public class EnemyRun : MonoBehaviour
     }
     public void MinusPikeman()
     {
-        --army.player.pikeman.textInputQuantity.quantity;
+        --army.army.pikeman.textInputQuantity.quantity;
         SaveSystem.SavePlayerArmyData(army);
     }
     public void MinusWarrior()
     {
-        --army.player.warrior.textInputQuantity.quantity;
+        --army.army.warrior.textInputQuantity.quantity;
         SaveSystem.SavePlayerArmyData(army);
     }
     public void MinusKnight()
     {
-        --army.player.knight.textInputQuantity.quantity;
+        --army.army.knight.textInputQuantity.quantity;
         SaveSystem.SavePlayerArmyData(army);
     }
 
