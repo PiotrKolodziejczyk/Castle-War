@@ -381,6 +381,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1830355285}
     m_Modifications:
+    - target: {fileID: 6470992520573760356, guid: 0e54eb048e444f94cb4371dc026549aa,
+        type: 3}
+      propertyPath: m_Name
+      value: TakePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470992520573760356, guid: 0e54eb048e444f94cb4371dc026549aa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6544983373153346416, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -419,7 +429,7 @@ PrefabInstance:
     - target: {fileID: 6544983373153346416, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6544983373153346416, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
@@ -485,16 +495,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6470992520573760356, guid: 0e54eb048e444f94cb4371dc026549aa,
-        type: 3}
-      propertyPath: m_Name
-      value: TakePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6470992520573760356, guid: 0e54eb048e444f94cb4371dc026549aa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6545109376252032024, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
@@ -5284,7 +5284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 207748512}
-  textInCanvas: {fileID: 619207050}
+  textInCanvas: {fileID: 398650806}
   input: {fileID: 1606958909}
   quantity: 0
 --- !u!114 &495693759
@@ -19338,8 +19338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc953bc8bf258254ca7ac9b4790dcd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 1036134770}
-  clip: {fileID: 8300000, guid: 65ff7233a95943f4db167737cf643ecd, type: 3}
 --- !u!4 &2025858683 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4679823250774498, guid: 86a88e24c400ba34687440932c6bf881,

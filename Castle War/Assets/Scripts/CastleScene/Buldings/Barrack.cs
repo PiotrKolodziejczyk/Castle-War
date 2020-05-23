@@ -17,6 +17,8 @@ public class Barrack : Building
 
     private void Update()
     {
+        if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade)
+            isBuild = true;
         if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
         {
             if (mainPanel.panel != null && isMainPanelOn)

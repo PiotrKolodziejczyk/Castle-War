@@ -16,7 +16,7 @@ public class AiBuildingInCastle : MonoBehaviour
                                    sawmill.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
                                    sawmill.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
                     sawmill.isBuild = true;
-                    time = 100000;
+                    time = 10000;
             }
         }
     }

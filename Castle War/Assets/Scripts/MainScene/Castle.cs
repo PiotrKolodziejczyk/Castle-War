@@ -77,8 +77,15 @@ public class Castle : MonoBehaviour, IArmy
     private void InitializeBuildingsAndRawMaterials(CastleData castle)
     {
         id = castle.id;
+        sawmill.timePropertiesBuilding.timeToUpgrade = castle.sawmillBuildingTime;
+        clayMine.timePropertiesBuilding.timeToUpgrade = castle.clayMineBuildingTime;
+        quarry.timePropertiesBuilding.timeToUpgrade = castle.quarryBuildingTime;
+        townHall.timePropertiesBuilding.timeToUpgrade = castle.townHallLevel;
+        smithy.timePropertiesBuilding.timeToUpgrade = castle.smithyBuildingTime;
+        barrack.timePropertiesBuilding.timeToUpgrade = castle.barrackBuildingTime;
+        towerWorkShop.timePropertiesBuilding.timeToUpgrade = castle.towerWorkShopBuildingTime;
+        wall.timePropertiesBuilding.timeToUpgrade = castle.wallBuildingTime;
         sawmill.level = castle.sawmillLevel;
-        //sawmill.timePropertiesBuilding.timeToUpgrade = castle.sawmillBuildingTime;
         clayMine.level = castle.clayMineLevel;
         quarry.level = castle.quarryLevel;
         townHall.level = castle.townHallLevel;
