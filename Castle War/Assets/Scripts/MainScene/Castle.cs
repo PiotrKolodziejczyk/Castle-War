@@ -20,9 +20,9 @@ public class Castle : MonoBehaviour, IArmy
     [SerializeField] internal Wood wood;
     [SerializeField] internal Stone stone;
     [SerializeField] private Army army;
-    [SerializeField] private readonly Texture2D texture;
-    [SerializeField] private readonly Texture2D texture1;
-    [SerializeField] private readonly Texture2D texture2;
+    [SerializeField] private Texture2D texture;
+    [SerializeField] private Texture2D texture1;
+    [SerializeField] private Texture2D texture2;
     private readonly OptimalizeScript optimalize;
 
     public Army Army { get => army; set => army = value; }
@@ -64,8 +64,8 @@ public class Castle : MonoBehaviour, IArmy
                 item.gameObject.layer = LayerMask.NameToLayer("I");
             GetComponent<OptimalizeScript>().enabled = false;
         }
-        if (transform.parent.name == "Castles" && !isPlayer)
-            GetComponent<OptimalizeScript>().enabled = true;
+        //if (transform.parent.name == "Castles" && !isPlayer)
+        //    //GetComponent<OptimalizeScript>().enabled = true;
     }
 
     private void Update()
