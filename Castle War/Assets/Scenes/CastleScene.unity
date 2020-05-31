@@ -1631,6 +1631,7 @@ MonoBehaviour:
   castle: {fileID: 1411268294}
   take: {fileID: 1446577033}
   timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
 --- !u!114 &103880829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1981,6 +1982,8 @@ MonoBehaviour:
   castle: {fileID: 1411268294}
   take: {fileID: 1446577033}
   timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  smithy: {fileID: 2058039046}
 --- !u!114 &162486063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7156,6 +7159,8 @@ MonoBehaviour:
   castle: {fileID: 1411268294}
   take: {fileID: 1446577033}
   timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  smithy: {fileID: 2058039046}
 --- !u!65 &686979442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7602,6 +7607,7 @@ MonoBehaviour:
   castle: {fileID: 1411268294}
   take: {fileID: 1446577033}
   timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
 --- !u!65 &720799652
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7710,6 +7716,7 @@ MonoBehaviour:
   castle: {fileID: 1411268294}
   take: {fileID: 1446577033}
   timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
 --- !u!114 &726066003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10730,6 +10737,7 @@ MonoBehaviour:
   castle: {fileID: 1411268294}
   take: {fileID: 1446577033}
   timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
 --- !u!114 &1047183673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14133,7 +14141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialName: 
   quantity: 10000
-  increaseQuantity: 1000
+  increaseQuantity: 100
   text: {fileID: 1971429585}
   timeToCollect: 3
   firstTimeToCollect: 3
@@ -14151,7 +14159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialName: 
   quantity: 100000
-  increaseQuantity: 1000
+  increaseQuantity: 100
   text: {fileID: 1619819575}
   timeToCollect: 3
   firstTimeToCollect: 3
@@ -14169,7 +14177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialName: 
   quantity: 10000
-  increaseQuantity: 1000
+  increaseQuantity: 100
   text: {fileID: 48299272}
   timeToCollect: 3
   firstTimeToCollect: 3
@@ -14475,6 +14483,7 @@ MonoBehaviour:
   castle: {fileID: 1411268294}
   take: {fileID: 1446577033}
   timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
 --- !u!114 &1462347468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19522,6 +19531,7 @@ MonoBehaviour:
   castle: {fileID: 1411268294}
   take: {fileID: 1446577033}
   timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
 --- !u!65 &2058039047
 BoxCollider:
   m_ObjectHideFlags: 0

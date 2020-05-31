@@ -157,6 +157,92 @@ Transform:
   m_Father: {fileID: 1879685174}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8598745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8598746}
+  - component: {fileID: 8598749}
+  - component: {fileID: 8598748}
+  - component: {fileID: 8598747}
+  m_Layer: 8
+  m_Name: TownHallTimePropertues (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8598746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00001525879, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 719675250}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8598747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6dd6e086b657b0459cfac458d0537fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  isBuild: 0
+  buildingText: {fileID: 0}
+  castle: {fileID: 0}
+  take: {fileID: 0}
+  timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  townHall: {fileID: 0}
+--- !u!114 &8598748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clayToUpgradeLvl: 100
+  stoneToUpgradeLvl: 100
+  woodToUpgradeLvl: 100
+  woodToUpgradeLvlText: {fileID: 0}
+  stoneToUpgradeLvlText: {fileID: 0}
+  clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &8598749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 3
+  startTimeToUpgrade: 3
+  text: {fileID: 0}
 --- !u!1 &11596811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,6 +2585,92 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227278427}
   m_Mesh: {fileID: 4300064, guid: 0064875460e5d6b4982c67554afd0f4d, type: 3}
+--- !u!1 &229521827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 229521828}
+  - component: {fileID: 229521831}
+  - component: {fileID: 229521830}
+  - component: {fileID: 229521829}
+  m_Layer: 8
+  m_Name: SmithyTimePropertues (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &229521828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229521827}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00001525879, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 719675250}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &229521829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229521827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0559691d1e5d28448809c7d3d76bf67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  isBuild: 0
+  buildingText: {fileID: 0}
+  castle: {fileID: 0}
+  take: {fileID: 0}
+  timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  townHall: {fileID: 0}
+--- !u!114 &229521830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229521827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clayToUpgradeLvl: 100
+  stoneToUpgradeLvl: 100
+  woodToUpgradeLvl: 100
+  woodToUpgradeLvlText: {fileID: 0}
+  stoneToUpgradeLvlText: {fileID: 0}
+  clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &229521831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229521827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 3
+  startTimeToUpgrade: 3
+  text: {fileID: 0}
 --- !u!4 &232416978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4181055826816166, guid: 7472aec3b262af5448b440cf4d40a101,
@@ -4454,52 +4626,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374778792}
   m_Mesh: {fileID: 4300002, guid: 8246cfaf56c33ee4186e0794b84de428, type: 3}
---- !u!1 &376149328
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 376149329}
-  - component: {fileID: 376149330}
-  m_Layer: 0
-  m_Name: SawmillTimeProperties
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &376149329
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376149328}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1409183127}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &376149330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376149328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToUpgrade: 3
-  startTimeToUpgrade: 3
-  text: {fileID: 0}
 --- !u!1001 &377024902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5531,52 +5657,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b446cb707004e444d8324ec6f1c8888b, type: 3}
---- !u!1 &423166622
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 423166623}
-  - component: {fileID: 423166624}
-  m_Layer: 0
-  m_Name: BarrackTimeProperties
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &423166623
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423166622}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1409183127}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &423166624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423166622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToUpgrade: 3
-  startTimeToUpgrade: 3
-  text: {fileID: 0}
 --- !u!1 &427977063
 GameObject:
   m_ObjectHideFlags: 0
@@ -6541,52 +6621,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 459256197}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &498003095
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 498003096}
-  - component: {fileID: 498003097}
-  m_Layer: 0
-  m_Name: SmithyTimeProperties
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &498003096
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498003095}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1409183127}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &498003097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498003095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToUpgrade: 3
-  startTimeToUpgrade: 3
-  text: {fileID: 0}
 --- !u!1 &499579761
 GameObject:
   m_ObjectHideFlags: 0
@@ -8169,6 +8203,92 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a30058d7c317b499aa53ba75e8639c, type: 3}
+--- !u!1 &578303417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 578303418}
+  - component: {fileID: 578303421}
+  - component: {fileID: 578303420}
+  - component: {fileID: 578303419}
+  m_Layer: 8
+  m_Name: ClayMineTimePropertues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &578303418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578303417}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00001525879, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 719675250}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578303419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578303417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d07ce4de8a480e4da30d8e5f2837c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  isBuild: 0
+  buildingText: {fileID: 0}
+  castle: {fileID: 0}
+  take: {fileID: 0}
+  timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  townHall: {fileID: 0}
+--- !u!114 &578303420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578303417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clayToUpgradeLvl: 100
+  stoneToUpgradeLvl: 100
+  woodToUpgradeLvl: 100
+  woodToUpgradeLvlText: {fileID: 0}
+  stoneToUpgradeLvlText: {fileID: 0}
+  clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &578303421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578303417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 3
+  startTimeToUpgrade: 3
+  text: {fileID: 0}
 --- !u!1 &579554770
 GameObject:
   m_ObjectHideFlags: 0
@@ -8552,6 +8672,93 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 588963897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &594649794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594649795}
+  - component: {fileID: 594649798}
+  - component: {fileID: 594649797}
+  - component: {fileID: 594649796}
+  m_Layer: 8
+  m_Name: BarrackTimePropertues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &594649795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594649794}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00001525879, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 719675250}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &594649796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594649794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa57b2a6f6de8345b3d1e2b5c9000df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  isBuild: 0
+  buildingText: {fileID: 0}
+  castle: {fileID: 0}
+  take: {fileID: 0}
+  timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  townHall: {fileID: 0}
+  smithy: {fileID: 0}
+--- !u!114 &594649797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594649794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clayToUpgradeLvl: 100
+  stoneToUpgradeLvl: 100
+  woodToUpgradeLvl: 100
+  woodToUpgradeLvlText: {fileID: 0}
+  stoneToUpgradeLvlText: {fileID: 0}
+  clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &594649798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594649794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 3
+  startTimeToUpgrade: 3
+  text: {fileID: 0}
 --- !u!4 &595796244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4651010150292600, guid: b381f3d481b31b24389fc199fd9e4dc4,
@@ -8726,6 +8933,92 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 377024902}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &606787060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 606787061}
+  - component: {fileID: 606787064}
+  - component: {fileID: 606787063}
+  - component: {fileID: 606787062}
+  m_Layer: 8
+  m_Name: QuarryTimePropertues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &606787061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606787060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 719675250}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &606787062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606787060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b486989da4cb64789b08e370adacb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  isBuild: 0
+  buildingText: {fileID: 0}
+  castle: {fileID: 0}
+  take: {fileID: 0}
+  timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  townHall: {fileID: 0}
+--- !u!114 &606787063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606787060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clayToUpgradeLvl: 100
+  stoneToUpgradeLvl: 100
+  woodToUpgradeLvl: 100
+  woodToUpgradeLvlText: {fileID: 0}
+  stoneToUpgradeLvlText: {fileID: 0}
+  clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &606787064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606787060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 3
+  startTimeToUpgrade: 3
+  text: {fileID: 0}
 --- !u!1001 &607517164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9969,7 +10262,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 166432274}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &714332313
+--- !u!1 &719675249
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9977,44 +10270,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 714332314}
-  - component: {fileID: 714332315}
-  m_Layer: 0
-  m_Name: TownHallTimeProperties
+  - component: {fileID: 719675250}
+  - component: {fileID: 719675251}
+  m_Layer: 8
+  m_Name: CastleResources101
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &714332314
+--- !u!4 &719675250
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714332313}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 719675249}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.4224377, y: -6.6181583, z: 10.728452}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1409183127}
-  m_RootOrder: 5
+  m_Children:
+  - {fileID: 1257046311}
+  - {fileID: 606787061}
+  - {fileID: 578303418}
+  - {fileID: 594649795}
+  - {fileID: 1550790775}
+  - {fileID: 229521828}
+  - {fileID: 867240885}
+  - {fileID: 8598746}
+  m_Father: {fileID: 1666863773}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &714332315
+--- !u!114 &719675251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714332313}
+  m_GameObject: {fileID: 719675249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9a111f60ea8414b9142d25602ccc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 3
-  startTimeToUpgrade: 3
-  text: {fileID: 0}
+  castle: {fileID: 0}
+  time: 6
+  timeToNextBuild: 6
+  sawmill: {fileID: 0}
+  quarry: {fileID: 0}
+  clayMine: {fileID: 0}
+  barrack: {fileID: 0}
+  townHall: {fileID: 0}
+  towerWorkShop: {fileID: 0}
+  smithy: {fileID: 0}
+  wall: {fileID: 0}
 --- !u!1001 &723885960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10146,52 +10455,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1684934511}
   m_RootOrder: 25
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &731767341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 731767343}
-  - component: {fileID: 731767342}
-  m_Layer: 0
-  m_Name: WallProperties
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &731767342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731767341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToUpgrade: 3
-  startTimeToUpgrade: 3
-  text: {fileID: 0}
---- !u!4 &731767343
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731767341}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1409183127}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &733122202
 PrefabInstance:
@@ -12176,6 +12439,92 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860070643}
   m_Mesh: {fileID: 4300006, guid: 8246cfaf56c33ee4186e0794b84de428, type: 3}
+--- !u!1 &867240884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 867240885}
+  - component: {fileID: 867240888}
+  - component: {fileID: 867240887}
+  - component: {fileID: 867240886}
+  m_Layer: 8
+  m_Name: WallTimePropertues (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &867240885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867240884}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00001525879, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 719675250}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &867240886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867240884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51c4fc3244499f4fba1d43c231d2447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  isBuild: 0
+  buildingText: {fileID: 0}
+  castle: {fileID: 0}
+  take: {fileID: 0}
+  timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  townHall: {fileID: 0}
+--- !u!114 &867240887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867240884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clayToUpgradeLvl: 100
+  stoneToUpgradeLvl: 100
+  woodToUpgradeLvl: 100
+  woodToUpgradeLvlText: {fileID: 0}
+  stoneToUpgradeLvlText: {fileID: 0}
+  clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &867240888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867240884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 3
+  startTimeToUpgrade: 3
+  text: {fileID: 0}
 --- !u!1001 &877750703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15888,52 +16237,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 301274019}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1137806692
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1137806693}
-  - component: {fileID: 1137806694}
-  m_Layer: 0
-  m_Name: TowerWorkShopTimeProperties
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1137806693
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137806692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1409183127}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1137806694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137806692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToUpgrade: 3
-  startTimeToUpgrade: 3
-  text: {fileID: 0}
 --- !u!1001 &1142366990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17521,6 +17824,92 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255975585}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1257046310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257046311}
+  - component: {fileID: 1257046314}
+  - component: {fileID: 1257046313}
+  - component: {fileID: 1257046312}
+  m_Layer: 8
+  m_Name: SawmillTimeProperties
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1257046311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257046310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 719675250}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1257046312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257046310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7aba698deab6db469924b90ced33b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  isBuild: 0
+  buildingText: {fileID: 0}
+  castle: {fileID: 0}
+  take: {fileID: 0}
+  timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  townHall: {fileID: 0}
+--- !u!114 &1257046313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257046310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clayToUpgradeLvl: 100
+  stoneToUpgradeLvl: 100
+  woodToUpgradeLvl: 100
+  woodToUpgradeLvlText: {fileID: 0}
+  stoneToUpgradeLvlText: {fileID: 0}
+  clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &1257046314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257046310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 3
+  startTimeToUpgrade: 3
+  text: {fileID: 0}
 --- !u!1001 &1258384393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18752,52 +19141,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f7e4b604d112b1468b4b92975077771, type: 3}
---- !u!1 &1352349758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1352349759}
-  - component: {fileID: 1352349760}
-  m_Layer: 0
-  m_Name: ClayMineTimeProperties
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1352349759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352349758}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1409183127}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1352349760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352349758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToUpgrade: 3
-  startTimeToUpgrade: 3
-  text: {fileID: 0}
 --- !u!1 &1354391779
 GameObject:
   m_ObjectHideFlags: 0
@@ -20005,196 +20348,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1238105664}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1409183125
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1409183127}
-  - component: {fileID: 1409183128}
-  - component: {fileID: 1409183126}
-  - component: {fileID: 1409183134}
-  - component: {fileID: 1409183129}
-  - component: {fileID: 1409183130}
-  - component: {fileID: 1409183132}
-  - component: {fileID: 1409183133}
-  - component: {fileID: 1409183131}
-  m_Layer: 0
-  m_Name: CastleResources
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1409183126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409183125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f51c4fc3244499f4fba1d43c231d2447, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  isBuild: 0
-  buildingText: {fileID: 0}
-  castle: {fileID: 0}
-  take: {fileID: 0}
-  timePropertiesBuilding: {fileID: 731767342}
---- !u!4 &1409183127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409183125}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 376149329}
-  - {fileID: 1352349759}
-  - {fileID: 2118616875}
-  - {fileID: 423166623}
-  - {fileID: 498003096}
-  - {fileID: 714332314}
-  - {fileID: 731767343}
-  - {fileID: 1137806693}
-  m_Father: {fileID: 1666863773}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1409183128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409183125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6dd6e086b657b0459cfac458d0537fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  isBuild: 0
-  buildingText: {fileID: 0}
-  castle: {fileID: 0}
-  take: {fileID: 0}
-  timePropertiesBuilding: {fileID: 714332315}
---- !u!114 &1409183129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409183125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dadb7a24025179488f1665a509c35b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  isBuild: 0
-  buildingText: {fileID: 0}
-  castle: {fileID: 0}
-  take: {fileID: 0}
-  timePropertiesBuilding: {fileID: 1137806694}
---- !u!114 &1409183130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409183125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0559691d1e5d28448809c7d3d76bf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  isBuild: 0
-  buildingText: {fileID: 0}
-  castle: {fileID: 0}
-  take: {fileID: 0}
-  timePropertiesBuilding: {fileID: 498003097}
---- !u!114 &1409183131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409183125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7aba698deab6db469924b90ced33b48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  isBuild: 0
-  buildingText: {fileID: 0}
-  castle: {fileID: 1666863772}
-  take: {fileID: 0}
-  timePropertiesBuilding: {fileID: 376149330}
---- !u!114 &1409183132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409183125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b486989da4cb64789b08e370adacb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  isBuild: 0
-  buildingText: {fileID: 0}
-  castle: {fileID: 0}
-  take: {fileID: 0}
-  timePropertiesBuilding: {fileID: 2118616876}
---- !u!114 &1409183133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409183125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d07ce4de8a480e4da30d8e5f2837c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  isBuild: 0
-  buildingText: {fileID: 0}
-  castle: {fileID: 0}
-  take: {fileID: 0}
-  timePropertiesBuilding: {fileID: 1352349760}
---- !u!114 &1409183134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409183125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa57b2a6f6de8345b3d1e2b5c9000df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  isBuild: 0
-  buildingText: {fileID: 0}
-  castle: {fileID: 0}
-  take: {fileID: 0}
-  timePropertiesBuilding: {fileID: 423166624}
 --- !u!1001 &1417285016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23077,6 +23230,93 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb92be0dbfb14cf4e87d6f6270d8be70, type: 3}
+--- !u!1 &1550790774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1550790775}
+  - component: {fileID: 1550790778}
+  - component: {fileID: 1550790777}
+  - component: {fileID: 1550790776}
+  m_Layer: 8
+  m_Name: TowerWorkShopTimePropertues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1550790775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550790774}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00001525879, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 719675250}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1550790776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550790774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dadb7a24025179488f1665a509c35b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  isBuild: 0
+  buildingText: {fileID: 0}
+  castle: {fileID: 0}
+  take: {fileID: 0}
+  timePropertiesBuilding: {fileID: 0}
+  resourcesToUpgradeBuildingLvl: {fileID: 0}
+  townHall: {fileID: 0}
+  smithy: {fileID: 0}
+--- !u!114 &1550790777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550790774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aaf2f64361f6bf439d3a9ec452cd940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clayToUpgradeLvl: 100
+  stoneToUpgradeLvl: 100
+  woodToUpgradeLvl: 100
+  woodToUpgradeLvlText: {fileID: 0}
+  stoneToUpgradeLvlText: {fileID: 0}
+  clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &1550790778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550790774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 3
+  startTimeToUpgrade: 3
+  text: {fileID: 0}
 --- !u!4 &1554469096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4543384268401376, guid: e3a30058d7c317b499aa53ba75e8639c,
@@ -24721,14 +24961,14 @@ MonoBehaviour:
   time: 10
   isPlayer: 0
   id: 0
-  barrack: {fileID: 1409183134}
-  clayMine: {fileID: 1409183133}
-  quarry: {fileID: 1409183132}
-  sawmill: {fileID: 1409183131}
-  smithy: {fileID: 1409183130}
-  towerWorkShop: {fileID: 1409183129}
-  townHall: {fileID: 1409183128}
-  wall: {fileID: 1409183126}
+  barrack: {fileID: 0}
+  clayMine: {fileID: 0}
+  quarry: {fileID: 0}
+  sawmill: {fileID: 0}
+  smithy: {fileID: 0}
+  towerWorkShop: {fileID: 0}
+  townHall: {fileID: 0}
+  wall: {fileID: 0}
   clay: {fileID: 1666863776}
   wood: {fileID: 1666863775}
   stone: {fileID: 1666863774}
@@ -24744,7 +24984,7 @@ Transform:
   m_LocalPosition: {x: 27.690475, y: -9.212561, z: 18.18112}
   m_LocalScale: {x: 0.65468806, y: 0.33603448, z: 0.6961021}
   m_Children:
-  - {fileID: 1409183127}
+  - {fileID: 719675250}
   - {fileID: 759340771}
   - {fileID: 1381427366}
   - {fileID: 661068321}
@@ -30966,52 +31206,6 @@ Transform:
   m_Father: {fileID: 744346299}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2118616874
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2118616875}
-  - component: {fileID: 2118616876}
-  m_Layer: 0
-  m_Name: QuarryTimeProperties
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2118616875
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118616874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1409183127}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2118616876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118616874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToUpgrade: 3
-  startTimeToUpgrade: 3
-  text: {fileID: 0}
 --- !u!1001 &2118960603
 PrefabInstance:
   m_ObjectHideFlags: 0

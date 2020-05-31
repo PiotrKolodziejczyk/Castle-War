@@ -6,7 +6,7 @@ public abstract class RawMaterial : MonoBehaviour
 {
     public string materialName;
     public int quantity;
-    public int increaseQuantity;
+    [SerializeField] internal int increaseQuantity;
     public TextMeshProUGUI text;
     public float timeToCollect;
     public float firstTimeToCollect;

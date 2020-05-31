@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 public class Barrack : Building
 {
@@ -7,9 +8,13 @@ public class Barrack : Building
     internal bool isBuildPikeman;
     internal bool isBuildWarrior;
     internal bool isBuildKnight;
+    private float timeToCheck = 5;
+    [SerializeField] internal Smithy smithy;
     private void Start()
     {
-        if (!Regex.Match(transform.name, @"CastleResources").Success)
+        smithy = transform.parent.GetComponentInChildren<Smithy>();
+
+        if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {
             soldierPanel = GetComponent<BuildSoldierPanel>();
         }
@@ -17,16 +22,17 @@ public class Barrack : Building
 
     private void Update()
     {
-        if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade)
-            isBuild = true;
-        if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
+        //if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade)
+        //    isBuild = true;
+        ElapsedTimeAndBuild(this);
+        SetResourcesToUpgrade(100, 120, 150, ref timeToCheck);
+        if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {
             if (mainPanel.panel != null && isMainPanelOn)
             {
                 mainPanel.buildSoldierButton.onClick.AddListener(() => EnableSoldierPanel());
                 isMainPanelOn = false;
             }
-            ElapsedTimeAndBuild(this);
             if (isBuildPikeman)
             {
                 BuildSoldierOrTower(take.castle.Army.pikeman.textInputQuantity.text,
@@ -75,30 +81,33 @@ public class Barrack : Building
         soldierPanel.Instantiate();
         soldierPanel.buildPikeman.onClick.AddListener(() =>
         {
-            if (RemoveMaterialIfisTrue(soldierPanel.pikemanResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text),
+            if (smithy.level >= 2)
+                if (RemoveMaterialIfisTrue(soldierPanel.pikemanResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text),
                                        soldierPanel.pikemanResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text),
                                        soldierPanel.pikemanResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text)))
-            {
-                DoWhenHaveMaterials(ref soldierPanel.pikemanStaging, soldierPanel.pikemanLabel, soldierPanel.pikemanStagingText, ref isBuildPikeman);
-            }
+                {
+                    DoWhenHaveMaterials(ref soldierPanel.pikemanStaging, soldierPanel.pikemanLabel, soldierPanel.pikemanStagingText, ref isBuildPikeman);
+                }
         });
         soldierPanel.buildWarrior.onClick.AddListener(() =>
         {
-            if (RemoveMaterialIfisTrue(soldierPanel.warriorResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
-                                       soldierPanel.warriorResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
-                                       soldierPanel.warriorResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text)))
-            {
-                DoWhenHaveMaterials(ref soldierPanel.warriorStaging, soldierPanel.warriorLabel, soldierPanel.warriorStagingText, ref isBuildWarrior);
-            }
+            if (smithy.level >= 8)
+                if (RemoveMaterialIfisTrue(soldierPanel.warriorResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
+                                           soldierPanel.warriorResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
+                                           soldierPanel.warriorResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text)))
+                {
+                    DoWhenHaveMaterials(ref soldierPanel.warriorStaging, soldierPanel.warriorLabel, soldierPanel.warriorStagingText, ref isBuildWarrior);
+                }
         });
         soldierPanel.buildKnight.onClick.AddListener(() =>
         {
-            if (RemoveMaterialIfisTrue(soldierPanel.knightResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text),
+            if (smithy.level >= 15)
+                if (RemoveMaterialIfisTrue(soldierPanel.knightResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text),
                                        soldierPanel.knightResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text),
                                        soldierPanel.knightResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text)))
-            {
-                DoWhenHaveMaterials(ref soldierPanel.knightStaging, soldierPanel.knightLabel, soldierPanel.knightStagingText, ref isBuildKnight);
-            }
+                {
+                    DoWhenHaveMaterials(ref soldierPanel.knightStaging, soldierPanel.knightLabel, soldierPanel.knightStagingText, ref isBuildKnight);
+                }
         });
         soldierPanel.exitSoldierBuildButton.onClick.AddListener(() => ExitSoldierPanel());
     }

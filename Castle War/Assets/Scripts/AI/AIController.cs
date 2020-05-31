@@ -15,7 +15,7 @@ public class AIController : MonoBehaviour
     private int whichCaslte = 0;
     private List<Transform> items;
     private bool isAttack;
-    private float timeToAttack = 5;
+    private float timeToAttack = 20;
     private int castleToAttackIndex = -1;
     [SerializeField] private Moving moving;
     private void Awake()
@@ -94,7 +94,7 @@ public class AIController : MonoBehaviour
         {
             moving.AcceptMove(playerCastles[castle].transform.position, transform);
             isAttack = false;
-            timeToAttack = 120;
+            timeToAttack = 30;
         }
     }
     private void OnTriggerEnter(Collider other)

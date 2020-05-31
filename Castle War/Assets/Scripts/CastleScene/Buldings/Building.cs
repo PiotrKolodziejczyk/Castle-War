@@ -12,24 +12,25 @@ public class Building : MonoBehaviour
     [SerializeField] internal Castle castle;
     [SerializeField] internal TakeScript take;
     [SerializeField] internal TimeProperties timePropertiesBuilding;
-    internal ResourcesToUpgradeLvl resourcesToUpgradeBuildingLvl;
+    [SerializeField] internal ResourcesToUpgradeLvl resourcesToUpgradeBuildingLvl;
     internal Building actualBuilding;
     internal MainPanel mainPanel;
     internal bool isMainPanelOn = true;
     internal bool isSoldierPanelOn = false;
     internal bool isTowerPanelOn = false;
+    [SerializeField] private TownHall townHall;
     #endregion
     #region Main Method
     private void Awake()
     {
-        if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
+        if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {
-            timePropertiesBuilding = GetComponent<TimeProperties>();
             mainPanel = GetComponent<MainPanel>();
         }
         resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
+        timePropertiesBuilding = GetComponent<TimeProperties>();
+        townHall = transform.parent.GetComponentInChildren<TownHall>();
     }
-
     public void BuildBuilding(Transform transform)
     {
         if (RemoveMaterialIfisTrue(resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
@@ -39,7 +40,7 @@ public class Building : MonoBehaviour
     }
     public bool RemoveMaterialIfisTrue(int clayToUpgrade, int stoneToUpgrade, int woodToUpgrade)
     {
-        if (castle.clay.quantity >= clayToUpgrade && castle.stone.quantity >= stoneToUpgrade && castle.wood.quantity >= woodToUpgrade)
+        if (level < 20 && castle.clay.quantity >= clayToUpgrade && castle.stone.quantity >= stoneToUpgrade && castle.wood.quantity >= woodToUpgrade)
         {
             castle.clay.quantity -= clayToUpgrade;
             castle.stone.quantity -= stoneToUpgrade;
@@ -51,12 +52,12 @@ public class Building : MonoBehaviour
 
     public void ElapsedTimeAndBuild(Building building)
     {
-        if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
+        if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
             building.buildingText.text = SetText(building.transform.name, building.level);
         if (building.isBuild)
         {
             building.timePropertiesBuilding.timeToUpgrade -= Time.deltaTime;
-            if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
+            if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
                 if (mainPanel.panel != null)
                     building.mainPanel.timeText.text = building.timePropertiesBuilding.timeToUpgrade.ToString();
             if (building.timePropertiesBuilding.timeToUpgrade < 0)
@@ -64,7 +65,7 @@ public class Building : MonoBehaviour
                 ++building.level;
                 building.timePropertiesBuilding.timeToUpgrade = building.timePropertiesBuilding.startTimeToUpgrade;
 
-                if (!Regex.Match(transform.name, @"CastleResources\d*").Success)
+                if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
                     if (building.mainPanel.panel != null)
                     {
                         building.mainPanel.levelInPanel.text = SetText(building.transform.name, building.level);
@@ -179,6 +180,16 @@ public class Building : MonoBehaviour
         mainPanel.buildButton.onClick.AddListener(() => BuildBuilding(transform));
         mainPanel.exitButton.onClick.AddListener(() => ExitPanel());
         isMainPanelOn = true;
+    }
+    internal void SetResourcesToUpgrade(int multipleClay, int multipleWood, int multipleStone, ref float time)
+    {
+        if (Global.Timer(ref time))
+        {
+            resourcesToUpgradeBuildingLvl.clayToUpgradeLvl = (multipleClay * level) - (townHall.level * level);
+            resourcesToUpgradeBuildingLvl.woodToUpgradeLvl = (multipleWood * level) - (townHall.level * level);
+            resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl = (multipleStone * level) - (townHall.level * level);
+            time = 5;
+        }
     }
 
     #endregion

@@ -36,9 +36,17 @@ public class Castle : MonoBehaviour, IArmy
             Debug.Log("Save!");
         }
     }
-    private void Awake()
+    private void Start()
     {
         army = GetComponent<Army>();
+        sawmill = GetComponentInChildren<Sawmill>();
+        quarry = GetComponentInChildren<Quarry>();
+        clayMine = GetComponentInChildren<ClayMine>();
+        barrack = GetComponentInChildren<Barrack>();
+        townHall = GetComponentInChildren<TownHall>();
+        towerWorkShop = GetComponentInChildren<TowerWorkShop>();
+        smithy = GetComponentInChildren<Smithy>();
+        wall = GetComponentInChildren<Wall>();
         if (id == 0)
             id = Global.currentCastle;
         if (File.Exists(Application.persistentDataPath + $"/playerCastle{id}.fun"))

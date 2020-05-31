@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class AiBuildingTowers : MonoBehaviour
 {
-    private float timer = 4;
+    private float timerToBuildWoodTower = 4;
+    private float timerToBuildStoneTower = 4;
+    private float timerToBuildGreatTower = 4;
     private Castle castle;
     public TowerManager towerManager;
     private readonly List<Vector3> placesList = new List<Vector3> {
@@ -11,7 +13,7 @@ public class AiBuildingTowers : MonoBehaviour
         new Vector3(14, 22, -330),
         new Vector3(45, 22, -248),
         new Vector3(18, 22, -190),
-        new Vector3(53, 22, -190),
+        new Vector3(70.7f, 22, -190),
         new Vector3(-81, 22, -121),
         new Vector3(-55, 22, -55),
         new Vector3(13, 22, -55),
@@ -27,12 +29,20 @@ public class AiBuildingTowers : MonoBehaviour
     {
         if (!castle.isPlayer)
         {
-            if (Global.Timer(ref timer))
+            if (Global.Timer(ref timerToBuildWoodTower))
             {
                 BuildWoodTower();
+                timerToBuildWoodTower = 4;
+            }
+            if (Global.Timer(ref timerToBuildStoneTower))
+            {
                 BuildStoneTower();
+                timerToBuildStoneTower = 4;
+            }
+            if (Global.Timer(ref timerToBuildGreatTower))
+            {
                 BuildGreatTower();
-                timer = 4;
+                timerToBuildGreatTower = 4;
             }
         }
     }
@@ -64,7 +74,7 @@ public class AiBuildingTowers : MonoBehaviour
         {
             int vec = Random.Range(0, placesList.Count);
             castle.Army.greatTower.textInputQuantity.quantity--;
-            towerManager.tower = Instantiate(towerManager.greatTower, placesList[vec], new Quaternion(0, 0, 0, 0));
+            towerManager.tower = Instantiate(towerManager.greatTower, new Vector3(placesList[vec].x, 0, placesList[vec].z), new Quaternion(0, 0, 0, 0));
             towerManager.tower.GetComponentInChildren<SphereCollider>().enabled = true;
             placesList.RemoveAt(vec);
         }
