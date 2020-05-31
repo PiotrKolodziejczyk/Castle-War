@@ -4,7 +4,7 @@ using UnityEngine;
 public class HowMuchSoldierIncomeCount : MonoBehaviour
 {
     [SerializeField]
-    private readonly TextMeshProUGUI countText;
+    private TextMeshProUGUI countText;
     private int count = 0;
     private Castle castle;
 

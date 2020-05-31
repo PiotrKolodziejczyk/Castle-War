@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
+    AIArmy AIArmy;
     public Animator animator;
     public AudioSource audioSource;
     public List<Transform> aiCastles;
@@ -20,6 +21,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private Moving moving;
     private void Awake()
     {
+        AIArmy = GetComponent<AIArmy>();
         isAttack = false;
         items = transform.GetComponentsInChildren<Transform>().ToList();
         AiPositionData data = SaveSystem.LoadAiPosition();
@@ -99,6 +101,11 @@ public class AIController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            AIArmy.CheckAmontOfArmyInCastle(other.GetComponent<Castle>());
+        }
+
         if (other.gameObject.layer == LayerMask.NameToLayer("Grass"))
         {
             foreach (Transform item in items)

@@ -11,8 +11,9 @@ public class AIEngine : MonoBehaviour
     [SerializeField] GameObject warriorPrefab;
     [SerializeField] GameObject knightPrefab;
     Castle castle;
+    bool isInitialize = false;
 
-    private void Start()
+    internal void InitializeAIEngine()
     {
         castle = GetComponentInParent<Castle>();
         if (castle.isPlayer)
@@ -25,13 +26,14 @@ public class AIEngine : MonoBehaviour
         }
         else
         {
-            army =  GetComponentInParent<Army>();
+            army = GetComponentInParent<Army>();
         }
+        isInitialize = true;
     }
 
     void Update()
     {
-        if (castle.isPlayer)
+        if (castle.isPlayer && isInitialize)
         {
             if (Global.Timer(ref time))
             {

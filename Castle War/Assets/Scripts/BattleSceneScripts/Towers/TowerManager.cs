@@ -9,15 +9,15 @@ public class TowerManager : MonoBehaviour
     public Texture2D texture1;
     public Collider[] hitColliders;
     public GameObject tower;
-    MeshRenderer[] meshes;
-    SphereCollider sphere;
-    BoxCollider box;
-    Regex regex;
+    private MeshRenderer[] meshes;
+    private SphereCollider sphere;
+    private BoxCollider box;
+    private Regex regex;
     [SerializeField] internal bool building;
-    [SerializeField]internal bool mightBuilding = true;
-    bool isDraggingTower = false;
-    [SerializeField] Castle castle;
-    float y;
+    [SerializeField] internal bool mightBuilding = true;
+    private bool isDraggingTower = false;
+    [SerializeField] private Castle castle;
+    private float y;
 
     private void Awake()
     {
@@ -41,7 +41,7 @@ public class TowerManager : MonoBehaviour
         }
         if (GetComponent<TowerManager>().building && GetComponent<TowerManager>().mightBuilding && regex.IsMatch(GetComponent<TowerManager>().name) && gameObject.layer == 11)
         {
-            var meshList = GetComponentsInChildren<MeshRenderer>();
+            MeshRenderer[] meshList = GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
             {
                 meshList[i].material.color = Color.white;
@@ -49,7 +49,7 @@ public class TowerManager : MonoBehaviour
         }
         else if (regex.IsMatch(GetComponent<TowerManager>().name) && gameObject.layer == 11)
         {
-            var meshList = GetComponentsInChildren<MeshRenderer>();
+            MeshRenderer[] meshList = GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
             {
                 meshList[i].material.color = Color.red;

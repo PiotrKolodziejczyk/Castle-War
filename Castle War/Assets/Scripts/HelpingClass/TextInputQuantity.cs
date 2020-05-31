@@ -18,7 +18,7 @@ namespace Assets.Scripts.BattleSceneScripts
 
         private void Update()
         {
-            if (!Regex.Match(transform.parent.name, @"CastleArmy").Success)
+            if (!Regex.Match(transform.parent.name, @"CastleArmy").Success && text != null)
             {
                 text.text = quantity.ToString();
                 if (transform.parent.name != "Player")

@@ -11,7 +11,7 @@ public class AttackOrDefense : MonoBehaviour
     [SerializeField] GameObject woodTower;
     [SerializeField] GameObject stoneTower;
     [SerializeField] GameObject greatTower;
-    void Start()
+    public void SetCanvas()
     {
         if (!castle.isPlayer)
         {

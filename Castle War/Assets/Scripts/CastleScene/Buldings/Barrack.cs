@@ -5,7 +5,7 @@ using UnityEngine;
 public class Barrack : Building
 {
     internal BuildSoldierPanel soldierPanel;
-    internal bool isBuildPikeman;
+   [SerializeField] internal bool isBuildPikeman;
     internal bool isBuildWarrior;
     internal bool isBuildKnight;
     private float timeToCheck = 5;

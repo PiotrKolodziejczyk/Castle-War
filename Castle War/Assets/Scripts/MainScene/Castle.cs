@@ -20,13 +20,14 @@ public class Castle : MonoBehaviour, IArmy
     [SerializeField] internal Wood wood;
     [SerializeField] internal Stone stone;
     [SerializeField] private Army army;
-    [SerializeField] private Texture2D texture;
-    [SerializeField] private Texture2D texture1;
-    [SerializeField] private Texture2D texture2;
+    [SerializeField] private readonly Texture2D texture;
+    [SerializeField] private readonly Texture2D texture1;
+    [SerializeField] private readonly Texture2D texture2;
     private readonly OptimalizeScript optimalize;
+    [SerializeField] private AttackOrDefense AttackOrDefense;
+    [SerializeField] private AIEngine aIEngine;
 
     public Army Army { get => army; set => army = value; }
-
     protected void Saving(Castle castle)
     {
         if (Global.Timer(ref time))
@@ -38,6 +39,10 @@ public class Castle : MonoBehaviour, IArmy
     }
     private void Start()
     {
+        if (transform.gameObject.layer == LayerMask.NameToLayer("BattleSceneCastle"))
+            AttackOrDefense = FindObjectOfType<AttackOrDefense>();
+        if (transform.gameObject.layer == LayerMask.NameToLayer("BattleSceneCastle"))
+            aIEngine = FindObjectOfType<AIEngine>();
         army = GetComponent<Army>();
         sawmill = GetComponentInChildren<Sawmill>();
         quarry = GetComponentInChildren<Quarry>();
@@ -47,10 +52,16 @@ public class Castle : MonoBehaviour, IArmy
         towerWorkShop = GetComponentInChildren<TowerWorkShop>();
         smithy = GetComponentInChildren<Smithy>();
         wall = GetComponentInChildren<Wall>();
-        if (id == 0)
+        if (id == 300)
             id = Global.currentCastle;
         if (File.Exists(Application.persistentDataPath + $"/playerCastle{id}.fun"))
+        {
             LoadPlayerCastle();
+            if (AttackOrDefense != null)
+                AttackOrDefense.SetCanvas();
+            if (aIEngine != null)
+                aIEngine.InitializeAIEngine();
+        }
         else
             Debug.LogError("No Loaded Levels");
     }

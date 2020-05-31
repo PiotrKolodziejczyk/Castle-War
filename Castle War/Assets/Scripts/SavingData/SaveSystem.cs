@@ -73,6 +73,15 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
+    public static void SaveEnemyArmyData(AIArmy ai)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + $"/enemyArmy.fun";
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        AiArmyData data = new AiArmyData(ai);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
 
     public static PlayerPositionData LoadPlayerPosition()
     {

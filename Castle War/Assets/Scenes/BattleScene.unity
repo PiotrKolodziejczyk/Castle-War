@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 8598749}
   - component: {fileID: 8598748}
   - component: {fileID: 8598747}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: TownHallTimePropertues (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &49115087 stripped
 Transform:
@@ -2597,7 +2597,7 @@ GameObject:
   - component: {fileID: 229521831}
   - component: {fileID: 229521830}
   - component: {fileID: 229521829}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: SmithyTimePropertues (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4496,7 +4496,7 @@ GameObject:
   - component: {fileID: 372709207}
   - component: {fileID: 372709209}
   - component: {fileID: 372709208}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: WoodTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5535,7 +5535,7 @@ GameObject:
   - component: {fileID: 419902454}
   - component: {fileID: 419902456}
   - component: {fileID: 419902455}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5572,6 +5572,7 @@ MonoBehaviour:
   armor: 0
   speed: 0
   textInputQuantity: {fileID: 419902456}
+  resources: {fileID: 0}
 --- !u!114 &419902456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5808,7 +5809,7 @@ GameObject:
   - component: {fileID: 439802779}
   - component: {fileID: 439802781}
   - component: {fileID: 439802780}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Pikeman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5861,6 +5862,7 @@ MonoBehaviour:
   armor: 0
   speed: 0
   textInputQuantity: {fileID: 439802780}
+  resources: {fileID: 0}
 --- !u!1001 &449286182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6438,6 +6440,7 @@ MonoBehaviour:
   armor: 0
   speed: 0
   textInputQuantity: {fileID: 0}
+  resources: {fileID: 0}
 --- !u!1001 &477719083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8215,7 +8218,7 @@ GameObject:
   - component: {fileID: 578303421}
   - component: {fileID: 578303420}
   - component: {fileID: 578303419}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: ClayMineTimePropertues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8684,7 +8687,7 @@ GameObject:
   - component: {fileID: 594649798}
   - component: {fileID: 594649797}
   - component: {fileID: 594649796}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: BarrackTimePropertues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8725,6 +8728,7 @@ MonoBehaviour:
   timePropertiesBuilding: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
   townHall: {fileID: 0}
+  isBuildPikeman: 0
   smithy: {fileID: 0}
 --- !u!114 &594649797
 MonoBehaviour:
@@ -8945,7 +8949,7 @@ GameObject:
   - component: {fileID: 606787064}
   - component: {fileID: 606787063}
   - component: {fileID: 606787062}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: QuarryTimePropertues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9307,7 +9311,7 @@ GameObject:
   - component: {fileID: 618034510}
   - component: {fileID: 618034512}
   - component: {fileID: 618034511}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9344,6 +9348,7 @@ MonoBehaviour:
   armor: 0
   speed: 0
   textInputQuantity: {fileID: 618034512}
+  resources: {fileID: 0}
 --- !u!114 &618034512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9518,7 +9523,7 @@ GameObject:
   - component: {fileID: 661068321}
   - component: {fileID: 661068320}
   - component: {fileID: 661068322}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10272,7 +10277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 719675250}
   - component: {fileID: 719675251}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: CastleResources101
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10315,6 +10320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castle: {fileID: 0}
   time: 6
+  timeToBuildPikeman: 5
   timeToNextBuild: 6
   sawmill: {fileID: 0}
   quarry: {fileID: 0}
@@ -11038,7 +11044,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 759340771}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ArmyCastle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11367,7 +11373,7 @@ Transform:
   - {fileID: 1683755150}
   - {fileID: 1015397207}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &778604590
 MonoBehaviour:
@@ -11815,7 +11821,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &818522178
 MonoBehaviour:
@@ -12252,7 +12258,7 @@ GameObject:
   - component: {fileID: 853193432}
   - component: {fileID: 853193434}
   - component: {fileID: 853193433}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: GreatTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12451,7 +12457,7 @@ GameObject:
   - component: {fileID: 867240888}
   - component: {fileID: 867240887}
   - component: {fileID: 867240886}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: WallTimePropertues (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16616,7 +16622,7 @@ Transform:
   m_Children:
   - {fileID: 1666863773}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1183202081
 PrefabInstance:
@@ -17836,7 +17842,7 @@ GameObject:
   - component: {fileID: 1257046314}
   - component: {fileID: 1257046313}
   - component: {fileID: 1257046312}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: SawmillTimeProperties
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18299,10 +18305,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1684934511}
     m_Modifications:
-    - target: {fileID: 1094211247975680, guid: 8ef1f9ae0f5f41841bfcb16f4c7c705f, type: 3}
-      propertyPath: m_Name
-      value: House3
-      objectReference: {fileID: 0}
     - target: {fileID: 4817424634847104, guid: 8ef1f9ae0f5f41841bfcb16f4c7c705f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 114.8
@@ -18346,6 +18348,10 @@ PrefabInstance:
     - target: {fileID: 4817424634847104, guid: 8ef1f9ae0f5f41841bfcb16f4c7c705f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094211247975680, guid: 8ef1f9ae0f5f41841bfcb16f4c7c705f, type: 3}
+      propertyPath: m_Name
+      value: House3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef1f9ae0f5f41841bfcb16f4c7c705f, type: 3}
@@ -19702,7 +19708,7 @@ GameObject:
   - component: {fileID: 1381427365}
   - component: {fileID: 1381427364}
   - component: {fileID: 1381427363}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: CheckHowMuchSoldierIncome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19721,6 +19727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26efd31ccc0a8324695044331b47713a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countText: {fileID: 1994801412}
 --- !u!54 &1381427364
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23242,7 +23249,7 @@ GameObject:
   - component: {fileID: 1550790778}
   - component: {fileID: 1550790777}
   - component: {fileID: 1550790776}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: TowerWorkShopTimePropertues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23945,6 +23952,7 @@ MonoBehaviour:
   armor: 0
   speed: 0
   textInputQuantity: {fileID: 0}
+  resources: {fileID: 0}
 --- !u!1 &1615344076
 GameObject:
   m_ObjectHideFlags: 0
@@ -24766,6 +24774,7 @@ MonoBehaviour:
   armor: 0
   speed: 0
   textInputQuantity: {fileID: 0}
+  resources: {fileID: 0}
 --- !u!4 &1662601704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4425563577357856, guid: b4c3c543415a6a343afbf5b5197e29df,
@@ -24939,7 +24948,7 @@ GameObject:
   - component: {fileID: 1666863776}
   - component: {fileID: 1666863775}
   - component: {fileID: 1666863774}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Castle(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24960,7 +24969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 10
   isPlayer: 0
-  id: 0
+  id: 300
   barrack: {fileID: 0}
   clayMine: {fileID: 0}
   quarry: {fileID: 0}
@@ -24973,6 +24982,7 @@ MonoBehaviour:
   wood: {fileID: 1666863775}
   stone: {fileID: 1666863774}
   army: {fileID: 0}
+  AttackOrDefense: {fileID: 0}
 --- !u!4 &1666863773
 Transform:
   m_ObjectHideFlags: 0
@@ -30862,7 +30872,7 @@ GameObject:
   - component: {fileID: 2069636783}
   - component: {fileID: 2069636785}
   - component: {fileID: 2069636784}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: StoneTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

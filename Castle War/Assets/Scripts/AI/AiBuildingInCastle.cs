@@ -4,6 +4,7 @@ public class AiBuildingInCastle : MonoBehaviour
 {
     public Castle castle;
     public float time = 20;
+    public float timeToBuildPikeman = 5;
     public float timeToNextBuild = 20;
     public Sawmill sawmill;
     public Quarry quarry;
@@ -100,6 +101,14 @@ public class AiBuildingInCastle : MonoBehaviour
                         break;
                 }
             }
+
+            if (Global.Timer(ref timeToBuildPikeman))
+            {
+                if (barrack.RemoveMaterialIfisTrue(castle.Army.pikeman.resources.clayToUpgradeLvl, castle.Army.pikeman.resources.stoneToUpgradeLvl, castle.Army.pikeman.resources.woodToUpgradeLvl))
+                    castle.Army.pikeman.textInputQuantity.quantity++;
+                timeToBuildPikeman = 10;
+            }
+
         }
     }
 }

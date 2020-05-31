@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AI\AIArmy.cs" />
     <Compile Include="Assets\Scripts\AI\AIAttackScript.cs" />
     <Compile Include="Assets\Scripts\AI\AiBuildingInCastle.cs" />
     <Compile Include="Assets\Scripts\AI\AiBuildingTowers.cs" />
@@ -137,6 +138,7 @@
     <None Include="Assets\External Resources\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\External Resources\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Racing Flag Animated\shaders\vertex_animation_shader.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\External Resources\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
