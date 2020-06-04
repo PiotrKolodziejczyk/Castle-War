@@ -106,11 +106,11 @@ public class AIController : MonoBehaviour
             AIArmy.CheckAmontOfArmyInCastle(other.GetComponent<Castle>());
         }
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Grass"))
-        {
-            foreach (Transform item in items)
-                item.gameObject.layer = LayerMask.NameToLayer("VisibleAI");
-        }
+        //if (other.gameObject.layer == LayerMask.NameToLayer("Grass"))
+        //{
+        //    foreach (Transform item in items)
+        //        item.gameObject.layer = LayerMask.NameToLayer("VisibleAI");
+        //}
         if (other.gameObject.layer == LayerMask.NameToLayer("I") && castleToAttackIndex != -1)
         {
             castleToAttackIndex = -1;

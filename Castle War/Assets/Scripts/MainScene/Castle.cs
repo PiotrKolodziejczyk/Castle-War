@@ -20,12 +20,15 @@ public class Castle : MonoBehaviour, IArmy
     [SerializeField] internal Wood wood;
     [SerializeField] internal Stone stone;
     [SerializeField] private Army army;
-    [SerializeField] private readonly Texture2D texture;
-    [SerializeField] private readonly Texture2D texture1;
-    [SerializeField] private readonly Texture2D texture2;
-    private readonly OptimalizeScript optimalize;
+    [SerializeField] private Texture2D castleTexture;
+    [SerializeField] private Texture2D normalTexture;
+    [SerializeField] private Texture2D enemyTexture;
+    private OptimalizeScript optimalize;
     [SerializeField] private AttackOrDefense AttackOrDefense;
     [SerializeField] private AIEngine aIEngine;
+    [SerializeField] private GameObject baseCastle;
+    [SerializeField] private Material baseMaterialRed;
+    [SerializeField] private Material baseMaterialGreen;
 
     public Army Army { get => army; set => army = value; }
     protected void Saving(Castle castle)
@@ -37,6 +40,7 @@ public class Castle : MonoBehaviour, IArmy
             Debug.Log("Save!");
         }
     }
+   
     private void Start()
     {
         if (transform.gameObject.layer == LayerMask.NameToLayer("BattleSceneCastle"))
@@ -67,7 +71,7 @@ public class Castle : MonoBehaviour, IArmy
     }
     private void OnEnable()
     {
-        Global.SetAppropriateCursor(texture1);
+        Global.SetAppropriateCursor(normalTexture);
         if (transform.parent.name == "Castles" && isPlayer)
         {
             Transform[] layers = GetComponentsInChildren<Transform>();
@@ -91,6 +95,10 @@ public class Castle : MonoBehaviour, IArmy
         InitializeArmy(castle);
         if (!Regex.Match(transform.name, @"Castle\(Clone\)(\s*\(\d+\))?").Success)
             InitializeBuildingTexts();
+        if (isPlayer && transform.parent.name == "Castles")
+            baseCastle.GetComponent<MeshRenderer>().material = baseMaterialGreen;
+        else if (transform.parent.name == "Castles")
+            baseCastle.GetComponent<MeshRenderer>().material = baseMaterialRed;
     }
 
     private void InitializeBuildingsAndRawMaterials(CastleData castle)
@@ -147,15 +155,15 @@ public class Castle : MonoBehaviour, IArmy
     private void OnMouseEnter()
     {
         if (transform.parent.name == "Castles" && isPlayer)
-            Global.SetAppropriateCursor(texture);
+            Global.SetAppropriateCursor(castleTexture);
         else
-            Global.SetAppropriateCursor(texture2);
+            Global.SetAppropriateCursor(enemyTexture);
     }
 
     private void OnMouseExit()
     {
         if (transform.parent.name == "Castles")
-            Global.SetAppropriateCursor(texture1);
+            Global.SetAppropriateCursor(normalTexture);
     }
 
 
