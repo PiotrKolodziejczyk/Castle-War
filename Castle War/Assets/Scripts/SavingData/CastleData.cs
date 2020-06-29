@@ -1,6 +1,7 @@
 ﻿[System.Serializable]
 public class CastleData
 {
+    public string nick;
     public int id;
     public float sawmillBuildingTime;
     public float clayMineBuildingTime;
@@ -33,6 +34,7 @@ public class CastleData
     public CastleData(Castle castle)
     {
         id = castle.id;
+        nick = castle.nick;
         sawmillBuildingTime = castle.sawmill.timePropertiesBuilding.timeToUpgrade;
         clayMineBuildingTime = castle.clayMine.timePropertiesBuilding.timeToUpgrade;
         quarryBuildingTime = castle.quarry.timePropertiesBuilding.timeToUpgrade;

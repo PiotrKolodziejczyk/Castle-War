@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Fleshy1
   m_Shader: {fileID: 4800000, guid: 6a4f4ebb8dc45f5429d99201ac97fba1, type: 3}
   m_ShaderKeywords: WORLDSPACE WORLEY
@@ -39,7 +40,7 @@ Material:
     - _WORLDSPACE: 1
     - _WORLEY: 1
     m_Colors:
-    - _Color1: {r: 1, g: 0.3455882, b: 0.49452335, a: 1}
+    - _Color1: {r: 1, g: 0, b: 0.22754478, a: 1}
     - _Color2: {r: 0.46323532, g: 0.3162779, b: 0, a: 1}
     - _Mush: {r: 1, g: 1, b: 0, a: 0}
     - _Offset: {r: 0, g: 0, b: 0, a: 1}

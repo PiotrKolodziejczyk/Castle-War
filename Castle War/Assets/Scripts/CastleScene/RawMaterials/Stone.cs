@@ -1,24 +1,34 @@
-﻿public class Stone : RawMaterial
+﻿using UnityEngine.SceneManagement;
+
+public class Stone : RawMaterial
 {
     private Quarry quarryMine;
-    private float timeToCheckLevel = 5;
-    private void Awake()
+    //private void Awake()
+    //{
+    //    quarryMine = GetComponentInChildren<Quarry>();
+    //}
+    //private void Start()
+    //{
+    //    materialName = "Stone";
+    //}
+    public override void Initialize()
     {
-        quarryMine = GetComponentInChildren<Quarry>();
-    }
-    private void Start()
-    {
+        //quarryMine = transform.parent.transform.parent.GetComponentInChildren<Quarry>();
+        quarryMine = transform.GetComponentInChildren<Quarry>();
         materialName = "Stone";
     }
 
     private void Update()
     {
-        if (Global.Timer(ref timeToCheckLevel))
+        if (transform.parent.name != "Player" && transform.parent.name != "Materials")
         {
             increaseQuantity = 100 * quarryMine.level;
-            timeToCheckLevel = 5;
+            GetMaterial(materialName);
         }
-        GetMaterial(materialName);
+        if (SceneManager.GetActiveScene().name == "CastleScene")
+            textInCastle.text = quantity.ToString();
+        if (text != null && SceneManager.GetActiveScene().name == "SampleScene")
+            text.text = quantity.ToString();
     }
 }
 

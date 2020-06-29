@@ -1,6 +1,8 @@
-﻿public class Smithy : Building
+﻿using UnityEngine.SceneManagement;
+
+public class Smithy : Building
 {
-    float timeToCheck = 5;
+    private float timeToCheck = 5;
 
     private void Update()
     {
@@ -8,7 +10,11 @@
         //    isBuild = true;
         ElapsedTimeAndBuild(this);
         SetResourcesToUpgrade(100, 120, 150, ref timeToCheck);
-
+        if (mainPanel != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
+        {
+                mainPanel.youNeedMore.gameObject.SetActive(false);
+                isYouNeedMain = false;
+        }
     }
 }
 

@@ -1,22 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DisableMove : MonoBehaviour
 {
     public Texture2D cursor;
     public Texture2D curentCursor;
-    private void Start()
+    private void Awake()
     {
         if (transform.gameObject.layer == LayerMask.NameToLayer("Water"))
             transform.name = "NameDisable";
     }
+
     private void OnMouseEnter()
     {
-        Global.SetAppropriateCursor(cursor);
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
     }
     private void OnMouseExit()
     {
-        Global.SetAppropriateCursor(curentCursor);
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+            Cursor.SetCursor(curentCursor, Vector2.zero, CursorMode.ForceSoftware);
     }
 }

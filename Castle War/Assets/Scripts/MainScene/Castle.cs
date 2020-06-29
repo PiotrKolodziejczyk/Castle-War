@@ -1,9 +1,15 @@
 ﻿using Assets.Scripts.CastleScene;
+using Assets.Scripts.HelpingClass;
+using Assets.Scripts.Interfaces;
+using Assets.Scripts.MainScene;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Castle : MonoBehaviour, IArmy
+public class Castle : GameModule, IArmy, IMaterials
 {
     [SerializeField] private float time = 10;
     [SerializeField] internal bool isPlayer;
@@ -20,77 +26,186 @@ public class Castle : MonoBehaviour, IArmy
     [SerializeField] internal Wood wood;
     [SerializeField] internal Stone stone;
     [SerializeField] private Army army;
-    [SerializeField] private readonly Texture2D texture;
-    [SerializeField] private readonly Texture2D texture1;
-    [SerializeField] private readonly Texture2D texture2;
-    private readonly OptimalizeScript optimalize;
+    [SerializeField] private Materials materials;
+    [SerializeField] private Texture2D castleTexture;
+    [SerializeField] private Texture2D normalTexture;
+    [SerializeField] private Texture2D enemyTexture;
     [SerializeField] private AttackOrDefense AttackOrDefense;
     [SerializeField] private AIEngine aIEngine;
-
+    [SerializeField] private AiBuildingInCastle aiBuildingInCastle;
+    [SerializeField] private GameObject baseCastle;
+    [SerializeField] private Material baseMaterialRed;
+    [SerializeField] private Material baseMaterialGreen;
+    [SerializeField] private TextMeshPro points;
+    internal string nick;
     public Army Army { get => army; set => army = value; }
+    public Materials Materials { get => materials; set => materials = value; }
     protected void Saving(Castle castle)
     {
+
         if (Global.Timer(ref time))
         {
-            SaveSystem.SaveCastle(castle);
+            SaveSystem.SaveCastle(castle, Global.globalInitializingClass.currentSaveCastleSave);
             time = 10;
             Debug.Log("Save!");
         }
     }
-    private void Start()
+    public override void Initialize()
     {
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+            points = GetComponentsInChildren<TextMeshPro>().Where(x => x.name == "Text (TMP)").First();
         if (transform.gameObject.layer == LayerMask.NameToLayer("BattleSceneCastle"))
             AttackOrDefense = FindObjectOfType<AttackOrDefense>();
         if (transform.gameObject.layer == LayerMask.NameToLayer("BattleSceneCastle"))
             aIEngine = FindObjectOfType<AIEngine>();
         army = GetComponent<Army>();
-        sawmill = GetComponentInChildren<Sawmill>();
-        quarry = GetComponentInChildren<Quarry>();
-        clayMine = GetComponentInChildren<ClayMine>();
-        barrack = GetComponentInChildren<Barrack>();
-        townHall = GetComponentInChildren<TownHall>();
-        towerWorkShop = GetComponentInChildren<TowerWorkShop>();
-        smithy = GetComponentInChildren<Smithy>();
-        wall = GetComponentInChildren<Wall>();
-        if (id == 300)
-            id = Global.currentCastle;
-        if (File.Exists(Application.persistentDataPath + $"/playerCastle{id}.fun"))
+        if (army == null)
         {
-            LoadPlayerCastle();
-            if (AttackOrDefense != null)
-                AttackOrDefense.SetCanvas();
-            if (aIEngine != null)
-                aIEngine.InitializeAIEngine();
+            army = GetComponentInChildren<Army>();
         }
-        else
-            Debug.LogError("No Loaded Levels");
-    }
-    private void OnEnable()
-    {
-        Global.SetAppropriateCursor(texture1);
+        smithy = GetComponentInChildren<Smithy>();
+        smithy.Initialize();
+        townHall = GetComponentInChildren<TownHall>();
+        townHall.Initialize();
+        sawmill = GetComponentInChildren<Sawmill>();
+        sawmill.Initialize();
+        quarry = GetComponentInChildren<Quarry>();
+        quarry.Initialize();
+        clayMine = GetComponentInChildren<ClayMine>();
+        clayMine.Initialize();
+        barrack = GetComponentInChildren<Barrack>();
+        barrack.Initialize();
+        towerWorkShop = GetComponentInChildren<TowerWorkShop>();
+        towerWorkShop.Initialize();
+        wall = GetComponentInChildren<Wall>();
+        wall.Initialize();
+        clay = GetComponent<Clay>();
+        clay.Initialize();
+        wood = GetComponent<Wood>();
+        wood.Initialize();
+        stone = GetComponent<Stone>();
+        stone.Initialize();
+        army.Initialize();
+        if (SceneManager.GetActiveScene().name == "BattleScene")
+        {
+            PlayerArmyData data = SaveSystem.LoadPlayerArmy(Global.globalInitializingClass.currentSavePlayerArmy);
+            if (data != null)
+            {
+                army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
+                army.warrior.textInputQuantity.quantity = data.warriorQuantity;
+                army.knight.textInputQuantity.quantity = data.knightQuantity;
+                army.woodTower.textInputQuantity.quantity = data.woodTowerQuantity;
+                army.stoneTower.textInputQuantity.quantity = data.stoneTowerQuantity;
+                army.greatTower.textInputQuantity.quantity = data.greatTowerQuantity;
+            }
+            else
+            {
+                army.pikeman.textInputQuantity.quantity = 0;
+                army.warrior.textInputQuantity.quantity = 0;
+                army.knight.textInputQuantity.quantity = 0;
+                army.woodTower.textInputQuantity.quantity = 0;
+                army.stoneTower.textInputQuantity.quantity = 0;
+                army.greatTower.textInputQuantity.quantity = 0;
+            }
+        }
+        if (id == 200)
+            id = Global.currentCastle;
+
+
+        LoadPlayerCastle();
+        if (AttackOrDefense != null)
+            AttackOrDefense.SetCanvas();
+        if (aIEngine != null)
+            aIEngine.InitializeAIEngine();
+
+
+        if (SceneManager.GetActiveScene().name != "CastleScene")
+        {
+            aiBuildingInCastle = GetComponentInChildren<AiBuildingInCastle>();
+            aiBuildingInCastle.Initialize();
+        }
+        Transform[] layers = GetComponentsInChildren<Transform>();
         if (transform.parent.name == "Castles" && isPlayer)
         {
-            Transform[] layers = GetComponentsInChildren<Transform>();
             foreach (Transform item in layers)
                 item.gameObject.layer = LayerMask.NameToLayer("I");
-            GetComponent<OptimalizeScript>().enabled = false;
         }
-        //if (transform.parent.name == "Castles" && !isPlayer)
-        //    //GetComponent<OptimalizeScript>().enabled = true;
+        else if (transform.parent.name == "Castles" && !isPlayer)
+        {
+            foreach (Transform item in layers)
+                item.gameObject.layer = LayerMask.NameToLayer("Enemy");
+        }
+
     }
 
     private void Update()
     {
+        //if (!Global.isCursorOn)
+        //{
+        //    Cursor.SetCursor(normalTexture, Vector2.zero, CursorMode.ForceSoftware);
+        //    Global.isCursorOn = true;
+        //}
+        if (points != null)
+            points.text = CaluclatePoints();
         Saving(this);
     }
-
+    public string CaluclatePoints()
+    {
+        int points = (barrack.level + towerWorkShop.level + townHall.level + sawmill.level + quarry.level + clayMine.level + smithy.level + wall.level) * 76;
+        return points.ToString();
+    }
     private void LoadPlayerCastle()
     {
-        CastleData castle = SaveSystem.LoadCastle(id);
-        InitializeBuildingsAndRawMaterials(castle);
-        InitializeArmy(castle);
-        if (!Regex.Match(transform.name, @"Castle\(Clone\)(\s*\(\d+\))?").Success)
-            InitializeBuildingTexts();
+        if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSaveCastleSave}{id}.fun"))
+        {
+            if (Global.playerCastles > 0)
+                Global.FirstInitializePlayerCastle(this);
+            else
+                Global.FirstInitializeEnemyCastle(this);
+            if (Global.addSoldiers)
+            {
+                if (Global.isArtur)
+                {
+                    army.pikeman.textInputQuantity.quantity = 30;
+                    army.warrior.textInputQuantity.quantity = 10;
+                    army.knight.textInputQuantity.quantity = 2;
+                    army.woodTower.textInputQuantity.quantity = 5;
+                    army.stoneTower.textInputQuantity.quantity = 5;
+                    army.greatTower.textInputQuantity.quantity = 1;
+                }
+                else
+                {
+                    army.pikeman.textInputQuantity.quantity = 100;
+                    army.warrior.textInputQuantity.quantity = 30;
+                    army.knight.textInputQuantity.quantity = 5;
+                    army.woodTower.textInputQuantity.quantity = 20;
+                    army.stoneTower.textInputQuantity.quantity = 5;
+                    army.greatTower.textInputQuantity.quantity = 1;
+                }
+                Global.addSoldiers = false;
+            }
+
+            if (isPlayer && transform.parent.name == "Castles")
+                baseCastle.GetComponent<MeshRenderer>().material = baseMaterialGreen;
+            else if (transform.parent.name == "Castles")
+                baseCastle.GetComponent<MeshRenderer>().material = baseMaterialRed;
+            if (!Regex.Match(transform.name, @"Castle\(Clone\)(\s*\(\d+\))?").Success)
+                InitializeBuildingTexts();
+            SaveSystem.SaveCastle(this, Global.globalInitializingClass.currentSaveCastleSave);
+        }
+        else
+        {
+            CastleData castle = SaveSystem.LoadCastle(id, Global.globalInitializingClass.currentSaveCastleSave);
+            InitializeBuildingsAndRawMaterials(castle);
+            InitializeArmy(castle);
+            nick = castle.nick;
+            if (!Regex.Match(transform.name, @"Castle\(Clone\)(\s*\(\d+\))?").Success)
+                InitializeBuildingTexts();
+            if (isPlayer && transform.parent.name == "Castles")
+                baseCastle.GetComponent<MeshRenderer>().material = baseMaterialGreen;
+            else if (transform.parent.name == "Castles")
+                baseCastle.GetComponent<MeshRenderer>().material = baseMaterialRed;
+        }
     }
 
     private void InitializeBuildingsAndRawMaterials(CastleData castle)
@@ -117,6 +232,7 @@ public class Castle : MonoBehaviour, IArmy
         wood.quantity = castle.wood;
         isPlayer = castle.isPlayer;
         transform.tag = castle.tag;
+        nick = castle.nick;
         transform.gameObject.layer = castle.layer;
     }
 
@@ -146,16 +262,17 @@ public class Castle : MonoBehaviour, IArmy
     }
     private void OnMouseEnter()
     {
-        if (transform.parent.name == "Castles" && isPlayer)
-            Global.SetAppropriateCursor(texture);
-        else
-            Global.SetAppropriateCursor(texture2);
+        if (transform.parent.name == "Castles" && isPlayer && SceneManager.GetActiveScene().name == "SampleScene")
+            Cursor.SetCursor(castleTexture, Vector2.zero, CursorMode.ForceSoftware);
+        else if (!isPlayer && SceneManager.GetActiveScene().name == "SampleScene" && transform.parent.name == "Castles")
+            Cursor.SetCursor(enemyTexture, Vector2.zero, CursorMode.ForceSoftware);
+
     }
 
     private void OnMouseExit()
     {
-        if (transform.parent.name == "Castles")
-            Global.SetAppropriateCursor(texture1);
+        if (transform.parent.name == "Castles" && SceneManager.GetActiveScene().name == "SampleScene")
+            Cursor.SetCursor(normalTexture, Vector2.zero, CursorMode.ForceSoftware);
     }
 
 

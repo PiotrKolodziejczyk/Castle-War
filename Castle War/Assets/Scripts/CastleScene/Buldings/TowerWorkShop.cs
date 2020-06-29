@@ -1,6 +1,9 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
+using Assets.Scripts.HelpingClass;
 using System.Text.RegularExpressions;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TowerWorkShop : Building
 {
@@ -10,16 +13,45 @@ public class TowerWorkShop : Building
     internal bool isBuildGreatTower;
     [SerializeField] internal Smithy smithy;
     private float timeToCheck = 5;
-    private void Start()
+    private float youNeedTime = 0;
+    private bool isYouNeed = false;
+    //private void Start()
+    //{
+    //    smithy = transform.parent.GetComponentInChildren<Smithy>();
+    //    towersPanel = GetComponent<BuildTowerPanel>();
+    //}
+    public override void Initialize()
     {
         smithy = transform.parent.GetComponentInChildren<Smithy>();
         towersPanel = GetComponent<BuildTowerPanel>();
+        if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
+        {
+            mainPanel = GetComponent<MainPanel>();
+        }
+        resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
+        timePropertiesBuilding = GetComponent<TimeProperties>();
+        townHall = transform.parent.GetComponentInChildren<TownHall>();
+        if (SceneManager.GetActiveScene().name == "CastleScene")
+            Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.ForceSoftware);
+
     }
 
     private void Update()
     {
+        if (mainPanel != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
+        {
+            mainPanel.youNeedMore.gameObject.SetActive(false);
+            isYouNeedMain = false;
+        }
         //if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade)
         //    isBuild = true;
+        if (isYouNeed && Global.Timer(ref youNeedTime))
+        {
+            towersPanel.youNeedMoreWoodTower.gameObject.SetActive(false);
+            towersPanel.youNeedMoreStoneTower.gameObject.SetActive(false);
+            towersPanel.youNeedMoreGreatTower.gameObject.SetActive(false);
+            isYouNeed = false;
+        }
         ElapsedTimeAndBuild(this);
         SetResourcesToUpgrade(100, 120, 150, ref timeToCheck);
 
@@ -41,18 +73,45 @@ public class TowerWorkShop : Building
     public void EnableTowerPanel()
     {
         ExitPanel();
+        if (TrainingManager.secondLevelOfTrainingCastleScene)
+        {
+            TrainingManager.tenTrainingLevelOnCastleScene = false;
+            TrainingManager.buildTowers = true;
+        }
         isTowerPanelOn = true;
         Global.isTowerPanelOnInCastleScene = true;
         towersPanel.Instantiate();
         towersPanel.buildWoodTower.onClick.AddListener(() =>
         {
-            if (smithy.level >= 3)
+            if (smithy.level >= 3 || TrainingManager.secondLevelOfTrainingCastleScene)
                 if (RemoveMaterialIfisTrue(towersPanel.woodTowerResourcesToUpgrade.clayToUpgradeLvl * int.Parse(towersPanel.woodTowerLabel.text),
                                        towersPanel.woodTowerResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(towersPanel.woodTowerLabel.text),
                                        towersPanel.woodTowerResourcesToUpgrade.woodToUpgradeLvl * int.Parse(towersPanel.woodTowerLabel.text)))
                 {
                     DoWhenHaveMaterials(ref towersPanel.woodTowerStaging, towersPanel.woodTowerLabel, towersPanel.woodTowerStagingText, ref isBuildWoodTower);
+                    if (TrainingManager.secondLevelOfTrainingCastleScene)
+                    {
+                        TrainingManager.buildTowers = false;
+                        TrainingManager.elevenTrainingLevelOnCastleScene = true;
+                    }
                 }
+                else
+                {
+                    var youNeedMore = towersPanel.youNeedMoreWoodTower.GetComponentInChildren<TextMeshProUGUI>();
+                    youNeedMore.transform.parent.gameObject.SetActive(true);
+                    youNeedMore.text = "You Need More Materials";
+                    isYouNeed = true;
+                    youNeedTime = 1f;
+                }
+            else
+            {
+                var youNeedMore = towersPanel.youNeedMoreWoodTower.GetComponentInChildren<TextMeshProUGUI>();
+                youNeedMore.transform.parent.gameObject.SetActive(true);
+                youNeedMore.text = "You Need Smithy Level 3";
+                isYouNeed = true;
+                youNeedTime = 1f;
+            }
+          
         });
         towersPanel.buildStoneTower.onClick.AddListener(() =>
         {
@@ -63,6 +122,22 @@ public class TowerWorkShop : Building
                 {
                     DoWhenHaveMaterials(ref towersPanel.stoneTowerStaging, towersPanel.stoneTowerLabel, towersPanel.stoneTowerStagingText, ref isBuildStoneTower);
                 }
+                else
+                {
+                    var youNeedMore = towersPanel.youNeedMoreStoneTower.GetComponentInChildren<TextMeshProUGUI>();
+                    youNeedMore.transform.parent.gameObject.SetActive(true);
+                    youNeedMore.text = "You Need More Materials";
+                    isYouNeed = true;
+                    youNeedTime = 1f;
+                }
+            else
+            {
+                var youNeedMore = towersPanel.youNeedMoreStoneTower.GetComponentInChildren<TextMeshProUGUI>();
+                youNeedMore.transform.parent.gameObject.SetActive(true);
+                youNeedMore.text = "You Need Smithy Level 10";
+                isYouNeed = true;
+                youNeedTime = 1f;
+            }
         });
         towersPanel.buildGreatTower.onClick.AddListener(() =>
         {
@@ -73,12 +148,33 @@ public class TowerWorkShop : Building
                 {
                     DoWhenHaveMaterials(ref towersPanel.greatTowerStaging, towersPanel.greatTowerLabel, towersPanel.greatTowerStagingText, ref isBuildGreatTower);
                 }
+                else
+                {
+                    var youNeedMore = towersPanel.youNeedMoreGreatTower.GetComponentInChildren<TextMeshProUGUI>();
+                    youNeedMore.transform.parent.gameObject.SetActive(true);
+                    youNeedMore.text = "You Need More Materials";
+                    isYouNeed = true;
+                    youNeedTime = 1f;
+                }
+            else
+            {
+                var youNeedMore = towersPanel.youNeedMoreGreatTower.GetComponentInChildren<TextMeshProUGUI>();
+                youNeedMore.transform.parent.gameObject.SetActive(true);
+                youNeedMore.text = "You Need Smithy Level 20";
+                isYouNeed = true;
+                youNeedTime = 1f;
+            }
         });
         towersPanel.exitTowerBuildButton.onClick.AddListener(() => ExitTowerPanel());
     }
     public void ExitTowerPanel()
     {
-        OnEnablePanel();
+        // OnEnablePanel();
+        Global.mainPanelActive = false;
+        mainPanel.unlockPanel = false;
+        mainPanel.exitButton.onClick.RemoveAllListeners();
+        Global.isSoldierPanelOnInCastleScene = false;
+        Global.isTowerPanelOnInCastleScene = false;
         isTowerPanelOn = false;
         Destroy(towersPanel.towerPanel);
     }

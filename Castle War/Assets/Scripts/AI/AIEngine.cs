@@ -1,28 +1,37 @@
-﻿using Assets.Scripts.BattleSceneScripts;
-using Assets.Scripts.CastleScene;
+﻿using Assets.Scripts.CastleScene;
 using UnityEngine;
 
-public class AIEngine : MonoBehaviour
+public class AIEngine : GameModule
 {
-    float time = 5;
+    private float time = 5;
     public Army army;
     public Army armyInAttack;
-    [SerializeField] GameObject pikemanPrefab;
-    [SerializeField] GameObject warriorPrefab;
-    [SerializeField] GameObject knightPrefab;
-    Castle castle;
-    bool isInitialize = false;
-
+    [SerializeField] private GameObject pikemanPrefab;
+    [SerializeField] private GameObject warriorPrefab;
+    [SerializeField] private GameObject knightPrefab;
+    public Castle castle;
+    private bool isInitialize = false;
+    public GameObject DefendPanel;
+    private bool isPlayer = false;
     internal void InitializeAIEngine()
     {
-        castle = GetComponentInParent<Castle>();
         if (castle.isPlayer)
         {
+            isPlayer = true;
+            AiArmyData data = SaveSystem.LoadEnemyArmy(Global.globalInitializingClass.currentSaveEnemyArmy);
+            if (data != null)
+            {
+                armyInAttack.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
+                armyInAttack.warrior.textInputQuantity.quantity = data.warriorQuantity;
+                armyInAttack.knight.textInputQuantity.quantity = data.knightQuantity;
+            }
+            else
+            {
+                armyInAttack.pikeman.textInputQuantity.quantity = 30;
+                armyInAttack.warrior.textInputQuantity.quantity = 30;
+                armyInAttack.knight.textInputQuantity.quantity = 30;
+            }
             army = armyInAttack;
-            AiArmyData data = SaveSystem.LoadEnemyArmy();
-            army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
-            army.warrior.textInputQuantity.quantity = data.warriorQuantity;
-            army.knight.textInputQuantity.quantity = data.knightQuantity;
         }
         else
         {
@@ -31,17 +40,25 @@ public class AIEngine : MonoBehaviour
         isInitialize = true;
     }
 
-    void Update()
+    private void Update()
     {
-        if (castle.isPlayer && isInitialize)
+        if (castle.isPlayer && isInitialize && Global.aiActive)
         {
             if (Global.Timer(ref time))
             {
                 InstantiatePikeman();
-                //InstantiateAxeman();
-                //InstantiateKnight();
+                InstantiateAxeman();
+                InstantiateKnight();
+            }
+            if (isInitialize && isPlayer && army.pikeman.textInputQuantity.quantity == 0 && army.warrior.textInputQuantity.quantity == 0 && army.knight.textInputQuantity.quantity == 0)
+            {
+                DefendPanel.SetActive(true);
             }
         }
+    }
+    public void Defend()
+    {
+        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.SampleScene, castle.id);
     }
     public void InstantiatePikeman()
     {
@@ -72,18 +89,18 @@ public class AIEngine : MonoBehaviour
     {
         --army.pikeman.textInputQuantity.quantity;
         time = 5;
-        SaveSystem.SaveEnemyArmyData(this);
+        SaveSystem.SaveEnemyArmyData(this, Global.globalInitializingClass.currentSaveEnemyArmy);
     }
     public void MinusWarrior()
     {
         --army.warrior.textInputQuantity.quantity;
         time = 5;
-        SaveSystem.SaveEnemyArmyData(this);
+        SaveSystem.SaveEnemyArmyData(this, Global.globalInitializingClass.currentSaveEnemyArmy);
     }
     public void MinusKnight()
     {
         --army.knight.textInputQuantity.quantity;
         time = 5;
-        SaveSystem.SaveEnemyArmyData(this);
+        SaveSystem.SaveEnemyArmyData(this, Global.globalInitializingClass.currentSaveEnemyArmy);
     }
 }

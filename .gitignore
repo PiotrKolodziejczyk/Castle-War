@@ -5,7 +5,9 @@
 [Oo]bj/
 [Bb]uild
 /[Bb]uilds/
-/[Ll]ibrary/
+[Ll]ibrary/
+[Ll]ibrary/Artifacts
+[Ll]ibrary/PlayerDataCache
 sysinfo.txt
 *.stackdump
 /Assets/AssetStoreTools*

@@ -1,4 +1,6 @@
-﻿public class Quarry : Building
+﻿using UnityEngine.SceneManagement;
+
+public class Quarry : Building
 {
     float timeToCheck = 5;
 
@@ -8,5 +10,10 @@
         //    isBuild = true;
         ElapsedTimeAndBuild(this);
         SetResourcesToUpgrade(100, 120, 150, ref timeToCheck);
+        if (mainPanel != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
+        {
+            mainPanel.youNeedMore.gameObject.SetActive(false);
+            isYouNeedMain = false;
+        }
     }
 }

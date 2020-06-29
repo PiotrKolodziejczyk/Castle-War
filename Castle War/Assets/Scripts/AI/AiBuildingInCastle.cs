@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AiBuildingInCastle : MonoBehaviour
+public class AiBuildingInCastle : GameModule
 {
     public Castle castle;
     public float time = 20;
@@ -15,7 +15,26 @@ public class AiBuildingInCastle : MonoBehaviour
     public Smithy smithy;
     public Wall wall;
 
-    private void Awake()
+    //private void Awake()
+    //{
+    //    castle = GetComponentInParent<Castle>();
+    //    sawmill = GetComponentInChildren<Sawmill>();
+    //    quarry = GetComponentInChildren<Quarry>();
+    //    clayMine = GetComponentInChildren<ClayMine>();
+    //    barrack = GetComponentInChildren<Barrack>();
+    //    townHall = GetComponentInChildren<TownHall>();
+    //    towerWorkShop = GetComponentInChildren<TowerWorkShop>();
+    //    smithy = GetComponentInChildren<Smithy>();
+    //    wall = GetComponentInChildren<Wall>();
+    //    quarry.castle = castle;
+    //    clayMine.castle = castle;
+    //    barrack.castle = castle;
+    //    townHall.castle = castle;
+    //    towerWorkShop.castle = castle;
+    //    smithy.castle = castle;
+    //    wall.castle = castle;
+    //}
+    public override void Initialize()
     {
         castle = GetComponentInParent<Castle>();
         sawmill = GetComponentInChildren<Sawmill>();

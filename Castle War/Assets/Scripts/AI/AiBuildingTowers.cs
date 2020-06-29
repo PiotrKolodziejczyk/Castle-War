@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class AiBuildingTowers : MonoBehaviour
+public class AiBuildingTowers : GameModule
 {
     private float timerToBuildWoodTower = 4;
     private float timerToBuildStoneTower = 4;
     private float timerToBuildGreatTower = 4;
-    private Castle castle;
+    public Castle castle;
     public TowerManager towerManager;
     private readonly List<Vector3> placesList = new List<Vector3> {
         new Vector3(-90, 22, -397),
@@ -20,14 +20,10 @@ public class AiBuildingTowers : MonoBehaviour
         new Vector3(3.7f, 22, -1.4f),
         new Vector3(10, 22, -306) };
 
-    private void Awake()
-    {
-        castle = GetComponentInParent<Castle>();
-    }
 
     private void Update()
     {
-        if (!castle.isPlayer)
+        if (!castle.isPlayer && Global.aiActive)
         {
             if (Global.Timer(ref timerToBuildWoodTower))
             {

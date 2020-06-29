@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.HelpingClass;
+using TMPro;
+using UnityEngine;
 
-public class EnemyRun : MonoBehaviour
+public class EnemyRun : GameModule
 {
     private float forward;
     private float forwardMinus;
@@ -15,17 +17,20 @@ public class EnemyRun : MonoBehaviour
     public TowerShooting towerShooting;
     public AudioSource deadSounds;
     [SerializeField]
-    PlayerArmyInBattle army;
-    Soldier soldier;
+    private PlayerArmyInBattle army;
+    private Soldier soldier;
+    public TextMeshPro damageText;
+    private float time = 2;
     private void Awake()
     {
-        army = GetComponent<PlayerArmyInBattle>();
+        army = GetComponentInChildren<PlayerArmyInBattle>();
         deadSounds = GameObject.FindGameObjectWithTag("DeadSound").GetComponent<AudioSource>();
     }
     private void Start()
     {
         ChooseUnit();
     }
+
 
     private void ChooseUnit()
     {
@@ -36,6 +41,7 @@ public class EnemyRun : MonoBehaviour
                     knight = GetComponent<Knight>();
                     soldier = knight;
                     forward = knight.speed;
+
                     return;
                 }
             case "Pikeman":
@@ -59,6 +65,12 @@ public class EnemyRun : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x + (cur + curMinus * Time.deltaTime), 0,
                                          transform.position.z + (forward + forwardMinus * Time.deltaTime));
+        if (damageText != null && damageText.text != "")
+            if (Global.Timer(ref time))
+            {
+                damageText.text = "";
+                time = 2;
+            }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,12 +80,13 @@ public class EnemyRun : MonoBehaviour
         if (other.gameObject.layer == 14)
         {
             soldier.helath -= 50;
+            damageText.text = "-50";
             if (soldier.helath <= 0)
             {
                 deadSounds.Play();
                 Destroy(gameObject);
             }
-                other.gameObject.layer = 0;
+            other.gameObject.layer = 0;
         }
     }
 
@@ -115,6 +128,8 @@ public class EnemyRun : MonoBehaviour
 
     public void InstantiatePikeman()
     {
+        if (TrainingManager.train)
+            TrainingManager.firstTrainingLevelOnBattleScene = false;
         if (army.army.pikeman.textInputQuantity.quantity > 0)
         {
             Instantiate(pikemanPrefab, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
@@ -141,17 +156,17 @@ public class EnemyRun : MonoBehaviour
     public void MinusPikeman()
     {
         --army.army.pikeman.textInputQuantity.quantity;
-        SaveSystem.SavePlayerArmyData(army);
+        SaveSystem.SavePlayerArmyData(army, Global.globalInitializingClass.currentSavePlayerArmy);
     }
     public void MinusWarrior()
     {
         --army.army.warrior.textInputQuantity.quantity;
-        SaveSystem.SavePlayerArmyData(army);
+        SaveSystem.SavePlayerArmyData(army, Global.globalInitializingClass.currentSavePlayerArmy);
     }
     public void MinusKnight()
     {
         --army.army.knight.textInputQuantity.quantity;
-        SaveSystem.SavePlayerArmyData(army);
+        SaveSystem.SavePlayerArmyData(army, Global.globalInitializingClass.currentSavePlayerArmy);
     }
 
 }

@@ -1,21 +1,23 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerShooting : MonoBehaviour
+public class TowerShooting : GameModule
 {
     public Rigidbody bullet;
-    Rigidbody Shoot = null;
+    private Rigidbody Shoot = null;
     public List<GameObject> bulletList = new List<GameObject>();
-    float time = 0;
-    bool isShooting = false;
-    float timetest = 0;
-    float cleaner = 10;
+    private float time = 0;
+    private bool isShooting = false;
+    private float timetest = 0;
+    private float cleaner = 10;
+    private int limit = 3;
     [SerializeField]
-    AudioSource shootSound;
+    private AudioSource shootSound;
     private void Awake()
     {
         shootSound = GameObject.FindGameObjectWithTag("ShootSound").GetComponent<AudioSource>();
     }
+
     private void Update()
     {
         if (isShooting)
@@ -56,6 +58,11 @@ public class TowerShooting : MonoBehaviour
             shootSound.Play();
             Shoot = Instantiate(bullet, transform.position, transform.rotation);
             Shoot.AddRelativeForce(Vector3.forward * 350, ForceMode.Impulse);
+            limit--;
+            if (limit < 0)
+            {
+                GameObject.Destroy(transform.parent.gameObject);
+            }
         }
     }
 }

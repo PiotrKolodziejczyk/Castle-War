@@ -9,4 +9,8 @@ public class BackToMap : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+    public void BackToMenuMethod()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }

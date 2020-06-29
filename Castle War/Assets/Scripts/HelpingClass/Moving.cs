@@ -29,9 +29,9 @@ namespace Assets.Scripts.HelpingClass
                 audioSource.Stop();
             }
         }
-        public void AcceptMove(Vector3 positionTo , Transform positionFrom)
+        public void AcceptMove(Vector3 positionTo, Transform positionFrom)
         {
-            Vector3 tmpPosition = new Vector3(positionTo.x, 0, positionTo.z);
+            Vector3 tmpPosition = new Vector3(positionTo.x, 0.09f, positionTo.z);
 
             if (positionTo != positionFrom.position)
                 positionFrom.LookAt(tmpPosition);

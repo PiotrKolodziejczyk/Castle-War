@@ -1,5 +1,7 @@
-﻿using System.Text.RegularExpressions;
+﻿using Assets.Scripts.HelpingClass;
+using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TowerManager : MonoBehaviour
 {
@@ -21,9 +23,10 @@ public class TowerManager : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
+        if (SceneManager.GetActiveScene().name == "BattleScene")
+            Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
         regex = new Regex(@"Tower[ABC]\(Clone\)");
-        if (transform.name == "TowerManagerGameObject")
+        if (transform.name == "TowerManager")
         {
             meshes = GetComponentsInChildren<MeshRenderer>();
         }
@@ -39,7 +42,7 @@ public class TowerManager : MonoBehaviour
                 StopDragging();
             }
         }
-        if (GetComponent<TowerManager>().building && GetComponent<TowerManager>().mightBuilding && regex.IsMatch(GetComponent<TowerManager>().name) && gameObject.layer == 11)
+        if (building && mightBuilding && regex.IsMatch(name) && gameObject.layer == 11)
         {
             MeshRenderer[] meshList = GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
@@ -47,7 +50,7 @@ public class TowerManager : MonoBehaviour
                 meshList[i].material.color = Color.white;
             }
         }
-        else if (regex.IsMatch(GetComponent<TowerManager>().name) && gameObject.layer == 11)
+        else if (regex.IsMatch(name) && gameObject.layer == 11)
         {
             MeshRenderer[] meshList = GetComponentsInChildren<MeshRenderer>();
             for (int i = 0; i < meshList.Length; i++)
@@ -65,7 +68,8 @@ public class TowerManager : MonoBehaviour
         }
         isDraggingTower = false;
         Cursor.visible = true;
-        Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
+        if (SceneManager.GetActiveScene().name == "BattleScene")
+            Cursor.SetCursor(texture1, Vector2.zero, CursorMode.ForceSoftware);
         if (tower.gameObject.tag == "Zero")
             tower.GetComponent<BoxCollider>().size = new Vector3(15, 2, 15);
         else
@@ -84,7 +88,12 @@ public class TowerManager : MonoBehaviour
 
     public void InstantiateWoodTower()
     {
-        if (castle.Army.woodTower.textInputQuantity.quantity > 0)
+        if (TrainingManager.train)
+        {
+            TrainingManager.secondLevelOfTrainingBattleScene = false;
+        }
+
+        if (!isDraggingTower && castle.Army.woodTower.textInputQuantity.quantity > 0)
         {
             castle.Army.woodTower.textInputQuantity.quantity--;
             y = 22;
@@ -99,7 +108,7 @@ public class TowerManager : MonoBehaviour
     }
     public void InstantiateStoneTower()
     {
-        if (castle.Army.stoneTower.textInputQuantity.quantity > 0)
+        if (!isDraggingTower && castle.Army.stoneTower.textInputQuantity.quantity > 0)
         {
             castle.Army.stoneTower.textInputQuantity.quantity--;
             y = 22;
@@ -114,7 +123,7 @@ public class TowerManager : MonoBehaviour
     }
     public void InstantiateGreatTower()
     {
-        if (castle.Army.greatTower.textInputQuantity.quantity > 0)
+        if (!isDraggingTower && castle.Army.greatTower.textInputQuantity.quantity > 0)
         {
             castle.Army.greatTower.textInputQuantity.quantity--;
             y = 0;
@@ -137,9 +146,9 @@ public class TowerManager : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.name == "Tower" && regex.IsMatch(GetComponent<TowerManager>().name) && other.gameObject.layer == 12)
+        if (other.gameObject.name == "Tower" && regex.IsMatch(name) && other.gameObject.layer == 12)
         {
-            GetComponent<TowerManager>().mightBuilding = false;
+            mightBuilding = false;
         }
     }
 
@@ -147,7 +156,7 @@ public class TowerManager : MonoBehaviour
     {
         if (other.gameObject.name == "Tower" && other.gameObject.layer == 12)
         {
-            GetComponent<TowerManager>().mightBuilding = true;
+            mightBuilding = true;
         }
     }
 }

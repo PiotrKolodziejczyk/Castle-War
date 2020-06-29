@@ -22,11 +22,43 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6699202127024825094, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6699202127024825094, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1000010732113744, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_Name
       value: GreatTower
       objectReference: {fileID: 0}
     - target: {fileID: 1000010732113744, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011371630728, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012456333538, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012615257816, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
@@ -91,23 +123,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 7.02
       objectReference: {fileID: 0}
-    - target: {fileID: 1000012615257816, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012456333538, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011371630728, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 4094277401534487996, guid: 94cd86138d9233a4f8d62276eb74c283,
         type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: -8820112522143258240, guid: 802986766a97b4a108b97eb5fdf6e02f,
+      objectReference: {fileID: 242596356353133057, guid: aa64b9ae639024c5097e12b27ac1d84c,
         type: 3}
     - target: {fileID: 4094277401534487996, guid: 94cd86138d9233a4f8d62276eb74c283,
         type: 3}
@@ -119,26 +139,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -293104667590552852, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -6699202127024825094, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -6699202127024825094, guid: 94cd86138d9233a4f8d62276eb74c283,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 1.68
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94cd86138d9233a4f8d62276eb74c283, type: 3}

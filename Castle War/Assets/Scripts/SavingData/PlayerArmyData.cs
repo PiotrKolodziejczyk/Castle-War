@@ -24,6 +24,9 @@ namespace Assets.Scripts.MainScene
             pikemanQuantity = armyScript.army.pikeman.textInputQuantity.quantity;
             warriorQuantity = armyScript.army.warrior.textInputQuantity.quantity;
             knightQuantity = armyScript.army.knight.textInputQuantity.quantity;
+            woodTowerQuantity = armyScript.army.woodTower.textInputQuantity.quantity;
+            stoneTowerQuantity = armyScript.army.stoneTower.textInputQuantity.quantity;
+            greatTowerQuantity = armyScript.army.greatTower.textInputQuantity.quantity;
         }
     }
 }

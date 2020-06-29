@@ -1,10 +1,11 @@
-﻿using System.Linq;
+﻿using Assets.Scripts.HelpingClass;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.CastleScene.Buldings
 {
-    class BuildTowerPanel : MonoBehaviour
+    internal class BuildTowerPanel : MonoBehaviour
     {
         [SerializeField] internal GameObject towerPanelPrefab;
         [SerializeField] internal ResourcesToUpgradeLvl woodTowerResourcesToUpgrade;
@@ -27,7 +28,10 @@ namespace Assets.Scripts.CastleScene.Buldings
         internal Text woodTowerStagingText;
         internal Text stoneTowerStagingText;
         internal Text greatTowerStagingText;
-        
+        public Transform youNeedMoreWoodTower;
+        public Transform youNeedMoreStoneTower;
+        public Transform youNeedMoreGreatTower;
+        public Transform training;
         public void Instantiate()
         {
             towerPanel = Instantiate(towerPanelPrefab, GameObject.FindGameObjectWithTag("UI").transform);
@@ -40,6 +44,26 @@ namespace Assets.Scripts.CastleScene.Buldings
             woodTowerLabel.text = "1";
             stoneTowerLabel.text = "1";
             greatTowerLabel.text = "1";
+
+            training = towerPanel.GetComponentsInChildren<Transform>().Where(x => x.name == "Training").First();
+            youNeedMoreWoodTower = towerPanel.GetComponentsInChildren<Transform>().Where(x => x.name == "YouNeedMoreWoodTower").First();
+            youNeedMoreWoodTower.gameObject.SetActive(false);
+            youNeedMoreStoneTower = towerPanel.GetComponentsInChildren<Transform>().Where(x => x.name == "YouNeedMoreStoneTower").First();
+            youNeedMoreStoneTower.gameObject.SetActive(false);
+            youNeedMoreGreatTower = towerPanel.GetComponentsInChildren<Transform>().Where(x => x.name == "YouNeedMoreGreatTower").First();
+            youNeedMoreGreatTower.gameObject.SetActive(false);
+        }
+        private void Update()
+        {
+            if (TrainingManager.secondLevelOfTrainingCastleScene)
+            {
+                if (training != null && TrainingManager.buildTowers)
+                    training.gameObject.SetActive(true);
+                else if (training != null)
+                    training.gameObject.SetActive(false);
+            }
+            else if (training != null)
+                training.gameObject.SetActive(false);
         }
 
         private void InitializeTimeTexts()

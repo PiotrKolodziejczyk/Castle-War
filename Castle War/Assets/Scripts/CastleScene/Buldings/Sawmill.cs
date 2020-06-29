@@ -1,4 +1,6 @@
-﻿public class Sawmill : Building
+﻿using UnityEngine.SceneManagement;
+
+public class Sawmill : Building
 {
     float timeToCheck = 5;
 
@@ -9,6 +11,10 @@
         ElapsedTimeAndBuild(this);
 
         SetResourcesToUpgrade(100, 120, 150, ref timeToCheck);
-
+        if (mainPanel != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
+        {
+            mainPanel.youNeedMore.gameObject.SetActive(false);
+            isYouNeedMain = false;
+        }
     }
 }

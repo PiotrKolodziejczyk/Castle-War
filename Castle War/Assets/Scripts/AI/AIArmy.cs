@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.CastleScene;
+using System.IO;
 using UnityEngine;
 
 public class AIArmy : MonoBehaviour
@@ -7,11 +8,22 @@ public class AIArmy : MonoBehaviour
     private void Awake()
     {
         army = GetComponent<Army>();
-        AiArmyData data = SaveSystem.LoadEnemyArmy();
-        army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
-        army.warrior.textInputQuantity.quantity = data.warriorQuantity;
-        army.knight.textInputQuantity.quantity = data.knightQuantity;
+        if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSaveEnemyArmy}.fun"))
+        {
+            army.pikeman.textInputQuantity.quantity = 30;
+            army.warrior.textInputQuantity.quantity = 30;
+            army.knight.textInputQuantity.quantity = 30;
+            SaveSystem.SaveEnemyArmyData(this, Global.globalInitializingClass.currentSaveEnemyArmy);
+        }
+        else
+        {
+            AiArmyData data = SaveSystem.LoadEnemyArmy(Global.globalInitializingClass.currentSaveEnemyArmy);
+            army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
+            army.warrior.textInputQuantity.quantity = data.warriorQuantity;
+            army.knight.textInputQuantity.quantity = data.knightQuantity;
+        }
     }
+
 
     public void CheckAmontOfArmyInCastle(Castle castle)
     {
@@ -36,7 +48,7 @@ public class AIArmy : MonoBehaviour
             takeKnightAmount = Random.Range(0, knight);
             army.knight.textInputQuantity.quantity += takeKnightAmount;
         }
-        SaveSystem.SaveEnemyArmyData(this);
+        SaveSystem.SaveEnemyArmyData(this, Global.globalInitializingClass.currentSaveEnemyArmy);
 
     }
 }

@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Stone
   m_Shader: {fileID: 4800000, guid: 6a4f4ebb8dc45f5429d99201ac97fba1, type: 3}
   m_ShaderKeywords: WORLDSPACE WORLEY
@@ -30,12 +31,12 @@ Material:
     - _Glossiness: 0.361
     - _Metallic: 0.119
     - _Octaves: 6.7
-    - _Parallax: 111
+    - _Parallax: 107.75
     - _Persistence: 0.618
     - _Polish: 1.1
-    - _Scale: 2.33
+    - _Scale: 33
     - _Seed: 16574.44
-    - _VoroScale: 10.22
+    - _VoroScale: -1.63
     - _WORLDSPACE: 1
     - _WORLEY: 1
     m_Colors:

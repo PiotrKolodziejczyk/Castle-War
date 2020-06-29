@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Assets.Scripts.HelpingClass;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +28,10 @@ namespace Assets.Scripts.CastleScene.Buldings
         internal Text pikemanStagingText;
         internal Text warriorStagingText;
         internal Text knightStagingText;
-      
+        public Transform training;
+        public Transform youNeedMorePikeman;
+        public Transform youNeedMoreWarrior;
+        public Transform youNeedMoreKnight;
         public void Instantiate()
         {
             soldierPanel = Instantiate(soldierPanelPrefab, GameObject.FindGameObjectWithTag("UI").transform);
@@ -40,8 +44,27 @@ namespace Assets.Scripts.CastleScene.Buldings
             pikemanLabel.text = "1";
             warriorLabel.text = "1";
             knightLabel.text = "1";
+            training = soldierPanel.GetComponentsInChildren<Transform>().Where(x => x.name == "Training").First();
+            youNeedMorePikeman = soldierPanel.GetComponentsInChildren<Transform>().Where(x => x.name == "YouNeedMorePikeman").First();
+            youNeedMorePikeman.gameObject.SetActive(false);
+            youNeedMoreWarrior = soldierPanel.GetComponentsInChildren<Transform>().Where(x => x.name == "YouNeedMoreWarrior").First();
+            youNeedMoreWarrior.gameObject.SetActive(false);
+            youNeedMoreKnight = soldierPanel.GetComponentsInChildren<Transform>().Where(x => x.name == "YouNeedMoreKnight").First();
+            youNeedMoreKnight.gameObject.SetActive(false);
         }
 
+        private void Update()
+        {
+            if (TrainingManager.firstLevelOfTrainingCastleScene)
+            {
+                if (training != null && TrainingManager.fiveTrainingLevelOnCastleScene)
+                    training.gameObject.SetActive(true);
+                else if (training != null)
+                    training.gameObject.SetActive(false);
+            }
+            else if (training != null)
+                training.gameObject.SetActive(false);
+        }
         private void InitializeTimeTexts()
         {
             pikemanTimeProperties.text = soldierPanel.GetComponentsInChildren<Text>().Where(x => x.name == "TimePikeman").First();
