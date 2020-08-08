@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
+using Assets.Scripts.CastleScene.Panels;
 using Assets.Scripts.HelpingClass;
 using System.Text.RegularExpressions;
 using TMPro;
@@ -7,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Barrack : Building
 {
-    internal BuildSoldierPanel soldierPanel;
+    [SerializeField] private BuildSoldierPanel soldierPanel;
     [SerializeField] internal bool isBuildPikeman;
     internal bool isBuildWarrior;
     internal bool isBuildKnight;
@@ -15,15 +16,7 @@ public class Barrack : Building
     [SerializeField] internal Smithy smithy;
     private float youNeedTime = 0;
     private bool isYouNeed = false;
-    //private void Start()
-    //{
-    //    smithy = transform.parent.GetComponentInChildren<Smithy>();
 
-    //    if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
-    //    {
-    //        soldierPanel = GetComponent<BuildSoldierPanel>();
-    //    }
-    //}
     public override void Initialize()
     {
         smithy = transform.parent.GetComponentInChildren<Smithy>();
@@ -31,28 +24,21 @@ public class Barrack : Building
         timePropertiesBuilding = GetComponent<TimeProperties>();
         if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {
-            soldierPanel = GetComponent<BuildSoldierPanel>();
+            panelMain = GetComponentInParent<MainPanel1>();
         }
-        if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
-        {
-            mainPanel = GetComponent<MainPanel>();
-        }
-        townHall = transform.parent.GetComponentInChildren<TownHall>();
 
         if (SceneManager.GetActiveScene().name == "CastleScene")
             Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.ForceSoftware);
-
+        MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.Barrack.ToString(), this, castle.townHall);
     }
 
     private void Update()
     {
-        if (mainPanel != null &&SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
+        if (panelMain != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
         {
-                mainPanel.youNeedMore.gameObject.SetActive(false);
-                isYouNeedMain = false;
+            panelMain.youNeedMore.gameObject.SetActive(false);
+            isYouNeedMain = false;
         }
-        //if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade)
-        //    isBuild = true;
         if (isYouNeed && Global.Timer(ref youNeedTime))
         {
             soldierPanel.youNeedMorePikeman.gameObject.SetActive(false);
@@ -60,15 +46,15 @@ public class Barrack : Building
             soldierPanel.youNeedMoreKnight.gameObject.SetActive(false);
             isYouNeed = false;
         }
-        ElapsedTimeAndBuild(this);
-        SetResourcesToUpgrade(100, 120, 150, ref timeToCheck);
+        ElapsedTimeAndBuild();
         if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {
-            if (mainPanel.panel != null && isMainPanelOn)
-            {
-                mainPanel.buildSoldierButton.onClick.AddListener(() => EnableSoldierPanel());
-                isMainPanelOn = false;
-            }
+            //if (panelMain.panel != null && isMainPanelOn)
+            //{
+            //    panelMain.buildSoldierButton.onClick.RemoveAllListeners();
+            //    panelMain.buildSoldierButton.onClick.AddListener(() => EnableSoldierPanel());
+            //    isMainPanelOn = false;
+            //}
             if (isBuildPikeman)
             {
                 BuildSoldierOrTower(take.castle.Army.pikeman.textInputQuantity.text,
@@ -109,111 +95,111 @@ public class Barrack : Building
             }
         }
     }
-    public void EnableSoldierPanel()
+    //public void EnableSoldierPanel()
+    //{
+    //    if (TrainingManager.firstLevelOfTrainingCastleScene)
+    //    {
+    //        TrainingManager.fourTrainingLevelOnCastleScene = false;
+    //        TrainingManager.fiveTrainingLevelOnCastleScene = true;
+    //    }
+    //    ExitPanel();
+    //    isSoldierPanelOn = true;
+    //    Global.isSoldierPanelOnInCastleScene = true;
+    //    soldierPanel.Instantiate();
+    //    soldierPanel.exitSoldierBuildButton.onClick.AddListener(() => ExitSoldierPanel());
+    //}
+
+    public void BuildKnight()
     {
-        if (TrainingManager.firstLevelOfTrainingCastleScene)
-        {
-            TrainingManager.fourTrainingLevelOnCastleScene = false;
-            TrainingManager.fiveTrainingLevelOnCastleScene = true;
-        }
-        ExitPanel();
-        isSoldierPanelOn = true;
-        Global.isSoldierPanelOnInCastleScene = true;
-        soldierPanel.Instantiate();
-        soldierPanel.buildPikeman.onClick.AddListener(() =>
-        {
-            if (smithy.level >= 2)
-                if (RemoveMaterialIfisTrue(soldierPanel.pikemanResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text),
-                                       soldierPanel.pikemanResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text),
-                                       soldierPanel.pikemanResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text)))
-                {
-                    DoWhenHaveMaterials(ref soldierPanel.pikemanStaging, soldierPanel.pikemanLabel, soldierPanel.pikemanStagingText, ref isBuildPikeman);
-                    if (TrainingManager.firstLevelOfTrainingCastleScene)
-                    {
-                        TrainingManager.sixTrainingLevelOnCastleScene = true;
-                        TrainingManager.fiveTrainingLevelOnCastleScene = false;
-                    }
-                }
-                else
-                {
-                    var youNeedMore = soldierPanel.youNeedMorePikeman.GetComponentInChildren<TextMeshProUGUI>();
-                    youNeedMore.transform.parent.gameObject.SetActive(true);
-                    youNeedMore.text = "You Need More Materials";
-                    isYouNeed = true;
-                    youNeedTime = 1f;
-                }
-            else
+        if (smithy.level >= 15)
+            if (RemoveMaterialIfisTrue(soldierPanel.knightResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text),
+                                   soldierPanel.knightResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text),
+                                   soldierPanel.knightResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text)))
             {
-                var youNeedMore = soldierPanel.youNeedMorePikeman.GetComponentInChildren<TextMeshProUGUI>();
-                youNeedMore.transform.parent.gameObject.SetActive(true);
-                youNeedMore.text = "You Need Smithy Level 2";
-                isYouNeed = true;
-                youNeedTime = 1f;
+                DoWhenHaveMaterials(ref soldierPanel.knightStaging, soldierPanel.knightLabel, soldierPanel.knightStagingText, ref isBuildKnight);
             }
-        });
-        soldierPanel.buildWarrior.onClick.AddListener(() =>
-        {
-            if (smithy.level >= 8)
-                if (RemoveMaterialIfisTrue(soldierPanel.warriorResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
-                                           soldierPanel.warriorResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
-                                           soldierPanel.warriorResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text)))
-                {
-                    DoWhenHaveMaterials(ref soldierPanel.warriorStaging, soldierPanel.warriorLabel, soldierPanel.warriorStagingText, ref isBuildWarrior);
-                }
-                else
-                {
-                    var youNeedMore = soldierPanel.youNeedMoreWarrior.GetComponentInChildren<TextMeshProUGUI>();
-                    youNeedMore.transform.parent.gameObject.SetActive(true);
-                    youNeedMore.text = "You Need More Materials";
-                    isYouNeed = true;
-                    youNeedTime = 1f;
-                }
-            else
-            {
-                var youNeedMore = soldierPanel.youNeedMoreWarrior.GetComponentInChildren<TextMeshProUGUI>();
-                youNeedMore.transform.parent.gameObject.SetActive(true);
-                youNeedMore.text = "You Need Smithy Level 8";
-                isYouNeed = true;
-                youNeedTime = 1f;
-            }
-        });
-        soldierPanel.buildKnight.onClick.AddListener(() =>
-        {
-            if (smithy.level >= 15)
-                if (RemoveMaterialIfisTrue(soldierPanel.knightResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text),
-                                       soldierPanel.knightResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text),
-                                       soldierPanel.knightResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.knightLabel.text)))
-                {
-                    DoWhenHaveMaterials(ref soldierPanel.knightStaging, soldierPanel.knightLabel, soldierPanel.knightStagingText, ref isBuildKnight);
-                }
-                else
-                {
-                    var youNeedMore = soldierPanel.youNeedMoreKnight.GetComponentInChildren<TextMeshProUGUI>();
-                    youNeedMore.transform.parent.gameObject.SetActive(true);
-                    youNeedMore.text = "You Need More Materials";
-                    isYouNeed = true;
-                    youNeedTime = 1f;
-                }
             else
             {
                 var youNeedMore = soldierPanel.youNeedMoreKnight.GetComponentInChildren<TextMeshProUGUI>();
                 youNeedMore.transform.parent.gameObject.SetActive(true);
-                youNeedMore.text = "You Need Smithy Level 15";
+                youNeedMore.text = "You Need More Materials";
                 isYouNeed = true;
                 youNeedTime = 1f;
             }
-        });
-        soldierPanel.exitSoldierBuildButton.onClick.AddListener(() => ExitSoldierPanel());
+        else
+        {
+            var youNeedMore = soldierPanel.youNeedMoreKnight.GetComponentInChildren<TextMeshProUGUI>();
+            youNeedMore.transform.parent.gameObject.SetActive(true);
+            youNeedMore.text = "You Need Smithy Level 15";
+            isYouNeed = true;
+            youNeedTime = 1f;
+        }
     }
-    public void ExitSoldierPanel()
+
+    public void BuildWarrior()
     {
-        // OnEnablePanel();
-        Global.mainPanelActive = false;
-        mainPanel.unlockPanel = false;
-        mainPanel.exitButton.onClick.RemoveAllListeners();
-        Global.isSoldierPanelOnInCastleScene = false;
-        Global.isTowerPanelOnInCastleScene = false;
-        isSoldierPanelOn = false;
-        Destroy(soldierPanel.soldierPanel);
+        if (smithy.level >= 8)
+            if (RemoveMaterialIfisTrue(soldierPanel.warriorResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
+                                       soldierPanel.warriorResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text),
+                                       soldierPanel.warriorResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.warriorLabel.text)))
+            {
+                DoWhenHaveMaterials(ref soldierPanel.warriorStaging, soldierPanel.warriorLabel, soldierPanel.warriorStagingText, ref isBuildWarrior);
+            }
+            else
+            {
+                var youNeedMore = soldierPanel.youNeedMoreWarrior.GetComponentInChildren<TextMeshProUGUI>();
+                youNeedMore.transform.parent.gameObject.SetActive(true);
+                youNeedMore.text = "You Need More Materials";
+                isYouNeed = true;
+                youNeedTime = 1f;
+            }
+        else
+        {
+            var youNeedMore = soldierPanel.youNeedMoreWarrior.GetComponentInChildren<TextMeshProUGUI>();
+            youNeedMore.transform.parent.gameObject.SetActive(true);
+            youNeedMore.text = "You Need Smithy Level 8";
+            isYouNeed = true;
+            youNeedTime = 1f;
+        }
+    }
+
+    public void BuildPikeman()
+    {
+        if (smithy.level >= 2)
+            if (RemoveMaterialIfisTrue(soldierPanel.pikemanResourcesToUpgrade.clayToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text),
+                                   soldierPanel.pikemanResourcesToUpgrade.stoneToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text),
+                                   soldierPanel.pikemanResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text)))
+            {
+                DoWhenHaveMaterials(ref soldierPanel.pikemanStaging, soldierPanel.pikemanLabel, soldierPanel.pikemanStagingText, ref isBuildPikeman);
+                if (TrainingManager.firstLevelOfTrainingCastleScene)
+                {
+                    TrainingManager.sixTrainingLevelOnCastleScene = true;
+                    TrainingManager.fiveTrainingLevelOnCastleScene = false;
+                }
+            }
+            else
+            {
+                var youNeedMore = soldierPanel.youNeedMorePikeman.GetComponentInChildren<TextMeshProUGUI>();
+                youNeedMore.transform.parent.gameObject.SetActive(true);
+                youNeedMore.text = "You Need More Materials";
+                isYouNeed = true;
+                youNeedTime = 1f;
+            }
+        else
+        {
+            var youNeedMore = soldierPanel.youNeedMorePikeman.GetComponentInChildren<TextMeshProUGUI>();
+            youNeedMore.transform.parent.gameObject.SetActive(true);
+            youNeedMore.text = "You Need Smithy Level 2";
+            isYouNeed = true;
+            youNeedTime = 1f;
+        }
+    }
+
+
+
+    private void OnMouseDown()
+    {
+        if (!Global.mainPanelActive && Global.isSoldierPanelOnInCastleScene == false && Global.isTowerPanelOnInCastleScene == false)
+            OnEnablePanel1();
     }
 }

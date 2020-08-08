@@ -1,7 +1,9 @@
-﻿using TMPro;
+﻿using Assets.Scripts.HelpingClass;
+using Assets.Scripts.Interfaces;
+using TMPro;
 using UnityEngine;
 
-public class VillageScript : MonoBehaviour
+public class VillageScript : MonoBehaviour, IMaterials
 {
     public GameObject menu;
     public GameObject stealPanel;
@@ -16,6 +18,8 @@ public class VillageScript : MonoBehaviour
     private bool lastTimeStealBool = true;
     public Texture2D cursorVilage;
     public Texture2D cursorNormal;
+
+    public Materials Materials { get => player.materials; set => player.materials = value; }
 
     private void OnMouseDown()
     {

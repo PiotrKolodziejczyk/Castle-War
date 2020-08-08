@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.HelpingClass;
+using Assets.Scripts.Trening;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -29,26 +30,20 @@ public class CastleManager : GameModule
     }
     private void OnMouseDown()
     {
-        
+
         if ((menuPlayerCastle == null || menuPlayerCastle.activeSelf == false) && castle.isPlayer && !Global.isAttackEnemy)
         {
-            menuPlayerCastle = Instantiate(prefab, transform);
-            menuPlayerCastle.SetActive(true);
-            Global.active = false;
-            toMap = menuPlayerCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonToMap").First();
-            toMap.onClick.AddListener(() => { ToMapFromPlayer(); });
-            toCastle = menuPlayerCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonToCastle").First();
-            toCastle.onClick.AddListener(() => { GoToCastle(); });
-            inputToChangeName = menuPlayerCastle.GetComponentsInChildren<Transform>().Where(x => x.name == "InputToChange").First().gameObject;
-            buttonChangeCastleName = menuPlayerCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonChangeCastleName").First();
-            buttonChangeCastleName.onClick.AddListener(() => { OnInputChangeName(); });
-            apply = inputToChangeName.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonApply").First();
-            apply.onClick.AddListener(() => { ChangeName(); });
-            input = inputToChangeName.GetComponentsInChildren<TMP_InputField>().Where(x => x.transform.name == "ToChangeName").First();
-            inputToChangeName.SetActive(false);
-            nick = GetComponentsInChildren<TextMeshPro>().Where(x => x.transform.name == "nick").First();
+            if (!Tutorial.tutorialOn)
+                CreateCastleMiniMenuForPlayer();
+            else if(transform.name == "Castle(Clone) (18)")
+            {
+                CreateCastleMiniMenuForPlayer();
+                Tutorial.Next();
+            }
         }
-        if ((menuEnemyCastle == null || menuEnemyCastle.activeSelf == false) && !castle.isPlayer&& !Global.isAttackEnemy)
+
+
+        if ((menuEnemyCastle == null || menuEnemyCastle.activeSelf == false) && !castle.isPlayer && !Global.isAttackEnemy)
         {
             menuEnemyCastle = Instantiate(prefabEnemy, transform);
             menuEnemyCastle.SetActive(true);
@@ -64,6 +59,25 @@ public class CastleManager : GameModule
         //    Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.CastleScene, castle.id);
         //else if (isPlayerHere && !castle.isPlayer)
         //    Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.BattleScene, castle.id);
+    }
+
+    private void CreateCastleMiniMenuForPlayer()
+    {
+        menuPlayerCastle = Instantiate(prefab, transform);
+        menuPlayerCastle.SetActive(true);
+        Global.active = false;
+        toMap = menuPlayerCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonToMap").First();
+        toMap.onClick.AddListener(() => { ToMapFromPlayer(); });
+        toCastle = menuPlayerCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonToCastle").First();
+        toCastle.onClick.AddListener(() => { GoToCastle(); });
+        inputToChangeName = menuPlayerCastle.GetComponentsInChildren<Transform>().Where(x => x.name == "InputToChange").First().gameObject;
+        buttonChangeCastleName = menuPlayerCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonChangeCastleName").First();
+        buttonChangeCastleName.onClick.AddListener(() => { OnInputChangeName(); });
+        apply = inputToChangeName.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonApply").First();
+        apply.onClick.AddListener(() => { ChangeName(); });
+        input = inputToChangeName.GetComponentsInChildren<TMP_InputField>().Where(x => x.transform.name == "ToChangeName").First();
+        inputToChangeName.SetActive(false);
+        nick = GetComponentsInChildren<TextMeshPro>().Where(x => x.transform.name == "nick").First();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -85,7 +99,7 @@ public class CastleManager : GameModule
             TrainingManager.secondTrainingLevelOnMainScene = true;
             TrainingManager.firstTrainingLevelOnCastleScene = true;
         }
-        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.CastleScene, castle.id);
+        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.CastleScene, castle.Id);
     }
     public void GoToBattle()
     {
@@ -94,7 +108,7 @@ public class CastleManager : GameModule
             TrainingManager.firstLevelOfTrainingBattleScene = true;
             TrainingManager.secondTrainingLevelOnMainScene = false;
         }
-        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.BattleScene, castle.id);
+        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.BattleScene, castle.Id);
     }
     public void OnInputChangeName()
     {

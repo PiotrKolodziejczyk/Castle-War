@@ -22,22 +22,7 @@ public class AIController : GameModule
     private int castleToAttackIndex = -1;
     [SerializeField] private Moving moving;
     public TextMeshProUGUI text;
-    //private void Awake()
-    //{
-    //    AIArmy = GetComponent<AIArmy>();  
-    //    isAttack = false;
-    //    items = transform.GetComponentsInChildren<Transform>().ToList();
-    //    AiPositionData data = SaveSystem.LoadAiPosition();
-    //    Vector3 position = new Vector3(data.x, data.y, data.z);
-    //    transform.position = position;
-    //}
-    //private void Start()
-    //{
-    //    moving = new Moving();
-    //    aiCastles = FindObjectsOfType<Transform>().Where(x => x.gameObject.layer == LayerMask.NameToLayer("Enemy") && Regex.Match(x.name, @"Castle\(Clone\)\s*\(\d+\)").Success).ToList();
-    //    playerCastles = FindObjectsOfType<Transform>().Where(x => x.gameObject.layer == LayerMask.NameToLayer("I") && Regex.Match(x.name, @"Castle\(Clone\)\s*\(\d+\)").Success).ToList();
-    //    AcceptMove(whichCaslte, false);
-    //}
+
     public override void Initialize()
     {
         AIArmy = GetComponentInChildren<AIArmy>();
@@ -137,11 +122,6 @@ public class AIController : GameModule
             AIArmy.CheckAmontOfArmyInCastle(other.GetComponent<Castle>());
         }
 
-        //if (other.gameObject.layer == LayerMask.NameToLayer("Grass"))
-        //{
-        //    foreach (Transform item in items)
-        //        item.gameObject.layer = LayerMask.NameToLayer("VisibleAI");
-        //}
         if (other.gameObject.layer == LayerMask.NameToLayer("I") && castleToAttackIndex != -1)
         {
             castleToAttackIndex = -1;
@@ -151,7 +131,7 @@ public class AIController : GameModule
                 TrainingManager.secondLevelOfTrainingBattleScene = true;
                 Global.isAttackEnemy = false;
             }
-            AIAttackScript.SimulateAttack(other.gameObject.GetComponent<Castle>().id);
+            Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.BattleScene, other.gameObject.GetComponent<Castle>().Id);
         }
 
     }

@@ -2,6 +2,7 @@
 using Assets.Scripts.HelpingClass;
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.MainScene;
+using Assets.Scripts.SavingData;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -13,7 +14,7 @@ public class Castle : GameModule, IArmy, IMaterials
 {
     [SerializeField] private float time = 10;
     [SerializeField] internal bool isPlayer;
-    [SerializeField] internal int id;
+    [SerializeField] internal int Id;
     [SerializeField] internal Barrack barrack;
     [SerializeField] internal ClayMine clayMine;
     [SerializeField] internal Quarry quarry;
@@ -31,7 +32,7 @@ public class Castle : GameModule, IArmy, IMaterials
     [SerializeField] private Texture2D normalTexture;
     [SerializeField] private Texture2D enemyTexture;
     [SerializeField] private AttackOrDefense AttackOrDefense;
-    [SerializeField] private AIEngine aIEngine;
+    [SerializeField] private AISoldierController aIEngine;
     [SerializeField] private AiBuildingInCastle aiBuildingInCastle;
     [SerializeField] private GameObject baseCastle;
     [SerializeField] private Material baseMaterialRed;
@@ -42,7 +43,6 @@ public class Castle : GameModule, IArmy, IMaterials
     public Materials Materials { get => materials; set => materials = value; }
     protected void Saving(Castle castle)
     {
-
         if (Global.Timer(ref time))
         {
             SaveSystem.SaveCastle(castle, Global.globalInitializingClass.currentSaveCastleSave);
@@ -57,7 +57,7 @@ public class Castle : GameModule, IArmy, IMaterials
         if (transform.gameObject.layer == LayerMask.NameToLayer("BattleSceneCastle"))
             AttackOrDefense = FindObjectOfType<AttackOrDefense>();
         if (transform.gameObject.layer == LayerMask.NameToLayer("BattleSceneCastle"))
-            aIEngine = FindObjectOfType<AIEngine>();
+            aIEngine = FindObjectOfType<AISoldierController>();
         army = GetComponent<Army>();
         if (army == null)
         {
@@ -108,11 +108,10 @@ public class Castle : GameModule, IArmy, IMaterials
                 army.greatTower.textInputQuantity.quantity = 0;
             }
         }
-        if (id == 200)
-            id = Global.currentCastle;
-
-
+        if (Id == 200)
+            Id = Global.currentCastle;
         LoadPlayerCastle();
+
         if (AttackOrDefense != null)
             AttackOrDefense.SetCanvas();
         if (aIEngine != null)
@@ -156,7 +155,7 @@ public class Castle : GameModule, IArmy, IMaterials
     }
     private void LoadPlayerCastle()
     {
-        if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSaveCastleSave}{id}.fun"))
+        if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSaveCastleSave}{Id}.fun"))
         {
             if (Global.playerCastles > 0)
                 Global.FirstInitializePlayerCastle(this);
@@ -195,7 +194,7 @@ public class Castle : GameModule, IArmy, IMaterials
         }
         else
         {
-            CastleData castle = SaveSystem.LoadCastle(id, Global.globalInitializingClass.currentSaveCastleSave);
+            CastleData castle = SaveSystem.LoadCastle(Id, Global.globalInitializingClass.currentSaveCastleSave);
             InitializeBuildingsAndRawMaterials(castle);
             InitializeArmy(castle);
             nick = castle.nick;
@@ -210,11 +209,11 @@ public class Castle : GameModule, IArmy, IMaterials
 
     private void InitializeBuildingsAndRawMaterials(CastleData castle)
     {
-        id = castle.id;
+        Id = castle.id;
         sawmill.timePropertiesBuilding.timeToUpgrade = castle.sawmillBuildingTime;
         clayMine.timePropertiesBuilding.timeToUpgrade = castle.clayMineBuildingTime;
         quarry.timePropertiesBuilding.timeToUpgrade = castle.quarryBuildingTime;
-        townHall.timePropertiesBuilding.timeToUpgrade = castle.townHallLevel;
+        townHall.timePropertiesBuilding.timeToUpgrade = castle.townHallBuildingTime;
         smithy.timePropertiesBuilding.timeToUpgrade = castle.smithyBuildingTime;
         barrack.timePropertiesBuilding.timeToUpgrade = castle.barrackBuildingTime;
         towerWorkShop.timePropertiesBuilding.timeToUpgrade = castle.towerWorkShopBuildingTime;
@@ -274,6 +273,4 @@ public class Castle : GameModule, IArmy, IMaterials
         if (transform.parent.name == "Castles" && SceneManager.GetActiveScene().name == "SampleScene")
             Cursor.SetCursor(normalTexture, Vector2.zero, CursorMode.ForceSoftware);
     }
-
-
 }

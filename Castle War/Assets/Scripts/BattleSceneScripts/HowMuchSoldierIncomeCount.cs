@@ -50,12 +50,12 @@ public class HowMuchSoldierIncomeCount : MonoBehaviour
     public void Win()
     {
         Global.aiActive = true;
-        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.CastleScene, castle.id);
+        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.CastleScene, castle.Id);
     }
     public void Lose()
     {
         Global.aiActive = true;
-        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.SampleScene, castle.id);
+        Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.SampleScene, castle.Id);
     }
 
     private void SaveCastleAndSetAppropriateTagAndLayer(bool isPlayer, string tag, string layer)

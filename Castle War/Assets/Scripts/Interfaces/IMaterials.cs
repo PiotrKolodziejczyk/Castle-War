@@ -10,6 +10,5 @@ namespace Assets.Scripts.Interfaces
     public interface IMaterials
     {
         Materials Materials { get; set; }
-
     }
 }

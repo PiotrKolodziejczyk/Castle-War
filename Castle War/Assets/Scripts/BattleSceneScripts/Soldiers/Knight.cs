@@ -7,7 +7,7 @@ public class Knight : Soldier
         if (transform.parent.parent.name != "EnemyAI" && transform.parent.parent.name != "TowerManagerGameObject" && transform.parent.name != "Player")
         {
             castle = transform.parent.GetComponentInParent<Castle>();
-            MainResourcesClass.InitializeResources(ref resources, ResourcesEnum.Knight, castle.barrack, castle.townHall);
+            MainResourcesClass.InitializeResources(ref resources, ResourcesEnum.Knight.ToString(), castle.barrack, castle.townHall);
         }
         textInputQuantity = GetComponent<TextInputQuantity>();
     }

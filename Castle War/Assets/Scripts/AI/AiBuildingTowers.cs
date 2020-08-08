@@ -4,8 +4,8 @@ using UnityEngine;
 public class AiBuildingTowers : GameModule
 {
     private float timerToBuildWoodTower = 4;
-    private float timerToBuildStoneTower = 4;
-    private float timerToBuildGreatTower = 4;
+    private float timerToBuildStoneTower = 6;
+    private float timerToBuildGreatTower = 10;
     public Castle castle;
     public TowerManager towerManager;
     private readonly List<Vector3> placesList = new List<Vector3> {
@@ -33,12 +33,12 @@ public class AiBuildingTowers : GameModule
             if (Global.Timer(ref timerToBuildStoneTower))
             {
                 BuildStoneTower();
-                timerToBuildStoneTower = 4;
+                timerToBuildStoneTower = 6;
             }
             if (Global.Timer(ref timerToBuildGreatTower))
             {
                 BuildGreatTower();
-                timerToBuildGreatTower = 4;
+                timerToBuildGreatTower = 10;
             }
         }
     }

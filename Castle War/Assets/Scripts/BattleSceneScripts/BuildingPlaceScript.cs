@@ -8,11 +8,7 @@ public class BuildingPlaceScript : GameModule
     {
         regex = new Regex(@"(Wood|Stone|Great)Tower\(Clone\)");
     }
-    //public override void Initialize()
-    //{
-    //    regex = new Regex(@"(Wood|Stone|Great)Tower\(Clone\)");
 
-    //}
     private void OnTriggerStay(Collider other)
     {
 

@@ -12,6 +12,5 @@ namespace Assets.Scripts.HelpingClass
         [SerializeField] internal Wood wood;
         [SerializeField] internal Stone stone;
         [SerializeField] internal Clay clay;
-      
     }
 }

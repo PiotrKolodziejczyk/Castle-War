@@ -1,12 +1,14 @@
 ﻿using Assets.Scripts.CastleScene;
 using Assets.Scripts.HelpingClass;
 using Assets.Scripts.MainScene;
+using Assets.Scripts.SavingData;
 using System.IO;
 using TMPro;
 using UnityEngine;
 
-public class UnitManager : GameModule
+public class UnitManager : GameModule, IArmy
 {
+    [SerializeField] private TextMeshPro namePlayer;
     private RaycastHit hit = new RaycastHit();
     private RaycastHit hit1 = new RaycastHit();
     private Ray ray;
@@ -30,15 +32,14 @@ public class UnitManager : GameModule
     public TextMeshProUGUI stoneTower;
     public TextMeshProUGUI greatTower;
     public Materials materials;
-    //private void Start()
-    //{
-    //    moving = new Moving();
-    //    PlayerPositionData data = SaveSystem.LoadPlayerPosition();
-    //    position = new Vector3(data.x, data.y, data.z);
-    //    transform.position = position;
-    //}
+    private float time = 3;
+
+    public Army Army { get => army; set => army = value; }
+
     public override void Initialize()
     {
+        namePlayer.text = Global.actualPlayerName;
+
         if (File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerArmy}.fun"))
         {
             PlayerArmyData data = SaveSystem.LoadPlayerArmy(Global.globalInitializingClass.currentSavePlayerArmy);
@@ -58,18 +59,33 @@ public class UnitManager : GameModule
             army.stoneTower.textInputQuantity.quantity = 0;
             army.greatTower.textInputQuantity.quantity = 0;
         }
+
+        if (File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerMaterials}.fun"))
+        {
+            PlayerMaterialsData data = SaveSystem.LoadPlayerMaterials(Global.globalInitializingClass.currentSavePlayerMaterials);
+            materials.wood.quantity = data.woodQuantity;
+            materials.stone.quantity = data.stoneQuantity;
+            materials.clay.quantity = data.clayQuantity;
+        }
+        else
+        {
+            materials.wood.quantity = 0;
+            materials.stone.quantity = 0;
+            materials.clay.quantity = 0;
+        }
+
         pikeman.text = "Pikemans " + army.pikeman.textInputQuantity.quantity.ToString();
         warrior.text = "Warriors " + army.warrior.textInputQuantity.quantity.ToString();
         knight.text = "Knights " + army.knight.textInputQuantity.quantity.ToString();
         woodTower.text = "Wood Towers " + army.woodTower.textInputQuantity.quantity.ToString();
         stoneTower.text = "Stone Towers " + army.stoneTower.textInputQuantity.quantity.ToString();
         greatTower.text = "Great Towers " + army.greatTower.textInputQuantity.quantity.ToString();
-
         moving = new Moving();
         if (Global.isArtur)
             playerArtur.SetActive(true);
         else
             playerKnight.SetActive(true);
+
         if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerPosition}.fun"))
         {
             transform.position = new Vector3(35, 0.09998721f, 30.9081f);
@@ -81,6 +97,7 @@ public class UnitManager : GameModule
             position = new Vector3(data.x, data.y, data.z);
             transform.position = position;
         }
+
     }
     private void Update()
     {
@@ -95,19 +112,30 @@ public class UnitManager : GameModule
 
         if (moving.isMove && hit.transform.gameObject.layer == LayerMask.NameToLayer("Grass"))
             Move();
-
+        SavingArmy();
     }
-
+    protected void SavingArmy()
+    {
+        if (Global.Timer(ref time))
+        {
+            SaveSystem.SavePlayerArmyData(this, Global.globalInitializingClass.currentSavePlayerArmy);
+            time = 3;
+            Debug.Log("SaveArmy!");
+        }
+    }
     private void ShotRayAndAcceptMove()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hit);
-        if (Vector3.Distance(hit.transform.position, transform.position) > 0.3f)
+        if (hit.transform.gameObject.layer != LayerMask.NameToLayer("UI"))
         {
-            animator.SetBool("isRun", true);
-            if (!audioSource.isPlaying)
-                audioSource.Play();
-            moving.AcceptMove(hit.transform.position, transform);
+            if (Vector3.Distance(hit.transform.position, transform.position) > 0.3f)
+            {
+                animator.SetBool("isRun", true);
+                if (!audioSource.isPlaying)
+                    audioSource.Play();
+                moving.AcceptMove(hit.transform.position, transform);
+            }
         }
     }
 

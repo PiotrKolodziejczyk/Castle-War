@@ -1,20 +1,31 @@
-﻿using UnityEngine.SceneManagement;
+﻿using Assets.Scripts.CastleScene.Buldings;
+using Assets.Scripts.CastleScene.Panels;
+using System.Text.RegularExpressions;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClayMine : Building
 {
     private float timeToCheck = 5;
+
+
+    private void Start()
+    {
+        MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.ClayMine.ToString(), this, castle.townHall);
+    }
+    
     private void Update()
     {
-        //if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade)
-        //    isBuild = true;
-        ElapsedTimeAndBuild(this);
-        SetResourcesToUpgrade(100, 120, 150,ref timeToCheck);
-        if (mainPanel != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
+        ElapsedTimeAndBuild();
+        if (panelMain != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
         {
-            mainPanel.youNeedMore.gameObject.SetActive(false);
-            isYouNeedMain = false;
+            if (panelMain.youNeedMore != null)
+            {
+                panelMain.youNeedMore.gameObject.SetActive(false);
+                isYouNeedMain = false;
+            }
         }
     }
-
+   
 
 }

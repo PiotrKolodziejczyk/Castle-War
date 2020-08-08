@@ -1,16 +1,15 @@
-﻿using Assets.Scripts.Interfaces;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using Assets.Scripts.HelpingClass;
+using Assets.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MaterialsTake : MonoBehaviour
+public class MaterialsTake : MonoBehaviour, IMaterials
 {
     [SerializeField] internal Player player;
     [SerializeField] internal Castle castle;
     [SerializeField] private GameObject materialsPanel;
 
+    public Materials Materials { get => player.Materials; set => player.Materials = value; }
 
     public void EnablePanel()
     {

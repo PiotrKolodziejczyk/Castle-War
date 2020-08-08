@@ -1,57 +1,21 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.BattleSceneScripts;
+using UnityEngine;
 
 public class AiBuildingInCastle : GameModule
 {
     public Castle castle;
     public float time = 20;
     public float timeToBuildPikeman = 5;
+    public float timeToBuildWarrior = 5;
+    public float timeToBuildKnight = 10;
+    public float timeToBuildWoodTower = 5;
+    public float timeToBuildStoneTower = 5;
+    public float timeToBuildGreatTower = 10;
     public float timeToNextBuild = 20;
-    public Sawmill sawmill;
-    public Quarry quarry;
-    public ClayMine clayMine;
-    public Barrack barrack;
-    public TownHall townHall;
-    public TowerWorkShop towerWorkShop;
-    public Smithy smithy;
-    public Wall wall;
 
-    //private void Awake()
-    //{
-    //    castle = GetComponentInParent<Castle>();
-    //    sawmill = GetComponentInChildren<Sawmill>();
-    //    quarry = GetComponentInChildren<Quarry>();
-    //    clayMine = GetComponentInChildren<ClayMine>();
-    //    barrack = GetComponentInChildren<Barrack>();
-    //    townHall = GetComponentInChildren<TownHall>();
-    //    towerWorkShop = GetComponentInChildren<TowerWorkShop>();
-    //    smithy = GetComponentInChildren<Smithy>();
-    //    wall = GetComponentInChildren<Wall>();
-    //    quarry.castle = castle;
-    //    clayMine.castle = castle;
-    //    barrack.castle = castle;
-    //    townHall.castle = castle;
-    //    towerWorkShop.castle = castle;
-    //    smithy.castle = castle;
-    //    wall.castle = castle;
-    //}
     public override void Initialize()
     {
         castle = GetComponentInParent<Castle>();
-        sawmill = GetComponentInChildren<Sawmill>();
-        quarry = GetComponentInChildren<Quarry>();
-        clayMine = GetComponentInChildren<ClayMine>();
-        barrack = GetComponentInChildren<Barrack>();
-        townHall = GetComponentInChildren<TownHall>();
-        towerWorkShop = GetComponentInChildren<TowerWorkShop>();
-        smithy = GetComponentInChildren<Smithy>();
-        wall = GetComponentInChildren<Wall>();
-        quarry.castle = castle;
-        clayMine.castle = castle;
-        barrack.castle = castle;
-        townHall.castle = castle;
-        towerWorkShop.castle = castle;
-        smithy.castle = castle;
-        wall.castle = castle;
     }
 
     private void Update()
@@ -60,74 +24,103 @@ public class AiBuildingInCastle : GameModule
         {
             if (Global.Timer(ref time))
             {
-                switch (Random.Range(1, 8))
-                {
-                    case 1:
-                        if (sawmill.RemoveMaterialIfisTrue(sawmill.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
-                                   sawmill.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
-                                   sawmill.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
-                            sawmill.isBuild = true;
-                        time = timeToNextBuild;
-                        break;
-                    case 2:
-                        if (quarry.RemoveMaterialIfisTrue(quarry.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
-                                   quarry.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
-                                   quarry.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
-                            quarry.isBuild = true;
-                        time = timeToNextBuild;
-                        break;
-                    case 3:
-                        if (clayMine.RemoveMaterialIfisTrue(clayMine.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
-                                   clayMine.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
-                                   clayMine.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
-                            clayMine.isBuild = true;
-                        time = timeToNextBuild;
-                        break;
-                    case 4:
-                        if (barrack.RemoveMaterialIfisTrue(barrack.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
-                                   barrack.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
-                                   barrack.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
-                            barrack.isBuild = true;
-                        time = timeToNextBuild;
-                        break;
-                    case 5:
-                        if (townHall.RemoveMaterialIfisTrue(townHall.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
-                                   townHall.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
-                                   townHall.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
-                            townHall.isBuild = true;
-                        time = timeToNextBuild;
-                        break;
-                    case 6:
-                        if (towerWorkShop.RemoveMaterialIfisTrue(towerWorkShop.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
-                                   towerWorkShop.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
-                                   towerWorkShop.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
-                            towerWorkShop.isBuild = true;
-                        time = timeToNextBuild;
-                        break;
-                    case 7:
-                        if (smithy.RemoveMaterialIfisTrue(smithy.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
-                                   smithy.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
-                                   smithy.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
-                            smithy.isBuild = true;
-                        time = timeToNextBuild;
-                        break;
-                    case 8:
-                        if (wall.RemoveMaterialIfisTrue(wall.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
-                                   wall.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
-                                   wall.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
-                            wall.isBuild = true;
-                        time = timeToNextBuild;
-                        break;
-                }
+                ChooseBuildingToBuild();
+                time = timeToNextBuild;
             }
 
             if (Global.Timer(ref timeToBuildPikeman))
             {
-                if (barrack.RemoveMaterialIfisTrue(castle.Army.pikeman.resources.clayToUpgradeLvl, castle.Army.pikeman.resources.stoneToUpgradeLvl, castle.Army.pikeman.resources.woodToUpgradeLvl))
-                    castle.Army.pikeman.textInputQuantity.quantity++;
-                timeToBuildPikeman = 10;
+                RecruitSoldier(castle.Army.pikeman);
+                timeToBuildPikeman = 5;
             }
 
+            if (Global.Timer(ref timeToBuildWarrior))
+            {
+                RecruitSoldier(castle.Army.warrior);
+                timeToBuildWarrior = 5;
+            }
+
+            if (Global.Timer(ref timeToBuildKnight))
+            {
+                RecruitSoldier(castle.Army.warrior);
+                timeToBuildKnight = 10;
+            }
+
+            if (Global.Timer(ref timeToBuildWoodTower))
+            {
+                RecruitTower(castle.Army.woodTower);
+                timeToBuildWoodTower = 5;
+            }
+
+            if (Global.Timer(ref timeToBuildStoneTower))
+            {
+                RecruitTower(castle.Army.stoneTower);
+                timeToBuildStoneTower = 5;
+            }
+
+            if (Global.Timer(ref timeToBuildGreatTower))
+            {
+                RecruitTower(castle.Army.greatTower);
+                timeToBuildGreatTower = 10;
+            }
         }
+    }
+
+    private void RecruitSoldier(Soldier soldier)
+    {
+        if (castle.barrack.RemoveMaterialIfisTrue(
+            soldier.resources.clayToUpgradeLvl,
+            soldier.resources.stoneToUpgradeLvl,
+            soldier.resources.woodToUpgradeLvl))
+            soldier.textInputQuantity.quantity++;
+    }
+
+    private void RecruitTower(Tower tower)
+    {
+        if (castle.towerWorkShop.RemoveMaterialIfisTrue(
+            tower.resources.clayToUpgradeLvl,
+            tower.resources.stoneToUpgradeLvl,
+            tower.resources.woodToUpgradeLvl))
+            tower.textInputQuantity.quantity++;
+    }
+
+    private void ChooseBuildingToBuild()
+    {
+        switch (Random.Range(1, 8))
+        {
+            case 1:
+                BuildAppropriateBuilding(castle.sawmill);
+                break;
+            case 2:
+                BuildAppropriateBuilding(castle.barrack);
+                break;
+            case 3:
+                BuildAppropriateBuilding(castle.clayMine);
+                break;
+            case 4:
+                BuildAppropriateBuilding(castle.quarry);
+                break;
+            case 5:
+                BuildAppropriateBuilding(castle.townHall);
+                break;
+            case 6:
+                BuildAppropriateBuilding(castle.towerWorkShop);
+                break;
+            case 7:
+                BuildAppropriateBuilding(castle.smithy);
+                break;
+            case 8:
+                BuildAppropriateBuilding(castle.wall);
+                break;
+        }
+    }
+
+    private void BuildAppropriateBuilding(Building building)
+    {
+        if (building.RemoveMaterialIfisTrue(
+                  building.resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
+                  building.resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
+                  building.resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
+            building.isBuild = true;
     }
 }

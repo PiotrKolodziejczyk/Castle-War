@@ -49,15 +49,44 @@ public class LoadScene : MonoBehaviour
         if (text != "Save Template")
         {
             SavingSaveData data = SaveSystem.LoadSavingData(text);
-            Global.globalInitializingClass = new GlobalInitializingClass
-            {
-                nickName = data.nickName,
-                currentSavePlayerPosition = data.currentSavePlayerPosition,
-                currentSaveAiPosition = data.currentSaveAiPosition,
-                currentSaveCastleSave = data.currentSaveCastleSave,
-                currentSavePlayerArmy = data.currentSavePlayerArmy,
-                currentSaveEnemyArmy = data.currentSaveEnemyArmy
-            };
+            Global.globalInitializingClass = new GlobalInitializingClass();
+            Global.actualPlayerName = text;
+
+            if (data.nickName != null)
+                Global.globalInitializingClass.nickName = data.nickName;
+            else
+                Global.globalInitializingClass.nickName = text;
+
+            if (data.currentSavePlayerPosition != null)
+                Global.globalInitializingClass.currentSavePlayerPosition = data.currentSavePlayerPosition;
+            else
+                Global.globalInitializingClass.currentSavePlayerPosition = "playerPosition" + text;
+
+            if (data.currentSaveAiPosition != null)
+                Global.globalInitializingClass.currentSaveAiPosition = data.currentSaveAiPosition;
+            else
+                Global.globalInitializingClass.currentSaveAiPosition = "aiPosition" + text;
+
+            if (data.currentSaveCastleSave != null)
+                Global.globalInitializingClass.currentSaveCastleSave = data.currentSaveCastleSave;
+            else
+                Global.globalInitializingClass.currentSaveCastleSave = "";
+
+            if (data.currentSavePlayerArmy != null)
+                Global.globalInitializingClass.currentSavePlayerArmy = data.currentSavePlayerArmy;
+            else
+                Global.globalInitializingClass.currentSavePlayerArmy = "playerArmy" + text;
+
+            if (data.currentSaveEnemyArmy != null)
+                Global.globalInitializingClass.currentSaveEnemyArmy = data.currentSaveEnemyArmy;
+            else
+                Global.globalInitializingClass.currentSaveEnemyArmy = "";
+
+            if (data.currentSavePlayerMaterials != null)
+                Global.globalInitializingClass.currentSavePlayerMaterials = data.currentSavePlayerMaterials;
+            else
+                Global.globalInitializingClass.currentSavePlayerMaterials = "playerMaterials" + text;
+
             Global.whichScene = "SampleScene";
             SceneManager.LoadScene("LoadingScene");
         }

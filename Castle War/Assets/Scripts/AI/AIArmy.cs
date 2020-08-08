@@ -2,12 +2,15 @@
 using System.IO;
 using UnityEngine;
 
-public class AIArmy : MonoBehaviour
+public class AIArmy : MonoBehaviour, IArmy
 {
-    public Army army;
+    Army army;
+    public Army Army { get => army; set => army = value; }
+
     private void Awake()
     {
         army = GetComponent<Army>();
+
         if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSaveEnemyArmy}.fun"))
         {
             army.pikeman.textInputQuantity.quantity = 30;
@@ -24,7 +27,7 @@ public class AIArmy : MonoBehaviour
         }
     }
 
-
+    //AI sprawdza ilosc wojsk w zamku i jezeli jest wieksza od 0 to je zabiera
     public void CheckAmontOfArmyInCastle(Castle castle)
     {
         int pikeman = castle.Army.pikeman.textInputQuantity.quantity;
@@ -49,6 +52,5 @@ public class AIArmy : MonoBehaviour
             army.knight.textInputQuantity.quantity += takeKnightAmount;
         }
         SaveSystem.SaveEnemyArmyData(this, Global.globalInitializingClass.currentSaveEnemyArmy);
-
     }
 }

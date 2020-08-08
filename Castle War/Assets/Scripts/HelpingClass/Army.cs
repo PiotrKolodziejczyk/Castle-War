@@ -10,10 +10,7 @@ namespace Assets.Scripts.CastleScene
         [SerializeField] internal Pikeman pikeman;
         [SerializeField] internal Warrior warrior;
         [SerializeField] internal Knight knight;
-        //private void Awake()
-        //{
-        //    InitializeArmy();
-        //}
+
         public override void Initialize()
         {
             InitializeArmy();
@@ -27,8 +24,11 @@ namespace Assets.Scripts.CastleScene
             knight = GetComponentInChildren<Knight>();
             knight.Initialize();
             woodTower = GetComponentInChildren<WoodTower>();
+            woodTower.Initialize();
             stoneTower = GetComponentInChildren<StoneTower>();
+            stoneTower.Initialize();
             greatTower = GetComponentInChildren<GreatTower>();
+            greatTower.Initialize();
         }
     }
 }

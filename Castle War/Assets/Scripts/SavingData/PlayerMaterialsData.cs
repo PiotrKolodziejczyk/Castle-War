@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,17 +13,12 @@ namespace Assets.Scripts.SavingData
         public int woodQuantity;
         public int stoneQuantity;
         public int clayQuantity;
-        public PlayerMaterialsData(MaterialsTake takeScript)
+
+        public PlayerMaterialsData(IMaterials materials)
         {
-            woodQuantity = takeScript.player.Materials.wood.quantity;
-            stoneQuantity = takeScript.player.Materials.stone.quantity;
-            clayQuantity = takeScript.player.Materials.clay.quantity;
-        }
-        public PlayerMaterialsData(VillageScript takeScript)
-        {
-            woodQuantity = takeScript.player.materials.wood.quantity;
-            stoneQuantity = takeScript.player.materials.stone.quantity;
-            clayQuantity = takeScript.player.materials.clay.quantity;
+            woodQuantity = materials.Materials.wood.quantity;
+            stoneQuantity = materials.Materials.stone.quantity;
+            clayQuantity = materials.Materials.clay.quantity;
         }
     }
 }

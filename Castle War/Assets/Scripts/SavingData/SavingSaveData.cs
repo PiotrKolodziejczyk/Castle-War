@@ -1,9 +1,4 @@
 ﻿using Assets.Scripts.HelpingClass;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Scripts.SavingData
 {
@@ -16,14 +11,17 @@ namespace Assets.Scripts.SavingData
         public string currentSaveAiPosition;
         public string currentSavePlayerArmy;
         public string currentSaveEnemyArmy;
+        public string currentSavePlayerMaterials;
 
         public SavingSaveData(GlobalInitializingClass data)
         {
-            this.nickName = data.nickName;
-            this.currentSaveCastleSave = data.currentSaveCastleSave;
-            this.currentSavePlayerPosition = data.currentSavePlayerPosition;
-            this.currentSaveAiPosition = data.currentSaveAiPosition;
-            this.currentSaveEnemyArmy = data.currentSaveEnemyArmy;
+            nickName = data.nickName;
+            currentSaveCastleSave = data.currentSaveCastleSave;
+            currentSavePlayerPosition = data.currentSavePlayerPosition;
+            currentSaveAiPosition = data.currentSaveAiPosition;
+            currentSavePlayerArmy = data.currentSavePlayerArmy;
+            currentSaveEnemyArmy = data.currentSaveEnemyArmy;
+            currentSavePlayerMaterials = data.currentSavePlayerMaterials;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Assets.Scripts.CastleScene.Buldings
         private Transform trening2;
         private Transform exitTrening;
         public Transform youNeedMore;
-        public GameObject InstantiatePanel()
+        public GameObject InstantiatePanelas()
         {
             panel = Instantiate(panelPrefab, GameObject.FindGameObjectWithTag("UI").transform);
             buildButton = panel.GetComponentsInChildren<Button>().Where(x => x.name == "BuildButton").First();
@@ -86,4 +86,5 @@ namespace Assets.Scripts.CastleScene.Buldings
                     trening2.gameObject.SetActive(false);
         }
     }
+
 }

@@ -10,7 +10,4 @@ public abstract class Soldier : GameModule
     public TextInputQuantity textInputQuantity;
     public ResourcesToUpgradeLvl resources;
     public Castle castle;
-
-
-    
 }

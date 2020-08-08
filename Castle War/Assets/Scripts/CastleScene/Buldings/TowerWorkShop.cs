@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
+using Assets.Scripts.CastleScene.Panels;
 using Assets.Scripts.HelpingClass;
 using System.Text.RegularExpressions;
 using TMPro;
@@ -23,28 +24,27 @@ public class TowerWorkShop : Building
     public override void Initialize()
     {
         smithy = transform.parent.GetComponentInChildren<Smithy>();
-        towersPanel = GetComponent<BuildTowerPanel>();
-        if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
-        {
-            mainPanel = GetComponent<MainPanel>();
-        }
         resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
         timePropertiesBuilding = GetComponent<TimeProperties>();
-        townHall = transform.parent.GetComponentInChildren<TownHall>();
+        if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
+        {
+            panelMain = GetComponentInParent<MainPanel1>();
+            towersPanel = GetComponent<BuildTowerPanel>();
+        }
         if (SceneManager.GetActiveScene().name == "CastleScene")
             Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.ForceSoftware);
 
+        MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.TowerWorkShop.ToString(), this, castle.townHall);
     }
 
     private void Update()
     {
-        if (mainPanel != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
+
+        if (panelMain != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
         {
-            mainPanel.youNeedMore.gameObject.SetActive(false);
+            panelMain.youNeedMore.gameObject.SetActive(false);
             isYouNeedMain = false;
         }
-        //if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade)
-        //    isBuild = true;
         if (isYouNeed && Global.Timer(ref youNeedTime))
         {
             towersPanel.youNeedMoreWoodTower.gameObject.SetActive(false);
@@ -52,14 +52,14 @@ public class TowerWorkShop : Building
             towersPanel.youNeedMoreGreatTower.gameObject.SetActive(false);
             isYouNeed = false;
         }
-        ElapsedTimeAndBuild(this);
-        SetResourcesToUpgrade(100, 120, 150, ref timeToCheck);
+        ElapsedTimeAndBuild();
 
         if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {
-            if (mainPanel.panel != null && isMainPanelOn)
+            if (panelMain.panel != null && isMainPanelOn)
             {
-                mainPanel.buildTowersButton.onClick.AddListener(() => EnableTowerPanel());
+                panelMain.buildTowersButton.onClick.RemoveAllListeners();
+                panelMain.buildTowersButton.onClick.AddListener(() => EnableTowerPanel());
                 isMainPanelOn = false;
             }
             if (isBuildWoodTower)
@@ -111,7 +111,7 @@ public class TowerWorkShop : Building
                 isYouNeed = true;
                 youNeedTime = 1f;
             }
-          
+
         });
         towersPanel.buildStoneTower.onClick.AddListener(() =>
         {
@@ -169,10 +169,9 @@ public class TowerWorkShop : Building
     }
     public void ExitTowerPanel()
     {
-        // OnEnablePanel();
         Global.mainPanelActive = false;
-        mainPanel.unlockPanel = false;
-        mainPanel.exitButton.onClick.RemoveAllListeners();
+        panelMain.unlockPanel = false;
+        panelMain.exitButton.onClick.RemoveAllListeners();
         Global.isSoldierPanelOnInCastleScene = false;
         Global.isTowerPanelOnInCastleScene = false;
         isTowerPanelOn = false;

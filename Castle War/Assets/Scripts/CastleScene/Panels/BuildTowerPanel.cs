@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.CastleScene.Buldings
 {
-    internal class BuildTowerPanel : MonoBehaviour
+    public class BuildTowerPanel : MonoBehaviour
     {
         [SerializeField] internal GameObject towerPanelPrefab;
         [SerializeField] internal ResourcesToUpgradeLvl woodTowerResourcesToUpgrade;
@@ -34,7 +34,6 @@ namespace Assets.Scripts.CastleScene.Buldings
         public Transform training;
         public void Instantiate()
         {
-            towerPanel = Instantiate(towerPanelPrefab, GameObject.FindGameObjectWithTag("UI").transform);
             exitTowerBuildButton = towerPanel.GetComponentsInChildren<Button>().Where(x => x.name == "Exit").First();
             InitializeInputFields();
             InitializeStagingTexts();

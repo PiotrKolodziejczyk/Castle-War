@@ -1,15 +1,17 @@
 ﻿using Assets.Scripts.CastleScene;
 using Assets.Scripts.HelpingClass;
+using Assets.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TakeScript : MonoBehaviour
+public class TakeScript : MonoBehaviour, IArmy, IMaterials
 {
     [SerializeField] internal Player player;
     [SerializeField] internal Castle castle;
     [SerializeField] private GameObject takePanel;
 
-
+    public Army Army { get => player.Army; set => player.Army = value; }
+    public Materials Materials { get => player.Materials; set => player.Materials = value; }
 
     public void EnablePanel()
     {

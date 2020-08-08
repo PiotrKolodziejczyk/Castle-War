@@ -1,4 +1,6 @@
 ﻿
+using Assets.Scripts.CastleScene;
+
 namespace Assets.Scripts.MainScene
 {
     [System.Serializable]
@@ -10,23 +12,14 @@ namespace Assets.Scripts.MainScene
         public int woodTowerQuantity;
         public int stoneTowerQuantity;
         public int greatTowerQuantity;
-        public PlayerArmyData(TakeScript takeScript)
+        public PlayerArmyData(IArmy army)
         {
-            pikemanQuantity = takeScript.player.Army.pikeman.textInputQuantity.quantity;
-            warriorQuantity = takeScript.player.Army.warrior.textInputQuantity.quantity;
-            knightQuantity = takeScript.player.Army.knight.textInputQuantity.quantity;
-            woodTowerQuantity = takeScript.player.Army.woodTower.textInputQuantity.quantity;
-            stoneTowerQuantity = takeScript.player.Army.stoneTower.textInputQuantity.quantity;
-            greatTowerQuantity = takeScript.player.Army.greatTower.textInputQuantity.quantity;
-        }
-        public PlayerArmyData(PlayerArmyInBattle armyScript)
-        {
-            pikemanQuantity = armyScript.army.pikeman.textInputQuantity.quantity;
-            warriorQuantity = armyScript.army.warrior.textInputQuantity.quantity;
-            knightQuantity = armyScript.army.knight.textInputQuantity.quantity;
-            woodTowerQuantity = armyScript.army.woodTower.textInputQuantity.quantity;
-            stoneTowerQuantity = armyScript.army.stoneTower.textInputQuantity.quantity;
-            greatTowerQuantity = armyScript.army.greatTower.textInputQuantity.quantity;
+            pikemanQuantity = army.Army.pikeman.textInputQuantity.quantity;
+            warriorQuantity = army.Army.warrior.textInputQuantity.quantity;
+            knightQuantity = army.Army.knight.textInputQuantity.quantity;
+            woodTowerQuantity = army.Army.woodTower.textInputQuantity.quantity;
+            stoneTowerQuantity = army.Army.stoneTower.textInputQuantity.quantity;
+            greatTowerQuantity = army.Army.greatTower.textInputQuantity.quantity;
         }
     }
 }

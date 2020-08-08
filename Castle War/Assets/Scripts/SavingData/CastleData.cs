@@ -1,4 +1,6 @@
-﻿[System.Serializable]
+﻿using Assets.Scripts.SavingData;
+
+[System.Serializable]
 public class CastleData
 {
     public string nick;
@@ -33,7 +35,7 @@ public class CastleData
     internal int layer;
     public CastleData(Castle castle)
     {
-        id = castle.id;
+        id = castle.Id;
         nick = castle.nick;
         sawmillBuildingTime = castle.sawmill.timePropertiesBuilding.timeToUpgrade;
         clayMineBuildingTime = castle.clayMine.timePropertiesBuilding.timeToUpgrade;

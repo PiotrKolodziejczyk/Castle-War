@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.CastleScene;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
@@ -10,23 +11,13 @@ public class AiArmyData
     public int woodTowerQuantity;
     public int stoneTowerQuantity;
     public int greatTowerQuantity;
-    public AiArmyData(AIEngine aiEngine)
+    public AiArmyData(IArmy aiEngine)
     {
-        pikemanQuantity = aiEngine.army.pikeman.textInputQuantity.quantity;
-        warriorQuantity = aiEngine.army.warrior.textInputQuantity.quantity;
-        knightQuantity = aiEngine.army.knight.textInputQuantity.quantity;
-        //woodTowerQuantity = aiEngine.army.woodTower.textInputQuantity.quantity;
-        //stoneTowerQuantity = aiEngine.army.stoneTower.textInputQuantity.quantity;
-        //greatTowerQuantity = aiEngine.army.greatTower.textInputQuantity.quantity;
+        pikemanQuantity = aiEngine.Army.pikeman.textInputQuantity.quantity;
+        warriorQuantity = aiEngine.Army.warrior.textInputQuantity.quantity;
+        knightQuantity = aiEngine.Army.knight.textInputQuantity.quantity;
+        woodTowerQuantity = aiEngine.Army.woodTower.textInputQuantity.quantity;
+        stoneTowerQuantity = aiEngine.Army.stoneTower.textInputQuantity.quantity;
+        greatTowerQuantity = aiEngine.Army.greatTower.textInputQuantity.quantity;
     }
-    public AiArmyData(AIArmy aiArmy)
-    {
-        pikemanQuantity = aiArmy.army.pikeman.textInputQuantity.quantity;
-        warriorQuantity = aiArmy.army.warrior.textInputQuantity.quantity;
-        knightQuantity = aiArmy.army.knight.textInputQuantity.quantity;
-        //woodTowerQuantity = aiEngine.army.woodTower.textInputQuantity.quantity;
-        //stoneTowerQuantity = aiEngine.army.stoneTower.textInputQuantity.quantity;
-        //greatTowerQuantity = aiEngine.army.greatTower.textInputQuantity.quantity;
-    }
-
 }

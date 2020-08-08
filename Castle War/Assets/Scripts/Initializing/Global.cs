@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public static class Global
 {
+    public static string actualPlayerName;
     public static int currentCastle;
     public static string whichScene = Scenes.SampleScene.ToString();
     public static bool isSoldierPanelOnInCastleScene = false;
@@ -118,5 +119,16 @@ public enum ResourcesEnum
 {
     Pikeman,
     Warrior,
-    Knight
+    Knight,
+    WoodTower,
+    StoneTower,
+    GreatTower,
+    TownHall,
+    Barrack,
+    TowerWorkShop,
+    ClayMine,
+    Quarry,
+    Sawmill,
+    Wall,
+    Smithy
 }

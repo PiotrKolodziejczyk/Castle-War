@@ -9,15 +9,11 @@ using UnityEngine;
 
 public class Player : GameModule, IArmy, IMaterials
 {
-    [SerializeField] Army army;
-    [SerializeField] Materials materials;
+    [SerializeField] private Army army;
+    [SerializeField] private Materials materials;
     public Army Army { get => army; set => army = value; }
     public Materials Materials { get => materials; set => materials = value; }
 
-    //private void Start()
-    //{
-    //    LoadAndInitializeDataFromFile();
-    //}
     public override void Initialize()
     {
         LoadAndInitializeDataFromFile();
@@ -44,7 +40,7 @@ public class Player : GameModule, IArmy, IMaterials
             Army.stoneTower.textInputQuantity.quantity = 0;
             Army.greatTower.textInputQuantity.quantity = 0;
         }
-        
+
     }
     private void LoadAndInitializeMaterialsFromFile()
     {

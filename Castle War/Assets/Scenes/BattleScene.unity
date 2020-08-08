@@ -4765,6 +4765,7 @@ MonoBehaviour:
   range: 0
   damage: 0
   textInputQuantity: {fileID: 372709209}
+  resources: {fileID: 0}
 --- !u!114 &372709209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6123,6 +6124,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 80.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349846598520971117, guid: 40be407616c8d0844b00e22f80bf6796,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.44705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349846598520971117, guid: 40be407616c8d0844b00e22f80bf6796,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349846598520971117, guid: 40be407616c8d0844b00e22f80bf6796,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.03529412
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40be407616c8d0844b00e22f80bf6796, type: 3}
@@ -10085,10 +10101,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 661068319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb46182fd0f6224c9cfda8ab63c517b, type: 3}
+  m_Script: {fileID: 11500000, guid: da4db870e40ef2c4eaf9440111464687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  army: {fileID: 0}
+  army: {fileID: 759340772}
   armyInAttack: {fileID: 1683755151}
   pikemanPrefab: {fileID: 4707857149593935494, guid: 9bcd48383ee334249a87b7e670a2a221,
     type: 3}
@@ -10868,18 +10884,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9a111f60ea8414b9142d25602ccc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castle: {fileID: 0}
+  castle: {fileID: 1666863772}
   time: 6
   timeToBuildPikeman: 5
+  timeToBuildWarrior: 5
+  timeToBuildKnight: 10
+  timeToBuildWoodTower: 5
+  timeToBuildStoneTower: 5
+  timeToBuildGreatTower: 10
   timeToNextBuild: 6
-  sawmill: {fileID: 0}
-  quarry: {fileID: 0}
-  clayMine: {fileID: 0}
-  barrack: {fileID: 0}
-  townHall: {fileID: 0}
-  towerWorkShop: {fileID: 0}
-  smithy: {fileID: 0}
-  wall: {fileID: 0}
 --- !u!1001 &723885960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12535,6 +12548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0918c2550b7b9f94fafe1f8722673e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warning: {fileID: 0}
+  defend: {fileID: 0}
 --- !u!114 &818522180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13008,6 +13023,7 @@ MonoBehaviour:
   range: 0
   damage: 0
   textInputQuantity: {fileID: 853193434}
+  resources: {fileID: 0}
 --- !u!114 &853193434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13858,6 +13874,7 @@ MonoBehaviour:
   range: 0
   damage: 0
   textInputQuantity: {fileID: 900842731}
+  resources: {fileID: 0}
 --- !u!114 &900842731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17320,6 +17337,7 @@ MonoBehaviour:
   range: 0
   damage: 0
   textInputQuantity: {fileID: 1109785793}
+  resources: {fileID: 0}
 --- !u!114 &1109785793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20026,6 +20044,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349846598520971117, guid: 40be407616c8d0844b00e22f80bf6796,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.44705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349846598520971117, guid: 40be407616c8d0844b00e22f80bf6796,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349846598520971117, guid: 40be407616c8d0844b00e22f80bf6796,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.03529412
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40be407616c8d0844b00e22f80bf6796, type: 3}
@@ -27407,7 +27440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 10
   isPlayer: 0
-  id: 200
+  Id: 200
   barrack: {fileID: 0}
   clayMine: {fileID: 0}
   quarry: {fileID: 0}
@@ -27420,6 +27453,7 @@ MonoBehaviour:
   wood: {fileID: 1666863775}
   stone: {fileID: 1666863774}
   army: {fileID: 0}
+  materials: {fileID: 0}
   castleTexture: {fileID: 0}
   normalTexture: {fileID: 0}
   enemyTexture: {fileID: 0}
@@ -27464,8 +27498,10 @@ MonoBehaviour:
   quantity: 0
   increaseQuantity: 0
   text: {fileID: 0}
+  textInCastle: {fileID: 0}
   timeToCollect: 0
   firstTimeToCollect: 0
+  input: {fileID: 0}
 --- !u!114 &1666863775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27482,8 +27518,10 @@ MonoBehaviour:
   quantity: 0
   increaseQuantity: 0
   text: {fileID: 0}
+  textInCastle: {fileID: 0}
   timeToCollect: 0
   firstTimeToCollect: 0
+  input: {fileID: 0}
 --- !u!114 &1666863776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27500,8 +27538,10 @@ MonoBehaviour:
   quantity: 0
   increaseQuantity: 0
   text: {fileID: 0}
+  textInCastle: {fileID: 0}
   timeToCollect: 0
   firstTimeToCollect: 0
+  input: {fileID: 0}
 --- !u!1001 &1667846682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30677,6 +30717,7 @@ MonoBehaviour:
   range: 0
   damage: 0
   textInputQuantity: {fileID: 1845087668}
+  resources: {fileID: 0}
 --- !u!1001 &1846242557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33795,7 +33836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85294116, g: 0.85294116, b: 0.85294116, a: 1}
+  m_Color: {r: 0.44705883, g: 1, b: 0.03529412, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -34139,6 +34180,7 @@ MonoBehaviour:
   range: 0
   damage: 0
   textInputQuantity: {fileID: 2069636785}
+  resources: {fileID: 0}
 --- !u!114 &2069636785
 MonoBehaviour:
   m_ObjectHideFlags: 0
