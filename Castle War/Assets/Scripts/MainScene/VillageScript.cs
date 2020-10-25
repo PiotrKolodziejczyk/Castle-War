@@ -39,12 +39,13 @@ public class VillageScript : MonoBehaviour, IMaterials
     }
     private void Update()
     {
-        if (!lastTimeStealBool)
-            if (Global.Timer(ref lastTimeSteal))
-            {
-                lastTimeStealBool = true;
-                lastTimeSteal = 120;
-            }
+        if (!Global.PAUSE)
+            if (!lastTimeStealBool)
+                if (Global.Timer(ref lastTimeSteal))
+                {
+                    lastTimeStealBool = true;
+                    lastTimeSteal = 120;
+                }
     }
     public void CalculateSteal()
     {

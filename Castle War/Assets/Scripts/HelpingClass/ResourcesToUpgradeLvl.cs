@@ -13,7 +13,6 @@ namespace Assets.Scripts.CastleScene.Buldings
         [SerializeField] internal Text clayToUpgradeLvlText;
         private void Update()
         {
-            //if ((transform.parent.name == "Army" && woodToUpgradeLvlText != null) || (transform.parent.name == "Buldings" && woodToUpgradeLvlText != null))
             if (woodToUpgradeLvlText != null && clayToUpgradeLvlText != null && stoneToUpgradeLvlText != null)
             {
                 woodToUpgradeLvlText.text = woodToUpgradeLvl.ToString();

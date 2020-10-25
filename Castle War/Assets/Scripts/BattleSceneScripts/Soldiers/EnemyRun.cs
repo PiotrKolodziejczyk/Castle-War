@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.HelpingClass;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class EnemyRun : GameModule
@@ -16,8 +15,7 @@ public class EnemyRun : GameModule
     public Knight knight;
     public TowerShooting towerShooting;
     public AudioSource deadSounds;
-    [SerializeField]
-    private PlayerArmyInBattle army;
+    [SerializeField] private PlayerArmyInBattle army;
     private Soldier soldier;
     public TextMeshPro damageText;
     private float time = 2;
@@ -63,14 +61,17 @@ public class EnemyRun : GameModule
 
     private void Update()
     {
-        transform.position = new Vector3(transform.position.x + (cur + curMinus * Time.deltaTime), 0,
-                                         transform.position.z + (forward + forwardMinus * Time.deltaTime));
-        if (damageText != null && damageText.text != "")
-            if (Global.Timer(ref time))
-            {
-                damageText.text = "";
-                time = 2;
-            }
+        if (!Global.PAUSE)
+        {
+            transform.position = new Vector3(transform.position.x + (cur + curMinus * Time.deltaTime), 0,
+                                             transform.position.z + (forward + forwardMinus * Time.deltaTime));
+            if (damageText != null && damageText.text != "")
+                if (Global.Timer(ref time))
+                {
+                    damageText.text = "";
+                    time = 2;
+                }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -128,8 +129,6 @@ public class EnemyRun : GameModule
 
     public void InstantiatePikeman()
     {
-        if (TrainingManager.train)
-            TrainingManager.firstTrainingLevelOnBattleScene = false;
         if (army.army.pikeman.textInputQuantity.quantity > 0)
         {
             Instantiate(pikemanPrefab, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));

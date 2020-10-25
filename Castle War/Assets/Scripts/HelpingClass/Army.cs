@@ -30,5 +30,14 @@ namespace Assets.Scripts.CastleScene
             greatTower = GetComponentInChildren<GreatTower>();
             greatTower.Initialize();
         }
+        public void InitializeArmyWhenFileNotExist(int number)
+        {
+            pikeman.textInputQuantity.quantity = number;
+            warrior.textInputQuantity.quantity = number;
+            knight.textInputQuantity.quantity = number;
+            woodTower.textInputQuantity.quantity = number;
+            stoneTower.textInputQuantity.quantity = number;
+            greatTower.textInputQuantity.quantity = number;
+        }
     }
 }

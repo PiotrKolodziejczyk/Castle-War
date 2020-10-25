@@ -3,17 +3,8 @@
 public class Stone : RawMaterial
 {
     private Quarry quarryMine;
-    //private void Awake()
-    //{
-    //    quarryMine = GetComponentInChildren<Quarry>();
-    //}
-    //private void Start()
-    //{
-    //    materialName = "Stone";
-    //}
     public override void Initialize()
     {
-        //quarryMine = transform.parent.transform.parent.GetComponentInChildren<Quarry>();
         quarryMine = transform.GetComponentInChildren<Quarry>();
         materialName = "Stone";
     }

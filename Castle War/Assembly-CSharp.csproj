@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\BattleSceneScripts\Soldiers\Pikeman.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Soldiers\Soldier.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Soldiers\Warrior.cs" />
+    <Compile Include="Assets\Scripts\BattleSceneScripts\TakeOverTexts.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Towers\GreatTower.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Towers\StoneTower.cs" />
     <Compile Include="Assets\Scripts\BattleSceneScripts\Towers\Tower.cs" />
@@ -102,7 +103,6 @@
     <Compile Include="Assets\Scripts\CastleScene\Panels\BuildSoldierPanel.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Panels\BuildTowerPanel.cs" />
     <Compile Include="Assets\Scripts\CastleScene\Panels\MainPanel.cs" />
-    <Compile Include="Assets\Scripts\CastleScene\Panels\MainPanel1.cs" />
     <Compile Include="Assets\Scripts\CastleScene\RawMaterials\Clay.cs" />
     <Compile Include="Assets\Scripts\CastleScene\RawMaterials\RawMaterial.cs" />
     <Compile Include="Assets\Scripts\CastleScene\RawMaterials\Stone.cs" />
@@ -122,6 +122,9 @@
     <Compile Include="Assets\Scripts\Initializing\Global.cs" />
     <Compile Include="Assets\Scripts\Initializing\GlobalInitializingClass.cs" />
     <Compile Include="Assets\Scripts\Initializing\Initializing.cs" />
+    <Compile Include="Assets\Scripts\Initializing\Tutorial.cs" />
+    <Compile Include="Assets\Scripts\Initializing\TutorialRun.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\Development.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IArmy.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IMaterials.cs" />
     <Compile Include="Assets\Scripts\MainScene\Castle.cs" />
@@ -144,10 +147,6 @@
     <Compile Include="Assets\Scripts\SavingData\PlayerPositionData.cs" />
     <Compile Include="Assets\Scripts\SavingData\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\SavingData\SavingSaveData.cs" />
-    <Compile Include="Assets\Scripts\Trening\CastleTraining.cs" />
-    <Compile Include="Assets\Scripts\Trening\Training.cs" />
-    <Compile Include="Assets\Scripts\Trening\TrainingManager.cs" />
-    <Compile Include="Assets\Scripts\Trening\Tutorial.cs" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\External Resources\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\External Resources\MedievalTownExteriors\Readme.txt" />

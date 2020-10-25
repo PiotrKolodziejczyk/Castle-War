@@ -12,5 +12,12 @@ namespace Assets.Scripts.HelpingClass
         [SerializeField] internal Wood wood;
         [SerializeField] internal Stone stone;
         [SerializeField] internal Clay clay;
+
+        public void InitializeMaterialsWhenFileNotExist(int number)
+        {
+            wood.quantity = number;
+            stone.quantity = number;
+            clay.quantity = number;
+        }
     }
 }

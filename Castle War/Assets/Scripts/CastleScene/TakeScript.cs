@@ -30,10 +30,6 @@ public class TakeScript : MonoBehaviour, IArmy, IMaterials
         player.Army.pikeman.textInputQuantity.input.text = player.Army.pikeman.textInputQuantity.quantity.ToString();
         player.Army.warrior.textInputQuantity.input.text = player.Army.warrior.textInputQuantity.quantity.ToString();
         player.Army.knight.textInputQuantity.input.text = player.Army.knight.textInputQuantity.quantity.ToString();
-        if (TrainingManager.firstLevelOfTrainingCastleScene)
-            TrainingManager.sevenTrainingLevelOnCastleScene = true;
-        if (TrainingManager.secondLevelOfTrainingCastleScene)
-            TrainingManager.switchToCastle = true;
     }
     public void ExitPanel()
     {
@@ -44,22 +40,10 @@ public class TakeScript : MonoBehaviour, IArmy, IMaterials
     public void SwitchToPlayer()
     {
         SwitchingAllArmy(castle, player);
-        if (TrainingManager.firstLevelOfTrainingCastleScene)
-        {
-            TrainingManager.sixTrainingLevelOnCastleScene = false;
-            TrainingManager.sevenTrainingLevelOnCastleScene = false;
-            TrainingManager.eightTrainingLevelOnCastleScene = true;
-        }
     }
     public void SwitchToCastle()
     {
         SwitchingAllArmy(player, castle);
-        if (TrainingManager.secondLevelOfTrainingCastleScene)
-        {
-            TrainingManager.elevenTrainingLevelOnCastleScene = false;
-            TrainingManager.switchToCastle = false;
-            TrainingManager.twelveTrainingLevelOnCastleScene = true;
-        }
     }
     public void SwitchingAllArmy(IArmy from, IArmy to)
     {

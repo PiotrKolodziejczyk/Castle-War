@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts.HelpingClass;
+using Assets.Scripts.Initializing;
+using Assets.Scripts.Interfaces;
 using Assets.Scripts.SavingData;
 using TMPro;
 using UnityEngine;
@@ -15,31 +17,23 @@ public class LoadScene : MonoBehaviour
     public GameObject options;
     public void LoadNewGame()
     {
+        Development.NewGame = true;
+        Tutorial.sampleSceneTutorial = true;
+        Tutorial.castleSceneTutorial = true;
+        Tutorial.battleSceneTutorial = true;
         Initializing.Load(nickName.text, savingData);
         Global.whichScene = "SampleScene";
         SceneManager.LoadScene("LoadingScene");
     }
     public void ToMap()
     {
-        if (TrainingManager.train && !TrainingManager.firstLevelOfTrainingCastleScene)
-        {
-            TrainingManager.firstLevelOfTrainingBattleScene = false;
-        }
-        if (TrainingManager.firstLevelOfTrainingCastleScene)
-        {
-            TrainingManager.secondTrainingLevelOnMainScene = true;
-            TrainingManager.firstLevelOfTrainingCastleScene = false;
-            TrainingManager.secondLevelOfTrainingCastleScene = true;
-        }
-        if (TrainingManager.secondLevelOfTrainingCastleScene)
-        {
-            TrainingManager.secondLevelOfTrainingCastleScene = false;
-        }
+        Global.PAUSE = false;
         Global.whichScene = "SampleScene";
         SceneManager.LoadScene("LoadingScene");
     }
     public void ToMenu()
     {
+        Global.PAUSE = false;
         Global.whichScene = "Menu";
         SceneManager.LoadScene("LoadingScene");
     }

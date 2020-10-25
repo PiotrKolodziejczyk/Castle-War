@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.BattleSceneScripts;
 using Assets.Scripts.CastleScene.Buldings;
-using UnityEngine;
 
 public abstract class Soldier : GameModule
 {

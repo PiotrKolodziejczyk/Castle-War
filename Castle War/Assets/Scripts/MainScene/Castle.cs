@@ -53,7 +53,7 @@ public class Castle : GameModule, IArmy, IMaterials
     public override void Initialize()
     {
         if (SceneManager.GetActiveScene().name == "SampleScene")
-            points = GetComponentsInChildren<TextMeshPro>().Where(x => x.name == "Text (TMP)").First();
+            points = GetComponentsInChildren<TextMeshPro>().Where(x => x.name == "Points").First();
         if (transform.gameObject.layer == LayerMask.NameToLayer("BattleSceneCastle"))
             AttackOrDefense = FindObjectOfType<AttackOrDefense>();
         if (transform.gameObject.layer == LayerMask.NameToLayer("BattleSceneCastle"))
@@ -99,14 +99,7 @@ public class Castle : GameModule, IArmy, IMaterials
                 army.greatTower.textInputQuantity.quantity = data.greatTowerQuantity;
             }
             else
-            {
-                army.pikeman.textInputQuantity.quantity = 0;
-                army.warrior.textInputQuantity.quantity = 0;
-                army.knight.textInputQuantity.quantity = 0;
-                army.woodTower.textInputQuantity.quantity = 0;
-                army.stoneTower.textInputQuantity.quantity = 0;
-                army.greatTower.textInputQuantity.quantity = 0;
-            }
+                Army.InitializeArmyWhenFileNotExist(0);
         }
         if (Id == 200)
             Id = Global.currentCastle;
@@ -136,14 +129,8 @@ public class Castle : GameModule, IArmy, IMaterials
         }
 
     }
-
     private void Update()
     {
-        //if (!Global.isCursorOn)
-        //{
-        //    Cursor.SetCursor(normalTexture, Vector2.zero, CursorMode.ForceSoftware);
-        //    Global.isCursorOn = true;
-        //}
         if (points != null)
             points.text = CaluclatePoints();
         Saving(this);

@@ -24,7 +24,7 @@ public class Barrack : Building
         timePropertiesBuilding = GetComponent<TimeProperties>();
         if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {
-            panelMain = GetComponentInParent<MainPanel1>();
+            panelMain = GetComponentInParent<MainPanel>();
         }
 
         if (SceneManager.GetActiveScene().name == "CastleScene")
@@ -171,11 +171,6 @@ public class Barrack : Building
                                    soldierPanel.pikemanResourcesToUpgrade.woodToUpgradeLvl * int.Parse(soldierPanel.pikemanLabel.text)))
             {
                 DoWhenHaveMaterials(ref soldierPanel.pikemanStaging, soldierPanel.pikemanLabel, soldierPanel.pikemanStagingText, ref isBuildPikeman);
-                if (TrainingManager.firstLevelOfTrainingCastleScene)
-                {
-                    TrainingManager.sixTrainingLevelOnCastleScene = true;
-                    TrainingManager.fiveTrainingLevelOnCastleScene = false;
-                }
             }
             else
             {
@@ -200,6 +195,6 @@ public class Barrack : Building
     private void OnMouseDown()
     {
         if (!Global.mainPanelActive && Global.isSoldierPanelOnInCastleScene == false && Global.isTowerPanelOnInCastleScene == false)
-            OnEnablePanel1();
+            OnEnablePanel();
     }
 }

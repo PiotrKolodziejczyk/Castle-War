@@ -17,7 +17,6 @@ public class UnitManager : GameModule, IArmy
     public Moving moving;
     private readonly float startTime;
     public Camera cam;
-    public EnableMap map;
     public float x;
     public float y;
     public float z;
@@ -101,18 +100,21 @@ public class UnitManager : GameModule, IArmy
     }
     private void Update()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(ray, out hit1);
-        cam.transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z + z);
-
-        if (!Global.treningPanelsActive && Global.active && Input.GetMouseButtonDown(0) && hit1.transform.gameObject.layer == LayerMask.NameToLayer("Grass") /*&& !moving.isMove*/)
+        if (!Global.PAUSE)
         {
-            ShotRayAndAcceptMove();
-        }
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Physics.Raycast(ray, out hit1);
+            cam.transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z + z);
 
-        if (moving.isMove && hit.transform.gameObject.layer == LayerMask.NameToLayer("Grass"))
-            Move();
-        SavingArmy();
+            if (!Global.treningPanelsActive && Global.active && Input.GetMouseButtonDown(0) && hit1.transform.gameObject.layer == LayerMask.NameToLayer("Grass") /*&& !moving.isMove*/)
+            {
+                ShotRayAndAcceptMove();
+            }
+
+            if (moving.isMove && hit.transform.gameObject.layer == LayerMask.NameToLayer("Grass"))
+                Move();
+            SavingArmy();
+        }
     }
     protected void SavingArmy()
     {

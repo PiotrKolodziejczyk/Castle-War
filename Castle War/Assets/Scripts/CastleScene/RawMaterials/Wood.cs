@@ -4,17 +4,8 @@ public class Wood : RawMaterial
 {
     private Sawmill sawmill;
     private float timeToCheckLevel = 1;
-    //private void Awake()
-    //{
-    //    sawmill = GetComponentInChildren<Sawmill>();
-    //}
-    //private void Start()
-    //{
-    //    materialName = "Wood";
-    //}
     public override void Initialize()
     {
-        //sawmill = transform.parent.transform.parent.GetComponentInChildren<Sawmill>();
         sawmill = transform.GetComponentInChildren<Sawmill>();
         materialName = "Wood";
     }

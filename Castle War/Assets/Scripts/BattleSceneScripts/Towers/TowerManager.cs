@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.HelpingClass;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,28 +33,31 @@ public class TowerManager : MonoBehaviour
 
     private void Update()
     {
-        if (isDraggingTower)
+        if (!Global.PAUSE)
         {
-            MoveTowerToMouse();
-            if (Input.GetMouseButtonDown(0) && tower.GetComponent<TowerManager>().building && tower.GetComponent<TowerManager>().mightBuilding)
+            if (isDraggingTower)
             {
-                StopDragging();
+                MoveTowerToMouse();
+                if (Input.GetMouseButtonDown(0) && tower.GetComponent<TowerManager>().building && tower.GetComponent<TowerManager>().mightBuilding)
+                {
+                    StopDragging();
+                }
             }
-        }
-        if (building && mightBuilding && regex.IsMatch(name) && gameObject.layer == 11)
-        {
-            MeshRenderer[] meshList = GetComponentsInChildren<MeshRenderer>();
-            for (int i = 0; i < meshList.Length; i++)
+            if (building && mightBuilding && regex.IsMatch(name) && gameObject.layer == 11)
             {
-                meshList[i].material.color = Color.white;
+                MeshRenderer[] meshList = GetComponentsInChildren<MeshRenderer>();
+                for (int i = 0; i < meshList.Length; i++)
+                {
+                    meshList[i].material.color = Color.white;
+                }
             }
-        }
-        else if (regex.IsMatch(name) && gameObject.layer == 11)
-        {
-            MeshRenderer[] meshList = GetComponentsInChildren<MeshRenderer>();
-            for (int i = 0; i < meshList.Length; i++)
+            else if (regex.IsMatch(name) && gameObject.layer == 11)
             {
-                meshList[i].material.color = Color.red;
+                MeshRenderer[] meshList = GetComponentsInChildren<MeshRenderer>();
+                for (int i = 0; i < meshList.Length; i++)
+                {
+                    meshList[i].material.color = Color.red;
+                }
             }
         }
     }
@@ -88,11 +90,6 @@ public class TowerManager : MonoBehaviour
 
     public void InstantiateWoodTower()
     {
-        if (TrainingManager.train)
-        {
-            TrainingManager.secondLevelOfTrainingBattleScene = false;
-        }
-
         if (!isDraggingTower && castle.Army.woodTower.textInputQuantity.quantity > 0)
         {
             castle.Army.woodTower.textInputQuantity.quantity--;

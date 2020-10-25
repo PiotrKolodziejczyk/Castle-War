@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.HelpingClass;
-using Assets.Scripts.Trening;
-using System.Linq;
+﻿using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,30 +28,24 @@ public class CastleManager : GameModule
     }
     private void OnMouseDown()
     {
-
-        if ((menuPlayerCastle == null || menuPlayerCastle.activeSelf == false) && castle.isPlayer && !Global.isAttackEnemy)
+        if (!Global.PAUSE)
         {
-            if (!Tutorial.tutorialOn)
-                CreateCastleMiniMenuForPlayer();
-            else if(transform.name == "Castle(Clone) (18)")
+            if ((menuPlayerCastle == null || menuPlayerCastle.activeSelf == false) && castle.isPlayer && !Global.isAttackEnemy)
             {
                 CreateCastleMiniMenuForPlayer();
-                Tutorial.Next();
+            }
+
+            if ((menuEnemyCastle == null || menuEnemyCastle.activeSelf == false) && !castle.isPlayer && !Global.isAttackEnemy)
+            {
+                menuEnemyCastle = Instantiate(prefabEnemy, transform);
+                menuEnemyCastle.SetActive(true);
+                Global.active = false;
+                toMap = menuEnemyCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonToMap").First();
+                toMap.onClick.AddListener(() => { ToMapFromEnemy(); });
+                toCastle = menuEnemyCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonToCastle").First();
+                toCastle.onClick.AddListener(() => { GoToBattle(); });
             }
         }
-
-
-        if ((menuEnemyCastle == null || menuEnemyCastle.activeSelf == false) && !castle.isPlayer && !Global.isAttackEnemy)
-        {
-            menuEnemyCastle = Instantiate(prefabEnemy, transform);
-            menuEnemyCastle.SetActive(true);
-            Global.active = false;
-            toMap = menuEnemyCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonToMap").First();
-            toMap.onClick.AddListener(() => { ToMapFromEnemy(); });
-            toCastle = menuEnemyCastle.GetComponentsInChildren<Button>().Where(x => x.transform.name == "ButtonToCastle").First();
-            toCastle.onClick.AddListener(() => { GoToBattle(); });
-        }
-
 
         //if (isPlayerHere && castle.isPlayer)
         //    Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.CastleScene, castle.id);
@@ -83,31 +75,24 @@ public class CastleManager : GameModule
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
+        {
             isPlayerHere = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Player")
+        {
             isPlayerHere = false;
+        }
     }
     public void GoToCastle()
     {
-        if (TrainingManager.train)
-        {
-            TrainingManager.firstTrainingLevelOnMainScene = false;
-            TrainingManager.secondTrainingLevelOnMainScene = true;
-            TrainingManager.firstTrainingLevelOnCastleScene = true;
-        }
         Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.CastleScene, castle.Id);
     }
     public void GoToBattle()
     {
-        if (TrainingManager.train)
-        {
-            TrainingManager.firstLevelOfTrainingBattleScene = true;
-            TrainingManager.secondTrainingLevelOnMainScene = false;
-        }
         Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.BattleScene, castle.Id);
     }
     public void OnInputChangeName()

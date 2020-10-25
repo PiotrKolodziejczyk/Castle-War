@@ -20,11 +20,14 @@ public class TowerShooting : GameModule
 
     private void Update()
     {
-        if (isShooting)
+        if (!Global.PAUSE)
         {
-            time -= Time.deltaTime;
+            if (isShooting)
+            {
+                time -= Time.deltaTime;
+            }
+            BulletCleaner();
         }
-        BulletCleaner();
     }
 
     private void BulletCleaner()

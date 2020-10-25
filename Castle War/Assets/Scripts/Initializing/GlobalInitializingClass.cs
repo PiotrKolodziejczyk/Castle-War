@@ -15,6 +15,5 @@ namespace Assets.Scripts.HelpingClass
         public string currentSaveAiPosition;
         public string currentSavePlayerArmy;
         public string currentSaveEnemyArmy;
-
     }
 }

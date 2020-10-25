@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.BattleSceneScripts;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AiBuildingInCastle : GameModule
 {
@@ -20,50 +19,51 @@ public class AiBuildingInCastle : GameModule
 
     private void Update()
     {
-        if (!castle.isPlayer)
-        {
-            if (Global.Timer(ref time))
+        if (!Global.PAUSE)
+            if (!castle.isPlayer)
             {
-                ChooseBuildingToBuild();
-                time = timeToNextBuild;
-            }
+                if (Global.Timer(ref time))
+                {
+                    ChooseBuildingToBuild();
+                    time = timeToNextBuild;
+                }
 
-            if (Global.Timer(ref timeToBuildPikeman))
-            {
-                RecruitSoldier(castle.Army.pikeman);
-                timeToBuildPikeman = 5;
-            }
+                if (Global.Timer(ref timeToBuildPikeman))
+                {
+                    RecruitSoldier(castle.Army.pikeman);
+                    timeToBuildPikeman = 5;
+                }
 
-            if (Global.Timer(ref timeToBuildWarrior))
-            {
-                RecruitSoldier(castle.Army.warrior);
-                timeToBuildWarrior = 5;
-            }
+                if (Global.Timer(ref timeToBuildWarrior))
+                {
+                    RecruitSoldier(castle.Army.warrior);
+                    timeToBuildWarrior = 5;
+                }
 
-            if (Global.Timer(ref timeToBuildKnight))
-            {
-                RecruitSoldier(castle.Army.warrior);
-                timeToBuildKnight = 10;
-            }
+                if (Global.Timer(ref timeToBuildKnight))
+                {
+                    RecruitSoldier(castle.Army.warrior);
+                    timeToBuildKnight = 10;
+                }
 
-            if (Global.Timer(ref timeToBuildWoodTower))
-            {
-                RecruitTower(castle.Army.woodTower);
-                timeToBuildWoodTower = 5;
-            }
+                if (Global.Timer(ref timeToBuildWoodTower))
+                {
+                    RecruitTower(castle.Army.woodTower);
+                    timeToBuildWoodTower = 5;
+                }
 
-            if (Global.Timer(ref timeToBuildStoneTower))
-            {
-                RecruitTower(castle.Army.stoneTower);
-                timeToBuildStoneTower = 5;
-            }
+                if (Global.Timer(ref timeToBuildStoneTower))
+                {
+                    RecruitTower(castle.Army.stoneTower);
+                    timeToBuildStoneTower = 5;
+                }
 
-            if (Global.Timer(ref timeToBuildGreatTower))
-            {
-                RecruitTower(castle.Army.greatTower);
-                timeToBuildGreatTower = 10;
+                if (Global.Timer(ref timeToBuildGreatTower))
+                {
+                    RecruitTower(castle.Army.greatTower);
+                    timeToBuildGreatTower = 10;
+                }
             }
-        }
     }
 
     private void RecruitSoldier(Soldier soldier)

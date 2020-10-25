@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
 using Assets.Scripts.CastleScene.Panels;
-using Assets.Scripts.Trening;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,13 +24,8 @@ public class Smithy : Building
 
     private void OnMouseDown()
     {
-        if (!Global.mainPanelActive && Global.isSoldierPanelOnInCastleScene == false && Global.isTowerPanelOnInCastleScene == false && !Tutorial.tutorialOn)
-            OnEnablePanel1();
-        else if(!Global.mainPanelActive && Global.isSoldierPanelOnInCastleScene == false && Global.isTowerPanelOnInCastleScene == false && Tutorial.tutorialOn)
-        {
-            OnEnablePanel1();
-            Tutorial.Next();
-        }
+        if (!Global.mainPanelActive && Global.isSoldierPanelOnInCastleScene == false && Global.isTowerPanelOnInCastleScene == false)
+            OnEnablePanel();
     }
 }
 

@@ -60,7 +60,7 @@ Transform:
   - {fileID: 2449365685356760731}
   - {fileID: 6917828119876326343}
   - {fileID: 1137312105888282895}
-  - {fileID: 506718423793343643}
+  - {fileID: 4094553760367737193}
   - {fileID: 2989579006871063446}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3025c34f8775c84fa5348ba046a93b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 506718423793343525}
+  menu: {fileID: 3849199648768307311}
   stealPanel: {fileID: 4140212724425700703}
   player: {fileID: 0}
   woodText: {fileID: 5530279543809276649}
@@ -202,7 +202,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_text: Village
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1550,13 +1550,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59de4e5c4465f00449a489846b1f7160, type: 3}
---- !u!1 &506718423793343525 stripped
+--- !u!1 &3849199648768307311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3630784306369899816, guid: 59de4e5c4465f00449a489846b1f7160,
     type: 3}
   m_PrefabInstance: {fileID: 506718423793343815}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &506718423793343643 stripped
+--- !u!4 &4094553760367737193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4601270668026995758, guid: 59de4e5c4465f00449a489846b1f7160,
     type: 3}

@@ -23,24 +23,25 @@ public class AiBuildingTowers : GameModule
 
     private void Update()
     {
-        if (!castle.isPlayer && Global.aiActive)
-        {
-            if (Global.Timer(ref timerToBuildWoodTower))
+        if (!Global.PAUSE)
+            if (!castle.isPlayer && Global.aiActive)
             {
-                BuildWoodTower();
-                timerToBuildWoodTower = 4;
+                if (Global.Timer(ref timerToBuildWoodTower))
+                {
+                    BuildWoodTower();
+                    timerToBuildWoodTower = 4;
+                }
+                if (Global.Timer(ref timerToBuildStoneTower))
+                {
+                    BuildStoneTower();
+                    timerToBuildStoneTower = 6;
+                }
+                if (Global.Timer(ref timerToBuildGreatTower))
+                {
+                    BuildGreatTower();
+                    timerToBuildGreatTower = 10;
+                }
             }
-            if (Global.Timer(ref timerToBuildStoneTower))
-            {
-                BuildStoneTower();
-                timerToBuildStoneTower = 6;
-            }
-            if (Global.Timer(ref timerToBuildGreatTower))
-            {
-                BuildGreatTower();
-                timerToBuildGreatTower = 10;
-            }
-        }
     }
     public void BuildStoneTower()
     {

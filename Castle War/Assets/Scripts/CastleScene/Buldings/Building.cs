@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
 using Assets.Scripts.CastleScene.Panels;
-using Assets.Scripts.HelpingClass;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
@@ -22,8 +21,10 @@ public class Building : GameModule
     [SerializeField] internal Texture2D buildCursor;
     public float youNeedTimeMain = 0;
     public bool isYouNeedMain = false;
-    public MainPanel1 panelMain;
+    public MainPanel panelMain;
     [SerializeField] internal TimeProperties timePropertiesBuilding;
+    [SerializeField] Sprite image;
+    [SerializeField] TextMeshProUGUI textInMainPanel;
     #endregion
     #region Main Method
 
@@ -31,27 +32,25 @@ public class Building : GameModule
     {
         if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {
-            panelMain = GetComponentInParent<MainPanel1>();
+            panelMain = GetComponentInParent<MainPanel>();
         }
         resourcesToUpgradeBuildingLvl = GetComponent<ResourcesToUpgradeLvl>();
         timePropertiesBuilding = GetComponent<TimeProperties>();
         if (SceneManager.GetActiveScene().name == "CastleScene")
+        {
             Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.ForceSoftware);
+        }
     }
 
     public void BuildBuilding()
     {
-        if (TrainingManager.firstLevelOfTrainingCastleScene)
-        {
-            TrainingManager.secondTrainingLevelOnCastleScene = false;
-            TrainingManager.exitTrening = true;
-            TrainingManager.thirdTrainingLevelOnCastleScene = true;
-        }
 
         if (RemoveMaterialIfisTrue(resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
                                    resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
                                    resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))
+        {
             isBuild = true;
+        }
         else
         {
             var youNeedMore = panelMain.youNeedMore.GetComponentInChildren<TextMeshProUGUI>();
@@ -83,6 +82,13 @@ public class Building : GameModule
             {
                 level++;
                 timePropertiesBuilding.timeToUpgrade = timePropertiesBuilding.startTimeToUpgrade;
+
+                if (panelMain != null && panelMain.levelInPanel.text.Contains(transform.name))
+                    panelMain.levelInPanel.text = SetText(transform.name, level);
+
+                if (SceneManager.GetActiveScene().name == "CastleScene")
+                    buildingText.text = SetText(transform.name, level);
+
                 isBuild = false;
             }
         }
@@ -93,9 +99,13 @@ public class Building : GameModule
         if (SceneManager.GetActiveScene().name == "CastleScene" && panelMain.levelInPanel.text.Contains(transform.name))
         {
             if (isBuild)
+            {
                 panelMain.buildButton.interactable = false;
+            }
             else if (!panelMain.buildButton.interactable)
+            {
                 panelMain.buildButton.interactable = true;
+            }
         }
     }
 
@@ -103,7 +113,10 @@ public class Building : GameModule
     {
         timeToCollect -= Time.deltaTime;
         if (isSoldierPanelOn || isTowerPanelOn)
+        {
             timeText.text = timeToCollect.ToString();
+        }
+
         if (timeToCollect < 0)
         {
             castleWhatBuild += 1;
@@ -114,10 +127,11 @@ public class Building : GameModule
                 timeText.text = timeToCollect.ToString();
             }
             --staging;
-            if (isSoldierPanelOn || isTowerPanelOn)
-                stagingText.text = staging.ToString();
+            stagingText.text = staging.ToString();
             if (staging <= 0)
+            {
                 isBuild = false;
+            }
         }
     }
     public void DoWhenHaveMaterials(ref int staging, InputField label, Text stagingText, ref bool isBuild)
@@ -131,19 +145,25 @@ public class Building : GameModule
     private void OnMouseDown()
     {
         if (!Global.mainPanelActive && Global.isSoldierPanelOnInCastleScene == false && Global.isTowerPanelOnInCastleScene == false)
-            OnEnablePanel1();
+        {
+            OnEnablePanel();
+        }
     }
 
     private void OnMouseEnter()
     {
         if (transform.parent.name == "Buldings" && SceneManager.GetActiveScene().name == "CastleScene")
+        {
             Cursor.SetCursor(buildCursor, Vector2.zero, CursorMode.ForceSoftware);
+        }
     }
 
     private void OnMouseExit()
     {
         if (transform.parent.name == "Buldings" && SceneManager.GetActiveScene().name == "CastleScene")
+        {
             Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.ForceSoftware);
+        }
     }
     #endregion
     #region Additional Methods
@@ -157,18 +177,21 @@ public class Building : GameModule
         return $"{level} Level";
     }
 
-    public void OnEnablePanel1()
+    public void OnEnablePanel()
     {
         Global.mainPanelActive = true;
         panelMain.panel.SetActive(true);
-
+        panelMain.mainImage.sprite = image;
+        panelMain.textInMainPanel.text = textInMainPanel.text;
         if (this == FindObjectOfType<Barrack>())
         {
             panelMain.buildSoldierButton.gameObject.SetActive(true);
             Global.isSoldierPanelOnInCastleScene = true;
         }
         else
+        {
             panelMain.buildSoldierButton.gameObject.SetActive(false);
+        }
 
         if (this == FindObjectOfType<TowerWorkShop>())
         {
@@ -176,7 +199,9 @@ public class Building : GameModule
             Global.isTowerPanelOnInCastleScene = true;
         }
         else
+        {
             panelMain.buildTowersButton.gameObject.SetActive(false);
+        }
 
         InitializeMainBuildingPanel();
     }
@@ -187,6 +212,7 @@ public class Building : GameModule
         panelMain.unlockPanel = false;
         panelMain.exitButton.onClick.RemoveAllListeners();
         timePropertiesBuilding.text = null;
+        panelMain.levelInPanel.text = "";
         Global.isSoldierPanelOnInCastleScene = false;
         Global.isTowerPanelOnInCastleScene = false;
         Global.mainPanelActive = false;
@@ -202,6 +228,7 @@ public class Building : GameModule
         panelMain.buildingResourcesToUpgrade.woodToUpgradeLvl = resourcesToUpgradeBuildingLvl.woodToUpgradeLvl;
         panelMain.buildingResourcesToUpgrade.clayToUpgradeLvl = resourcesToUpgradeBuildingLvl.clayToUpgradeLvl;
         timePropertiesBuilding.text = panelMain.timeText;
+        panelMain.levelInPanel.text = buildingText.text;
         panelMain.buildButton.onClick.AddListener(() => BuildBuilding());
         panelMain.exitButton.onClick.AddListener(() => ExitPanel());
         isMainPanelOn = true;

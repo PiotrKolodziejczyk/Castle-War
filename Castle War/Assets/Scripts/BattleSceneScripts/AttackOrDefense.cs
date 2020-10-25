@@ -15,10 +15,6 @@ public class AttackOrDefense : MonoBehaviour
     [SerializeField] private GameObject trainin3;
     public void SetCanvas()
     {
-        if (TrainingManager.firstLevelOfTrainingBattleScene && TrainingManager.firstTrainingLevelOnBattleScene)
-            training1.SetActive(true);
-        if (TrainingManager.secondLevelOfTrainingBattleScene)
-            trainin3.SetActive(true);
         if (!castle.isPlayer)
         {
             woodTower.SetActive(false);
@@ -30,18 +26,6 @@ public class AttackOrDefense : MonoBehaviour
             pikeman.SetActive(false);
             warrior.SetActive(false);
             knight.SetActive(false);
-        }
-    }
-    private void Update()
-    {
-        if (TrainingManager.firstLevelOfTrainingBattleScene && !TrainingManager.firstTrainingLevelOnBattleScene && !trainin2.activeSelf)
-        {
-            training1.SetActive(false);
-            trainin2.SetActive(true);
-        }
-        if (!TrainingManager.secondLevelOfTrainingBattleScene && trainin3.activeSelf)
-        {
-            trainin3.SetActive(false);
         }
     }
 }

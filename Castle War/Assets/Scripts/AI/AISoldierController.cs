@@ -45,19 +45,20 @@ public class AISoldierController : GameModule, IArmy
 
     private void Update()
     {
-        if (castle.isPlayer && isInitialize && Global.aiActive)
-        {
-            if (Global.Timer(ref time))
+        if (!Global.PAUSE)
+            if (castle.isPlayer && isInitialize && Global.aiActive)
             {
-                InstantiatePikeman();
-                InstantiateWarrior();
-                InstantiateKnight();
+                if (Global.Timer(ref time))
+                {
+                    InstantiatePikeman();
+                    InstantiateWarrior();
+                    InstantiateKnight();
+                }
+                if (isInitialize && isPlayer && army.pikeman.textInputQuantity.quantity == 0 && army.warrior.textInputQuantity.quantity == 0 && army.knight.textInputQuantity.quantity == 0)
+                {
+                    DefendPanel.SetActive(true);
+                }
             }
-            if (isInitialize && isPlayer && army.pikeman.textInputQuantity.quantity == 0 && army.warrior.textInputQuantity.quantity == 0 && army.knight.textInputQuantity.quantity == 0)
-            {
-                DefendPanel.SetActive(true);
-            }
-        }
     }
     public void Defend()
     {

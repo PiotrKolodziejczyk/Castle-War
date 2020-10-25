@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.HelpingClass;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class HowMuchSoldierIncomeCount : MonoBehaviour
@@ -23,19 +22,17 @@ public class HowMuchSoldierIncomeCount : MonoBehaviour
 
     private void Update()
     {
-        if (!castle.isPlayer && count >= soldiersToWin && !LosePanel.activeSelf)
-            PlayerWin();
-        if (castle.isPlayer && count >= soldiersToWin && !WinPanel.activeSelf)
-            EnemyWin();
+        if (!Global.PAUSE)
+        {
+            if (!castle.isPlayer && count >= soldiersToWin && !LosePanel.activeSelf)
+                PlayerWin();
+            if (castle.isPlayer && count >= soldiersToWin && !WinPanel.activeSelf)
+                EnemyWin();
+        }
     }
     public void PlayerWin()
     {
         SaveCastleAndSetAppropriateTagAndLayer(true, "PlayerCastle", "I");
-        if (TrainingManager.train)
-        {
-            TrainingManager.thirdTrainingLevelOnMainScene = true;
-            Global.isAttackEnemy = true;
-        }
         WinPanel.SetActive(true);
         Global.aiActive = false;
     }
@@ -43,8 +40,6 @@ public class HowMuchSoldierIncomeCount : MonoBehaviour
     {
         SaveCastleAndSetAppropriateTagAndLayer(false, "Untagged", "Enemy");
         LosePanel.SetActive(true);
-        if (TrainingManager.train)
-            TrainingManager.endTraining = true;
         Global.aiActive = false;
     }
     public void Win()
@@ -60,12 +55,6 @@ public class HowMuchSoldierIncomeCount : MonoBehaviour
 
     private void SaveCastleAndSetAppropriateTagAndLayer(bool isPlayer, string tag, string layer)
     {
-        if (TrainingManager.train)
-        {
-            TrainingManager.secondLevelOfTrainingCastleScene = true;
-            TrainingManager.nineTrainingLevelOnCastleScene = true;
-        }
-
         castle.isPlayer = isPlayer;
         castle.tag = tag;
         castle.gameObject.layer = LayerMask.NameToLayer(layer);

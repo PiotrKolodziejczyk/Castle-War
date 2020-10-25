@@ -18,10 +18,14 @@ public class AIController : GameModule
     private int whichCaslte = 0;
     private List<Transform> items;
     private bool isAttack;
-    private float timeToAttack = 9999999999999999999;
+    private float timeToAttack = 30;
     private int castleToAttackIndex = -1;
     [SerializeField] private Moving moving;
     public TextMeshProUGUI text;
+    public GameObject GameOver;
+    public GameObject attack;
+    public bool acceptAttack;
+    public int id;
 
     public override void Initialize()
     {
@@ -45,46 +49,55 @@ public class AIController : GameModule
         playerCastles = FindObjectsOfType<Transform>().Where(x => x.gameObject.layer == LayerMask.NameToLayer("I") && Regex.Match(x.name, @"Castle\(Clone\)\s*\(\d+\)").Success).ToList();
         AcceptMove(whichCaslte, false);
         text.text = "Castles :" + playerCastles.Count;
+        if (playerCastles.Count == 0)
+        {
+            Global.PAUSE = true;
+            GameOver.SetActive(true);
+        }
     }
 
     private void Update()
     {
-        if (!isAttack)
-        {
-            if (TrainingManager.thirdTrainingLevelOnMainScene)
-            {
-                     isAttack = true;
-                    timeToAttack = 60;
-            }
-            if (Global.Timer(ref timeToAttack))
-                isAttack = true;
-            if (Global.Timer(ref time))
-            {
-                whichCaslte = UnityEngine.Random.Range(0, aiCastles.Count);
-                AcceptMove(whichCaslte, false);
-                time = 30;
-            }
-        }
 
-        if (isAttack)
+        if (!Global.PAUSE)
         {
-            float playerCastleDistance = Vector3.Distance(aiCastles[whichCaslte].position, playerCastles[0].position);
-            castleToAttackIndex = 0;
-            for (int i = 1; i < playerCastles.Count; i++)
+            if (!isAttack)
             {
-                if (Vector3.Distance(aiCastles[whichCaslte].position, playerCastles[i].position) < playerCastleDistance)
+                if (Global.Timer(ref timeToAttack))
+                    isAttack = true;
+                if (Global.Timer(ref time))
                 {
-                    playerCastleDistance = Vector3.Distance(aiCastles[whichCaslte].position, playerCastles[i].position);
-                    castleToAttackIndex = i;
+                    whichCaslte = UnityEngine.Random.Range(0, aiCastles.Count);
+                    AcceptMove(whichCaslte, false);
+                    time = 30;
                 }
             }
+
+            if (isAttack)
+            {
+                float playerCastleDistance = Vector3.Distance(aiCastles[whichCaslte].position, playerCastles[0].position);
+                castleToAttackIndex = 0;
+                for (int i = 1; i < playerCastles.Count; i++)
+                {
+                    if (Vector3.Distance(aiCastles[whichCaslte].position, playerCastles[i].position) < playerCastleDistance)
+                    {
+                        playerCastleDistance = Vector3.Distance(aiCastles[whichCaslte].position, playerCastles[i].position);
+                        castleToAttackIndex = i;
+                    }
+                }
+            }
+            if (isAttack && castleToAttackIndex != -1)
+                AcceptMove(castleToAttackIndex, true);
+            if (moving.isMove && castleToAttackIndex != -1)
+                AIMove(castleToAttackIndex, true);
+            else if (moving.isMove && castleToAttackIndex == -1)
+                AIMove(whichCaslte, false);
+            if (acceptAttack)
+            {
+                acceptAttack = false;
+                Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.BattleScene, id);
+            }
         }
-        if (isAttack && castleToAttackIndex != -1)
-            AcceptMove(castleToAttackIndex, true);
-        if (moving.isMove && castleToAttackIndex != -1)
-            AIMove(castleToAttackIndex, true);
-        else if (moving.isMove && castleToAttackIndex == -1)
-            AIMove(whichCaslte, false);
     }
     public void AIMove(int castle, bool attack)
     {
@@ -125,16 +138,21 @@ public class AIController : GameModule
         if (other.gameObject.layer == LayerMask.NameToLayer("I") && castleToAttackIndex != -1)
         {
             castleToAttackIndex = -1;
-            if (TrainingManager.train)
-            {
-                TrainingManager.thirdTrainingLevelOnMainScene = false;
-                TrainingManager.secondLevelOfTrainingBattleScene = true;
-                Global.isAttackEnemy = false;
-            }
-            Global.LoadAppropriateSceneTroughtTheLoadingScene(Scenes.BattleScene, other.gameObject.GetComponent<Castle>().Id);
+            attack.SetActive(true);
+            Global.PAUSE = true;
+            id = other.gameObject.GetComponent<Castle>().Id;
         }
 
     }
+
+    public void AcceptAttack()
+    {
+        acceptAttack = true;
+        Global.PAUSE = false;
+        attack.SetActive(false);
+    }
+
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Grass"))

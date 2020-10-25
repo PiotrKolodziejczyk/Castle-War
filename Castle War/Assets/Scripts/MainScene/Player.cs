@@ -32,15 +32,7 @@ public class Player : GameModule, IArmy, IMaterials
             Army.greatTower.textInputQuantity.quantity = data.greatTowerQuantity;
         }
         else
-        {
-            Army.pikeman.textInputQuantity.quantity = 0;
-            Army.warrior.textInputQuantity.quantity = 0;
-            Army.knight.textInputQuantity.quantity = 0;
-            Army.woodTower.textInputQuantity.quantity = 0;
-            Army.stoneTower.textInputQuantity.quantity = 0;
-            Army.greatTower.textInputQuantity.quantity = 0;
-        }
-
+            Army.InitializeArmyWhenFileNotExist(0);
     }
     private void LoadAndInitializeMaterialsFromFile()
     {
@@ -52,10 +44,6 @@ public class Player : GameModule, IArmy, IMaterials
             Materials.clay.quantity = data.clayQuantity;
         }
         else
-        {
-            Materials.wood.quantity = 0;
-            Materials.stone.quantity = 0;
-            Materials.clay.quantity = 0;
-        }
+            Materials.InitializeMaterialsWhenFileNotExist(0);
     }
 }
