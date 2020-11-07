@@ -209,12 +209,20 @@ MonoBehaviour:
   castle: {fileID: 1666863772}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
   isYouNeedMain: 0
   panelMain: {fileID: 0}
   timePropertiesBuilding: {fileID: 0}
+  image: {fileID: 0}
+  textInMainPanel: {fileID: 0}
 --- !u!114 &8598748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,6 +856,83 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a30058d7c317b499aa53ba75e8639c, type: 3}
+--- !u!1 &101089162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 101089163}
+  - component: {fileID: 101089165}
+  - component: {fileID: 101089164}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &101089163
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101089162}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1394833968}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 129.3, y: -2.25}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &101089164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101089162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 35
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &101089165
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101089162}
+  m_CullTransparentMesh: 0
 --- !u!1001 &102117929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1233,6 +1318,83 @@ Transform:
   m_Father: {fileID: 1148135051}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &129314047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 129314048}
+  - component: {fileID: 129314050}
+  - component: {fileID: 129314049}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &129314048
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129314047}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0054917433, w: 0.9999849}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.3355057, y: 1.3355057, z: 1.3355058}
+  m_Children: []
+  m_Father: {fileID: 1387695140}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 202.3, y: 9.9}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &129314049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129314047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 35
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &129314050
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129314047}
+  m_CullTransparentMesh: 0
 --- !u!1001 &129476560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2044,7 +2206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -586, y: 94.9}
+  m_AnchoredPosition: {x: -586, y: 97.92}
   m_SizeDelta: {x: 119.6, y: 134.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215497018
@@ -2650,12 +2812,20 @@ MonoBehaviour:
   castle: {fileID: 1666863772}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
   isYouNeedMain: 0
   panelMain: {fileID: 0}
   timePropertiesBuilding: {fileID: 0}
+  image: {fileID: 0}
+  textInMainPanel: {fileID: 0}
 --- !u!114 &229521830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3680,7 +3850,7 @@ RectTransform:
   m_Children:
   - {fileID: 1054788402}
   m_Father: {fileID: 1654198623}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3929,6 +4099,83 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320006919}
   m_Mesh: {fileID: 4300064, guid: 0064875460e5d6b4982c67554afd0f4d, type: 3}
+--- !u!1 &325941769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325941770}
+  - component: {fileID: 325941772}
+  - component: {fileID: 325941771}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &325941770
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325941769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2124113942}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 128.4, y: -0.46}
+  m_SizeDelta: {x: 155.3, y: 28.1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &325941771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325941769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 35
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &325941772
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325941769}
+  m_CullTransparentMesh: 0
 --- !u!1 &326716118
 GameObject:
   m_ObjectHideFlags: 0
@@ -6269,12 +6516,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40be407616c8d0844b00e22f80bf6796, type: 3}
---- !u!1 &425382581 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1325038160677056877, guid: 40be407616c8d0844b00e22f80bf6796,
-    type: 3}
-  m_PrefabInstance: {fileID: 425382580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &427977063
 GameObject:
   m_ObjectHideFlags: 0
@@ -9098,12 +9339,20 @@ MonoBehaviour:
   castle: {fileID: 1666863772}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
   isYouNeedMain: 0
   panelMain: {fileID: 0}
   timePropertiesBuilding: {fileID: 0}
+  image: {fileID: 0}
+  textInMainPanel: {fileID: 0}
 --- !u!114 &578303420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9290,7 +9539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.629}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -43, y: 89.19}
+  m_AnchoredPosition: {x: -43, y: 88.9}
   m_SizeDelta: {x: 186.9, y: 174.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &587555268
@@ -9573,12 +9822,20 @@ MonoBehaviour:
   castle: {fileID: 1666863772}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
   isYouNeedMain: 0
   panelMain: {fileID: 0}
   timePropertiesBuilding: {fileID: 0}
+  image: {fileID: 0}
+  textInMainPanel: {fileID: 0}
   soldierPanel: {fileID: 0}
   isBuildPikeman: 0
   smithy: {fileID: 229521829}
@@ -9841,12 +10098,20 @@ MonoBehaviour:
   castle: {fileID: 1666863772}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
   isYouNeedMain: 0
   panelMain: {fileID: 0}
   timePropertiesBuilding: {fileID: 0}
+  image: {fileID: 0}
+  textInMainPanel: {fileID: 0}
 --- !u!114 &606787063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11741,7 +12006,7 @@ RectTransform:
   m_Children:
   - {fileID: 936532276}
   m_Father: {fileID: 1654198623}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.629}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -12286,7 +12551,7 @@ RectTransform:
   m_LocalScale: {x: 0.74878, y: 0.74878, z: 0.74878}
   m_Children: []
   m_Father: {fileID: 1654198623}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -13133,9 +13398,12 @@ MonoBehaviour:
   woodTower: {fileID: 409886539}
   stoneTower: {fileID: 223098895}
   greatTower: {fileID: 1829448795}
-  training1: {fileID: 425382581}
-  trainin2: {fileID: 1272297235}
-  trainin3: {fileID: 410276459}
+  pikemanEnemy: {fileID: 1879014230}
+  warriorEnemy: {fileID: 312519591}
+  knightEnemy: {fileID: 747249148}
+  woodTowerEnemy: {fileID: 2124113941}
+  stoneTowerEnemy: {fileID: 1394833967}
+  greatTowerEnemy: {fileID: 1387695139}
 --- !u!114 &818522179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13199,6 +13467,12 @@ MonoBehaviour:
   pikinierEnemy: {fileID: 994320693}
   warriorPlayer: {fileID: 1018860419}
   warriorEnemy: {fileID: 1054788403}
+  woodTowerPlayer: {fileID: 1086304820}
+  woodTowerEnemy: {fileID: 325941771}
+  stoneTowerPlayer: {fileID: 1255119706}
+  stoneTowerEnemy: {fileID: 101089164}
+  greatTowerPlayer: {fileID: 1487106099}
+  greatTowerEnemy: {fileID: 129314049}
 --- !u!1 &823361727
 GameObject:
   m_ObjectHideFlags: 0
@@ -13878,12 +14152,20 @@ MonoBehaviour:
   castle: {fileID: 1666863772}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
   isYouNeedMain: 0
   panelMain: {fileID: 0}
   timePropertiesBuilding: {fileID: 0}
+  image: {fileID: 0}
+  textInMainPanel: {fileID: 0}
 --- !u!114 &867240887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18502,7 +18784,7 @@ PrefabInstance:
     - target: {fileID: 5190031178253026056, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5190031178253026056, guid: f1a6a0dda92a2b544ae1bdaea483bcc6,
         type: 3}
@@ -20566,12 +20848,20 @@ MonoBehaviour:
   castle: {fileID: 1666863772}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
   isYouNeedMain: 0
   panelMain: {fileID: 0}
   timePropertiesBuilding: {fileID: 0}
+  image: {fileID: 0}
+  textInMainPanel: {fileID: 0}
 --- !u!114 &1257046313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20947,12 +21237,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40be407616c8d0844b00e22f80bf6796, type: 3}
---- !u!1 &1272297235 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1325038160677056877, guid: 40be407616c8d0844b00e22f80bf6796,
-    type: 3}
-  m_PrefabInstance: {fileID: 1272297234}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1273282503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23020,6 +23304,132 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 390206022}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1387695139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1387695140}
+  - component: {fileID: 1387695143}
+  - component: {fileID: 1387695142}
+  - component: {fileID: 1387695141}
+  m_Layer: 5
+  m_Name: GreatTower (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1387695140
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387695139}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0054917433, w: 0.9999849}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.74877965, y: 0.74877965, z: 0.7487799}
+  m_Children:
+  - {fileID: 129314048}
+  m_Father: {fileID: 1654198623}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.629}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 4.3, y: 64.2}
+  m_SizeDelta: {x: 119.8, y: 105}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1387695141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387695139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: -1
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1387695142}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2064578725}
+        m_MethodName: InstantiateGreatTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1387695142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387695139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.759434, b: 0.759434, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 35024a365ab31e54592bac320c025ebc, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1387695143
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387695139}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1390955611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23089,6 +23499,132 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5240fb00498ea65418f8fd579be1b24d, type: 3}
+--- !u!1 &1394833967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1394833968}
+  - component: {fileID: 1394833971}
+  - component: {fileID: 1394833970}
+  - component: {fileID: 1394833969}
+  m_Layer: 5
+  m_Name: StoneTower (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1394833968
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394833967}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 101089163}
+  m_Father: {fileID: 1654198623}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -156.9, y: 64.2}
+  m_SizeDelta: {x: 99.42, y: 83.7}
+  m_Pivot: {x: 0.50000036, y: 0.4436031}
+--- !u!114 &1394833969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394833967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1394833970}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2064578725}
+        m_MethodName: InstantiateStoneTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1394833970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394833967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.759434, b: 0.759434, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: b4512e731346a6a4a80f28b4308971c6, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1394833971
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394833967}
+  m_CullTransparentMesh: 0
 --- !u!1 &1395396816
 GameObject:
   m_ObjectHideFlags: 0
@@ -23763,7 +24299,7 @@ RectTransform:
   m_LocalScale: {x: 0.74878, y: 0.74878, z: 0.74878}
   m_Children: []
   m_Father: {fileID: 1654198623}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -26347,12 +26883,20 @@ MonoBehaviour:
   castle: {fileID: 1666863772}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
   isYouNeedMain: 0
   panelMain: {fileID: 0}
   timePropertiesBuilding: {fileID: 0}
+  image: {fileID: 0}
+  textInMainPanel: {fileID: 0}
   towersPanel: {fileID: 0}
   smithy: {fileID: 229521829}
 --- !u!114 &1550790777
@@ -27951,7 +28495,7 @@ PrefabInstance:
     - target: {fileID: 6470992520573760356, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_Name
-      value: Image_BackGround (1)
+      value: UpPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6544983373153346416, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
@@ -32300,7 +32844,7 @@ RectTransform:
   m_Children:
   - {fileID: 994320692}
   m_Father: {fileID: 1654198623}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -32703,7 +33247,7 @@ RectTransform:
   m_LocalScale: {x: 0.74878, y: 0.74878, z: 0.74878}
   m_Children: []
   m_Father: {fileID: 1654198623}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -33801,7 +34345,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1654198623}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -35919,6 +36463,132 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2121259906}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2124113941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124113942}
+  - component: {fileID: 2124113945}
+  - component: {fileID: 2124113944}
+  - component: {fileID: 2124113943}
+  m_Layer: 5
+  m_Name: WoodTower (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2124113942
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124113941}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 325941770}
+  m_Father: {fileID: 1654198623}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -328.1, y: 70.7}
+  m_SizeDelta: {x: 91.8, y: 88.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2124113943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124113941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2124113944}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2064578725}
+        m_MethodName: InstantiateWoodTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2124113944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124113941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.759434, b: 0.759434, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 27a5c0c6ed09f9349928b61bbd023b16, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &2124113945
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124113941}
+  m_CullTransparentMesh: 0
 --- !u!1 &2130041975
 GameObject:
   m_ObjectHideFlags: 0
@@ -36505,7 +37175,7 @@ PrefabInstance:
     - target: {fileID: 7690845118496966711, guid: 6fd09f5136096bf43813c7f3e5bafd32,
         type: 3}
       propertyPath: m_Name
-      value: Image_BackGround
+      value: DownPanel
       objectReference: {fileID: 0}
     - target: {fileID: 7722487571935027329, guid: 6fd09f5136096bf43813c7f3e5bafd32,
         type: 3}

@@ -46,7 +46,7 @@ public class Barrack : Building
             soldierPanel.youNeedMoreKnight.gameObject.SetActive(false);
             isYouNeed = false;
         }
-        ElapsedTimeAndBuild();
+        ElapsedTimeAndBuild(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.Barrack, this);
         if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {
             //if (panelMain.panel != null && isMainPanelOn)

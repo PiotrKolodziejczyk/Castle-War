@@ -11,6 +11,12 @@ public class TakeOverTexts : MonoBehaviour
     public Text pikinierEnemy;
     public Text warriorPlayer;
     public Text warriorEnemy;
+    public Text woodTowerPlayer;
+    public Text woodTowerEnemy;
+    public Text stoneTowerPlayer;
+    public Text stoneTowerEnemy;
+    public Text greatTowerPlayer;
+    public Text greatTowerEnemy;
 
     // Update is called once per frame
     void Update()
@@ -18,5 +24,9 @@ public class TakeOverTexts : MonoBehaviour
         knightEnemy.text = knightPlayer.text;
         pikinierEnemy.text = pikinierPlayer.text;
         warriorEnemy.text = warriorPlayer.text;
+
+        greatTowerEnemy.text = greatTowerPlayer.text;
+        stoneTowerEnemy.text = stoneTowerPlayer.text;
+        woodTowerEnemy.text = woodTowerPlayer.text;
     }
 }

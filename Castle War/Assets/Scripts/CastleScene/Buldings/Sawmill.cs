@@ -15,7 +15,7 @@ public class Sawmill : Building
     }
     private void Update()
     {
-        ElapsedTimeAndBuild();
+        ElapsedTimeAndBuild(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.Sawmill, this);
 
         if (panelMain != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
         {

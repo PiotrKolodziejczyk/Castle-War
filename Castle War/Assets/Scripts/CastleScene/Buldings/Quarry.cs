@@ -1,12 +1,8 @@
-﻿using Assets.Scripts.CastleScene.Buldings;
-using Assets.Scripts.CastleScene.Panels;
-using System.Text.RegularExpressions;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
 public class Quarry : Building
 {
-    float timeToCheck = 5;
+    private float timeToCheck = 5;
 
     public void Start()
     {
@@ -15,7 +11,7 @@ public class Quarry : Building
 
     private void Update()
     {
-        ElapsedTimeAndBuild();
+        ElapsedTimeAndBuild(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.Quarry, this);
         if (panelMain != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
         {
             panelMain.youNeedMore.gameObject.SetActive(false);

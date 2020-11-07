@@ -99,7 +99,7 @@ public class Castle : GameModule, IArmy, IMaterials
                 army.greatTower.textInputQuantity.quantity = data.greatTowerQuantity;
             }
             else
-                Army.InitializeArmyWhenFileNotExist(0);
+                Army.InitializeArmyWhenFileNotExist(10,10,10,10,10,10);
         }
         if (Id == 200)
             Id = Global.currentCastle;
@@ -148,28 +148,7 @@ public class Castle : GameModule, IArmy, IMaterials
                 Global.FirstInitializePlayerCastle(this);
             else
                 Global.FirstInitializeEnemyCastle(this);
-            if (Global.addSoldiers)
-            {
-                if (Global.isArtur)
-                {
-                    army.pikeman.textInputQuantity.quantity = 30;
-                    army.warrior.textInputQuantity.quantity = 10;
-                    army.knight.textInputQuantity.quantity = 2;
-                    army.woodTower.textInputQuantity.quantity = 5;
-                    army.stoneTower.textInputQuantity.quantity = 5;
-                    army.greatTower.textInputQuantity.quantity = 1;
-                }
-                else
-                {
-                    army.pikeman.textInputQuantity.quantity = 100;
-                    army.warrior.textInputQuantity.quantity = 30;
-                    army.knight.textInputQuantity.quantity = 5;
-                    army.woodTower.textInputQuantity.quantity = 20;
-                    army.stoneTower.textInputQuantity.quantity = 5;
-                    army.greatTower.textInputQuantity.quantity = 1;
-                }
-                Global.addSoldiers = false;
-            }
+           
 
             if (isPlayer && transform.parent.name == "Castles")
                 baseCastle.GetComponent<MeshRenderer>().material = baseMaterialGreen;

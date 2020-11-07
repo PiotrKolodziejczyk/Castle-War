@@ -8,7 +8,7 @@ public static class MainResourcesClass
         {
             case "Pikeman":
                 resources.clayToUpgradeLvl = 101 - buildings[0].level * buildings[1].level;
-                resources.woodToUpgradeLvl = 101 - buildings[0].level * buildings[1].level;
+                resources.woodToUpgradeLvl = 1234 - buildings[0].level * buildings[1].level;
                 resources.stoneToUpgradeLvl = 51 - buildings[0].level * buildings[1].level;
                 break;
             case "Warrior":
@@ -32,19 +32,49 @@ public static class MainResourcesClass
                 resources.stoneToUpgradeLvl = 701 - buildings[0].level * buildings[1].level;
                 break;
             case "GreatTower":
-                resources.clayToUpgradeLvl = 1001 - buildings[0].level * buildings[1].level;
+                resources.clayToUpgradeLvl = 101 - buildings[0].level * buildings[1].level;
                 resources.woodToUpgradeLvl = 501 - buildings[0].level * buildings[1].level;
-                resources.stoneToUpgradeLvl = 2001 - buildings[0].level * buildings[1].level;
+                resources.stoneToUpgradeLvl = 201 - buildings[0].level * buildings[1].level;
                 break;
             case "Barrack":
-                resources.clayToUpgradeLvl = 301 * buildings[0].level - (buildings[1].level/2);
+                resources.clayToUpgradeLvl = 301 * buildings[0].level - (buildings[1].level /2);
                 resources.woodToUpgradeLvl = 201 * buildings[0].level - (buildings[1].level / 2);
                 resources.stoneToUpgradeLvl = 701 * buildings[0].level - (buildings[1].level / 2);
                 break;
             case "TownHall":
-                resources.clayToUpgradeLvl = 10101 * buildings[0].level;
-                resources.woodToUpgradeLvl = 5101 * buildings[0].level;
-                resources.stoneToUpgradeLvl = 10000 * buildings[0].level;
+                resources.clayToUpgradeLvl = 101 * buildings[0].level;
+                resources.woodToUpgradeLvl = 501 * buildings[0].level;
+                resources.stoneToUpgradeLvl = 100 * buildings[0].level;
+                break;
+            case "ClayMine":
+                resources.clayToUpgradeLvl = 301 * buildings[0].level - (buildings[1].level / 2);
+                resources.woodToUpgradeLvl = 201 * buildings[0].level - (buildings[1].level / 2);
+                resources.stoneToUpgradeLvl = 701 * buildings[0].level - (buildings[1].level / 2);
+                break;
+            case "Wall":
+                resources.clayToUpgradeLvl = 101 * buildings[0].level - (buildings[1].level / 2); ;
+                resources.woodToUpgradeLvl = 511 * buildings[0].level - (buildings[1].level / 2); ;
+                resources.stoneToUpgradeLvl = 100 * buildings[0].level - (buildings[1].level / 2); ;
+                break;
+            case "Quarry":
+                resources.clayToUpgradeLvl = 301 * buildings[0].level - (buildings[1].level / 2);
+                resources.woodToUpgradeLvl = 201 * buildings[0].level - (buildings[1].level / 2);
+                resources.stoneToUpgradeLvl = 701 * buildings[0].level - (buildings[1].level / 2);
+                break;
+            case "TowerWorkShop":
+                resources.clayToUpgradeLvl = 101 * buildings[0].level - (buildings[1].level / 2); ;
+                resources.woodToUpgradeLvl = 501 * buildings[0].level - (buildings[1].level / 2); ;
+                resources.stoneToUpgradeLvl = 111 * buildings[0].level - (buildings[1].level / 2); ;
+                break;
+            case "Sawmill":
+                resources.clayToUpgradeLvl = 101 * buildings[0].level - (buildings[1].level / 2); ;
+                resources.woodToUpgradeLvl = 501 * buildings[0].level - (buildings[1].level / 2); ;
+                resources.stoneToUpgradeLvl = 111 * buildings[0].level - (buildings[1].level / 2); ;
+                break;
+            case "Smithy":
+                resources.clayToUpgradeLvl = 101 * buildings[0].level - (buildings[1].level / 2); ;
+                resources.woodToUpgradeLvl = 501 * buildings[0].level - (buildings[1].level / 2); ;
+                resources.stoneToUpgradeLvl = 111 * buildings[0].level - (buildings[1].level / 2); ;
                 break;
         }
     }

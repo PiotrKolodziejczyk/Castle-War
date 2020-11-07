@@ -15,7 +15,6 @@ public static class Global
     public static bool isArtur;
     public static GlobalInitializingClass globalInitializingClass;
     public static int playerCastles = 1;
-    public static bool addSoldiers = true;
     public static bool active = true;
     public static bool treningPanelsActive = false;
     public static bool aiActive = true;
@@ -53,13 +52,10 @@ public static class Global
         castle.wall.level = 1;
         castle.towerWorkShop.level = 1;
         castle.smithy.level = 1;
-        castle.clay.quantity = 1;
-        castle.stone.quantity = 1;
-        castle.wood.quantity = 0;
-        castle.Army.pikeman.textInputQuantity.quantity = 0;
+        castle.Army.pikeman.textInputQuantity.quantity = 20;
         castle.Army.warrior.textInputQuantity.quantity = 0;
         castle.Army.knight.textInputQuantity.quantity = 0;
-        castle.Army.woodTower.textInputQuantity.quantity = 0;
+        castle.Army.woodTower.textInputQuantity.quantity = 10;
         castle.Army.stoneTower.textInputQuantity.quantity = 0;
         castle.Army.greatTower.textInputQuantity.quantity = 0;
         castle.isPlayer = true;

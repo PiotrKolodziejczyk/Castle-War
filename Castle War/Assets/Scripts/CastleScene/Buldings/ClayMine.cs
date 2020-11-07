@@ -16,7 +16,7 @@ public class ClayMine : Building
     
     private void Update()
     {
-        ElapsedTimeAndBuild();
+        ElapsedTimeAndBuild(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.ClayMine, this);
         if (panelMain != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
         {
             if (panelMain.youNeedMore != null)

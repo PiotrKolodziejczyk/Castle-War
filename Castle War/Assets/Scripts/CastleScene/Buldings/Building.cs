@@ -14,6 +14,12 @@ public class Building : GameModule
     [SerializeField] internal Castle castle;
     [SerializeField] internal TakeScript take;
     [SerializeField] internal ResourcesToUpgradeLvl resourcesToUpgradeBuildingLvl;
+    [SerializeField] internal ResourcesToUpgradeLvl resourcesToUpgradePikeman;
+    [SerializeField] internal ResourcesToUpgradeLvl resourcesToUpgradeWarrior;
+    [SerializeField] internal ResourcesToUpgradeLvl resourcesToUpgradeKnight;
+    [SerializeField] internal ResourcesToUpgradeLvl resourcesToUpgradeWoodTower;
+    [SerializeField] internal ResourcesToUpgradeLvl resourcesToUpgradeStoneTower;
+    [SerializeField] internal ResourcesToUpgradeLvl resourcesToUpgradeGreatTower;
     internal bool isMainPanelOn = true;
     internal bool isSoldierPanelOn = false;
     internal bool isTowerPanelOn = false;
@@ -23,8 +29,8 @@ public class Building : GameModule
     public bool isYouNeedMain = false;
     public MainPanel panelMain;
     [SerializeField] internal TimeProperties timePropertiesBuilding;
-    [SerializeField] Sprite image;
-    [SerializeField] TextMeshProUGUI textInMainPanel;
+    [SerializeField] private Sprite image;
+    [SerializeField] private TextMeshProUGUI textInMainPanel;
     #endregion
     #region Main Method
 
@@ -72,7 +78,7 @@ public class Building : GameModule
         return false;
     }
 
-    public void ElapsedTimeAndBuild()
+    public void ElapsedTimeAndBuild(ref ResourcesToUpgradeLvl res, ResourcesEnum enume, Building building)
     {
         CheckButtonInteractable();
         if (isBuild)
@@ -81,13 +87,34 @@ public class Building : GameModule
             if (timePropertiesBuilding.timeToUpgrade < 0)
             {
                 level++;
-                timePropertiesBuilding.timeToUpgrade = timePropertiesBuilding.startTimeToUpgrade;
-
+                timePropertiesBuilding.timeToUpgrade = timePropertiesBuilding.startTimeToUpgrade * level;
+                MainResourcesClass.InitializeResources(ref res, enume.ToString(), building, castle.townHall);
                 if (panelMain != null && panelMain.levelInPanel.text.Contains(transform.name))
                     panelMain.levelInPanel.text = SetText(transform.name, level);
 
                 if (SceneManager.GetActiveScene().name == "CastleScene")
+                {
                     buildingText.text = SetText(transform.name, level);
+                    if (panelMain != null && panelMain.levelInPanel.text.Contains(transform.name))
+                    {
+                        panelMain.buildingResourcesToUpgrade.stoneToUpgradeLvl = resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl;
+                        panelMain.buildingResourcesToUpgrade.woodToUpgradeLvl = resourcesToUpgradeBuildingLvl.woodToUpgradeLvl;
+                        panelMain.buildingResourcesToUpgrade.clayToUpgradeLvl = resourcesToUpgradeBuildingLvl.clayToUpgradeLvl;
+                    }
+                    if (enume == ResourcesEnum.Barrack || enume == ResourcesEnum.TownHall)
+                    {
+                        MainResourcesClass.InitializeResources(ref resourcesToUpgradePikeman, ResourcesEnum.Pikeman.ToString(), castle.barrack, castle.townHall);
+                        MainResourcesClass.InitializeResources(ref resourcesToUpgradeWarrior, ResourcesEnum.Warrior.ToString(), castle.barrack, castle.townHall);
+                        MainResourcesClass.InitializeResources(ref resourcesToUpgradeKnight, ResourcesEnum.Knight.ToString(), castle.barrack, castle.townHall);
+                    }
+                    if (enume == ResourcesEnum.TowerWorkShop || enume == ResourcesEnum.TownHall)
+                    {
+                        MainResourcesClass.InitializeResources(ref resourcesToUpgradeWoodTower, ResourcesEnum.WoodTower.ToString(), castle.towerWorkShop, castle.townHall);
+                        MainResourcesClass.InitializeResources(ref resourcesToUpgradeStoneTower, ResourcesEnum.StoneTower.ToString(), castle.towerWorkShop, castle.townHall);
+                        MainResourcesClass.InitializeResources(ref resourcesToUpgradeGreatTower, ResourcesEnum.GreatTower.ToString(), castle.towerWorkShop, castle.townHall);
+                    }
+                }
+
 
                 isBuild = false;
             }

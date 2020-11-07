@@ -47,7 +47,7 @@ public class TowerWorkShop : Building
             towersPanel.youNeedMoreGreatTower.gameObject.SetActive(false);
             isYouNeed = false;
         }
-        ElapsedTimeAndBuild();
+        ElapsedTimeAndBuild(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.TowerWorkShop, this);
 
         if (!Regex.Match(transform.parent.name, @"CastleResources\d*").Success)
         {

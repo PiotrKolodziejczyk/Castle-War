@@ -14,7 +14,7 @@ public class TownHall : Building
     }
     private void Update()
     {
-        ElapsedTimeAndBuild();
+        ElapsedTimeAndBuild(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.TownHall, this);
         if (panelMain != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
         {
             panelMain.youNeedMore.gameObject.SetActive(false);

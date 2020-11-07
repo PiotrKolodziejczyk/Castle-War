@@ -14,7 +14,7 @@ public class Smithy : Building
     }
     private void Update()
     {
-        ElapsedTimeAndBuild();
+        ElapsedTimeAndBuild(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.Smithy, this);
         if (panelMain != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))
         {
             panelMain.youNeedMore.gameObject.SetActive(false);
