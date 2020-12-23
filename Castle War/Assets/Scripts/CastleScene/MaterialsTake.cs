@@ -15,6 +15,13 @@ public class MaterialsTake : MonoBehaviour, IMaterials
     {
         Global.isSoldierPanelOnInCastleScene = true;
         materialsPanel.SetActive(true);
+        castle.Materials.wood.input.text = "0";
+        castle.Materials.stone.input.text = "0";
+        castle.Materials.clay.input.text = "0";
+
+        player.Materials.wood.input.text = "0";
+        player.Materials.stone.input.text = "0";
+        player.Materials.clay.input.text = "0";
     }
     public void ExitPanel()
     {
@@ -46,7 +53,7 @@ public class MaterialsTake : MonoBehaviour, IMaterials
     }
     private void MaterialsSwitching(ref int from, InputField fromInput, ref int to)
     {
-        if (from >= int.Parse(fromInput.text))
+        if (!string.IsNullOrWhiteSpace(fromInput.text) &&from >= int.Parse(fromInput.text))
         {
             from -= int.Parse(fromInput.text);
             to += int.Parse(fromInput.text);

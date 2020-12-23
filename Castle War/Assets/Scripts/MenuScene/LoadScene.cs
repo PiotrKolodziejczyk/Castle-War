@@ -19,21 +19,25 @@ public class LoadScene : MonoBehaviour
     public void LoadNewGame()
     {
         var data = SaveSystem.LoadLoadData();
-        if (nickName.text != data.text1 && nickName.text != data.text2 && nickName.text != data.text3 && nickName.text != data.text4 && nickName.text != data.text5)
-        {
-            Development.NewGame = true;
-            Tutorial.sampleSceneTutorial = true;
-            Tutorial.castleSceneTutorial = true;
-            Tutorial.battleSceneTutorial = true;
-            Initializing.Load(nickName.text, savingData);
-            Global.whichScene = "SampleScene";
-            SceneManager.LoadScene("LoadingScene");
-        }
+        if (data != null && nickName.text != data.text1 && nickName.text != data.text2 && nickName.text != data.text3 && nickName.text != data.text4 && nickName.text != data.text5)
+            CreateNewGame();
+        else if (data == null)
+            CreateNewGame();
         else
-        {
             nickExist.SetActive(true);
-        }
     }
+
+    private void CreateNewGame()
+    {
+        Development.NewGame = true;
+        Tutorial.sampleSceneTutorial = true;
+        Tutorial.castleSceneTutorial = true;
+        Tutorial.battleSceneTutorial = true;
+        Initializing.Load(nickName.text, savingData);
+        Global.whichScene = "SampleScene";
+        SceneManager.LoadScene("LoadingScene");
+    }
+
     public void ToMap()
     {
         Global.PAUSE = false;

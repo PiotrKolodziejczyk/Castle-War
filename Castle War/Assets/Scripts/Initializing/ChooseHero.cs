@@ -28,14 +28,14 @@ public class ChooseHero : MonoBehaviour
             arthur.SetActive(false);
             knight.SetActive(true);
             Global.isArtur = false;
-            Global.playerCastles = 8;
+            Global.playerCastles = 3;
         }
         else
         {
             arthur.SetActive(true);
             knight.SetActive(false);
             Global.isArtur = true;
-            Global.playerCastles = 12;
+            Global.playerCastles = 2;
         }
     }
     private void Update()
@@ -48,7 +48,7 @@ public class ChooseHero : MonoBehaviour
             {
                 arthur.SetActive(true);
                 Global.isArtur = true;
-                Global.playerCastles = 12;
+                Global.playerCastles = 2;
                 chooseMenu.SetActive(true);
                 on = false;
                 timer1 = 2;

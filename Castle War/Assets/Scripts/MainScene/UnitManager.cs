@@ -1,7 +1,5 @@
 ﻿using Assets.Scripts.CastleScene;
 using Assets.Scripts.HelpingClass;
-using Assets.Scripts.MainScene;
-using Assets.Scripts.SavingData;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -38,41 +36,9 @@ public class UnitManager : GameModule, IArmy
     public override void Initialize()
     {
         namePlayer.text = Global.actualPlayerName;
-        LoadAndInitializeDataFromFile();
-        LoadAndInitializeMaterialsFromFile();
-        //if (File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerArmy}.fun"))
-        //{
-        //    PlayerArmyData data = SaveSystem.LoadPlayerArmy(Global.globalInitializingClass.currentSavePlayerArmy);
-        //    army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
-        //    army.warrior.textInputQuantity.quantity = data.warriorQuantity;
-        //    army.knight.textInputQuantity.quantity = data.knightQuantity;
-        //    army.woodTower.textInputQuantity.quantity = data.woodTowerQuantity;
-        //    army.stoneTower.textInputQuantity.quantity = data.stoneTowerQuantity;
-        //    army.greatTower.textInputQuantity.quantity = data.greatTowerQuantity;
-        //}
-        //else
-        //{
-        //    army.pikeman.textInputQuantity.quantity = 0;
-        //    army.warrior.textInputQuantity.quantity = 0;
-        //    army.knight.textInputQuantity.quantity = 0;
-        //    army.woodTower.textInputQuantity.quantity = 0;
-        //    army.stoneTower.textInputQuantity.quantity = 0;
-        //    army.greatTower.textInputQuantity.quantity = 0;
-        //}
+        Player.LoadAndInitializeDataFromFile(Army);
+        Player.LoadAndInitializeMaterialsFromFile(materials);
 
-        //if (File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerMaterials}.fun"))
-        //{
-        //    PlayerMaterialsData data = SaveSystem.LoadPlayerMaterials(Global.globalInitializingClass.currentSavePlayerMaterials);
-        //    materials.wood.quantity = data.woodQuantity;
-        //    materials.stone.quantity = data.stoneQuantity;
-        //    materials.clay.quantity = data.clayQuantity;
-        //}
-        //else
-        //{
-        //    materials.wood.quantity = 0;
-        //    materials.stone.quantity = 0;
-        //    materials.clay.quantity = 0;
-        //}
 
         pikeman.text = "Pikemans " + army.pikeman.textInputQuantity.quantity.ToString();
         warrior.text = "Warriors " + army.warrior.textInputQuantity.quantity.ToString();
@@ -149,40 +115,4 @@ public class UnitManager : GameModule, IArmy
         SaveSystem.SavePlayerPosition(this, Global.globalInitializingClass.currentSavePlayerPosition);
     }
 
-    private void LoadAndInitializeDataFromFile()
-    {
-        if (File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerArmy}.fun"))
-        {
-            PlayerArmyData data = SaveSystem.LoadPlayerArmy(Global.globalInitializingClass.currentSavePlayerArmy);
-            Army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
-            Army.warrior.textInputQuantity.quantity = data.warriorQuantity;
-            Army.knight.textInputQuantity.quantity = data.knightQuantity;
-            Army.woodTower.textInputQuantity.quantity = data.woodTowerQuantity;
-            Army.stoneTower.textInputQuantity.quantity = data.stoneTowerQuantity;
-            Army.greatTower.textInputQuantity.quantity = data.greatTowerQuantity;
-        }
-        else
-        {
-            if (Global.isArtur)
-            {
-                Army.InitializeArmyWhenFileNotExist(30, 10, 5, 10, 5, 2);
-            }
-            else
-            {
-                Army.InitializeArmyWhenFileNotExist(100, 30, 10, 20, 10, 1);
-            }
-        }
-    }
-    private void LoadAndInitializeMaterialsFromFile()
-    {
-        if (File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerMaterials}.fun"))
-        {
-            PlayerMaterialsData data = SaveSystem.LoadPlayerMaterials(Global.globalInitializingClass.currentSavePlayerMaterials);
-            materials.wood.quantity = data.woodQuantity;
-            materials.stone.quantity = data.stoneQuantity;
-            materials.clay.quantity = data.clayQuantity;
-        }
-        else
-            materials.InitializeMaterialsWhenFileNotExist(0);
-    }
 }
