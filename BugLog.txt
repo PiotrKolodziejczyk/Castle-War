@@ -1,0 +1,6 @@
+Zmienic wartosci zamka u artura i bogusa
+scena walki maja 0 wariorow i knightów a i tak leca
+levele budynkow nie zapisuja sie
+przy zmianie zolniezy nie ma wartosci defaultowych
+dodac zeby nie bylo mozna za szybko wypuszczac wojsk
+

@@ -32,7 +32,7 @@ public class AIController : GameModule
         AIArmy = GetComponentInChildren<AIArmy>();
         isAttack = false;
         items = transform.GetComponentsInChildren<Transform>().ToList();
-        if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSaveAiPosition}.fun"))
+        if (!File.Exists(Global.Path + $"/{Global.globalInitializingClass.currentSaveAiPosition}.fun"))
         {
             transform.position = new Vector3(25.42f, 0.09998721f, 10f);
             SaveSystem.SaveAIPosition(this, Global.globalInitializingClass.currentSavePlayerPosition);

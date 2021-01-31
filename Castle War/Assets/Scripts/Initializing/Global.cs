@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public static class Global
 {
+    public static string Path = Application.dataPath;
     public static bool PAUSE = false;
     public static string actualPlayerName;
     public static int currentCastle;

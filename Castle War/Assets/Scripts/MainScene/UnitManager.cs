@@ -52,7 +52,7 @@ public class UnitManager : GameModule, IArmy
         else
             playerKnight.SetActive(true);
 
-        if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerPosition}.fun"))
+        if (!File.Exists(Global.Path + $"/{Global.globalInitializingClass.currentSavePlayerPosition}.fun"))
         {
             transform.position = new Vector3(35, 0.09998721f, 30.9081f);
             SaveSystem.SavePlayerPosition(this, Global.globalInitializingClass.currentSavePlayerPosition);

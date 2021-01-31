@@ -28058,6 +28058,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowersAndSoldiers
       objectReference: {fileID: 0}
+    - target: {fileID: 6470992520573760356, guid: 0e54eb048e444f94cb4371dc026549aa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6544983373153346416, guid: 0e54eb048e444f94cb4371dc026549aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45165,7 +45170,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 27a5c0c6ed09f9349928b61bbd023b16, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecb82c85e6f526b4186b23977a586153, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

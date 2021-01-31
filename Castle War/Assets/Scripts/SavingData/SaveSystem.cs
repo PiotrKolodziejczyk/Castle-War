@@ -9,7 +9,7 @@ public static class SaveSystem
     public static void SaveCastle(Castle castle, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/{savingPath}{castle.Id}.fun";
+        string path = Global.Path + $"/{savingPath}{castle.Id}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         CastleData data = new CastleData(castle);
         formatter.Serialize(stream, data);
@@ -18,7 +18,7 @@ public static class SaveSystem
 
     public static CastleData LoadCastle(int id, string savingPath)
     {
-        string path = Application.persistentDataPath + $"/{savingPath}{id}.fun";
+        string path = Global.Path + $"/{savingPath}{id}.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -34,7 +34,7 @@ public static class SaveSystem
     public static void SavePlayerPosition(UnitManager player, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         PlayerPositionData data = new PlayerPositionData(player);
         formatter.Serialize(stream, data);
@@ -44,7 +44,7 @@ public static class SaveSystem
     public static void SaveAIPosition(AIController ai, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/aiPosition.fun";
+        string path = Global.Path + $"/aiPosition.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         AiPositionData data = new AiPositionData(ai);
         formatter.Serialize(stream, data);
@@ -55,7 +55,7 @@ public static class SaveSystem
     public static void SavePlayerArmyData(TakeScript take, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         PlayerArmyData data = new PlayerArmyData(take);
         formatter.Serialize(stream, data);
@@ -64,7 +64,7 @@ public static class SaveSystem
     public static void SavePlayerArmyData(PlayerArmyInBattle army, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         PlayerArmyData data = new PlayerArmyData(army);
         formatter.Serialize(stream, data);
@@ -73,7 +73,7 @@ public static class SaveSystem
     public static void SavePlayerArmyData(UnitManager army, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         PlayerArmyData data = new PlayerArmyData(army);
         formatter.Serialize(stream, data);
@@ -82,7 +82,7 @@ public static class SaveSystem
     public static void SavePlayerMaterialsData(MaterialsTake materials, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         PlayerMaterialsData data = new PlayerMaterialsData(materials);
         formatter.Serialize(stream, data);
@@ -91,7 +91,7 @@ public static class SaveSystem
     public static void SavePlayerMaterialsData(VillageScript materials, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         PlayerMaterialsData data = new PlayerMaterialsData(materials);
         formatter.Serialize(stream, data);
@@ -100,7 +100,7 @@ public static class SaveSystem
     public static void SaveEnemyArmyData(AISoldierController ai, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         AiArmyData data = new AiArmyData(ai);
         formatter.Serialize(stream, data);
@@ -109,7 +109,7 @@ public static class SaveSystem
     public static void SaveEnemyArmyData(AIArmy ai, string savingPath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         AiArmyData data = new AiArmyData(ai);
         formatter.Serialize(stream, data);
@@ -118,7 +118,7 @@ public static class SaveSystem
 
     public static PlayerPositionData LoadPlayerPosition(string savingPath)
     {
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -133,7 +133,7 @@ public static class SaveSystem
 
     public static AiPositionData LoadAiPosition(string savingPath)
     {
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -147,7 +147,7 @@ public static class SaveSystem
     }
     public static PlayerArmyData LoadPlayerArmy(string savingPath)
     {
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -161,7 +161,7 @@ public static class SaveSystem
     }
     public static PlayerMaterialsData LoadPlayerMaterials(string savingPath)
     {
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -175,7 +175,7 @@ public static class SaveSystem
     }
     public static AiArmyData LoadEnemyArmy(string savingPath)
     {
-        string path = Application.persistentDataPath + $"/{savingPath}.fun";
+        string path = Global.Path + $"/{savingPath}.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -189,7 +189,7 @@ public static class SaveSystem
     }
     public static SavingSaveData LoadSavingData(string nickName)
     {
-        string path = Application.persistentDataPath + $"/savingData{nickName}.fun";
+        string path = Global.Path + $"/savingData{nickName}.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -204,7 +204,7 @@ public static class SaveSystem
     public static void SaveSavingData(GlobalInitializingClass save, string nickName)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/savingData{nickName}.fun";
+        string path = Global.Path + $"/savingData{nickName}.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         SavingSaveData data = new SavingSaveData(save);
         formatter.Serialize(stream, data);
@@ -213,7 +213,7 @@ public static class SaveSystem
     public static void SaveLoadData(string text1, LoadSavingData savingData)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + $"/LoadData1.fun";
+        string path = Global.Path + $"/LoadData1.fun";
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         LoadData data = new LoadData(text1, savingData);
         formatter.Serialize(stream, data);
@@ -221,7 +221,7 @@ public static class SaveSystem
     }
     public static LoadData LoadLoadData()
     {
-        string path = Application.persistentDataPath + $"/LoadData1.fun";
+        string path = Global.Path + $"/LoadData1.fun";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

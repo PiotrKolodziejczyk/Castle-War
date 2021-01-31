@@ -22,7 +22,7 @@ public class Player :GameModule, IArmy, IMaterials
 
     public static void LoadAndInitializeDataFromFile(Army Army)
     {
-        if (File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerArmy}.fun"))
+        if (File.Exists(Global.Path + $"/{Global.globalInitializingClass.currentSavePlayerArmy}.fun"))
         {
             PlayerArmyData data = SaveSystem.LoadPlayerArmy(Global.globalInitializingClass.currentSavePlayerArmy);
             Army.pikeman.textInputQuantity.quantity = data.pikemanQuantity;
@@ -46,7 +46,7 @@ public class Player :GameModule, IArmy, IMaterials
     }
     public static void LoadAndInitializeMaterialsFromFile(Materials materials)
     {
-        if (File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSavePlayerMaterials}.fun"))
+        if (File.Exists(Global.Path + $"/{Global.globalInitializingClass.currentSavePlayerMaterials}.fun"))
         {
             PlayerMaterialsData data = SaveSystem.LoadPlayerMaterials(Global.globalInitializingClass.currentSavePlayerMaterials);
             materials.wood.quantity = data.woodQuantity;

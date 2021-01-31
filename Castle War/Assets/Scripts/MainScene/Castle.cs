@@ -142,7 +142,7 @@ public class Castle : GameModule, IArmy, IMaterials
     }
     private void LoadPlayerCastle()
     {
-        if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSaveCastleSave}{Id}.fun"))
+        if (!File.Exists(Global.Path + $"/{Global.globalInitializingClass.currentSaveCastleSave}{Id}.fun"))
         {
             if (Global.playerCastles > 0)
                 Global.FirstInitializePlayerCastle(this);

@@ -11,7 +11,7 @@ public class DeleteAllSave : MonoBehaviour
     
     public void Delete()
     {
-      var list =  Pobierz_Pliki(Application.persistentDataPath);
+      var list =  Pobierz_Pliki(Global.Path);
         foreach(var item in list)
         {
             File.Delete(item);

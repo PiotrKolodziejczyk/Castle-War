@@ -11,7 +11,7 @@ public class AIArmy : MonoBehaviour, IArmy
     {
         army = GetComponent<Army>();
 
-        if (!File.Exists(Application.persistentDataPath + $"/{Global.globalInitializingClass.currentSaveEnemyArmy}.fun"))
+        if (!File.Exists(Global.Path + $"/{Global.globalInitializingClass.currentSaveEnemyArmy}.fun"))
         {
             army.pikeman.textInputQuantity.quantity = 30;
             army.warrior.textInputQuantity.quantity = 30;
