@@ -117,6 +117,7 @@ public class Building : GameModule
 
 
                 isBuild = false;
+                SaveSystem.SaveCastle(castle, Global.globalInitializingClass.currentSaveCastleSave);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyRun : GameModule
 {
@@ -19,6 +20,9 @@ public class EnemyRun : GameModule
     private Soldier soldier;
     public TextMeshPro damageText;
     private float time = 2;
+    float unitTime = 0.5f;
+    bool instantiate = false;
+    bool instantiateUnit = false;
     private void Awake()
     {
         army = GetComponentInChildren<PlayerArmyInBattle>();
@@ -71,6 +75,14 @@ public class EnemyRun : GameModule
                     damageText.text = "";
                     time = 2;
                 }
+
+            if (instantiate)
+            {
+                if (Global.Timer(ref unitTime))
+                {
+                    instantiateUnit = true;
+                }
+            }
         }
     }
 
@@ -80,15 +92,28 @@ public class EnemyRun : GameModule
 
         if (other.gameObject.layer == 14)
         {
-            soldier.helath -= 50;
-            damageText.text = "-50";
-            if (soldier.helath <= 0)
-            {
-                deadSounds.Play();
-                Destroy(gameObject);
-            }
-            other.gameObject.layer = 0;
+            Hit(50, other);
         }
+        if (other.gameObject.layer == 19)
+        {
+            Hit(75, other);
+        }
+        if (other.gameObject.layer == 20)
+        {
+            Hit(100, other);
+        }
+    }
+    private void Hit(float damage,Collider other)
+    {
+        int hit = (int)(damage * Random.Range(0.6f, 1.4f));
+        soldier.helath -= hit;
+        damageText.text = hit.ToString();
+        if (soldier.helath <= 0)
+        {
+            deadSounds.Play();
+            Destroy(gameObject);
+        }
+        other.gameObject.layer = 0;
     }
 
     private void ChangeRunDirection(Collider other, Soldier cursoldier)
@@ -129,27 +154,48 @@ public class EnemyRun : GameModule
 
     public void InstantiatePikeman()
     {
+        instantiate = true;
         if (army.army.pikeman.textInputQuantity.quantity > 0)
         {
-            Instantiate(pikemanPrefab, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
-            MinusPikeman();
+            if (instantiateUnit)
+            {
+                Instantiate(pikemanPrefab, new Vector3(-20.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+                MinusPikeman();
+                unitTime = 0.5f;
+                instantiate = false;
+                instantiateUnit = false;
+            }
         }
     }
     public void InstantiateAxeman()
     {
+        instantiate = true;
         if (army.army.warrior.textInputQuantity.quantity > 0)
         {
-            Instantiate(warriorPrefab, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
-            MinusWarrior();
+            if (instantiateUnit)
+            {
+                Instantiate(warriorPrefab, new Vector3(-10.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+                MinusWarrior();
+                unitTime = 0.5f;
+                instantiate = false;
+                instantiateUnit = false;
+            }
         }
 
     }
     public void InstantiateKnight()
     {
+        instantiate = true;
         if (army.army.knight.textInputQuantity.quantity > 0)
         {
-            Instantiate(knightPrefab, new Vector3(-30.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
-            MinusKnight();
+            if (instantiateUnit)
+            {
+                Instantiate(knightPrefab, new Vector3(-30.8f, 0.1402141f, -439f), new Quaternion(0, 0, 0, 0));
+                MinusKnight();
+                unitTime = 0.5f;
+                instantiateUnit = false;
+                instantiate = false;
+            }
         }
     }
     public void MinusPikeman()

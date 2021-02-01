@@ -4,6 +4,8 @@ public class Warrior : Soldier
 {
     public override void Initialize()
     {
+        helath = 150;
+        speed = 1.5f;
         if (transform.parent.parent.name != "EnemyAI" && transform.parent.parent.name != "TowerManagerGameObject" && transform.parent.name != "Player")
         {
             castle = transform.parent.GetComponentInParent<Castle>();

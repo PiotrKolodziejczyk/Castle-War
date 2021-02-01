@@ -8,7 +8,7 @@ public static class MainResourcesClass
         {
             case "Pikeman":
                 resources.clayToUpgradeLvl = 101 - buildings[0].level * buildings[1].level;
-                resources.woodToUpgradeLvl = 1234 - buildings[0].level * buildings[1].level;
+                resources.woodToUpgradeLvl = 124 - buildings[0].level * buildings[1].level;
                 resources.stoneToUpgradeLvl = 51 - buildings[0].level * buildings[1].level;
                 break;
             case "Warrior":

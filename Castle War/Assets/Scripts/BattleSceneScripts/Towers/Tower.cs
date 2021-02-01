@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public abstract class Tower : GameModule
 {
-    [SerializeField] protected float range;
-    [SerializeField] protected int damage;
+    [SerializeField] public int damage;
     [SerializeField] internal TextInputQuantity textInputQuantity;
     public ResourcesToUpgradeLvl resources;
     public Castle castle;

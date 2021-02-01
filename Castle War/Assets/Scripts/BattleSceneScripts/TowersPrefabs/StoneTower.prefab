@@ -60,6 +60,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -95,9 +96,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 376db966d1adf234ca7d02119bee0463, type: 3}
 --- !u!54 &4604325985650655533
 Rigidbody:
@@ -161,9 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4a22587fdc63346af95cfe6f92ca0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
   damage: 50
   textInputQuantity: {fileID: 0}
+  resources: {fileID: 0}
+  castle: {fileID: 0}
 --- !u!1 &8673517096114602638
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ff35b3f7a2766408236285339780b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: -8820112522143258240, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
+  bullet: {fileID: 1960638215922882813, guid: 84ad69e92e6fe401c8848494bcedac7d, type: 3}
   bulletList: []
   shootSound: {fileID: 4612833706094432141, guid: bc62de9079508074e81940a860acf907,
     type: 3}
