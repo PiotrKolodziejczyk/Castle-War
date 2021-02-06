@@ -17,19 +17,21 @@ public class TakeScript : MonoBehaviour, IArmy, IMaterials
     {
         Global.isSoldierPanelOnInCastleScene = true;
         takePanel.SetActive(true);
-        castle.Army.pikeman.textInputQuantity.input.text = castle.Army.pikeman.textInputQuantity.quantity.ToString();
-        castle.Army.warrior.textInputQuantity.input.text = castle.Army.warrior.textInputQuantity.quantity.ToString();
-        castle.Army.knight.textInputQuantity.input.text = castle.Army.knight.textInputQuantity.quantity.ToString();
-        castle.Army.woodTower.textInputQuantity.input.text = castle.Army.woodTower.textInputQuantity.quantity.ToString();
-        castle.Army.stoneTower.textInputQuantity.input.text = castle.Army.stoneTower.textInputQuantity.quantity.ToString();
-        castle.Army.greatTower.textInputQuantity.input.text = castle.Army.greatTower.textInputQuantity.quantity.ToString();
 
-        player.Army.woodTower.textInputQuantity.input.text = player.Army.woodTower.textInputQuantity.quantity.ToString();
-        player.Army.stoneTower.textInputQuantity.input.text = player.Army.stoneTower.textInputQuantity.quantity.ToString();
-        player.Army.greatTower.textInputQuantity.input.text = player.Army.greatTower.textInputQuantity.quantity.ToString();
-        player.Army.pikeman.textInputQuantity.input.text = player.Army.pikeman.textInputQuantity.quantity.ToString();
-        player.Army.warrior.textInputQuantity.input.text = player.Army.warrior.textInputQuantity.quantity.ToString();
-        player.Army.knight.textInputQuantity.input.text = player.Army.knight.textInputQuantity.quantity.ToString();
+        castle.Army.pikeman.textInputQuantity.input.text = "0";
+        castle.Army.warrior.textInputQuantity.input.text = "0";
+        castle.Army.knight.textInputQuantity.input.text = "0";
+        castle.Army.woodTower.textInputQuantity.input.text = "0";
+        castle.Army.stoneTower.textInputQuantity.input.text = "0";
+        castle.Army.greatTower.textInputQuantity.input.text = "0";
+
+
+        player.Army.pikeman.textInputQuantity.input.text = "0";
+        player.Army.warrior.textInputQuantity.input.text = "0";
+        player.Army.knight.textInputQuantity.input.text = "0";
+        player.Army.woodTower.textInputQuantity.input.text = "0";
+        player.Army.stoneTower.textInputQuantity.input.text = "0";
+        player.Army.greatTower.textInputQuantity.input.text = "0";
     }
     public void ExitPanel()
     {
@@ -63,7 +65,7 @@ public class TakeScript : MonoBehaviour, IArmy, IMaterials
                                     from.Army.stoneTower.textInputQuantity.input,
                                 ref to.Army.stoneTower.textInputQuantity.quantity);
         SoldierOrTowerSwitching(ref from.Army.greatTower.textInputQuantity.quantity,
-                                from.Army.greatTower.textInputQuantity.input,
+                                    from.Army.greatTower.textInputQuantity.input,
                                 ref to.Army.greatTower.textInputQuantity.quantity);
         SaveSystem.SavePlayerArmyData(this, Global.globalInitializingClass.currentSavePlayerArmy);
         SaveSystem.SaveCastle(castle, Global.globalInitializingClass.currentSaveCastleSave);
@@ -75,5 +77,27 @@ public class TakeScript : MonoBehaviour, IArmy, IMaterials
             from -= int.Parse(fromInput.text);
             to += int.Parse(fromInput.text);
         }
+        else
+        {
+            to += from;
+            from = 0;
+        }
+    }
+
+    public void SetAll()
+    {
+        castle.Army.pikeman.textInputQuantity.input.text = castle.Army.pikeman.textInputQuantity.quantity.ToString();
+        castle.Army.warrior.textInputQuantity.input.text = castle.Army.warrior.textInputQuantity.quantity.ToString();
+        castle.Army.knight.textInputQuantity.input.text = castle.Army.knight.textInputQuantity.quantity.ToString();
+        castle.Army.woodTower.textInputQuantity.input.text = castle.Army.woodTower.textInputQuantity.quantity.ToString();
+        castle.Army.stoneTower.textInputQuantity.input.text = castle.Army.stoneTower.textInputQuantity.quantity.ToString();
+        castle.Army.greatTower.textInputQuantity.input.text = castle.Army.greatTower.textInputQuantity.quantity.ToString();
+
+        player.Army.woodTower.textInputQuantity.input.text = player.Army.woodTower.textInputQuantity.quantity.ToString();
+        player.Army.stoneTower.textInputQuantity.input.text = player.Army.stoneTower.textInputQuantity.quantity.ToString();
+        player.Army.greatTower.textInputQuantity.input.text = player.Army.greatTower.textInputQuantity.quantity.ToString();
+        player.Army.pikeman.textInputQuantity.input.text = player.Army.pikeman.textInputQuantity.quantity.ToString();
+        player.Army.warrior.textInputQuantity.input.text = player.Army.warrior.textInputQuantity.quantity.ToString();
+        player.Army.knight.textInputQuantity.input.text = player.Army.knight.textInputQuantity.quantity.ToString();
     }
 }

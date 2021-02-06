@@ -50,7 +50,6 @@ public class Building : GameModule
 
     public void BuildBuilding()
     {
-
         if (RemoveMaterialIfisTrue(resourcesToUpgradeBuildingLvl.clayToUpgradeLvl,
                                    resourcesToUpgradeBuildingLvl.stoneToUpgradeLvl,
                                    resourcesToUpgradeBuildingLvl.woodToUpgradeLvl))

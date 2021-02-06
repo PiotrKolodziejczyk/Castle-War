@@ -14,9 +14,9 @@ public class HowMuchSoldierIncomeCount : MonoBehaviour
     private int soldiersToWin;
     private void Start()
     {
-        soldiersToWin = (castle.Army.pikeman.textInputQuantity.quantity + castle.Army.warrior.textInputQuantity.quantity + castle.Army.knight.textInputQuantity.quantity) / 2;
-        if (soldiersToWin < 10)
-            soldiersToWin = 10;
+        soldiersToWin = (castle.Army.pikeman.textInputQuantity.quantity * 2 + castle.Army.warrior.textInputQuantity.quantity * 4 + castle.Army.knight.textInputQuantity.quantity * 8);
+        if (soldiersToWin < 30)
+            soldiersToWin = 30;
         toWinText.text = soldiersToWin.ToString();
     }
 
@@ -63,9 +63,21 @@ public class HowMuchSoldierIncomeCount : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Soldiers"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Pikeman"))
         {
             count++;
+            countText.text = "SOLDIER INCOME : " + count;
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Warrior"))
+        {
+            count += 2;
+            countText.text = "SOLDIER INCOME : " + count;
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Knight"))
+        {
+            count += 4;
             countText.text = "SOLDIER INCOME : " + count;
         }
     }

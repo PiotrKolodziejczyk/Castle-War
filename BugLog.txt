@@ -1,4 +1,2 @@
-﻿scena walki maja 0 wariorow i knightów a i tak leca
-przy zmianie zolniezy nie ma wartosci defaultowych
-dodac zeby nie bylo mozna za szybko wypuszczac wojsk
-
+﻿zapisywanie budowania w zamkach
+widok zbiorowej liczby punktów i zapisywanie punktów w menu

@@ -22,6 +22,9 @@ public class AIController : GameModule
     private int castleToAttackIndex = -1;
     [SerializeField] private Moving moving;
     public TextMeshProUGUI text;
+    public TextMeshProUGUI points;
+    public TextMeshProUGUI enemyPoints;
+    public TextMeshProUGUI enemyCastles;
     public GameObject GameOver;
     public GameObject attack;
     public bool acceptAttack;
@@ -48,7 +51,10 @@ public class AIController : GameModule
         aiCastles = FindObjectsOfType<Transform>().Where(x => x.gameObject.layer == LayerMask.NameToLayer("Enemy") && Regex.Match(x.name, @"Castle\(Clone\)\s*\(\d+\)").Success).ToList();
         playerCastles = FindObjectsOfType<Transform>().Where(x => x.gameObject.layer == LayerMask.NameToLayer("I") && Regex.Match(x.name, @"Castle\(Clone\)\s*\(\d+\)").Success).ToList();
         AcceptMove(whichCaslte, false);
-        text.text = "Castles :" + playerCastles.Count;
+        text.text = "Player castles : " + playerCastles.Count;
+
+        enemyCastles.text = "Enemy castles : " + aiCastles.Count;
+       
         if (playerCastles.Count == 0)
         {
             Global.PAUSE = true;
@@ -61,6 +67,23 @@ public class AIController : GameModule
 
         if (!Global.PAUSE)
         {
+            var pointsCount = 0;
+            foreach (var point in playerCastles)
+            {
+                int.TryParse(point.GetComponent<Castle>().points.text,out int points);
+                pointsCount = points;
+            }
+            points.text = "Player points : " + pointsCount;
+
+            var pointsEnemyCount = 0;
+            foreach (var point in aiCastles)
+            {
+
+                int.TryParse(point.GetComponent<Castle>().points.text,out int enemyPoints);
+                pointsEnemyCount = enemyPoints;
+            }
+            enemyPoints.text = "Enemy points : " + pointsEnemyCount;
+
             if (!isAttack)
             {
                 if (Global.Timer(ref timeToAttack))
@@ -69,7 +92,7 @@ public class AIController : GameModule
                 {
                     whichCaslte = UnityEngine.Random.Range(0, aiCastles.Count);
                     AcceptMove(whichCaslte, false);
-                    time = 30;
+                    time = UnityEngine.Random.Range(10, 100);
                 }
             }
 
@@ -125,9 +148,10 @@ public class AIController : GameModule
         {
             moving.AcceptMove(playerCastles[castle].transform.position, transform);
             isAttack = false;
-            timeToAttack = 30;
+            timeToAttack = UnityEngine.Random.Range(20, 100);
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))

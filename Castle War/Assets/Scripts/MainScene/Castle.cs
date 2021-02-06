@@ -37,7 +37,7 @@ public class Castle : GameModule, IArmy, IMaterials
     [SerializeField] private GameObject baseCastle;
     [SerializeField] private Material baseMaterialRed;
     [SerializeField] private Material baseMaterialGreen;
-    [SerializeField] private TextMeshPro points;
+    [SerializeField] public TextMeshPro points;
     internal string nick;
     public Army Army { get => army; set => army = value; }
     public Materials Materials { get => materials; set => materials = value; }

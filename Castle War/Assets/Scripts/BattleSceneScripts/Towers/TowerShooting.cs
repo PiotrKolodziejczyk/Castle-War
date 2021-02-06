@@ -8,9 +8,8 @@ public class TowerShooting : GameModule
     public List<GameObject> bulletList = new List<GameObject>();
     private float time = 0;
     private bool isShooting = false;
-    private float timetest = 0;
     private float cleaner = 10;
-    private int limit = 3;
+    private int limit = 6;
     [SerializeField]
     private AudioSource shootSound;
     private void Awake()
@@ -50,7 +49,10 @@ public class TowerShooting : GameModule
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.gameObject.layer == 10 && time <= 0)
+        if ((other.transform.gameObject.layer == 21 ||
+             other.transform.gameObject.layer == 22 ||
+             other.transform.gameObject.layer == 23)&&
+             time <= 0)
         {
             if (Shoot is null) { }
             else
