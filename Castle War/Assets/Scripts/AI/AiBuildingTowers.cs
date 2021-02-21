@@ -29,17 +29,17 @@ public class AiBuildingTowers : GameModule
                 if (Global.Timer(ref timerToBuildWoodTower))
                 {
                     BuildWoodTower();
-                    timerToBuildWoodTower = 4;
+                    timerToBuildWoodTower = Random.Range(2,6);
                 }
                 if (Global.Timer(ref timerToBuildStoneTower))
                 {
                     BuildStoneTower();
-                    timerToBuildStoneTower = 6;
+                    timerToBuildStoneTower = Random.Range(3, 8);
                 }
                 if (Global.Timer(ref timerToBuildGreatTower))
                 {
                     BuildGreatTower();
-                    timerToBuildGreatTower = 10;
+                    timerToBuildGreatTower = Random.Range(6, 12);
                 }
             }
     }

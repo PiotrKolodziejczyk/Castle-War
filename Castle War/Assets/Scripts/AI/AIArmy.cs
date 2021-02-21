@@ -36,17 +36,17 @@ public class AIArmy : MonoBehaviour, IArmy
         int takePikemanAmount;
         int takeWarriorAmount;
         int takeKnightAmount;
-        if (pikeman > 0)
+        if (pikeman > Random.Range(0,50))
         {
             takePikemanAmount = Random.Range(0, pikeman);
             army.pikeman.textInputQuantity.quantity += takePikemanAmount;
         }
-        if (warrior > 0)
+        if (warrior > Random.Range(0, 50))
         {
             takeWarriorAmount = Random.Range(0, warrior);
             army.warrior.textInputQuantity.quantity += takeWarriorAmount;
         }
-        if (knight > 0)
+        if (knight > Random.Range(0, 50))
         {
             takeKnightAmount = Random.Range(0, knight);
             army.knight.textInputQuantity.quantity += takeKnightAmount;

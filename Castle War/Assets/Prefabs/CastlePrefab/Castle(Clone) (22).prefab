@@ -1130,6 +1130,7 @@ GameObject:
   - component: {fileID: 2864335214038449324}
   - component: {fileID: 2864335214038449325}
   - component: {fileID: 2864335214038449327}
+  - component: {fileID: 525955292995771708}
   m_Layer: 9
   m_Name: Pikeman
   m_TagString: Untagged
@@ -1164,10 +1165,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helath: 0
-  armor: 0
   speed: 0
   textInputQuantity: {fileID: 2864335214038449325}
   resources: {fileID: 2864335214038449327}
+  timeProperties: {fileID: 0}
   castle: {fileID: 0}
 --- !u!114 &2864335214038449325
 MonoBehaviour:
@@ -1203,6 +1204,21 @@ MonoBehaviour:
   woodToUpgradeLvlText: {fileID: 0}
   stoneToUpgradeLvlText: {fileID: 0}
   clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &525955292995771708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864335214038449323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 0
+  startTimeToUpgrade: 0
+  text: {fileID: 0}
 --- !u!1 &2864335214051094769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2767,7 @@ GameObject:
   - component: {fileID: 2864335214163391294}
   - component: {fileID: 2864335214163391295}
   - component: {fileID: 2864335214163391281}
+  - component: {fileID: 7658509001858050756}
   m_Layer: 9
   m_Name: Warrior
   m_TagString: Untagged
@@ -2785,10 +2802,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helath: 0
-  armor: 0
   speed: 0
   textInputQuantity: {fileID: 2864335214163391295}
   resources: {fileID: 2864335214163391281}
+  timeProperties: {fileID: 0}
   castle: {fileID: 0}
 --- !u!114 &2864335214163391295
 MonoBehaviour:
@@ -2824,6 +2841,21 @@ MonoBehaviour:
   woodToUpgradeLvlText: {fileID: 0}
   stoneToUpgradeLvlText: {fileID: 0}
   clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &7658509001858050756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864335214163391293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 0
+  startTimeToUpgrade: 0
+  text: {fileID: 0}
 --- !u!1 &2864335214167190511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,6 +3783,7 @@ GameObject:
   - component: {fileID: 2864335214270251485}
   - component: {fileID: 2864335214270251482}
   - component: {fileID: 8416759090177532961}
+  - component: {fileID: 5384330640369772041}
   m_Layer: 9
   m_Name: StoneTower
   m_TagString: Untagged
@@ -3784,7 +3817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4a22587fdc63346af95cfe6f92ca0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
   damage: 0
   textInputQuantity: {fileID: 2864335214270251482}
   resources: {fileID: 8416759090177532961}
@@ -3823,6 +3855,21 @@ MonoBehaviour:
   woodToUpgradeLvlText: {fileID: 0}
   stoneToUpgradeLvlText: {fileID: 0}
   clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &5384330640369772041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864335214270251480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 0
+  startTimeToUpgrade: 0
+  text: {fileID: 0}
 --- !u!1 &2864335214282937265
 GameObject:
   m_ObjectHideFlags: 0
@@ -4727,7 +4774,7 @@ GameObject:
   - component: {fileID: 2864335214362481640}
   - component: {fileID: 2864335214362481641}
   m_Layer: 8
-  m_Name: ClayMineTimePropertues
+  m_Name: ClayMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4798,6 +4845,12 @@ MonoBehaviour:
   castle: {fileID: 2864335214342623571}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
@@ -12240,6 +12293,7 @@ GameObject:
   - component: {fileID: 2864335215000548458}
   - component: {fileID: 2864335215000548459}
   - component: {fileID: 8688218555960415935}
+  - component: {fileID: 4188203822464239179}
   m_Layer: 9
   m_Name: GreatTower
   m_TagString: Untagged
@@ -12273,7 +12327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071fd70a090c8e24b8b08bf7897595af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
   damage: 0
   textInputQuantity: {fileID: 2864335215000548459}
   resources: {fileID: 8688218555960415935}
@@ -12312,6 +12365,21 @@ MonoBehaviour:
   woodToUpgradeLvlText: {fileID: 0}
   stoneToUpgradeLvlText: {fileID: 0}
   clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &4188203822464239179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864335215000548457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 0
+  startTimeToUpgrade: 0
+  text: {fileID: 0}
 --- !u!1 &2864335215001159124
 GameObject:
   m_ObjectHideFlags: 0
@@ -12519,6 +12587,7 @@ GameObject:
   - component: {fileID: 2864335215013675841}
   - component: {fileID: 2864335215013675854}
   - component: {fileID: 2864335215013675840}
+  - component: {fileID: 4396750309878761558}
   m_Layer: 9
   m_Name: Knight
   m_TagString: Untagged
@@ -12553,10 +12622,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helath: 0
-  armor: 0
   speed: 0
   textInputQuantity: {fileID: 2864335215013675854}
   resources: {fileID: 2864335215013675840}
+  timeProperties: {fileID: 0}
   castle: {fileID: 0}
 --- !u!114 &2864335215013675854
 MonoBehaviour:
@@ -12592,6 +12661,21 @@ MonoBehaviour:
   woodToUpgradeLvlText: {fileID: 0}
   stoneToUpgradeLvlText: {fileID: 0}
   clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &4396750309878761558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864335215013675852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 0
+  startTimeToUpgrade: 0
+  text: {fileID: 0}
 --- !u!1 &2864335215014639646
 GameObject:
   m_ObjectHideFlags: 0
@@ -13406,7 +13490,7 @@ GameObject:
   - component: {fileID: 2864335215107459884}
   - component: {fileID: 2864335215107459885}
   m_Layer: 8
-  m_Name: BarrackTimePropertues
+  m_Name: Barrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13477,6 +13561,12 @@ MonoBehaviour:
   castle: {fileID: 2864335214342623571}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
@@ -14973,7 +15063,7 @@ GameObject:
   - component: {fileID: 2864335215257053034}
   - component: {fileID: 2864335215257053035}
   m_Layer: 8
-  m_Name: SmithyTimePropertues (4)
+  m_Name: Smithy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15044,6 +15134,12 @@ MonoBehaviour:
   castle: {fileID: 2864335214342623571}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
@@ -15441,7 +15537,7 @@ GameObject:
   - component: {fileID: 2864335215320568813}
   - component: {fileID: 2864335215320568810}
   m_Layer: 8
-  m_Name: SawmillTimeProperties
+  m_Name: Sawmill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15512,6 +15608,12 @@ MonoBehaviour:
   castle: {fileID: 2864335214342623571}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
@@ -16289,7 +16391,7 @@ GameObject:
   - component: {fileID: 2864335215346762338}
   - component: {fileID: 2864335215346762339}
   m_Layer: 8
-  m_Name: TowerWorkShopTimePropertues
+  m_Name: TowerWorkshop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16360,6 +16462,12 @@ MonoBehaviour:
   castle: {fileID: 2864335214342623571}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
@@ -19514,7 +19622,7 @@ GameObject:
   - component: {fileID: 2864335215606102743}
   - component: {fileID: 2864335215606102740}
   m_Layer: 8
-  m_Name: WallTimePropertues (5)
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19585,6 +19693,12 @@ MonoBehaviour:
   castle: {fileID: 2864335214342623571}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
@@ -19861,7 +19975,7 @@ GameObject:
   - component: {fileID: 2864335215636962616}
   - component: {fileID: 2864335215636962617}
   m_Layer: 8
-  m_Name: QuarryTimePropertues
+  m_Name: Quarry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19932,6 +20046,12 @@ MonoBehaviour:
   castle: {fileID: 2864335214342623571}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
@@ -22980,7 +23100,7 @@ GameObject:
   - component: {fileID: 2864335215933939903}
   - component: {fileID: 2864335215933939900}
   m_Layer: 8
-  m_Name: TownHallTimePropertues (6)
+  m_Name: TownHall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23051,6 +23171,12 @@ MonoBehaviour:
   castle: {fileID: 2864335214342623571}
   take: {fileID: 0}
   resourcesToUpgradeBuildingLvl: {fileID: 0}
+  resourcesToUpgradePikeman: {fileID: 0}
+  resourcesToUpgradeWarrior: {fileID: 0}
+  resourcesToUpgradeKnight: {fileID: 0}
+  resourcesToUpgradeWoodTower: {fileID: 0}
+  resourcesToUpgradeStoneTower: {fileID: 0}
+  resourcesToUpgradeGreatTower: {fileID: 0}
   normalCursor: {fileID: 0}
   buildCursor: {fileID: 0}
   youNeedTimeMain: 0
@@ -23227,6 +23353,7 @@ GameObject:
   - component: {fileID: 2864335215962832069}
   - component: {fileID: 2864335215962832066}
   - component: {fileID: 4209243417895363410}
+  - component: {fileID: 856427039409458984}
   m_Layer: 9
   m_Name: WoodTower
   m_TagString: Untagged
@@ -23260,7 +23387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba03359870c08b428ee1d03800d4bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
   damage: 0
   textInputQuantity: {fileID: 2864335215962832066}
   resources: {fileID: 4209243417895363410}
@@ -23299,6 +23425,21 @@ MonoBehaviour:
   woodToUpgradeLvlText: {fileID: 0}
   stoneToUpgradeLvlText: {fileID: 0}
   clayToUpgradeLvlText: {fileID: 0}
+--- !u!114 &856427039409458984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864335215962832064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToUpgrade: 0
+  startTimeToUpgrade: 0
+  text: {fileID: 0}
 --- !u!1 &2864335215964555854
 GameObject:
   m_ObjectHideFlags: 0

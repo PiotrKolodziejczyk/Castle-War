@@ -9,5 +9,5 @@ public abstract class Tower : GameModule
     [SerializeField] internal TextInputQuantity textInputQuantity;
     public ResourcesToUpgradeLvl resources;
     public Castle castle;
-
+    public TimeProperties timeProperties;
 }

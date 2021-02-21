@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.GameController;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.CastleScene.Buldings
@@ -9,10 +10,17 @@ namespace Assets.Scripts.CastleScene.Buldings
         [SerializeField] internal float startTimeToUpgrade;
         [SerializeField] internal Text text;
 
+        private void Awake()
+        {
+            startTimeToUpgrade = TimesToUpgrade.GetTime(this.name);
+        }
+
         private void Update()
         {
             if (text != null)
-                text.text = timeToUpgrade.ToString();
+            {
+                text.text = timeToUpgrade.ToString("0.00");
+            }
         }
     }
 }

@@ -46,6 +46,7 @@ public class Building : GameModule
         {
             Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.ForceSoftware);
         }
+
     }
 
     public void BuildBuilding()
@@ -171,6 +172,7 @@ public class Building : GameModule
 
     private void OnMouseDown()
     {
+        Global.currentCastleObject = castle;
         if (!Global.mainPanelActive && Global.isSoldierPanelOnInCastleScene == false && Global.isTowerPanelOnInCastleScene == false)
         {
             OnEnablePanel();
@@ -244,6 +246,7 @@ public class Building : GameModule
         Global.isTowerPanelOnInCastleScene = false;
         Global.mainPanelActive = false;
         panelMain.panel.SetActive(false);
+        SaveSystem.SaveCastle(castle, Global.globalInitializingClass.currentSaveCastleSave);
     }
 
 

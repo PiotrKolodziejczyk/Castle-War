@@ -32,6 +32,8 @@ sysinfo.txt
 .consulo/
 /*.tmp
 /*.svd
+/*.fun
+/*.fun.meta
  
 # ============ #
 # OS generated #

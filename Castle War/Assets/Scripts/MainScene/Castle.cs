@@ -2,7 +2,6 @@
 using Assets.Scripts.HelpingClass;
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.MainScene;
-using Assets.Scripts.SavingData;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -99,12 +98,13 @@ public class Castle : GameModule, IArmy, IMaterials
                 army.greatTower.textInputQuantity.quantity = data.greatTowerQuantity;
             }
             else
-                Army.InitializeArmyWhenFileNotExist(10,10,10,10,10,10);
+                Army.InitializeArmyWhenFileNotExist(10, 10, 10, 10, 10, 10);
         }
         if (Id == 200)
             Id = Global.currentCastle;
-        LoadPlayerCastle();
 
+
+        LoadPlayerCastle();
         if (AttackOrDefense != null)
             AttackOrDefense.SetCanvas();
         if (aIEngine != null)
@@ -148,7 +148,7 @@ public class Castle : GameModule, IArmy, IMaterials
                 Global.FirstInitializePlayerCastle(this);
             else
                 Global.FirstInitializeEnemyCastle(this);
-           
+
 
             if (isPlayer && transform.parent.name == "Castles")
                 baseCastle.GetComponent<MeshRenderer>().material = baseMaterialGreen;

@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\GameController\GameLoader.cs" />
     <Compile Include="Assets\Scripts\GameController\GameModule.cs" />
     <Compile Include="Assets\Scripts\GameController\MainResourcesClass.cs" />
+    <Compile Include="Assets\Scripts\GameController\TimesToUpgrade.cs" />
     <Compile Include="Assets\Scripts\HelpingClass\Army.cs" />
     <Compile Include="Assets\Scripts\HelpingClass\BackToMap.cs" />
     <Compile Include="Assets\Scripts\HelpingClass\Materials.cs" />

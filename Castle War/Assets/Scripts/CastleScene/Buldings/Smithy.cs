@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
 using Assets.Scripts.CastleScene.Panels;
+using Assets.Scripts.GameController;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,8 @@ public class Smithy : Building
     private void Start()
     {
         MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.Smithy.ToString(), this, castle.townHall);
+        if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade * level)
+            isBuild = true;
     }
     private void Update()
     {

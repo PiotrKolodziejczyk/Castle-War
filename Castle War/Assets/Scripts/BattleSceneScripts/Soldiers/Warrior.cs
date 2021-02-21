@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.BattleSceneScripts;
+using Assets.Scripts.CastleScene.Buldings;
 
 public class Warrior : Soldier
 {
@@ -10,6 +11,8 @@ public class Warrior : Soldier
         {
             castle = transform.parent.GetComponentInParent<Castle>();
             MainResourcesClass.InitializeResources(ref resources, ResourcesEnum.Warrior.ToString(), castle.barrack, castle.townHall);
+            timeProperties = GetComponent<TimeProperties>();
+
         }
         textInputQuantity = GetComponent<TextInputQuantity>();
     }

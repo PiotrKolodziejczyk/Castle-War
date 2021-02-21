@@ -409,6 +409,7 @@ MonoBehaviour:
   speed: 0
   textInputQuantity: {fileID: 19683698}
   resources: {fileID: 19683699}
+  timeProperties: {fileID: 0}
   castle: {fileID: 1411268294}
 --- !u!114 &19683698
 MonoBehaviour:
@@ -456,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 10
+  timeToUpgrade: 15
   startTimeToUpgrade: 10
   text: {fileID: 4012281231911688990}
 --- !u!1 &22942060
@@ -4943,6 +4944,7 @@ MonoBehaviour:
   speed: 0
   textInputQuantity: {fileID: 217464595}
   resources: {fileID: 217464597}
+  timeProperties: {fileID: 0}
   castle: {fileID: 1411268294}
 --- !u!114 &217464597
 MonoBehaviour:
@@ -7846,6 +7848,7 @@ MonoBehaviour:
   textInputQuantity: {fileID: 402649846}
   resources: {fileID: 402649848}
   castle: {fileID: 0}
+  timeProperties: {fileID: 0}
 --- !u!114 &402649848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9650,6 +9653,7 @@ MonoBehaviour:
   textInputQuantity: {fileID: 451642615}
   resources: {fileID: 451642617}
   castle: {fileID: 0}
+  timeProperties: {fileID: 0}
 --- !u!114 &451642617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10138,6 +10142,7 @@ MonoBehaviour:
   textInputQuantity: {fileID: 490961978}
   resources: {fileID: 490961980}
   castle: {fileID: 1411268294}
+  timeProperties: {fileID: 0}
 --- !u!114 &490961978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10166,9 +10171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 5
+  timeToUpgrade: 10
   startTimeToUpgrade: 5
-  text: {fileID: 0}
+  text: {fileID: 243454519340656397}
 --- !u!114 &490961980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10524,6 +10529,7 @@ MonoBehaviour:
   textInputQuantity: {fileID: 495693758}
   resources: {fileID: 495693760}
   castle: {fileID: 1411268294}
+  timeProperties: {fileID: 0}
 --- !u!114 &495693758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10552,9 +10558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 5
+  timeToUpgrade: 18
   startTimeToUpgrade: 5
-  text: {fileID: 0}
+  text: {fileID: 243454518369454448}
 --- !u!114 &495693760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13283,8 +13289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 3
-  startTimeToUpgrade: 3
+  timeToUpgrade: 60
+  startTimeToUpgrade: 60
   text: {fileID: 0}
 --- !u!114 &720799655
 MonoBehaviour:
@@ -23701,6 +23707,7 @@ MonoBehaviour:
   textInputQuantity: {fileID: 1262506926}
   resources: {fileID: 1262506928}
   castle: {fileID: 0}
+  timeProperties: {fileID: 0}
 --- !u!114 &1262506928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27645,6 +27652,7 @@ MonoBehaviour:
   textInputQuantity: {fileID: 1533609815}
   resources: {fileID: 1533609817}
   castle: {fileID: 1411268294}
+  timeProperties: {fileID: 0}
 --- !u!114 &1533609815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27673,9 +27681,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 5
+  timeToUpgrade: 12
   startTimeToUpgrade: 5
-  text: {fileID: 0}
+  text: {fileID: 243454519438389212}
 --- !u!114 &1533609817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32235,6 +32243,7 @@ MonoBehaviour:
   speed: 0
   textInputQuantity: {fileID: 1641825544}
   resources: {fileID: 1641825545}
+  timeProperties: {fileID: 0}
   castle: {fileID: 1411268294}
 --- !u!114 &1641825544
 MonoBehaviour:
@@ -32282,7 +32291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 3
+  timeToUpgrade: 5
   startTimeToUpgrade: 3
   text: {fileID: 4012281231681800386}
 --- !u!1 &1641995021
@@ -36341,6 +36350,7 @@ MonoBehaviour:
   speed: 0
   textInputQuantity: {fileID: 1766538388}
   resources: {fileID: 1766538390}
+  timeProperties: {fileID: 0}
   castle: {fileID: 1411268294}
 --- !u!114 &1766538390
 MonoBehaviour:
@@ -37349,6 +37359,7 @@ MonoBehaviour:
   speed: 0
   textInputQuantity: {fileID: 1890992044}
   resources: {fileID: 1890992047}
+  timeProperties: {fileID: 0}
   castle: {fileID: 0}
 --- !u!114 &1890992047
 MonoBehaviour:
@@ -38380,6 +38391,7 @@ MonoBehaviour:
   speed: 0
   textInputQuantity: {fileID: 1975334980}
   resources: {fileID: 1975334981}
+  timeProperties: {fileID: 0}
   castle: {fileID: 1411268294}
 --- !u!114 &1975334980
 MonoBehaviour:
@@ -38427,7 +38439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66dbcaeccdf04dab966a83d1d9304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToUpgrade: 5
+  timeToUpgrade: 8
   startTimeToUpgrade: 5
   text: {fileID: 4012281232995348712}
 --- !u!1 &1989076550

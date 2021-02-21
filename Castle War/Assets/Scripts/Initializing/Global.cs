@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.HelpingClass;
+﻿using Assets.Scripts.GameController;
+using Assets.Scripts.HelpingClass;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +21,7 @@ public static class Global
     public static bool treningPanelsActive = false;
     public static bool aiActive = true;
     public static bool isAttackEnemy = false;
-
+    public static Castle currentCastleObject;
     public static void LoadAppropriateSceneTroughtTheLoadingScene(Scenes whichScene, int id)
     {
         Global.currentCastle = id;
@@ -37,14 +38,14 @@ public static class Global
     }
     public static void FirstInitializePlayerCastle(Castle castle)
     {
-        castle.sawmill.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.clayMine.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.quarry.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.barrack.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.towerWorkShop.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.smithy.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.townHall.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.wall.timePropertiesBuilding.timeToUpgrade = 3;
+        castle.sawmill.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("SawMill");
+        castle.clayMine.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("clayMine");
+        castle.quarry.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("quarry");
+        castle.barrack.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("barrack");
+        castle.towerWorkShop.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("towerWorkShop");
+        castle.smithy.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("smithy");
+        castle.townHall.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("townHall");
+        castle.wall.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("wall");
         castle.sawmill.level = 1;
         castle.clayMine.level = 1;
         castle.quarry.level = 1;
@@ -56,6 +57,25 @@ public static class Global
         castle.Army.pikeman.textInputQuantity.quantity = 20;
         castle.Army.warrior.textInputQuantity.quantity = 0;
         castle.Army.knight.textInputQuantity.quantity = 0;
+
+        if (castle.Army.pikeman.timeProperties != null)
+            castle.Army.pikeman.timeProperties.timeToUpgrade = TimesToUpgrade.GetTime("pikeman");
+        
+        if (castle.Army.warrior.timeProperties != null)
+            castle.Army.warrior.timeProperties.timeToUpgrade = TimesToUpgrade.GetTime("warrior");
+        
+        if (castle.Army.knight.timeProperties != null)
+            castle.Army.knight.timeProperties.timeToUpgrade = TimesToUpgrade.GetTime("knight");
+
+        if (castle.Army.woodTower.timeProperties != null)
+            castle.Army.woodTower.timeProperties.timeToUpgrade = TimesToUpgrade.GetTime("woodTower");
+
+        if (castle.Army.stoneTower.timeProperties != null)
+            castle.Army.stoneTower.timeProperties.timeToUpgrade = TimesToUpgrade.GetTime("stoneTower");
+
+        if (castle.Army.greatTower.timeProperties != null)
+            castle.Army.greatTower.timeProperties.timeToUpgrade = TimesToUpgrade.GetTime("greatTower");
+
         castle.Army.woodTower.textInputQuantity.quantity = 10;
         castle.Army.stoneTower.textInputQuantity.quantity = 0;
         castle.Army.greatTower.textInputQuantity.quantity = 0;
@@ -69,14 +89,14 @@ public static class Global
     }
     public static void FirstInitializeEnemyCastle(Castle castle)
     {
-        castle.sawmill.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.clayMine.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.quarry.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.barrack.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.towerWorkShop.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.smithy.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.townHall.timePropertiesBuilding.timeToUpgrade = 3;
-        castle.wall.timePropertiesBuilding.timeToUpgrade = 3;
+        castle.sawmill.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("sawmill");
+        castle.clayMine.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("clayMine");
+        castle.quarry.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("quarry");
+        castle.barrack.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("barrack");
+        castle.towerWorkShop.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("towerWorkShop");
+        castle.smithy.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("smithy");
+        castle.townHall.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("townHall");
+        castle.wall.timePropertiesBuilding.timeToUpgrade = TimesToUpgrade.GetTime("wall");
         castle.sawmill.level = 1;
         castle.clayMine.level = 1;
         castle.quarry.level = 1;
@@ -94,6 +114,15 @@ public static class Global
         castle.Army.woodTower.textInputQuantity.quantity = 5;
         castle.Army.stoneTower.textInputQuantity.quantity = 2;
         castle.Army.greatTower.textInputQuantity.quantity = 2;
+
+        if (castle.Army.pikeman.timeProperties != null)
+            castle.Army.pikeman.timeProperties.timeToUpgrade = TimesToUpgrade.GetTime("pikeman");
+
+        if (castle.Army.warrior.timeProperties != null)
+            castle.Army.warrior.timeProperties.timeToUpgrade = TimesToUpgrade.GetTime("warrior");
+
+        if (castle.Army.knight.timeProperties != null)
+            castle.Army.knight.timeProperties.timeToUpgrade = TimesToUpgrade.GetTime("knight");
         castle.isPlayer = false;
         castle.transform.tag = "Untagged";
         castle.transform.gameObject.layer = LayerMask.NameToLayer("Enemy");

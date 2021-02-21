@@ -1,8 +1,4 @@
-﻿using Assets.Scripts.CastleScene.Buldings;
-using Assets.Scripts.CastleScene.Panels;
-using System.Text.RegularExpressions;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
 public class TownHall : Building
 {
@@ -10,7 +6,9 @@ public class TownHall : Building
 
     public void Start()
     {
-        MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.TownHall.ToString(),this);
+        MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.TownHall.ToString(), this);
+        if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade*level)
+            isBuild = true;
     }
     private void Update()
     {

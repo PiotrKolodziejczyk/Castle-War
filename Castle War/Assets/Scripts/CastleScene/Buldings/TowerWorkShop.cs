@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
 using Assets.Scripts.CastleScene.Panels;
+using Assets.Scripts.GameController;
 using Assets.Scripts.HelpingClass;
 using System.Text.RegularExpressions;
 using TMPro;
@@ -31,7 +32,11 @@ public class TowerWorkShop : Building
 
         MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.TowerWorkShop.ToString(), this, castle.townHall);
     }
-
+    public void Start()
+    {
+        if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade * level)
+            isBuild = true;
+    }
     private void Update()
     {
 

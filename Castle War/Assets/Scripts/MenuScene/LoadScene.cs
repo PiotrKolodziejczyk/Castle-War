@@ -40,6 +40,11 @@ public class LoadScene : MonoBehaviour
 
     public void ToMap()
     {
+        if (Global.currentCastleObject != null)
+        {
+            SaveSystem.SaveCastle(Global.currentCastleObject, Global.globalInitializingClass.currentSaveCastleSave);
+        }
+        Global.currentCastleObject = null;
         Global.PAUSE = false;
         Global.whichScene = "SampleScene";
         SceneManager.LoadScene("LoadingScene");
@@ -49,6 +54,7 @@ public class LoadScene : MonoBehaviour
         Global.PAUSE = false;
         Global.whichScene = "Menu";
         SceneManager.LoadScene("LoadingScene");
+
     }
     public void LoadAppropriateScene()
     {

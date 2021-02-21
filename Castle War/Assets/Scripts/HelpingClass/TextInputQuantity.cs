@@ -22,7 +22,9 @@ namespace Assets.Scripts.BattleSceneScripts
             {
                 text.text = quantity.ToString();
                 if (transform.parent.name != "Player")
+                {
                     textInCanvas.text = text.text;
+                }
             }
         }
     }

@@ -30,8 +30,13 @@ public class Barrack : Building
         if (SceneManager.GetActiveScene().name == "CastleScene")
             Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.ForceSoftware);
         MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.Barrack.ToString(), this, castle.townHall);
+        
     }
-
+    public void Start()
+    {
+        if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade * level)
+            isBuild = true;
+    }
     private void Update()
     {
         if (panelMain != null && SceneManager.GetActiveScene().name == "CastleScene" && isYouNeedMain && Global.Timer(ref youNeedTimeMain))

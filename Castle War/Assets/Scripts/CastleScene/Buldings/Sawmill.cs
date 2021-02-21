@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.CastleScene.Buldings;
 using Assets.Scripts.CastleScene.Panels;
+using Assets.Scripts.GameController;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,8 @@ public class Sawmill : Building
     private void Start()
     {
         MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.Sawmill.ToString(), this, castle.townHall);
+        if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade * level)
+            isBuild = true;
     }
     private void Update()
     {

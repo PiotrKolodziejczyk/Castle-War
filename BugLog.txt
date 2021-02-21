@@ -1,2 +1,2 @@
-﻿zapisywanie budowania w zamkach
-widok zbiorowej liczby punktów i zapisywanie punktów w menu
+﻿
+

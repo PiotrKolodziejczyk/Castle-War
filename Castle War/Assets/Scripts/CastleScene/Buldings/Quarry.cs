@@ -1,4 +1,5 @@
-﻿using UnityEngine.SceneManagement;
+﻿using Assets.Scripts.GameController;
+using UnityEngine.SceneManagement;
 
 public class Quarry : Building
 {
@@ -7,6 +8,8 @@ public class Quarry : Building
     public void Start()
     {
         MainResourcesClass.InitializeResources(ref resourcesToUpgradeBuildingLvl, ResourcesEnum.Quarry.ToString(), this, castle.townHall);
+        if (timePropertiesBuilding.timeToUpgrade != timePropertiesBuilding.startTimeToUpgrade * level)
+            isBuild = true;
     }
 
     private void Update()

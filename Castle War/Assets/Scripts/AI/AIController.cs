@@ -64,23 +64,21 @@ public class AIController : GameModule
 
     private void Update()
     {
-
         if (!Global.PAUSE)
         {
             var pointsCount = 0;
             foreach (var point in playerCastles)
             {
                 int.TryParse(point.GetComponent<Castle>().points.text,out int points);
-                pointsCount = points;
+                pointsCount += points;
             }
             points.text = "Player points : " + pointsCount;
 
             var pointsEnemyCount = 0;
             foreach (var point in aiCastles)
             {
-
                 int.TryParse(point.GetComponent<Castle>().points.text,out int enemyPoints);
-                pointsEnemyCount = enemyPoints;
+                pointsEnemyCount += enemyPoints;
             }
             enemyPoints.text = "Enemy points : " + pointsEnemyCount;
 

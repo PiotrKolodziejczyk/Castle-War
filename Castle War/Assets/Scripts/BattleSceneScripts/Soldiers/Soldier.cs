@@ -7,5 +7,6 @@ public abstract class Soldier : GameModule
     public float speed;
     public TextInputQuantity textInputQuantity;
     public ResourcesToUpgradeLvl resources;
+    public TimeProperties timeProperties;
     public Castle castle;
 }
